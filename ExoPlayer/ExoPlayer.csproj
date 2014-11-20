@@ -52,6 +52,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Xamarin.Android.Bindings.targets" />
   <ItemGroup>
-    <EmbeddedJar Include="Jars\exoplayer.jar" />
+    <EmbeddedJar Include="Jars\exoplayer-1.0.13.jar" />
   </ItemGroup>
 </Project>
