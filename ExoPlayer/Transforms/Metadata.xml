@@ -1,9 +1,21 @@
 ﻿<metadata>
-	<!--
-  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
-  
-  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.parser.webm']/class[@name='DefaultWebmExtractor.InnerEbmlEventHandler']" />
+  <attr path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlSubtitle']/constructor[@name='TtmlSubtitle' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer.text.ttml.TtmlNode'] and parameter[2][@type='long']]" name="visibility">protected</attr>
+
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='Format.DecreasingBandwidthComparator']" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.upstream.cache']/class[@name='CacheSpan']" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.dash.mpd']/class[@name='MediaPresentationDescriptionFetcher']" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestFetcher']" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.ProtectionElementParser']/method[@name='build' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.SmoothStreamMediaParser']/method[@name='build' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.StreamElementParser']/method[@name='build' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.TrackElementParser']/method[@name='build' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.ProtectionElementParser']" />
+
+  <!--
+  <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.ProtectionElementParser']" name="propertyName"></attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.ProtectionElementParser']/method[@name='handleChildInline' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="managedType">Java.Lang.Object</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.SmoothStreamMediaParser']/method[@name='addChild' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]" name="managedType">Java.Lang.Object</attr>
   -->
-</metadata>
+  </metadata>
