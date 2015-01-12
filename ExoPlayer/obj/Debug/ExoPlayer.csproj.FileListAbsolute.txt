@@ -1,0 +1,4 @@
+C:\Users\nbarger\Documents\Xamarin Projects\BibleListenerAndroid\ExoPlayer\bin\Debug\ExoPlayer.dll
+C:\Users\nbarger\Documents\Xamarin Projects\BibleListenerAndroid\ExoPlayer\bin\Debug\ExoPlayer.pdb
+C:\Users\nbarger\Documents\Xamarin Projects\BibleListenerAndroid\ExoPlayer\obj\Debug\ExoPlayer.dll
+C:\Users\nbarger\Documents\Xamarin Projects\BibleListenerAndroid\ExoPlayer\obj\Debug\ExoPlayer.pdb
