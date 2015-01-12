@@ -1,9 +1,11 @@
 ExoPlayer Plugin for Xamarin
 ================
 
-Xamarin bindings library for the Google ExoPlayer [library][ExoPlayer]
+Xamarin bindings library for the Google ExoPlayer [library][ExoPlayer].
 
-Plugin is available on [Nuget][Nuget]
+For more information on ExoPlayer see the Android [Developer documentation][Developer].
+
+Plugin is available on [Nuget][Nuget].
 
 Documentation
 =============
@@ -24,3 +26,4 @@ License
 [NathanBarger]: http://forums.xamarin.com/profile/NathanBarger
 [ExoPlayer]: https://github.com/google/ExoPlayer
 [Nuget]: https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/
+[Developer]: http://developer.android.com/guide/topics/media/exoplayer.html
