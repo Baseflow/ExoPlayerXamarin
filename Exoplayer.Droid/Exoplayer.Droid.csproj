@@ -14,7 +14,7 @@
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <AssemblyName>Exoplayer.Droid</AssemblyName>
-    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,7 +43,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="ExoPlayer">
-      <HintPath>..\packages\Xam.Plugins.Android.ExoPlayer.0.0.0.1\lib\MonoAndroid\ExoPlayer.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.Android.ExoPlayer.0.0.0.2\lib\MonoAndroid\ExoPlayer.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

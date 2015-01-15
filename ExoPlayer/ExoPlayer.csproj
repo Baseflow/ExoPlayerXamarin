@@ -7,7 +7,7 @@
     <ProjectGuid>{0B871C50-6D5D-45D0-B32D-84E25ADB869A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>ExoPlayer</RootNamespace>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AssemblyName>ExoPlayer</AssemblyName>
