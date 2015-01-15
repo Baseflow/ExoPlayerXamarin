@@ -1,6 +1,12 @@
-﻿<Properties StartupItem="ExoPlayer\ExoPlayer.csproj">
+﻿<Properties StartupItem="Exoplayer.Droid\Exoplayer.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ExoPlayer\Transforms\Metadata.xml">
+    <Files>
+      <File FileName="Exoplayer.Droid\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="ExoPlayer\Transforms\Metadata.xml" Line="3" Column="3" />
+      <File FileName="Exoplayer.Droid\obj\Debug\android\src\mono\com\google\android\exoplayer\MediaCodecTrackRenderer_EventListenerImplementor.java" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

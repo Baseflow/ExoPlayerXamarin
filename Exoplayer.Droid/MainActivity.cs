@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Com.Google.Android.Exoplayer;
 
+
 namespace Exoplayer.Droid
 {
 	[Activity (Label = "Exoplayer.Droid", MainLauncher = true, Icon = "@drawable/icon")]

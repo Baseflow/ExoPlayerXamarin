@@ -55,6 +55,6 @@
     <Folder Include="Jars\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedJar Include="Jars\library.jar" />
+    <EmbeddedJar Include="Jars\library-1.1.0.jar" />
   </ItemGroup>
 </Project>
