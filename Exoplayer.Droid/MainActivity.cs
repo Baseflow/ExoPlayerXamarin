@@ -31,7 +31,6 @@ namespace Exoplayer.Droid
 				if (mediaPlayer == null) 
 				{ 
 					mediaPlayer = Com.Google.Android.Exoplayer.ExoPlayerFactory.NewInstance(1);
-					//mediaPlayer.AddListener(this); 
 				} 
 				Android.Net.Uri soundString = Android.Net.Uri.Parse("http://www.montemagno.com/sample.mp3");
 
@@ -39,14 +38,6 @@ namespace Exoplayer.Droid
 				TrackRenderer aRenderer = new MediaCodecAudioTrackRenderer(sampleSource, null, true); 
 				mediaPlayer.Prepare(aRenderer);
 				mediaPlayer.PlayWhenReady = true;
-
-
-				//ExoPlayerFactory exo = ExoPlayerFactory.NewInstance(1);
-
-				// Construct the URL for the query
-				string BASE_URL = "http://www.montemagno.com/sample.mp3";
-
-				Android.Net.Uri builtUri = Android.Net.Uri.Parse(BASE_URL);
 
 				button.Text = string.Format ("Status: {0}", mediaPlayer.PlaybackState);
 			};
