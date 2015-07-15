@@ -1,6 +1,7 @@
 ﻿<metadata>
   <!--<attr path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='WebvttParser']/method[@name='parse']" name="managedReturn">Com.Google.Android.Exoplayer.Text.ISubtitle</attr>
   -->
+
     <!-- Missing internal class required to make ExoPlayer work -->
   <attr path="/api/package[@name='com.google.android.exoplayer']/class[@name='ExoPlayerImpl']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer']/class[@name='ExoPlayerImplInternal']" name="visibility">internal</attr>
@@ -37,5 +38,17 @@
   <!-- Original code was substituting a derived class which the binder does not like for matching the base interface to reset to match -->
   <attr path="/api/package[@name='com.google.android.exoplayer.upstream.cache']/class[@name='CacheSpan']/method[@name='compareTo']/parameter[@name='p0']" name="type">java.lang.Object</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
+
+  <!--  -->
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor.webm']/interface[@name='EbmlReaderOutput']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor.mp4']/class[@name='TrackSampleTable']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor.ts']/class[@name='ElementaryStreamReader']" name="visibility">public</attr>
+
+  <attr path="/api/package[@name='com.google.android.exoplayer.hls']/class[@name='HlsMediaPlaylist.Segment']/method[@name='compareTo']/parameter[@name='p0']" name="type">java.lang.Object</attr>
+
+  <attr path="/api/package[@name='com.google.android.exoplayer.drm']/class[@name='DrmInitData']" name="visibility">public</attr>
+
+  <!--<attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='ContainerMediaChunk']/method[@name='drmInitData' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="propertyName"></attr>-->
+  <!--<attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='ContainerMediaChunk']/method[@name='getDrmInitData' and count(parameter)=0]" name="propertyName"></attr>-->
 
   </metadata>

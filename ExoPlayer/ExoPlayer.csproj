@@ -55,6 +55,6 @@
     <Folder Include="Jars\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedJar Include="Jars\library-1.1.0.jar" />
+    <LibraryProjectZip Include="Jars\exoplayer-r1.3.3.aar" />
   </ItemGroup>
 </Project>
