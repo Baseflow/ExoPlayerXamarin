@@ -34,7 +34,7 @@ namespace Exoplayer.Droid
 				} 
 				Android.Net.Uri soundString = Android.Net.Uri.Parse("http://www.montemagno.com/sample.mp3");
 
-				FrameworkSampleSource sampleSource = new FrameworkSampleSource(this, soundString, null, 1); 
+				FrameworkSampleSource sampleSource = new FrameworkSampleSource(this, soundString, null); 
 				TrackRenderer aRenderer = new MediaCodecAudioTrackRenderer(sampleSource, null, true); 
 				mediaPlayer.Prepare(aRenderer);
 				mediaPlayer.PlayWhenReady = true;
