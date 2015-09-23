@@ -10,6 +10,20 @@ Plugin is available on [Nuget][Nuget].
 Documentation
 =============
 
+    protected Com.Google.Android.Exoplayer.IExoPlayer mediaPlayer;
+    if (mediaPlayer == null) 
+    { 
+    	mediaPlayer = Com.Google.Android.Exoplayer.ExoPlayerFactory.NewInstance(1);
+    } 
+    Android.Net.Uri soundString = Android.Net.Uri.Parse("http://www.montemagno.com/sample.mp3");
+    
+    FrameworkSampleSource sampleSource = new FrameworkSampleSource(this, soundString, null); 
+    TrackRenderer aRenderer = new MediaCodecAudioTrackRenderer(sampleSource, null, true); 
+    
+    mediaPlayer.Prepare(aRenderer);
+    mediaPlayer.PlayWhenReady = true;
+
+
 See the Exoplayer.Droid sample app.
 
 Thanks to
