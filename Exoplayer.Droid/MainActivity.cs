@@ -16,6 +16,9 @@ namespace Exoplayer.Droid
 	{
 		protected Com.Google.Android.Exoplayer.IExoPlayer mediaPlayer; 
 
+        const int BUFFER_SEGMENT_SIZE = 64 * 1024;
+        const int BUFFER_SEGMENT_COUNT = 256;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -34,8 +37,17 @@ namespace Exoplayer.Droid
 				} 
 				Android.Net.Uri soundString = Android.Net.Uri.Parse("http://www.montemagno.com/sample.mp3");
 
-				FrameworkSampleSource sampleSource = new FrameworkSampleSource(this, soundString, null); 
-				TrackRenderer aRenderer = new MediaCodecAudioTrackRenderer(sampleSource, null, true); 
+//				FrameworkSampleSource sampleSource = new FrameworkSampleSource(this, soundString, null); 
+//				TrackRenderer aRenderer = new MediaCodecAudioTrackRenderer(sampleSource, null, true); 
+
+                String userAgent = Com.Google.Android.Exoplayer.Util.Util.GetUserAgent(this, "ExoPlayerDemo");
+                var allocator = new Com.Google.Android.Exoplayer.Upstream.DefaultAllocator(BUFFER_SEGMENT_SIZE);
+                var dataSource = new Com.Google.Android.Exoplayer.Upstream.DefaultUriDataSource(this, userAgent);
+                Com.Google.Android.Exoplayer.Extractor.ExtractorSampleSource sampleSource = 
+                    new Com.Google.Android.Exoplayer.Extractor.ExtractorSampleSource(soundString, dataSource, allocator,
+                    BUFFER_SEGMENT_COUNT * BUFFER_SEGMENT_SIZE);
+                MediaCodecAudioTrackRenderer aRenderer = new MediaCodecAudioTrackRenderer(sampleSource);
+
 				mediaPlayer.Prepare(aRenderer);
 				mediaPlayer.PlayWhenReady = true;
 
