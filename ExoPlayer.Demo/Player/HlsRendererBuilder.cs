@@ -1,7 +1,22 @@
+/*
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 using System.Linq;
 using Android.Content;
 using Android.Media;
-using Android.OS;
 using Android.Runtime;
 using Com.Google.Android.Exoplayer.Audio;
 using Com.Google.Android.Exoplayer.Chunk;
@@ -14,141 +29,137 @@ using Java.Lang;
 
 namespace Com.Google.Android.Exoplayer.Demo.Player
 {
-	/**
- * A {@link RendererBuilder} for HLS.
- */
-
-	public class HlsRendererBuilder : DemoPlayer.RendererBuilder
+	/// <summary>
+	/// A <see cref="VideoPlayer.IRendererBuilder"/> for HLS.
+	/// </summary>
+	public class HlsRendererBuilder : VideoPlayer.IRendererBuilder
 	{
+		private const int BufferSegmentSize = 64*1024;
+		private const int BufferSegments = 256;
 
-		private const int BUFFER_SEGMENT_SIZE = 64*1024;
-		private const int BUFFER_SEGMENTS = 256;
+		private readonly Context _context;
+		private readonly string _userAgent;
+		private readonly string _url;
 
-		private readonly Context context;
-		private readonly string userAgent;
-		private readonly string url;
-
-		private AsyncRendererBuilder currentAsyncBuilder;
+		private AsyncRendererBuilder _currentAsyncBuilder;
 
 		public HlsRendererBuilder(Context context, string userAgent, string url)
 		{
-			this.context = context;
-			this.userAgent = userAgent;
-			this.url = url;
+			_context = context;
+			_userAgent = userAgent;
+			_url = url;
 		}
 
-		public void buildRenderers(DemoPlayer player)
+		public void BuildRenderers(VideoPlayer player)
 		{
-			currentAsyncBuilder = new AsyncRendererBuilder(context, userAgent, url, player);
-			currentAsyncBuilder.init();
+			_currentAsyncBuilder = new AsyncRendererBuilder(_context, _userAgent, _url, player);
+			_currentAsyncBuilder.Init();
 		}
 
-		public void cancel()
+		public void Cancel()
 		{
-			if (currentAsyncBuilder != null)
+			if (_currentAsyncBuilder != null)
 			{
-				currentAsyncBuilder.cancel();
-				currentAsyncBuilder = null;
+				_currentAsyncBuilder.cancel();
+				_currentAsyncBuilder = null;
 			}
 		}
 
 		private class AsyncRendererBuilder : Object, ManifestFetcher.IManifestCallback
 		{
+			private readonly Context _context;
+			private readonly string _userAgent;
+			private readonly string _url;
+			private readonly VideoPlayer _player;
+			private readonly ManifestFetcher _playlistFetcher;
 
-			private readonly Context context;
-			private readonly string userAgent;
-			private readonly string url;
-			private readonly DemoPlayer player;
-			private readonly ManifestFetcher playlistFetcher;
+			private bool _canceled;
 
-			private bool canceled;
-
-			public AsyncRendererBuilder(Context context, string userAgent, string url, DemoPlayer player)
+			public AsyncRendererBuilder(Context context, string userAgent, string url, VideoPlayer player)
 			{
-				this.context = context;
-				this.userAgent = userAgent;
-				this.url = url;
-				this.player = player;
-				HlsPlaylistParser parser = new HlsPlaylistParser();
-				playlistFetcher = new ManifestFetcher(url, new DefaultUriDataSource(context, userAgent),
+				_context = context;
+				_userAgent = userAgent;
+				_url = url;
+				_player = player;
+				var parser = new HlsPlaylistParser();
+				_playlistFetcher = new ManifestFetcher(url, new DefaultUriDataSource(context, userAgent),
 					parser);
 			}
 
-			public void init()
+			public void Init()
 			{
-				playlistFetcher.SingleLoad(player.GetMainHandler().Looper, this);
+				_playlistFetcher.SingleLoad(_player.MainHandler.Looper, this);
 			}
 
 			public void cancel()
 			{
-				canceled = true;
+				_canceled = true;
 			}
 
 			public void OnSingleManifestError(IOException e)
 			{
-				if (canceled)
+				if (_canceled)
 				{
 					return;
 				}
 
-				player.OnRenderersError(e);
+				_player.OnRenderersError(e);
 			}
 
 			public void OnSingleManifest(Object obj)
 			{
 				var manifest = obj.JavaCast<HlsPlaylist>();
-				if (canceled)
+				if (_canceled)
 				{
 					return;
 				}
 
-				Handler mainHandler = player.GetMainHandler();
-				ILoadControl loadControl = new DefaultLoadControl(new DefaultAllocator(BUFFER_SEGMENT_SIZE));
-				DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+				var mainHandler = _player.MainHandler;
+				var loadControl = new DefaultLoadControl(new DefaultAllocator(BufferSegmentSize));
+				var bandwidthMeter = new DefaultBandwidthMeter();
 
 				int[] variantIndices = null;
 				if (manifest is HlsMasterPlaylist)
 				{
-					HlsMasterPlaylist masterPlaylist = (HlsMasterPlaylist) manifest;
+					var masterPlaylist = (HlsMasterPlaylist) manifest;
 					try
 					{
 						variantIndices = VideoFormatSelectorUtil.SelectVideoFormatsForDefaultDisplay(
-							context, masterPlaylist.Variants.Cast<IFormatWrapper>().ToList(), null, false);
+							_context, masterPlaylist.Variants.Cast<IFormatWrapper>().ToList(), null, false);
 					}
 					catch (MediaCodecUtil.DecoderQueryException e)
 					{
-						player.OnRenderersError(e);
+						_player.OnRenderersError(e);
 						return;
 					}
 					if (variantIndices.Length == 0)
 					{
-						player.OnRenderersError(new IllegalStateException("No variants selected."));
+						_player.OnRenderersError(new IllegalStateException("No variants selected."));
 						return;
 					}
 				}
 
-				IDataSource dataSource = new DefaultUriDataSource(context, bandwidthMeter, userAgent);
-				HlsChunkSource chunkSource = new HlsChunkSource(dataSource, url, manifest, bandwidthMeter,
+				var dataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
+				var chunkSource = new HlsChunkSource(dataSource, _url, manifest, bandwidthMeter,
 					variantIndices, HlsChunkSource.AdaptiveModeSplice);
-				HlsSampleSource sampleSource = new HlsSampleSource(chunkSource, loadControl,
-					BUFFER_SEGMENTS*BUFFER_SEGMENT_SIZE, mainHandler, player, DemoPlayer.TYPE_VIDEO);
-				MediaCodecVideoTrackRenderer videoRenderer = new MediaCodecVideoTrackRenderer(context,
-					sampleSource, (int) MediaCodec.VideoScalingModeScaleToFit, 5000, mainHandler, player, 50);
-				MediaCodecAudioTrackRenderer audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
-					null, true, player.GetMainHandler(), player, AudioCapabilities.GetCapabilities(context));
+				var sampleSource = new HlsSampleSource(chunkSource, loadControl,
+					BufferSegments*BufferSegmentSize, mainHandler, _player, VideoPlayer.TypeVideo);
+				var videoRenderer = new MediaCodecVideoTrackRenderer(_context,
+					sampleSource, (int) VideoScalingMode.ScaleToFit, 5000, mainHandler, _player, 50);
+				var audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
+					null, true, _player.MainHandler, _player, AudioCapabilities.GetCapabilities(_context));
+				// TODO: The Id3Parser is currently not part of the binding
 				//MetadataTrackRenderer id3Renderer = new MetadataTrackRenderer(sampleSource, new Id3Parser(), player, mainHandler.getLooper());
-				Eia608TrackRenderer closedCaptionRenderer = new Eia608TrackRenderer(sampleSource, player,
+				var closedCaptionRenderer = new Eia608TrackRenderer(sampleSource, _player,
 					mainHandler.Looper);
 
-				TrackRenderer[] renderers = new TrackRenderer[DemoPlayer.RENDERER_COUNT];
-				renderers[DemoPlayer.TYPE_VIDEO] = videoRenderer;
-				renderers[DemoPlayer.TYPE_AUDIO] = audioRenderer;
+				var renderers = new TrackRenderer[VideoPlayer.RendererCount];
+				renderers[VideoPlayer.TypeVideo] = videoRenderer;
+				renderers[VideoPlayer.TypeAudio] = audioRenderer;
 				//renderers[DemoPlayer.TYPE_METADATA] = id3Renderer;
-				renderers[DemoPlayer.TYPE_TEXT] = closedCaptionRenderer;
-				player.OnRenderers(renderers, bandwidthMeter);
+				renderers[VideoPlayer.TypeText] = closedCaptionRenderer;
+				_player.OnRenderers(renderers, bandwidthMeter);
 			}
-
 		}
-
 	}
 }

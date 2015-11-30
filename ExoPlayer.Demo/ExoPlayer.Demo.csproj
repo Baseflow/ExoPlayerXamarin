@@ -75,12 +75,10 @@
       <Name>ExoPlayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="EventLogger.cs" />
-    <Compile Include="Player\DemoPlayer.cs" />
+    <Compile Include="Player\VideoPlayer.cs" />
     <Compile Include="Player\DashRendererBuilder.cs" />
     <Compile Include="Player\ExtractorRendererBuilder.cs" />
     <Compile Include="Player\HlsRendererBuilder.cs" />

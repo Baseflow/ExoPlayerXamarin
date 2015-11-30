@@ -1,6 +1,21 @@
+/*
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 using Android.Content;
 using Android.Media;
-using Android.OS;
 using Android.Runtime;
 using Com.Google.Android.Exoplayer.Audio;
 using Com.Google.Android.Exoplayer.Chunk;
@@ -14,101 +29,99 @@ using Java.Lang;
 
 namespace Com.Google.Android.Exoplayer.Demo.Player
 {
-/**
- * A {@link RendererBuilder} for SmoothStreaming.
- */
-
-	public class SmoothStreamingRendererBuilder : DemoPlayer.RendererBuilder
+	/// <summary>
+	/// A <see cref="VideoPlayer.IRendererBuilder"/> for SmoothStreaming.
+	/// </summary>
+	public class SmoothStreamingRendererBuilder : VideoPlayer.IRendererBuilder
 	{
+		private const int BufferSegmentSize = 64*1024;
+		private const int VideoBufferSegments = 200;
+		private const int AudioBufferSegments = 54;
+		private const int TextBufferSegments = 2;
+		private const int LiveEdgeLatencyMs = 30000;
 
-		private const int BUFFER_SEGMENT_SIZE = 64*1024;
-		private const int VIDEO_BUFFER_SEGMENTS = 200;
-		private const int AUDIO_BUFFER_SEGMENTS = 54;
-		private const int TEXT_BUFFER_SEGMENTS = 2;
-		private const int LIVE_EDGE_LATENCY_MS = 30000;
+		private readonly Context _context;
+		private readonly string _userAgent;
+		private readonly string _url;
+		private readonly IMediaDrmCallback _drmCallback;
 
-		private readonly Context context;
-		private readonly string userAgent;
-		private readonly string url;
-		private readonly IMediaDrmCallback drmCallback;
-
-		private AsyncRendererBuilder currentAsyncBuilder;
+		private AsyncRendererBuilder _currentAsyncBuilder;
 
 		public SmoothStreamingRendererBuilder(Context context, string userAgent, string url, IMediaDrmCallback drmCallback)
 		{
-			this.context = context;
-			this.userAgent = userAgent;
-			this.url = Util.Util.ToLowerInvariant(url).EndsWith("/manifest") ? url : url + "/Manifest";
-			this.drmCallback = drmCallback;
+			_context = context;
+			_userAgent = userAgent;
+			_url = Util.Util.ToLowerInvariant(url).EndsWith("/manifest") ? url : url + "/Manifest";
+			_drmCallback = drmCallback;
 		}
 
-		public void buildRenderers(DemoPlayer player)
+		public void BuildRenderers(VideoPlayer player)
 		{
-			currentAsyncBuilder = new AsyncRendererBuilder(context, userAgent, url, drmCallback, player);
-			currentAsyncBuilder.init();
+			_currentAsyncBuilder = new AsyncRendererBuilder(_context, _userAgent, _url, _drmCallback, player);
+			_currentAsyncBuilder.Init();
 		}
 
-		public void cancel()
+		public void Cancel()
 		{
-			if (currentAsyncBuilder != null)
+			if (_currentAsyncBuilder != null)
 			{
-				currentAsyncBuilder.cancel();
-				currentAsyncBuilder = null;
+				_currentAsyncBuilder.Cancel();
+				_currentAsyncBuilder = null;
 			}
 		}
 
 		private class AsyncRendererBuilder : Object, ManifestFetcher.IManifestCallback
 		{
 
-			private readonly Context context;
-			private readonly string userAgent;
-			private readonly IMediaDrmCallback drmCallback;
-			private readonly DemoPlayer player;
-			private readonly ManifestFetcher manifestFetcher;
+			private readonly Context _context;
+			private readonly string _userAgent;
+			private readonly IMediaDrmCallback _drmCallback;
+			private readonly VideoPlayer _player;
+			private readonly ManifestFetcher _manifestFetcher;
 
-			private bool canceled;
+			private bool _canceled;
 
-			public AsyncRendererBuilder(Context context, string userAgent, string url, IMediaDrmCallback drmCallback, DemoPlayer player)
+			public AsyncRendererBuilder(Context context, string userAgent, string url, IMediaDrmCallback drmCallback, VideoPlayer player)
 			{
-				this.context = context;
-				this.userAgent = userAgent;
-				this.drmCallback = drmCallback;
-				this.player = player;
-				SmoothStreamingManifestParser parser = new SmoothStreamingManifestParser();
-				manifestFetcher = new ManifestFetcher(url, new DefaultHttpDataSource(userAgent, null), parser);
+				_context = context;
+				_userAgent = userAgent;
+				_drmCallback = drmCallback;
+				_player = player;
+				var parser = new SmoothStreamingManifestParser();
+				_manifestFetcher = new ManifestFetcher(url, new DefaultHttpDataSource(userAgent, null), parser);
 			}
 
-			public void init()
+			public void Init()
 			{
-				manifestFetcher.SingleLoad(player.GetMainHandler().Looper, this);
+				_manifestFetcher.SingleLoad(_player.MainHandler.Looper, this);
 			}
 
-			public void cancel()
+			public void Cancel()
 			{
-				canceled = true;
+				_canceled = true;
 			}
 
 			public void OnSingleManifestError(IOException exception)
 			{
-				if (canceled)
+				if (_canceled)
 				{
 					return;
 				}
 
-				player.OnRenderersError(exception);
+				_player.OnRenderersError(exception);
 			}
 
 			public void OnSingleManifest(Object obj)
 			{
 				var manifest = obj.JavaCast<SmoothStreamingManifest>();
-				if (canceled)
+				if (_canceled)
 				{
 					return;
 				}
 
-				Handler mainHandler = player.GetMainHandler();
-				ILoadControl loadControl = new DefaultLoadControl(new DefaultAllocator(BUFFER_SEGMENT_SIZE));
-				DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter(mainHandler, player);
+				var mainHandler = _player.MainHandler;
+				var loadControl = new DefaultLoadControl(new DefaultAllocator(BufferSegmentSize));
+				var bandwidthMeter = new DefaultBandwidthMeter(mainHandler, _player);
 
 				// Check drm support if necessary.
 				IDrmSessionManager drmSessionManager = null;
@@ -116,62 +129,62 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 				{
 					if (Util.Util.SdkInt < 18)
 					{
-						player.OnRenderersError(
+						_player.OnRenderersError(
 							new UnsupportedDrmException(UnsupportedDrmException.ReasonUnsupportedScheme));
 						return;
 					}
 					try
 					{
 						drmSessionManager = new StreamingDrmSessionManager(manifest.ProtectionElement.Uuid,
-							player.GetPlaybackLooper(), drmCallback, null, player.GetMainHandler(), player);
+							_player.PlaybackLooper, _drmCallback, null, _player.MainHandler, _player);
 					}
 					catch (Exception e)
 					{
-						player.OnRenderersError(e);
+						_player.OnRenderersError(e);
 						return;
 					}
 				}
 
 				// Build the video renderer.
-				IDataSource videoDataSource = new DefaultUriDataSource(context, bandwidthMeter, userAgent);
-				IChunkSource videoChunkSource = new SmoothStreamingChunkSource(manifestFetcher,
-					new DefaultSmoothStreamingTrackSelector(context, SmoothStreamingManifest.StreamElement.TypeVideo),
-					videoDataSource, new FormatEvaluatorAdaptiveEvaluator(bandwidthMeter), LIVE_EDGE_LATENCY_MS);
-				ChunkSampleSource videoSampleSource = new ChunkSampleSource(videoChunkSource, loadControl,
-					VIDEO_BUFFER_SEGMENTS*BUFFER_SEGMENT_SIZE, mainHandler, player,
-					DemoPlayer.TYPE_VIDEO);
-				TrackRenderer videoRenderer = new MediaCodecVideoTrackRenderer(context, videoSampleSource,
-					(int) MediaCodec.VideoScalingModeScaleToFit, 5000, drmSessionManager, true, mainHandler,
-					player, 50);
+				var videoDataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
+				var videoChunkSource = new SmoothStreamingChunkSource(_manifestFetcher,
+					new DefaultSmoothStreamingTrackSelector(_context, SmoothStreamingManifest.StreamElement.TypeVideo),
+					videoDataSource, new FormatEvaluatorAdaptiveEvaluator(bandwidthMeter), LiveEdgeLatencyMs);
+				var videoSampleSource = new ChunkSampleSource(videoChunkSource, loadControl,
+					VideoBufferSegments*BufferSegmentSize, mainHandler, _player,
+					VideoPlayer.TypeVideo);
+				var videoRenderer = new MediaCodecVideoTrackRenderer(_context, videoSampleSource,
+					(int) VideoScalingMode.ScaleToFit, 5000, drmSessionManager, true, mainHandler,
+					_player, 50);
 
 				// Build the audio renderer.
-				IDataSource audioDataSource = new DefaultUriDataSource(context, bandwidthMeter, userAgent);
-				IChunkSource audioChunkSource = new SmoothStreamingChunkSource(manifestFetcher,
-					new DefaultSmoothStreamingTrackSelector(context, SmoothStreamingManifest.StreamElement.TypeAudio),
-					audioDataSource, null, LIVE_EDGE_LATENCY_MS);
-				ChunkSampleSource audioSampleSource = new ChunkSampleSource(audioChunkSource, loadControl,
-					AUDIO_BUFFER_SEGMENTS*BUFFER_SEGMENT_SIZE, mainHandler, player,
-					DemoPlayer.TYPE_AUDIO);
-				TrackRenderer audioRenderer = new MediaCodecAudioTrackRenderer(audioSampleSource,
-					drmSessionManager, true, mainHandler, player, AudioCapabilities.GetCapabilities(context));
+				var audioDataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
+				var audioChunkSource = new SmoothStreamingChunkSource(_manifestFetcher,
+					new DefaultSmoothStreamingTrackSelector(_context, SmoothStreamingManifest.StreamElement.TypeAudio),
+					audioDataSource, null, LiveEdgeLatencyMs);
+				var audioSampleSource = new ChunkSampleSource(audioChunkSource, loadControl,
+					AudioBufferSegments*BufferSegmentSize, mainHandler, _player,
+					VideoPlayer.TypeAudio);
+				var audioRenderer = new MediaCodecAudioTrackRenderer(audioSampleSource,
+					drmSessionManager, true, mainHandler, _player, AudioCapabilities.GetCapabilities(_context));
 
 				// Build the text renderer.
-				IDataSource textDataSource = new DefaultUriDataSource(context, bandwidthMeter, userAgent);
-				IChunkSource textChunkSource = new SmoothStreamingChunkSource(manifestFetcher,
-					new DefaultSmoothStreamingTrackSelector(context, SmoothStreamingManifest.StreamElement.TypeText),
-					textDataSource, null, LIVE_EDGE_LATENCY_MS);
-				ChunkSampleSource textSampleSource = new ChunkSampleSource(textChunkSource, loadControl,
-					TEXT_BUFFER_SEGMENTS*BUFFER_SEGMENT_SIZE, mainHandler, player,
-					DemoPlayer.TYPE_TEXT);
-				TrackRenderer textRenderer = new TextTrackRenderer(textSampleSource, player,
+				var textDataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
+				var textChunkSource = new SmoothStreamingChunkSource(_manifestFetcher,
+					new DefaultSmoothStreamingTrackSelector(_context, SmoothStreamingManifest.StreamElement.TypeText),
+					textDataSource, null, LiveEdgeLatencyMs);
+				var textSampleSource = new ChunkSampleSource(textChunkSource, loadControl,
+					TextBufferSegments*BufferSegmentSize, mainHandler, _player,
+					VideoPlayer.TypeText);
+				var textRenderer = new TextTrackRenderer(textSampleSource, _player,
 					mainHandler.Looper);
 
 				// Invoke the callback.
-				TrackRenderer[] renderers = new TrackRenderer[DemoPlayer.RENDERER_COUNT];
-				renderers[DemoPlayer.TYPE_VIDEO] = videoRenderer;
-				renderers[DemoPlayer.TYPE_AUDIO] = audioRenderer;
-				renderers[DemoPlayer.TYPE_TEXT] = textRenderer;
-				player.OnRenderers(renderers, bandwidthMeter);
+				var renderers = new TrackRenderer[VideoPlayer.RendererCount];
+				renderers[VideoPlayer.TypeVideo] = videoRenderer;
+				renderers[VideoPlayer.TypeAudio] = audioRenderer;
+				renderers[VideoPlayer.TypeText] = textRenderer;
+				_player.OnRenderers(renderers, bandwidthMeter);
 			}
 		}
 	}

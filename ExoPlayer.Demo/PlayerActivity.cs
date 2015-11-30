@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 using System;
 using System.Collections.Generic;
 using Android.App;
@@ -24,10 +40,9 @@ using Uri = Android.Net.Uri;
 
 namespace Com.Google.Android.Exoplayer.Demo
 {
-	/**
- * An activity that plays media using {@link DemoPlayer}.
- */
-
+	/// <summary>
+	/// An activity that plays media using <see cref="VideoPlayer"/>.
+	/// </summary>
 	[Activity(
 		Name = "com.google.android.exoplayer.demo.PlayerActivity",
 		ConfigurationChanges = ConfigChanges.KeyboardHidden | ConfigChanges.Keyboard | ConfigChanges.Orientation | ConfigChanges.ScreenSize,
@@ -37,82 +52,81 @@ namespace Com.Google.Android.Exoplayer.Demo
 		)]
 	[IntentFilter(new[] {"com.google.android.exoplayer.demo.action.VIEW"}, Categories = new[] {"android.intent.category.DEFAULT"}, DataScheme = "http")]
 	public class PlayerActivity : Activity, ISurfaceHolderCallback, View.IOnClickListener,
-		DemoPlayer.Listener, DemoPlayer.CaptionListener, DemoPlayer.Id3MetadataListener,
+		VideoPlayer.IListener, VideoPlayer.ICaptionListener, VideoPlayer.ID3MetadataListener,
 		AudioCapabilitiesReceiver.IListener
 	{
-
 		// For use within demo app code.
-		public const string CONTENT_ID_EXTRA = "content_id";
-		public const string CONTENT_TYPE_EXTRA = "content_type";
-		public const int TYPE_DASH = 0;
-		public const int TYPE_SS = 1;
-		public const int TYPE_HLS = 2;
-		public const int TYPE_OTHER = 3;
+		public const string ContentIdExtra = "content_id";
+		public const string ContentTypeExtra = "content_type";
+		public const int TypeDash = 0;
+		public const int TypeSs = 1;
+		public const int TypeHls = 2;
+		public const int TypeOther = 3;
 
 		// For use when launching the demo app using adb.
-		private const string CONTENT_EXT_EXTRA = "type";
-		private const string EXT_DASH = ".mpd";
-		private const string EXT_SS = ".ism";
-		private const string EXT_HLS = ".m3u8";
+		private const string ContentExtExtra = "type";
+		private const string ExtDash = ".mpd";
+		private const string ExtSs = ".ism";
+		private const string ExtHls = ".m3u8";
 
-		private const string TAG = "PlayerActivity";
-		private const int MENU_GROUP_TRACKS = 1;
-		private const int ID_OFFSET = 2;
+		private const int MenuGroupTracks = 1;
+		private const int IdOffset = 2;
 
-		private static readonly CookieManager defaultCookieManager;
+		private static readonly CookieManager DefaultCookieManager;
 
 		static PlayerActivity()
 		{
-			defaultCookieManager = new CookieManager();
-			defaultCookieManager.SetCookiePolicy(CookiePolicy.AcceptOriginalServer);
+			DefaultCookieManager = new CookieManager();
+			DefaultCookieManager.SetCookiePolicy(CookiePolicy.AcceptOriginalServer);
 		}
 
-		private EventLogger eventLogger;
-		private MediaController mediaController;
-		private View debugRootView;
-		private View shutterView;
-		private AspectRatioFrameLayout videoFrame;
-		private SurfaceView surfaceView;
-		private TextView debugTextView;
-		private TextView playerStateTextView;
-		private SubtitleLayout subtitleLayout;
-		private Button videoButton;
-		private Button audioButton;
-		private Button textButton;
-		private Button retryButton;
+		private EventLogger _eventLogger;
+		private MediaController _mediaController;
+		private View _debugRootView;
+		private View _shutterView;
+		private AspectRatioFrameLayout _videoFrame;
+		private SurfaceView _surfaceView;
+		private TextView _debugTextView;
+		private TextView _playerStateTextView;
+		private SubtitleLayout _subtitleLayout;
+		private Button _videoButton;
+		private Button _audioButton;
+		private Button _textButton;
+		private Button _retryButton;
 
-		private DemoPlayer player;
-		private DebugTextViewHelper debugViewHelper;
-		private bool playerNeedsPrepare;
+		private VideoPlayer _player;
+		private DebugTextViewHelper _debugViewHelper;
+		private bool _playerNeedsPrepare;
 
-		private long playerPosition;
-		private bool enableBackgroundAudio;
+		private long _playerPosition;
+		private bool _enableBackgroundAudio;
 
-		private Uri contentUri;
-		private int contentType;
-		private string contentId;
+		private Uri _contentUri;
+		private int _contentType;
+		private string _contentId;
 
-		private AudioCapabilitiesReceiver audioCapabilitiesReceiver;
+		private AudioCapabilitiesReceiver _audioCapabilitiesReceiver;
 
-		// Activity lifecycle
+		#region Activity lifecycle
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			SetContentView(Resource.Layout.player_activity);
-			View root = FindViewById(Resource.Id.root);
+			var root = FindViewById(Resource.Id.root);
 
 			root.Touch += (sender, args) =>
 			{
 				var motionEvent = args.Event;
-				if (motionEvent.Action == MotionEventActions.Down)
+				switch (motionEvent.Action)
 				{
-					toggleControlsVisibility();
-				}
-				else if (motionEvent.Action == MotionEventActions.Up)
-				{
-					((View) sender).PerformClick();
+					case MotionEventActions.Down:
+						ToggleControlsVisibility();
+						break;
+					case MotionEventActions.Up:
+						((View) sender).PerformClick();
+						break;
 				}
 				args.Handled = true;
 			};
@@ -126,184 +140,192 @@ namespace Com.Google.Android.Exoplayer.Demo
 				}
 				else
 				{
-					mediaController.DispatchKeyEvent(args.Event);
+					_mediaController.DispatchKeyEvent(args.Event);
 				}
 			};
 
-			shutterView = FindViewById(Resource.Id.shutter);
-			debugRootView = FindViewById(Resource.Id.controls_root);
+			_shutterView = FindViewById(Resource.Id.shutter);
+			_debugRootView = FindViewById(Resource.Id.controls_root);
 
-			videoFrame = FindViewById<AspectRatioFrameLayout>(Resource.Id.video_frame);
-			surfaceView = FindViewById<SurfaceView>(Resource.Id.surface_view);
-			surfaceView.Holder.AddCallback(this);
-			debugTextView = FindViewById<TextView>(Resource.Id.debug_text_view);
+			_videoFrame = FindViewById<AspectRatioFrameLayout>(Resource.Id.video_frame);
+			_surfaceView = FindViewById<SurfaceView>(Resource.Id.surface_view);
+			_surfaceView.Holder.AddCallback(this);
+			_debugTextView = FindViewById<TextView>(Resource.Id.debug_text_view);
 
-			playerStateTextView = FindViewById<TextView>(Resource.Id.player_state_view);
-			subtitleLayout = FindViewById<SubtitleLayout>(Resource.Id.subtitles);
+			_playerStateTextView = FindViewById<TextView>(Resource.Id.player_state_view);
+			_subtitleLayout = FindViewById<SubtitleLayout>(Resource.Id.subtitles);
 
-			mediaController = new MediaController(this);
-			mediaController.SetAnchorView(root);
-			retryButton = (Button) FindViewById(Resource.Id.retry_button);
-			retryButton.SetOnClickListener(this);
-			videoButton = (Button) FindViewById(Resource.Id.video_controls);
-			audioButton = (Button) FindViewById(Resource.Id.audio_controls);
-			textButton = (Button) FindViewById(Resource.Id.text_controls);
+			_mediaController = new MediaController(this);
+			_mediaController.SetAnchorView(root);
+			_retryButton = FindViewById<Button>(Resource.Id.retry_button);
+			_retryButton.SetOnClickListener(this);
+			_videoButton = FindViewById<Button>(Resource.Id.video_controls);
+			_audioButton = FindViewById<Button>(Resource.Id.audio_controls);
+			_textButton = FindViewById<Button>(Resource.Id.text_controls);
 
-			CookieHandler currentHandler = CookieHandler.Default;
-			if (currentHandler != defaultCookieManager)
+			var currentHandler = CookieHandler.Default;
+			if (currentHandler != DefaultCookieManager)
 			{
-				CookieHandler.Default = defaultCookieManager;
+				CookieHandler.Default = DefaultCookieManager;
 			}
 
-			audioCapabilitiesReceiver = new AudioCapabilitiesReceiver(this, this);
-			audioCapabilitiesReceiver.Register();
+			_audioCapabilitiesReceiver = new AudioCapabilitiesReceiver(this, this);
+			_audioCapabilitiesReceiver.Register();
 		}
 
 		protected override void OnNewIntent(Intent intent)
 		{
-			releasePlayer();
-			playerPosition = 0;
+			ReleasePlayer();
+			_playerPosition = 0;
 			Intent = intent;
 		}
 
 		protected override void OnResume()
 		{
 			base.OnResume();
-			Intent intent = Intent;
-			contentUri = intent.Data;
-			contentType = intent.GetIntExtra(CONTENT_TYPE_EXTRA,
-				inferContentType(contentUri, intent.GetStringExtra(CONTENT_EXT_EXTRA)));
-			contentId = intent.GetStringExtra(CONTENT_ID_EXTRA);
-			configureSubtitleView();
-			if (player == null)
+			var intent = Intent;
+			_contentUri = intent.Data;
+			_contentType = intent.GetIntExtra(ContentTypeExtra,
+				InferContentType(_contentUri, intent.GetStringExtra(ContentExtExtra)));
+			_contentId = intent.GetStringExtra(ContentIdExtra);
+			ConfigureSubtitleView();
+			if (_player == null)
 			{
-				preparePlayer(true);
+				PreparePlayer(true);
 			}
 			else
 			{
-				player.setBackgrounded(false);
+				_player.Backgrounded = false;
 			}
 		}
 
 		protected override void OnPause()
 		{
 			base.OnPause();
-			if (!enableBackgroundAudio)
+			if (!_enableBackgroundAudio)
 			{
-				releasePlayer();
+				ReleasePlayer();
 			}
 			else
 			{
-				player.setBackgrounded(true);
+				_player.Backgrounded = true;
 			}
-			shutterView.Visibility = ViewStates.Visible;
+			_shutterView.Visibility = ViewStates.Visible;
 		}
 
 		protected override void OnDestroy()
 		{
 			base.OnDestroy();
-			audioCapabilitiesReceiver.Unregister();
-			releasePlayer();
+			_audioCapabilitiesReceiver.Unregister();
+			ReleasePlayer();
 		}
 
-		// OnClickListener methods
+		#endregion
+
+		#region OnClickListener methods
 
 		public void OnClick(View view)
 		{
-			if (view == retryButton)
+			if (view == _retryButton)
 			{
-				preparePlayer(true);
+				PreparePlayer(true);
 			}
 		}
 
-		// AudioCapabilitiesReceiver.Listener methods
+		#endregion
+
+		#region AudioCapabilitiesReceiver.Listener methods
 
 		public void OnAudioCapabilitiesChanged(AudioCapabilities audioCapabilities)
 		{
-			if (player == null)
+			if (_player == null)
 			{
 				return;
 			}
-			bool backgrounded = player.getBackgrounded();
-			bool playWhenReady = player.GetPlayWhenReady();
-			releasePlayer();
-			preparePlayer(playWhenReady);
-			player.setBackgrounded(backgrounded);
+			var backgrounded = _player.Backgrounded;
+			var playWhenReady = _player.PlayWhenReady;
+			ReleasePlayer();
+			PreparePlayer(playWhenReady);
+			_player.Backgrounded = backgrounded;
 		}
 
-		// Internal methods
+		#endregion
 
-		private DemoPlayer.RendererBuilder getRendererBuilder()
+		#region Internal methods
+
+		private VideoPlayer.IRendererBuilder GetRendererBuilder()
 		{
 			var userAgent = Util.Util.GetUserAgent(this, "ExoPlayerDemo");
-			switch (contentType)
+			switch (_contentType)
 			{
-				case TYPE_SS:
-					return new SmoothStreamingRendererBuilder(this, userAgent, contentUri.ToString(),
+				case TypeSs:
+					return new SmoothStreamingRendererBuilder(this, userAgent, _contentUri.ToString(),
 						new SmoothStreamingTestMediaDrmCallback());
-				case TYPE_DASH:
-					return new DashRendererBuilder(this, userAgent, contentUri.ToString(),
-						new WidevineTestMediaDrmCallback(contentId));
-				case TYPE_HLS:
-					return new HlsRendererBuilder(this, userAgent, contentUri.ToString());
-				case TYPE_OTHER:
-					return new ExtractorRendererBuilder(this, userAgent, contentUri);
+				case TypeDash:
+					return new DashRendererBuilder(this, userAgent, _contentUri.ToString(),
+						new WidevineTestMediaDrmCallback(_contentId));
+				case TypeHls:
+					return new HlsRendererBuilder(this, userAgent, _contentUri.ToString());
+				case TypeOther:
+					return new ExtractorRendererBuilder(this, userAgent, _contentUri);
 				default:
-					throw new IllegalStateException("Unsupported type: " + contentType);
+					throw new IllegalStateException("Unsupported type: " + _contentType);
 			}
 		}
 
-		private void preparePlayer(bool playWhenReady)
+		private void PreparePlayer(bool playWhenReady)
 		{
-			if (player == null)
+			if (_player == null)
 			{
-				player = new DemoPlayer(getRendererBuilder());
-				player.addListener(this);
-				player.setCaptionListener(this);
-				player.setMetadataListener(this);
-				player.SeekTo(playerPosition);
-				playerNeedsPrepare = true;
-				mediaController.SetMediaPlayer(player.getPlayerControl());
-				mediaController.Enabled = true;
-				eventLogger = new EventLogger();
-				eventLogger.startSession();
-				player.addListener(eventLogger);
-				player.setInfoListener(eventLogger);
-				player.setInternalErrorListener(eventLogger);
-				debugViewHelper = new DebugTextViewHelper(player, debugTextView);
-				debugViewHelper.Start();
+				_player = new VideoPlayer(GetRendererBuilder());
+				_player.AddListener(this);
+				_player.SetCaptionListener(this);
+				_player.SetMetadataListener(this);
+				_player.SeekTo(_playerPosition);
+				_playerNeedsPrepare = true;
+				_mediaController.SetMediaPlayer(_player.PlayerControl);
+				_mediaController.Enabled = true;
+				_eventLogger = new EventLogger();
+				_eventLogger.StartSession();
+				_player.AddListener(_eventLogger);
+				_player.SetInfoListener(_eventLogger);
+				_player.SetInternalErrorListener(_eventLogger);
+				_debugViewHelper = new DebugTextViewHelper(_player, _debugTextView);
+				_debugViewHelper.Start();
 			}
-			if (playerNeedsPrepare)
+			if (_playerNeedsPrepare)
 			{
-				player.prepare();
-				playerNeedsPrepare = false;
-				updateButtonVisibilities();
+				_player.Prepare();
+				_playerNeedsPrepare = false;
+				UpdateButtonVisibilities();
 			}
-			player.setSurface(surfaceView.Holder.Surface);
-			player.SetPlayWhenReady(playWhenReady);
+			_player.Surface = _surfaceView.Holder.Surface;
+			_player.PlayWhenReady = playWhenReady;
 		}
 
-		private void releasePlayer()
+		private void ReleasePlayer()
 		{
-			if (player != null)
+			if (_player != null)
 			{
-				debugViewHelper.Stop();
-				debugViewHelper = null;
-				playerPosition = player.CurrentPosition;
-				player.Release();
-				player = null;
-				eventLogger.endSession();
-				eventLogger = null;
+				_debugViewHelper.Stop();
+				_debugViewHelper = null;
+				_playerPosition = _player.CurrentPosition;
+				_player.Release();
+				_player = null;
+				_eventLogger.EndSession();
+				_eventLogger = null;
 			}
 		}
 
-		// DemoPlayer.Listener implementation
+		#endregion
 
-		public void onStateChanged(bool playWhenReady, int playbackState)
+		#region DemoPlayer.Listener implementation
+
+		public void OnStateChanged(bool playWhenReady, int playbackState)
 		{
 			if (playbackState == ExoPlayer.StateEnded)
 			{
-				showControls();
+				ShowControls();
 			}
 			var text = "playWhenReady=" + playWhenReady + ", playbackState=";
 			switch (playbackState)
@@ -327,96 +349,102 @@ namespace Com.Google.Android.Exoplayer.Demo
 					text += "unknown";
 					break;
 			}
-			playerStateTextView.Text = text;
-			updateButtonVisibilities();
+			_playerStateTextView.Text = text;
+			UpdateButtonVisibilities();
 		}
 
-		public void onError(Exception e)
+		public void OnError(Exception e)
 		{
-			if (e is UnsupportedDrmException)
+			var exception = e as UnsupportedDrmException;
+			if (exception != null)
 			{
 				// Special case DRM failures.
-				UnsupportedDrmException unsupportedDrmException = (UnsupportedDrmException) e;
-				int stringId = Util.Util.SdkInt < 18
+				var stringId = Util.Util.SdkInt < 18
 					? Resource.String.drm_error_not_supported
-					: unsupportedDrmException.Reason == UnsupportedDrmException.ReasonUnsupportedScheme
+					: exception.Reason == UnsupportedDrmException.ReasonUnsupportedScheme
 						? Resource.String.drm_error_unsupported_scheme
 						: Resource.String.drm_error_unknown;
 				Toast.MakeText(ApplicationContext, stringId, ToastLength.Long).Show();
 			}
-			playerNeedsPrepare = true;
-			updateButtonVisibilities();
-			showControls();
+			_playerNeedsPrepare = true;
+			UpdateButtonVisibilities();
+			ShowControls();
 		}
 
-		public void onVideoSizeChanged(
+		public void OnVideoSizeChanged(
 			int width,
 			int height,
 			int unappliedRotationDegrees,
 			float pixelWidthAspectRatio)
 		{
-			shutterView.Visibility = ViewStates.Gone;
-			videoFrame.SetAspectRatio(height == 0 ? 1 : (width*pixelWidthAspectRatio)/height);
+			_shutterView.Visibility = ViewStates.Gone;
+			_videoFrame.SetAspectRatio(height == 0 ? 1 : (width*pixelWidthAspectRatio)/height);
 		}
 
-		// User controls
+		#endregion
 
-		private void updateButtonVisibilities()
+		#region User controls
+
+		private void UpdateButtonVisibilities()
 		{
-			retryButton.Visibility = playerNeedsPrepare ? ViewStates.Visible : ViewStates.Gone;
-			videoButton.Visibility = haveTracks(DemoPlayer.TYPE_VIDEO) ? ViewStates.Visible : ViewStates.Gone;
-			audioButton.Visibility = haveTracks(DemoPlayer.TYPE_AUDIO) ? ViewStates.Visible : ViewStates.Gone;
-			textButton.Visibility = haveTracks(DemoPlayer.TYPE_TEXT) ? ViewStates.Visible : ViewStates.Gone;
+			_retryButton.Visibility = _playerNeedsPrepare ? ViewStates.Visible : ViewStates.Gone;
+			_videoButton.Visibility = HaveTracks(VideoPlayer.TypeVideo) ? ViewStates.Visible : ViewStates.Gone;
+			_audioButton.Visibility = HaveTracks(VideoPlayer.TypeAudio) ? ViewStates.Visible : ViewStates.Gone;
+			_textButton.Visibility = HaveTracks(VideoPlayer.TypeText) ? ViewStates.Visible : ViewStates.Gone;
 		}
 
-		private bool haveTracks(int type)
+		private bool HaveTracks(int type)
 		{
-			return player != null && player.getTrackCount(type) > 0;
+			return _player != null && _player.GetTrackCount(type) > 0;
 		}
 
 		[Export("showVideoPopup")]
-		public void showVideoPopup(View v)
+		// ReSharper disable once UnusedMember.Global
+		public void ShowVideoPopup(View v)
 		{
-			PopupMenu popup = new PopupMenu(this, v);
-			configurePopupWithTracks(popup, null, DemoPlayer.TYPE_VIDEO);
+			var popup = new PopupMenu(this, v);
+			ConfigurePopupWithTracks(popup, null, VideoPlayer.TypeVideo);
 			popup.Show();
 		}
 
 		[Export("showAudioPopup")]
-		public void showAudioPopup(View v)
+		// ReSharper disable once UnusedMember.Global
+		public void ShowAudioPopup(View v)
 		{
-			PopupMenu popup = new PopupMenu(this, v);
+			var popup = new PopupMenu(this, v);
 			var menu = popup.Menu;
 			menu.Add(Menu.None, Menu.None, Menu.None, Resource.String.enable_background_audio);
 			var backgroundAudioItem = menu.FindItem(0);
 			backgroundAudioItem.SetCheckable(true);
-			backgroundAudioItem.SetChecked(enableBackgroundAudio);
+			backgroundAudioItem.SetChecked(_enableBackgroundAudio);
 
 			Func<IMenuItem, bool> clickListener = item =>
 			{
 				if (item == backgroundAudioItem)
 				{
-					enableBackgroundAudio = !item.IsChecked;
+					_enableBackgroundAudio = !item.IsChecked;
 					return true;
 				}
 				return false;
 			};
-			configurePopupWithTracks(popup, clickListener, DemoPlayer.TYPE_AUDIO);
+			ConfigurePopupWithTracks(popup, clickListener, VideoPlayer.TypeAudio);
 			popup.Show();
 		}
 
 		[Export("showTextPopup")]
-		public void showTextPopup(View v)
+		// ReSharper disable once UnusedMember.Global
+		public void ShowTextPopup(View v)
 		{
-			PopupMenu popup = new PopupMenu(this, v);
-			configurePopupWithTracks(popup, null, DemoPlayer.TYPE_TEXT);
+			var popup = new PopupMenu(this, v);
+			ConfigurePopupWithTracks(popup, null, VideoPlayer.TypeText);
 			popup.Show();
 		}
 
 		[Export("showVerboseLogPopup")]
-		public void showVerboseLogPopup(View v)
+		// ReSharper disable once UnusedMember.Global
+		public void ShowVerboseLogPopup(View v)
 		{
-			PopupMenu popup = new PopupMenu(this, v);
+			var popup = new PopupMenu(this, v);
 			var menu = popup.Menu;
 			menu.Add(Menu.None, 0, Menu.None, Resource.String.logging_normal);
 			menu.Add(Menu.None, 1, Menu.None, Resource.String.logging_verbose);
@@ -431,13 +459,13 @@ namespace Com.Google.Android.Exoplayer.Demo
 			popup.Show();
 		}
 
-		private void configurePopupWithTracks(PopupMenu popup, Func<IMenuItem, bool> customActionClickListener, int trackType)
+		private void ConfigurePopupWithTracks(PopupMenu popup, Func<IMenuItem, bool> customActionClickListener, int trackType)
 		{
-			if (player == null)
+			if (_player == null)
 			{
 				return;
 			}
-			int trackCount = player.getTrackCount(trackType);
+			var trackCount = _player.GetTrackCount(trackType);
 			if (trackCount == 0)
 			{
 				return;
@@ -448,22 +476,22 @@ namespace Com.Google.Android.Exoplayer.Demo
 				var item = args.Item;
 				args.Handled = (customActionClickListener != null
 				                && customActionClickListener(item))
-				               || onTrackItemClick(item, trackType);
+				               || OnTrackItemClick(item, trackType);
 			};
 
 			var menu = popup.Menu;
 			// ID_OFFSET ensures we avoid clashing with Menu.NONE (which equals 0)
-			menu.Add(MENU_GROUP_TRACKS, DemoPlayer.TRACK_DISABLED + ID_OFFSET, Menu.None, Resource.String.off);
-			for (int i = 0; i < trackCount; i++)
+			menu.Add(MenuGroupTracks, VideoPlayer.TrackDisabled + IdOffset, Menu.None, Resource.String.off);
+			for (var i = 0; i < trackCount; i++)
 			{
-				menu.Add(MENU_GROUP_TRACKS, i + ID_OFFSET, Menu.None,
-					buildTrackName(player.getTrackFormat(trackType, i)));
+				menu.Add(MenuGroupTracks, i + IdOffset, Menu.None,
+					BuildTrackName(_player.GetTrackFormat(trackType, i)));
 			}
-			menu.SetGroupCheckable(MENU_GROUP_TRACKS, true, true);
-			menu.FindItem(player.getSelectedTrack(trackType) + ID_OFFSET).SetChecked(true);
+			menu.SetGroupCheckable(MenuGroupTracks, true, true);
+			menu.FindItem(_player.GetSelectedTrack(trackType) + IdOffset).SetChecked(true);
 		}
 
-		private static string buildTrackName(MediaFormat format)
+		private static string BuildTrackName(MediaFormat format)
 		{
 			if (format.Adaptive)
 			{
@@ -472,102 +500,106 @@ namespace Com.Google.Android.Exoplayer.Demo
 			string trackName;
 			if (MimeTypes.IsVideo(format.MimeType))
 			{
-				trackName = joinWithSeparator(joinWithSeparator(buildResolutionString(format),
-					buildBitrateString(format)), buildTrackIdString(format));
+				trackName = JoinWithSeparator(JoinWithSeparator(BuildResolutionString(format),
+					BuildBitrateString(format)), BuildTrackIdString(format));
 			}
 			else if (MimeTypes.IsAudio(format.MimeType))
 			{
-				trackName = joinWithSeparator(joinWithSeparator(joinWithSeparator(buildLanguageString(format),
-					buildAudioPropertyString(format)), buildBitrateString(format)),
-					buildTrackIdString(format));
+				trackName = JoinWithSeparator(JoinWithSeparator(JoinWithSeparator(BuildLanguageString(format),
+					BuildAudioPropertyString(format)), BuildBitrateString(format)),
+					BuildTrackIdString(format));
 			}
 			else
 			{
-				trackName = joinWithSeparator(joinWithSeparator(buildLanguageString(format),
-					buildBitrateString(format)), buildTrackIdString(format));
+				trackName = JoinWithSeparator(JoinWithSeparator(BuildLanguageString(format),
+					BuildBitrateString(format)), BuildTrackIdString(format));
 			}
 			return trackName.Length == 0 ? "unknown" : trackName;
 		}
 
-		private static string buildResolutionString(MediaFormat format)
+		private static string BuildResolutionString(MediaFormat format)
 		{
 			return format.Width == MediaFormat.NoValue || format.Height == MediaFormat.NoValue
 				? ""
 				: format.Width + "x" + format.Height;
 		}
 
-		private static string buildAudioPropertyString(MediaFormat format)
+		private static string BuildAudioPropertyString(MediaFormat format)
 		{
 			return format.ChannelCount == MediaFormat.NoValue || format.SampleRate == MediaFormat.NoValue
 				? ""
 				: format.ChannelCount + "ch, " + format.SampleRate + "Hz";
 		}
 
-		private static string buildLanguageString(MediaFormat format)
+		private static string BuildLanguageString(MediaFormat format)
 		{
 			return TextUtils.IsEmpty(format.Language) || "und".Equals(format.Language)
 				? ""
 				: format.Language;
 		}
 
-		private static string buildBitrateString(MediaFormat format)
+		private static string BuildBitrateString(MediaFormat format)
 		{
 			return format.Bitrate == MediaFormat.NoValue
 				? ""
 				: String.Format(Locale.Us, "%.2fMbit", format.Bitrate/1000000f);
 		}
 
-		private static string joinWithSeparator(string first, string second)
+		private static string JoinWithSeparator(string first, string second)
 		{
 			return first.Length == 0 ? second : (second.Length == 0 ? first : first + ", " + second);
 		}
 
-		private static string buildTrackIdString(MediaFormat format)
+		private static string BuildTrackIdString(MediaFormat format)
 		{
 			return format.TrackId == MediaFormat.NoValue
 				? ""
 				: String.Format(Locale.Us, " (%d)", format.TrackId);
 		}
 
-		private bool onTrackItemClick(IMenuItem item, int type)
+		private bool OnTrackItemClick(IMenuItem item, int type)
 		{
-			if (player == null || item.GroupId != MENU_GROUP_TRACKS)
+			if (_player == null || item.GroupId != MenuGroupTracks)
 			{
 				return false;
 			}
-			player.setSelectedTrack(type, item.ItemId - ID_OFFSET);
+			_player.SetSelectedTrack(type, item.ItemId - IdOffset);
 			return true;
 		}
 
-		private void toggleControlsVisibility()
+		private void ToggleControlsVisibility()
 		{
-			if (mediaController.IsShowing)
+			if (_mediaController.IsShowing)
 			{
-				mediaController.Hide();
-				debugRootView.Visibility = ViewStates.Gone;
+				_mediaController.Hide();
+				_debugRootView.Visibility = ViewStates.Gone;
 			}
 			else
 			{
-				showControls();
+				ShowControls();
 			}
 		}
 
-		private void showControls()
+		private void ShowControls()
 		{
-			mediaController.Show(0);
-			debugRootView.Visibility = ViewStates.Visible;
+			_mediaController.Show(0);
+			_debugRootView.Visibility = ViewStates.Visible;
 		}
 
-		// DemoPlayer.CaptionListener implementation
+		#endregion
 
-		public void onCues(IList<Cue> cues)
+		#region DemoPlayer.CaptionListener implementation
+
+		public void OnCues(IList<Cue> cues)
 		{
-			subtitleLayout.SetCues(cues);
+			_subtitleLayout.SetCues(cues);
 		}
 
-		// DemoPlayer.MetadataListener implementation
+		#endregion
 
-		public void onId3Metadata(object metadata)
+		#region DemoPlayer.MetadataListener implementation
+
+		public void OnId3Metadata(object metadata)
 		{
 			/*for (Map.Entry<String, Object> entry : metadata.entrySet()) {
       if (TxxxMetadata.TYPE.equals(entry.getKey())) {
@@ -589,13 +621,15 @@ namespace Com.Google.Android.Exoplayer.Demo
     }*/
 		}
 
-		// SurfaceHolder.Callback implementation
+		#endregion
+
+		#region SurfaceHolder.Callback implementation
 
 		public void SurfaceCreated(ISurfaceHolder holder)
 		{
-			if (player != null)
+			if (_player != null)
 			{
-				player.setSurface(holder.Surface);
+				_player.Surface = holder.Surface;
 			}
 		}
 
@@ -606,75 +640,74 @@ namespace Com.Google.Android.Exoplayer.Demo
 
 		public void SurfaceDestroyed(ISurfaceHolder holder)
 		{
-			if (player != null)
+			if (_player != null)
 			{
-				player.blockingClearSurface();
+				_player.BlockingClearSurface();
 			}
 		}
 
-		private void configureSubtitleView()
+		#endregion
+
+		private void ConfigureSubtitleView()
 		{
 			CaptionStyleCompat style;
 			float fontScale;
 			if (Util.Util.SdkInt >= 19)
 			{
-				style = getUserCaptionStyleV19();
-				fontScale = getUserCaptionFontScaleV19();
+				style = GetUserCaptionStyleV19();
+				fontScale = GetUserCaptionFontScaleV19();
 			}
 			else
 			{
 				style = CaptionStyleCompat.Default;
 				fontScale = 1.0f;
 			}
-			subtitleLayout.SetStyle(style);
-			subtitleLayout.SetFractionalTextSize(SubtitleLayout.DefaultTextSizeFraction*fontScale);
+			_subtitleLayout.SetStyle(style);
+			_subtitleLayout.SetFractionalTextSize(SubtitleLayout.DefaultTextSizeFraction*fontScale);
 		}
 
-		private float getUserCaptionFontScaleV19()
+		private float GetUserCaptionFontScaleV19()
 		{
-			CaptioningManager captioningManager =
-				(CaptioningManager) GetSystemService(Context.CaptioningService);
+			var captioningManager =
+				(CaptioningManager) GetSystemService(CaptioningService);
 			return captioningManager.FontScale;
 		}
 
-		private CaptionStyleCompat getUserCaptionStyleV19()
+		private CaptionStyleCompat GetUserCaptionStyleV19()
 		{
-			CaptioningManager captioningManager =
-				(CaptioningManager) GetSystemService(Context.CaptioningService);
+			var captioningManager =
+				(CaptioningManager) GetSystemService(CaptioningService);
 			return CaptionStyleCompat.CreateFromCaptionStyle(captioningManager.UserStyle);
 		}
 
-		/**
-   * Makes a best guess to infer the type from a media {@link Uri} and an optional overriding file
-   * extension.
-   *
-   * @param uri The {@link Uri} of the media.
-   * @param fileExtension An overriding file extension.
-   * @return The inferred type.
-   */
-
-		private static int inferContentType(Uri uri, string fileExtension)
+		/// <summary>
+		/// Makes a best guess to infer the type from a media <see cref="Uri"/> and an optional overriding file extension.
+		/// </summary>
+		/// <param name="uri">The <see cref="Uri"/> of the media.</param>
+		/// <param name="fileExtension">An overriding file extension.</param>
+		/// <returns>The inferred type.</returns>
+		private static int InferContentType(Uri uri, string fileExtension)
 		{
-			string lastPathSegment = !string.IsNullOrEmpty(fileExtension)
+			var lastPathSegment = !string.IsNullOrEmpty(fileExtension)
 				? "." + fileExtension
 				: uri.LastPathSegment;
 			if (lastPathSegment == null)
 			{
-				return TYPE_OTHER;
+				return TypeOther;
 			}
-			if (lastPathSegment.EndsWith(EXT_DASH))
+			if (lastPathSegment.EndsWith(ExtDash))
 			{
-				return TYPE_DASH;
+				return TypeDash;
 			}
-			if (lastPathSegment.EndsWith(EXT_SS))
+			if (lastPathSegment.EndsWith(ExtSs))
 			{
-				return TYPE_SS;
+				return TypeSs;
 			}
-			if (lastPathSegment.EndsWith(EXT_HLS))
+			if (lastPathSegment.EndsWith(ExtHls))
 			{
-				return TYPE_HLS;
+				return TypeHls;
 			}
-			return TYPE_OTHER;
+			return TypeOther;
 		}
 	}
 }

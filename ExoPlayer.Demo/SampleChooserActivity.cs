@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -12,39 +28,39 @@ using AndroidResource = Android.Resource;
 
 namespace Com.Google.Android.Exoplayer.Demo
 {
-/**
- * An activity for selecting from a number of samples.
- */
-
+	/// <summary>
+	/// An activity for selecting from a number of samples.
+	/// </summary>
 	[Activity(
 		Name = "com.google.android.exoplayer.demo.SampleChooserActivity",
 		ConfigurationChanges = ConfigChanges.KeyboardHidden,
 		MainLauncher = true,
 		Label = "@string/application_name"
 		)]
+	// ReSharper disable once UnusedMember.Global
 	public class SampleChooserActivity : Activity
 	{
-
-		private const string TAG = "SampleChooserActivity";
+		private const string Tag = "SampleChooserActivity";
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.sample_chooser_activity);
 
-			ListView sampleList = FindViewById<ListView>(Resource.Id.sample_list);
+			var sampleList = FindViewById<ListView>(Resource.Id.sample_list);
 			var sampleAdapter = new SampleAdapter(this);
 
 			sampleAdapter.Add(new Header("YouTube DASH"));
-			sampleAdapter.AddAll(Samples.YOUTUBE_DASH_MP4);
+			// ReSharper disable CoVariantArrayConversion
+			sampleAdapter.AddAll(Samples.YoutubeDashMp4);
 			sampleAdapter.Add(new Header("Widevine GTS DASH"));
-			sampleAdapter.AddAll(Samples.WIDEVINE_GTS);
+			sampleAdapter.AddAll(Samples.WidevineGts);
 			sampleAdapter.Add(new Header("SmoothStreaming"));
-			sampleAdapter.AddAll(Samples.SMOOTHSTREAMING);
+			sampleAdapter.AddAll(Samples.Smoothstreaming);
 			sampleAdapter.Add(new Header("HLS"));
-			sampleAdapter.AddAll(Samples.HLS);
+			sampleAdapter.AddAll(Samples.Hls);
 			sampleAdapter.Add(new Header("Misc"));
-			sampleAdapter.AddAll(Samples.MISC);
+			sampleAdapter.AddAll(Samples.Misc);
 
 			// Add WebM samples if the device has a VP9 decoder.
 			try
@@ -52,13 +68,14 @@ namespace Com.Google.Android.Exoplayer.Demo
 				if (MediaCodecUtil.GetDecoderInfo(MimeTypes.VideoVp9, false) != null)
 				{
 					sampleAdapter.Add(new Header("YouTube WebM DASH (Experimental)"));
-					sampleAdapter.AddAll(Samples.YOUTUBE_DASH_WEBM);
+					sampleAdapter.AddAll(Samples.YoutubeDashWebm);
 				}
 			}
 			catch (MediaCodecUtil.DecoderQueryException e)
 			{
-				Log.Error(TAG, "Failed to query vp9 decoder", e);
+				Log.Error(Tag, "Failed to query vp9 decoder", e);
 			}
+			// ReSharper restore CoVariantArrayConversion
 
 			sampleList.Adapter = sampleAdapter;
 			sampleList.ItemClick += (sender, args) =>
@@ -67,21 +84,21 @@ namespace Com.Google.Android.Exoplayer.Demo
 				var sample = item as Samples.Sample;
 				if (sample != null)
 				{
-					onSampleSelected(sample);
+					OnSampleSelected(sample);
 				}
 			};
 		}
 
-		private void onSampleSelected(Samples.Sample sample)
+		private void OnSampleSelected(Samples.Sample sample)
 		{
 			var mpdIntent = new Intent(this, typeof (PlayerActivity))
-				.SetData(Uri.Parse(sample.uri))
-				.PutExtra(PlayerActivity.CONTENT_ID_EXTRA, sample.contentId)
-				.PutExtra(PlayerActivity.CONTENT_TYPE_EXTRA, sample.type);
+				.SetData(Uri.Parse(sample.Uri))
+				.PutExtra(PlayerActivity.ContentIdExtra, sample.ContentId)
+				.PutExtra(PlayerActivity.ContentTypeExtra, sample.Type);
 			StartActivity(mpdIntent);
 		}
 
-		internal class SampleAdapter : ArrayAdapter<Object>
+		private class SampleAdapter : ArrayAdapter<Object>
 		{
 
 			public SampleAdapter(Context context) : base(context, 0)
@@ -94,20 +111,22 @@ namespace Com.Google.Android.Exoplayer.Demo
 				var view = convertView;
 				if (view == null)
 				{
-					int layoutId = GetItemViewType(position) == 1
+					var layoutId = GetItemViewType(position) == 1
 						? AndroidResource.Layout.SimpleListItem1
 						: Resource.Layout.sample_chooser_inline_header;
 					view = LayoutInflater.From(Context).Inflate(layoutId, null, false);
 				}
-				Object item = GetItem(position);
+				var item = GetItem(position);
 				string name = null;
-				if (item is Samples.Sample)
+				var sample = item as Samples.Sample;
+				var header = item as Header;
+				if (sample != null)
 				{
-					name = ((Samples.Sample) item).name;
+					name = sample.Name;
 				}
-				else if (item is Header)
+				else if (header != null)
 				{
-					name = ((Header) item).name;
+					name = header.Name;
 				}
 				((TextView) view).Text = name;
 				return view;
@@ -124,13 +143,13 @@ namespace Com.Google.Android.Exoplayer.Demo
 			}
 		}
 
-		internal class Header : Object
+		private class Header : Object
 		{
-			public readonly string name;
+			public readonly string Name;
 
 			public Header(string name)
 			{
-				this.name = name;
+				Name = name;
 			}
 		}
 	}

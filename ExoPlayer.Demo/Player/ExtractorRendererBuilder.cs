@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 using Android.Content;
 using Android.Media;
 using Android.Net;
@@ -8,55 +24,53 @@ using Com.Google.Android.Exoplayer.Upstream;
 
 namespace Com.Google.Android.Exoplayer.Demo.Player
 {
-/**
- * A {@link RendererBuilder} for streams that can be read using an {@link Extractor}.
- */
-    public class ExtractorRendererBuilder : DemoPlayer.RendererBuilder
-    {
+	/// <summary>
+	///  A <see cref="VideoPlayer.IRendererBuilder"/> for streams that can be read using an <see cref="Extractor"/>.
+	/// </summary>
+	public class ExtractorRendererBuilder : VideoPlayer.IRendererBuilder
+	{
+		private const int BufferSegmentSize = 64*1024;
+		private const int BufferSegmentCount = 256;
 
-        private const int BUFFER_SEGMENT_SIZE = 64*1024;
-        private const int BUFFER_SEGMENT_COUNT = 256;
+		private readonly Context _context;
+		private readonly string _userAgent;
+		private readonly Uri _uri;
 
-        private readonly Context context;
-        private readonly string userAgent;
-        private readonly Uri uri;
+		public ExtractorRendererBuilder(Context context, string userAgent, Uri uri)
+		{
+			_context = context;
+			_userAgent = userAgent;
+			_uri = uri;
+		}
 
-        public ExtractorRendererBuilder(Context context, string userAgent, Uri uri)
-        {
-            this.context = context;
-            this.userAgent = userAgent;
-            this.uri = uri;
-        }
+		public void BuildRenderers(VideoPlayer player)
+		{
+			var allocator = new DefaultAllocator(BufferSegmentSize);
 
-        public void buildRenderers(DemoPlayer player)
-        {
-            IAllocator allocator = new DefaultAllocator(BUFFER_SEGMENT_SIZE);
+			// Build the video and audio renderers.
+			var bandwidthMeter = new DefaultBandwidthMeter(player.MainHandler, null);
+			var dataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
+			var sampleSource = new ExtractorSampleSource(_uri, dataSource, allocator,
+				BufferSegmentCount*BufferSegmentSize);
+			var videoRenderer = new MediaCodecVideoTrackRenderer(_context,
+				sampleSource, (int) VideoScalingMode.ScaleToFit, 5000, player.MainHandler,
+				player, 50);
+			var audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
+				null, true, player.MainHandler, player, AudioCapabilities.GetCapabilities(_context));
+			var textRenderer = new TextTrackRenderer(sampleSource, player,
+				player.MainHandler.Looper);
 
-            // Build the video and audio renderers.
-            DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter(player.GetMainHandler(), null);
-            IDataSource dataSource = new DefaultUriDataSource(context, bandwidthMeter, userAgent);
-            ExtractorSampleSource sampleSource = new ExtractorSampleSource(uri, dataSource, allocator,
-                BUFFER_SEGMENT_COUNT*BUFFER_SEGMENT_SIZE);
-            MediaCodecVideoTrackRenderer videoRenderer = new MediaCodecVideoTrackRenderer(context,
-                sampleSource, (int) MediaCodec.VideoScalingModeScaleToFit, 5000, player.GetMainHandler(),
-                player, 50);
-            MediaCodecAudioTrackRenderer audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
-                null, true, player.GetMainHandler(), player, AudioCapabilities.GetCapabilities(context));
-            TrackRenderer textRenderer = new TextTrackRenderer(sampleSource, player,
-                player.GetMainHandler().Looper);
+			// Invoke the callback.
+			var renderers = new TrackRenderer[VideoPlayer.RendererCount];
+			renderers[VideoPlayer.TypeVideo] = videoRenderer;
+			renderers[VideoPlayer.TypeAudio] = audioRenderer;
+			renderers[VideoPlayer.TypeText] = textRenderer;
+			player.OnRenderers(renderers, bandwidthMeter);
+		}
 
-            // Invoke the callback.
-            TrackRenderer[] renderers = new TrackRenderer[DemoPlayer.RENDERER_COUNT];
-            renderers[DemoPlayer.TYPE_VIDEO] = videoRenderer;
-            renderers[DemoPlayer.TYPE_AUDIO] = audioRenderer;
-            renderers[DemoPlayer.TYPE_TEXT] = textRenderer;
-            player.OnRenderers(renderers, bandwidthMeter);
-        }
-
-        public void cancel()
-        {
-            // Do nothing.
-        }
-
-    }
+		public void Cancel()
+		{
+			// Do nothing.
+		}
+	}
 }

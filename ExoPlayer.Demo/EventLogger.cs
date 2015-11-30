@@ -28,82 +28,81 @@ using SystemClock = Android.OS.SystemClock;
 
 namespace Com.Google.Android.Exoplayer.Demo
 {
-
-/**
- * Logs player events using {@link Log}.
- */
-
-    public class EventLogger : DemoPlayer.Listener, DemoPlayer.InfoListener,
-        DemoPlayer.InternalErrorListener
+	/// <summary>
+	/// Logs player events using {@link Log}.
+	/// </summary>
+	public class EventLogger : VideoPlayer.IListener, VideoPlayer.IInfoListener,
+        VideoPlayer.IInternalErrorListener
     {
 
-        private const string TAG = "EventLogger";
-        private static NumberFormat TIME_FORMAT;
+        private const string Tag = "EventLogger";
+
+        private static readonly NumberFormat TimeFormat;
 
         static EventLogger()
         {
-            TIME_FORMAT = NumberFormat.GetInstance(Locale.Us);
-            TIME_FORMAT.MinimumFractionDigits = 2;
-            TIME_FORMAT.MaximumFractionDigits = 2;
+            TimeFormat = NumberFormat.GetInstance(Locale.Us);
+            TimeFormat.MinimumFractionDigits = 2;
+            TimeFormat.MaximumFractionDigits = 2;
         }
 
-        private long sessionStartTimeMs;
-        private long[] loadStartTimeMs;
-        private long[] availableRangeValuesUs;
+        private long _sessionStartTimeMs;
+        private readonly long[] _loadStartTimeMs;
+        private long[] _availableRangeValuesUs;
 
         public EventLogger()
         {
-            loadStartTimeMs = new long[DemoPlayer.RENDERER_COUNT];
+            _loadStartTimeMs = new long[VideoPlayer.RendererCount];
         }
 
-        public void startSession()
+        public void StartSession()
         {
-            sessionStartTimeMs = SystemClock.ElapsedRealtime();
-            Log.Debug(TAG, "start [0]");
+            _sessionStartTimeMs = SystemClock.ElapsedRealtime();
+            Log.Debug(Tag, "start [0]");
         }
 
-        public void endSession()
+        public void EndSession()
         {
-            Log.Debug(TAG, "end [" + getSessionTimeString() + "]");
+            Log.Debug(Tag, "end [" + GetSessionTimeString() + "]");
         }
 
         // DemoPlayer.Listener
 
-        public void onStateChanged(bool playWhenReady, int state)
+        public void OnStateChanged(bool playWhenReady, int state)
         {
-            Log.Debug(TAG, "state [" + getSessionTimeString() + ", " + playWhenReady + ", "
-                           + getStateString(state) + "]");
+            Log.Debug(Tag, "state [" + GetSessionTimeString() + ", " + playWhenReady + ", "
+                           + GetStateString(state) + "]");
         }
 
-        public void onError(Exception e)
+        public void OnError(Exception e)
         {
-            Log.Error(TAG, "playerFailed [" + getSessionTimeString() + "]", e);
+            Log.Error(Tag, "playerFailed [" + GetSessionTimeString() + "]", e);
         }
 
-        public void onVideoSizeChanged(
+        public void OnVideoSizeChanged(
             int width,
             int height,
             int unappliedRotationDegrees,
             float pixelWidthHeightRatio)
         {
-            Log.Debug(TAG, "videoSizeChanged [" + width + ", " + height + ", " + unappliedRotationDegrees
+            Log.Debug(Tag, "videoSizeChanged [" + width + ", " + height + ", " + unappliedRotationDegrees
                            + ", " + pixelWidthHeightRatio + "]");
         }
 
         // DemoPlayer.InfoListener
 
-        public void onBandwidthSample(int elapsedMs, long bytes, long bitrateEstimate)
+        public void OnBandwidthSample(int elapsedMs, long bytes, long bitrateEstimate)
         {
-            Log.Debug(TAG, "bandwidth [" + getSessionTimeString() + ", " + bytes + ", "
-                           + getTimeString(elapsedMs) + ", " + bitrateEstimate + "]");
+            Log.Debug(Tag, "bandwidth [" + GetSessionTimeString() + ", " + bytes + ", "
+                           + GetTimeString(elapsedMs) + ", " + bitrateEstimate + "]");
         }
 
-        public void onDroppedFrames(int count, long elapsed)
+        public void OnDroppedFrames(int count, long elapsed)
         {
-            Log.Debug(TAG, "droppedFrames [" + getSessionTimeString() + ", " + count + "]");
+            Log.Debug(Tag, "droppedFrames [" + GetSessionTimeString() + ", " + count + "]");
         }
 
-        public void onLoadStarted(
+        public void OnLoadStarted(
             int sourceId,
             long length,
             int type,
@@ -112,15 +111,15 @@ namespace Com.Google.Android.Exoplayer.Demo
             long mediaStartTimeMs,
             long mediaEndTimeMs)
         {
-            loadStartTimeMs[sourceId] = SystemClock.ElapsedRealtime();
-            if (VerboseLogUtil.IsTagEnabled(TAG))
+            _loadStartTimeMs[sourceId] = SystemClock.ElapsedRealtime();
+            if (VerboseLogUtil.IsTagEnabled(Tag))
             {
-                Log.Verbose(TAG, "loadStart [" + getSessionTimeString() + ", " + sourceId + ", " + type
+                Log.Verbose(Tag, "loadStart [" + GetSessionTimeString() + ", " + sourceId + ", " + type
                                  + ", " + mediaStartTimeMs + ", " + mediaEndTimeMs + "]");
             }
         }
 
-        public void onLoadCompleted(
+        public void OnLoadCompleted(
             int sourceId,
             long bytesLoaded,
             int type,
@@ -131,84 +130,84 @@ namespace Com.Google.Android.Exoplayer.Demo
             long elapsedRealtimeMs,
             long loadDurationMs)
         {
-            if (VerboseLogUtil.IsTagEnabled(TAG))
+            if (VerboseLogUtil.IsTagEnabled(Tag))
             {
-                long downloadTime = SystemClock.ElapsedRealtime() - loadStartTimeMs[sourceId];
-                Log.Verbose(TAG, "loadEnd [" + getSessionTimeString() + ", " + sourceId + ", " + downloadTime
+                long downloadTime = SystemClock.ElapsedRealtime() - _loadStartTimeMs[sourceId];
+                Log.Verbose(Tag, "loadEnd [" + GetSessionTimeString() + ", " + sourceId + ", " + downloadTime
                                  + "]");
             }
         }
 
-        public void onVideoFormatEnabled(Format format, int trigger, long mediaTimeMs)
+        public void OnVideoFormatEnabled(Format format, int trigger, long mediaTimeMs)
         {
-            Log.Debug(TAG, "videoFormat [" + getSessionTimeString() + ", " + format.Id + ", "
+            Log.Debug(Tag, "videoFormat [" + GetSessionTimeString() + ", " + format.Id + ", "
                            + trigger.ToString() + "]");
         }
 
-        public void onAudioFormatEnabled(Format format, int trigger, long mediaTimeMs)
+        public void OnAudioFormatEnabled(Format format, int trigger, long mediaTimeMs)
         {
-            Log.Debug(TAG, "audioFormat [" + getSessionTimeString() + ", " + format.Id + ", "
+            Log.Debug(Tag, "audioFormat [" + GetSessionTimeString() + ", " + format.Id + ", "
                            + trigger.ToString() + "]");
         }
 
         // DemoPlayer.InternalErrorListener
 
-        public void onLoadError(int sourceId, IOException e)
+        public void OnLoadError(int sourceId, IOException e)
         {
-            printInternalError("loadError", e);
+            PrintInternalError("loadError", e);
         }
 
-        public void onRendererInitializationError(Exception e)
+        public void OnRendererInitializationError(Exception e)
         {
-            printInternalError("rendererInitError", e);
+            PrintInternalError("rendererInitError", e);
         }
 
-        public void onDrmSessionManagerError(Exception e)
+        public void OnDrmSessionManagerError(Exception e)
         {
-            printInternalError("drmSessionManagerError", e);
+            PrintInternalError("drmSessionManagerError", e);
         }
 
-        public void onDecoderInitializationError(MediaCodecTrackRenderer.DecoderInitializationException e)
+        public void OnDecoderInitializationError(MediaCodecTrackRenderer.DecoderInitializationException e)
         {
-            printInternalError("decoderInitializationError", e);
+            PrintInternalError("decoderInitializationError", e);
         }
 
-        public void onAudioTrackInitializationError(AudioTrack.InitializationException e)
+        public void OnAudioTrackInitializationError(AudioTrack.InitializationException e)
         {
-            printInternalError("audioTrackInitializationError", e);
+            PrintInternalError("audioTrackInitializationError", e);
         }
 
-        public void onAudioTrackWriteError(AudioTrack.WriteException e)
+        public void OnAudioTrackWriteError(AudioTrack.WriteException e)
         {
-            printInternalError("audioTrackWriteError", e);
+            PrintInternalError("audioTrackWriteError", e);
         }
 
-        public void onCryptoError(MediaCodec.CryptoException e)
+        public void OnCryptoError(MediaCodec.CryptoException e)
         {
-            printInternalError("cryptoError", e);
+            PrintInternalError("cryptoError", e);
         }
 
-        public void onDecoderInitialized(
+        public void OnDecoderInitialized(
             string decoderName,
             long elapsedRealtimeMs,
             long initializationDurationMs)
         {
-            Log.Debug(TAG, "decoderInitialized [" + getSessionTimeString() + ", " + decoderName + "]");
+            Log.Debug(Tag, "decoderInitialized [" + GetSessionTimeString() + ", " + decoderName + "]");
         }
 
-        public void onAvailableRangeChanged(ITimeRange availableRange)
+        public void OnAvailableRangeChanged(ITimeRange availableRange)
         {
-            availableRangeValuesUs = availableRange.GetCurrentBoundsUs(availableRangeValuesUs);
-            Log.Debug(TAG, "availableRange [" + availableRange.IsStatic + ", " + availableRangeValuesUs[0]
-                           + ", " + availableRangeValuesUs[1] + "]");
+            _availableRangeValuesUs = availableRange.GetCurrentBoundsUs(_availableRangeValuesUs);
+            Log.Debug(Tag, "availableRange [" + availableRange.IsStatic + ", " + _availableRangeValuesUs[0]
+                           + ", " + _availableRangeValuesUs[1] + "]");
         }
 
-        private void printInternalError(string type, Exception e)
+        private void PrintInternalError(string type, Exception e)
         {
-            Log.Error(TAG, "internalError [" + getSessionTimeString() + ", " + type + "]", e);
+            Log.Error(Tag, "internalError [" + GetSessionTimeString() + ", " + type + "]", e);
         }
 
-        private string getStateString(int state)
+        private string GetStateString(int state)
         {
             switch (state)
             {
@@ -227,14 +226,14 @@ namespace Com.Google.Android.Exoplayer.Demo
             }
         }
 
-        private string getSessionTimeString()
+        private string GetSessionTimeString()
         {
-            return getTimeString(SystemClock.ElapsedRealtime() - sessionStartTimeMs);
+            return GetTimeString(SystemClock.ElapsedRealtime() - _sessionStartTimeMs);
         }
 
-        private string getTimeString(long timeMs)
+        private string GetTimeString(long timeMs)
         {
-            return TIME_FORMAT.Format((timeMs)/1000f);
+            return TimeFormat.Format((timeMs)/1000f);
         }
     }
 }
