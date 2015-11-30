@@ -22,6 +22,9 @@
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/class[@name='DefaultEbmlReader.MasterElement']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/interface[@name='EbmlEventHandler']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/interface[@name='EbmlReader']" name="visibility">internal</attr>-->
+ 
+  <!-- Skipping Com.Google.Android.Exoplayer.Smoothstreaming.SmoothStreamingManifest.ProtectionElement, due to a duplicate field, method or nested type name. -->
+  <attr path="api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifest.ProtectionElement']" name="managedName">SmoothStreamingManifest.SmoothStreamingProtectionElement</attr>
 
   <!-- Binder is attempting to turn some protected methods public -->
   <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.ProtectionElementParser']/method[@name='build']" name="visibility">protected</attr>
@@ -55,4 +58,4 @@
 
   <remove-node path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='WebvttSubtitle']/constructor[@name='WebvttSubtitle' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer.text.webvtt.WebvttCue&gt;']]" />
 
-  </metadata>
+</metadata>
