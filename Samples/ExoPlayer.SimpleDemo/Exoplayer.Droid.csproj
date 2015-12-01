@@ -62,11 +62,11 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\ExoPlayer\ExoPlayer.csproj">
+    <ProjectReference Include="..\..\ExoPlayer\ExoPlayer.csproj">
       <Project>{0B871C50-6D5D-45D0-B32D-84E25ADB869A}</Project>
       <Name>ExoPlayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
