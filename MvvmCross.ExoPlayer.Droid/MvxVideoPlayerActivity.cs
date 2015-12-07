@@ -21,6 +21,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
+using Android.Util;
 using Android.Views;
 using Android.Views.Accessibility;
 using Android.Widget;
@@ -99,7 +100,15 @@ namespace MvvmCross.ExoPlayer.Droid
 		public bool LoadingItem
 		{
 			get { return ViewModel.LoadingItem; }
-			set { _progress.Visibility = value ? ViewStates.Visible : ViewStates.Gone; }
+			set
+			{
+				if (_progress == null)
+				{
+					return;
+				}
+
+				_progress.Visibility = value ? ViewStates.Visible : ViewStates.Gone;
+			}
 		}
 
 		#region Activity lifecycle
@@ -117,6 +126,7 @@ namespace MvvmCross.ExoPlayer.Droid
 			_surfaceView = FindViewById<SurfaceView>(Resource.Id.surface_view);
 			_surfaceView.Holder.AddCallback(this);
 			_subtitleLayout = FindViewById<SubtitleLayout>(Resource.Id.subtitles);
+
 			_progress = FindViewById<ProgressBar>(Resource.Id.progress);
 
 			_mediaController = new MediaController(this);
@@ -222,7 +232,16 @@ namespace MvvmCross.ExoPlayer.Droid
 			}
 			else if (_mediaController != null)
 			{
-				_mediaController.DispatchKeyEvent(args.Event);
+				try
+				{
+					_mediaController.DispatchKeyEvent(args.Event);
+				}
+				catch (Java.Lang.NullPointerException ex)
+				{
+					// This try-catch seems nasty, but is necessary, since MediaController doesn't null-check before calling CanPause() on a private field.
+					// That can lead to a crash if events come too early.
+					MvxTrace.Warning($"OnKeyPress-Event was ignored. MediaController threw NullPointerException: {ex.Message}.");
+				}
 			}
 			else
 			{
