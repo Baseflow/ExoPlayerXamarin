@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Content;
@@ -23,6 +24,7 @@ using Android.OS;
 using Android.Views;
 using Android.Views.Accessibility;
 using Android.Widget;
+using Cirrious.CrossCore.Platform;
 using Cirrious.MvvmCross.Binding.BindingContext;
 using Cirrious.MvvmCross.Droid.Views;
 using Com.Google.Android.Exoplayer;
@@ -108,35 +110,7 @@ namespace MvvmCross.ExoPlayer.Droid
 
 			SetContentView(Resource.Layout.activity_videoplayer);
 			var root = FindViewById(Resource.Id.root);
-
-			root.Touch += (sender, args) =>
-			{
-				var motionEvent = args.Event;
-				switch (motionEvent.Action)
-				{
-					case MotionEventActions.Down:
-						ToggleControlsVisibility();
-						break;
-					case MotionEventActions.Up:
-						((View) sender).PerformClick();
-						break;
-				}
-				args.Handled = true;
-			};
-			root.KeyPress += (sender, args) =>
-			{
-				var keyCode = args.KeyCode;
-				if (keyCode == Keycode.Back || keyCode == Keycode.Escape
-				    || keyCode == Keycode.Menu)
-				{
-					args.Handled = false;
-				}
-				else
-				{
-					_mediaController.DispatchKeyEvent(args.Event);
-				}
-			};
-
+			
 			_shutterView = FindViewById(Resource.Id.shutter);
 
 			_videoFrame = FindViewById<AspectRatioFrameLayout>(Resource.Id.video_frame);
@@ -179,6 +153,8 @@ namespace MvvmCross.ExoPlayer.Droid
 		{
 			base.OnResume();
 
+			RegisterTouchAndClickEvents();
+
 			ConfigureSubtitleView();
 			if (_player == null)
 			{
@@ -193,12 +169,103 @@ namespace MvvmCross.ExoPlayer.Droid
 			}
 		}
 
+		private void RegisterTouchAndClickEvents(View root = null)
+		{
+			if (root == null)
+			{
+				root = FindViewById(Resource.Id.root);
+			}
+
+			if (root == null)
+			{
+				MvxTrace.Error("Could not find root view. Can't register Events!");
+				return;
+			}
+
+			root.Touch += RootOnTouch;
+			root.KeyPress += RootOnKeyPress;
+		}
+
+		private void UnregisterTouchAndClickEvents()
+		{
+			var root = FindViewById(Resource.Id.root);
+			if (root == null)
+			{
+				MvxTrace.Warning("Could not find root-View. Cannot unregister touch and click events.");
+				return;
+			}
+
+			root.Touch -= RootOnTouch;
+			root.KeyPress -= RootOnKeyPress;
+		}
+
+		private void RootOnKeyPress(object sender, View.KeyEventArgs args)
+		{
+			var view = sender as View;
+			if (view == null)
+			{
+				MvxTrace.Warning("Received OnKeyPress-Event for root without a valid sender (should be a View instance). Event possibly will be ignored.");
+				return;
+			}
+
+			if (args?.Event == null)
+			{
+				MvxTrace.Error("Received OnKeyPress-Event for root without valid KeyEventArgs (should be a KeyEventsArgs instance with an event). Event will be ignored!");
+				return;
+			}
+
+			var keyCode = args.KeyCode;
+			if (keyCode == Keycode.Back || keyCode == Keycode.Escape
+				|| keyCode == Keycode.Menu)
+			{
+				args.Handled = false;
+			}
+			else if (_mediaController != null)
+			{
+				_mediaController.DispatchKeyEvent(args.Event);
+			}
+			else
+			{
+				MvxTrace.Warning("Received OnKeyPress-Event for root but could not handle it.");
+			}
+		}
+
+		private void RootOnTouch(object sender, View.TouchEventArgs args)
+		{
+			var view = sender as View;
+			if (view == null)
+			{
+				MvxTrace.Warning("Received OnTouch-Event for root without a valid sender. OnTouch-Event possibly will be ignored.");
+				return;
+			}
+
+			if (args?.Event == null)
+			{
+				MvxTrace.Error("Received OnTouch-Event for root without valid TouchEventArgs. OnTouch-Event will be ignored!");
+				return;
+			}
+
+			var motionEvent = args.Event;
+			switch (motionEvent.Action)
+			{
+				case MotionEventActions.Down:
+					ToggleControlsVisibility();
+					break;
+				case MotionEventActions.Up:
+					view.PerformClick();
+					break;
+			}
+			args.Handled = true;
+		}
+
 		protected override void OnPause()
 		{
 			base.OnPause();
+			UnregisterTouchAndClickEvents();
 			ReleasePlayer();
 			_shutterView.Visibility = ViewStates.Visible;
 		}
+
 
 		protected override void OnDestroy()
 		{
