@@ -129,7 +129,7 @@ namespace MvvmCross.ExoPlayer.Droid
 
 			_progress = FindViewById<ProgressBar>(Resource.Id.progress);
 
-			_mediaController = new MediaController(this);
+			_mediaController = new MediaController(this, true);
 			_mediaController.SetAnchorView(root);
 
 			var currentHandler = CookieHandler.Default;
@@ -234,7 +234,9 @@ namespace MvvmCross.ExoPlayer.Droid
 			{
 				try
 				{
-					_mediaController.DispatchKeyEvent(args.Event);
+					// Accept long press
+					var fakeEvent = new KeyEvent(args.Event, args.Event.EventTime, args.Event.RepeatCount % 10);
+					_mediaController.DispatchKeyEvent(fakeEvent);
 				}
 				catch (Java.Lang.NullPointerException ex)
 				{
@@ -376,10 +378,29 @@ namespace MvvmCross.ExoPlayer.Droid
 
 		public void OnStateChanged(bool playWhenReady, int playbackState)
 		{
-			if (playbackState == Com.Google.Android.Exoplayer.ExoPlayer.StateEnded)
+			if (playbackState != Com.Google.Android.Exoplayer.ExoPlayer.StateEnded)
+			{
+				return;
+			}
+
+			if (ShallFinishActivityOnPlaybackStateEnd())
+			{
+				Finish();
+			}
+			else
 			{
 				ShowControls();
 			}
+		}
+
+		/// <summary>
+		/// Determines, wether this Activity will be finished when playback has sucessfully ended.
+		/// If true, Activity will be finished on playback end.
+		/// If false, the controls will be shown.
+		/// </summary>
+		protected virtual bool ShallFinishActivityOnPlaybackStateEnd()
+		{
+			return false;
 		}
 
 		public void OnError(Exception e)
