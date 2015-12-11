@@ -60,6 +60,8 @@ namespace MvvmCross.ExoPlayer.Droid
 	{
 		private static readonly CookieManager DefaultCookieManager;
 
+		private const string Tag = "MvxVideoPlayerActivity";
+
 		static MvxVideoPlayerActivity()
 		{
 			DefaultCookieManager = new CookieManager();
@@ -323,8 +325,10 @@ namespace MvvmCross.ExoPlayer.Droid
 			switch (Item.Type)
 			{
 				case MvxVideoItem.ContentType.Hls:
+					Log.Debug(Tag, $"Trying to play as HLS video: {url}");
 					return new MvxHlsRendererBuilder(this, userAgent, url);
 				case MvxVideoItem.ContentType.Other:
+					Log.Debug(Tag, $"Trying to play as non-HLS video: {url}");
 					return new MvxExtractorRendererBuilder(this, userAgent, Uri.Parse(url));
 				default:
 					throw new IllegalStateException("Unsupported type: " + Item.Type);
