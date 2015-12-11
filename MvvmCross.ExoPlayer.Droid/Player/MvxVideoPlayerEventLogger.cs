@@ -1,4 +1,5 @@
 using Android.Media;
+using Android.Runtime;
 using Android.Util;
 using Com.Google.Android.Exoplayer;
 using Com.Google.Android.Exoplayer.Chunk;
@@ -15,6 +16,7 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 	/// <summary>
 	/// Logs player events using {@link Log}.
 	/// </summary>
+	[Register("mvvmcross.exoplayer.droid.player.MvxVideoPlayerEventLogger")]
 	public class MvxVideoPlayerEventLogger : MvxVideoPlayer.IListener, MvxVideoPlayer.IInfoListener,
 		MvxVideoPlayer.IInternalErrorListener
 	{
@@ -60,6 +62,7 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 		public void OnError(Exception e)
 		{
 			Log.Error(Tag, "playerFailed [" + GetSessionTimeString() + "]", e);
+			e.PrintStackTrace();
 		}
 
 		public void OnVideoSizeChanged(

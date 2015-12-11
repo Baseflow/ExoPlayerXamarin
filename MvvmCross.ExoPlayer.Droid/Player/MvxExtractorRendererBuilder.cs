@@ -17,6 +17,7 @@
 using Android.Content;
 using Android.Media;
 using Android.Net;
+using Android.Runtime;
 using Com.Google.Android.Exoplayer;
 using Com.Google.Android.Exoplayer.Audio;
 using Com.Google.Android.Exoplayer.Extractor;
@@ -28,6 +29,7 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 	/// <summary>
 	///  A <see cref="Extractor"/> that can be read using an <see cref="MvxVideoPlayer"/>.
 	/// </summary>
+	[Register("mvvmcross.exoplayer.droid.player.MvxExtractorRendererBuilder")]
 	public class MvxExtractorRendererBuilder : MvxVideoPlayer.IRendererBuilder
 	{
 		private const int BufferSegmentSize = 64*1024;

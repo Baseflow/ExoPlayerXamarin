@@ -33,6 +33,7 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 	/// <summary>
 	/// A <see cref="MvxVideoPlayer.IRendererBuilder"/> for HLS.
 	/// </summary>
+	[Register("mvvmcross.exoplayer.droid.player.MvxHlsRendererBuilder")]
 	public class MvxHlsRendererBuilder : MvxVideoPlayer.IRendererBuilder
 	{
 		private const int BufferSegmentSize = 64*1024;
@@ -135,7 +136,7 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 					}
 					if (variantIndices.Length == 0)
 					{
-						_player.OnRenderersError(new IllegalStateException("No variants selected."));
+						_player.OnRenderersError(new IllegalStateException($"No variants selected. Possible reason: your video's resolution could be too high. This device maximum H264 framesize is {MediaCodecUtil.MaxH264DecodableFrameSize()}."));
 						return;
 					}
 				}
