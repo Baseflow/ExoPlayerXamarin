@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Android.Media;
 using Android.OS;
+using Android.Runtime;
 using Android.Views;
 using Com.Google.Android.Exoplayer;
 using Com.Google.Android.Exoplayer.Chunk;
@@ -24,6 +25,7 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 	/// with one of a number of <see cref="IRendererBuilder"/> classes to suit different use cases(e.g. DASH,
 	/// SmoothStreaming and so on).
 	/// </summary>
+	[Register("mvvmcross.exoplayer.droid.player.MvxVideoPlayer")]
 	public class MvxVideoPlayer : Object,
 		IExoPlayerListener,
 		ChunkSampleSource.IEventListener,

@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
+using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
+using Android.Util;
 using Android.Views;
 using Android.Views.Accessibility;
 using Android.Widget;
+using Cirrious.CrossCore.Platform;
 using Cirrious.MvvmCross.Binding.BindingContext;
 using Cirrious.MvvmCross.Droid.Views;
 using Com.Google.Android.Exoplayer;
@@ -56,6 +59,8 @@ namespace MvvmCross.ExoPlayer.Droid
 		AudioCapabilitiesReceiver.IListener
 	{
 		private static readonly CookieManager DefaultCookieManager;
+
+		private const string Tag = "MvxVideoPlayerActivity";
 
 		static MvxVideoPlayerActivity()
 		{
@@ -97,7 +102,15 @@ namespace MvvmCross.ExoPlayer.Droid
 		public bool LoadingItem
 		{
 			get { return ViewModel.LoadingItem; }
-			set { _progress.Visibility = value ? ViewStates.Visible : ViewStates.Gone; }
+			set
+			{
+				if (_progress == null)
+				{
+					return;
+				}
+
+				_progress.Visibility = value ? ViewStates.Visible : ViewStates.Gone;
+			}
 		}
 
 		#region Activity lifecycle
@@ -108,44 +121,17 @@ namespace MvvmCross.ExoPlayer.Droid
 
 			SetContentView(Resource.Layout.activity_videoplayer);
 			var root = FindViewById(Resource.Id.root);
-
-			root.Touch += (sender, args) =>
-			{
-				var motionEvent = args.Event;
-				switch (motionEvent.Action)
-				{
-					case MotionEventActions.Down:
-						ToggleControlsVisibility();
-						break;
-					case MotionEventActions.Up:
-						((View) sender).PerformClick();
-						break;
-				}
-				args.Handled = true;
-			};
-			root.KeyPress += (sender, args) =>
-			{
-				var keyCode = args.KeyCode;
-				if (keyCode == Keycode.Back || keyCode == Keycode.Escape
-				    || keyCode == Keycode.Menu)
-				{
-					args.Handled = false;
-				}
-				else
-				{
-					_mediaController.DispatchKeyEvent(args.Event);
-				}
-			};
-
+			
 			_shutterView = FindViewById(Resource.Id.shutter);
 
 			_videoFrame = FindViewById<AspectRatioFrameLayout>(Resource.Id.video_frame);
 			_surfaceView = FindViewById<SurfaceView>(Resource.Id.surface_view);
 			_surfaceView.Holder.AddCallback(this);
 			_subtitleLayout = FindViewById<SubtitleLayout>(Resource.Id.subtitles);
+
 			_progress = FindViewById<ProgressBar>(Resource.Id.progress);
 
-			_mediaController = new MediaController(this);
+			_mediaController = new MediaController(this, true);
 			_mediaController.SetAnchorView(root);
 
 			var currentHandler = CookieHandler.Default;
@@ -179,6 +165,8 @@ namespace MvvmCross.ExoPlayer.Droid
 		{
 			base.OnResume();
 
+			RegisterTouchAndClickEvents();
+
 			ConfigureSubtitleView();
 			if (_player == null)
 			{
@@ -193,12 +181,114 @@ namespace MvvmCross.ExoPlayer.Droid
 			}
 		}
 
+		private void RegisterTouchAndClickEvents(View root = null)
+		{
+			if (root == null)
+			{
+				root = FindViewById(Resource.Id.root);
+			}
+
+			if (root == null)
+			{
+				MvxTrace.Error("Could not find root view. Can't register Events!");
+				return;
+			}
+
+			root.Touch += RootOnTouch;
+			root.KeyPress += RootOnKeyPress;
+		}
+
+		private void UnregisterTouchAndClickEvents()
+		{
+			var root = FindViewById(Resource.Id.root);
+			if (root == null)
+			{
+				MvxTrace.Warning("Could not find root-View. Cannot unregister touch and click events.");
+				return;
+			}
+
+			root.Touch -= RootOnTouch;
+			root.KeyPress -= RootOnKeyPress;
+		}
+
+		private void RootOnKeyPress(object sender, View.KeyEventArgs args)
+		{
+			var view = sender as View;
+			if (view == null)
+			{
+				MvxTrace.Warning("Received OnKeyPress-Event for root without a valid sender (should be a View instance). Event possibly will be ignored.");
+				return;
+			}
+
+			if (args?.Event == null)
+			{
+				MvxTrace.Error("Received OnKeyPress-Event for root without valid KeyEventArgs (should be a KeyEventsArgs instance with an event). Event will be ignored!");
+				return;
+			}
+
+			var keyCode = args.KeyCode;
+			if (keyCode == Keycode.Back || keyCode == Keycode.Escape
+				|| keyCode == Keycode.Menu)
+			{
+				args.Handled = false;
+			}
+			else if (_mediaController != null)
+			{
+				try
+				{
+					// Accept long press
+					var fakeEvent = new KeyEvent(args.Event, args.Event.EventTime, args.Event.RepeatCount % 10);
+					_mediaController.DispatchKeyEvent(fakeEvent);
+				}
+				catch (Java.Lang.NullPointerException ex)
+				{
+					// This try-catch seems nasty, but is necessary, since MediaController doesn't null-check before calling CanPause() on a private field.
+					// That can lead to a crash if events come too early.
+					MvxTrace.Warning($"OnKeyPress-Event was ignored. MediaController threw NullPointerException: {ex.Message}.");
+				}
+			}
+			else
+			{
+				MvxTrace.Warning("Received OnKeyPress-Event for root but could not handle it.");
+			}
+		}
+
+		private void RootOnTouch(object sender, View.TouchEventArgs args)
+		{
+			var view = sender as View;
+			if (view == null)
+			{
+				MvxTrace.Warning("Received OnTouch-Event for root without a valid sender. OnTouch-Event possibly will be ignored.");
+				return;
+			}
+
+			if (args?.Event == null)
+			{
+				MvxTrace.Error("Received OnTouch-Event for root without valid TouchEventArgs. OnTouch-Event will be ignored!");
+				return;
+			}
+
+			var motionEvent = args.Event;
+			switch (motionEvent.Action)
+			{
+				case MotionEventActions.Down:
+					ToggleControlsVisibility();
+					break;
+				case MotionEventActions.Up:
+					view.PerformClick();
+					break;
+			}
+			args.Handled = true;
+		}
+
 		protected override void OnPause()
 		{
 			base.OnPause();
+			UnregisterTouchAndClickEvents();
 			ReleasePlayer();
 			_shutterView.Visibility = ViewStates.Visible;
 		}
+
 
 		protected override void OnDestroy()
 		{
@@ -235,8 +325,10 @@ namespace MvvmCross.ExoPlayer.Droid
 			switch (Item.Type)
 			{
 				case MvxVideoItem.ContentType.Hls:
+					Log.Debug(Tag, $"Trying to play as HLS video: {url}");
 					return new MvxHlsRendererBuilder(this, userAgent, url);
 				case MvxVideoItem.ContentType.Other:
+					Log.Debug(Tag, $"Trying to play as non-HLS video: {url}");
 					return new MvxExtractorRendererBuilder(this, userAgent, Uri.Parse(url));
 				default:
 					throw new IllegalStateException("Unsupported type: " + Item.Type);
@@ -290,10 +382,29 @@ namespace MvvmCross.ExoPlayer.Droid
 
 		public void OnStateChanged(bool playWhenReady, int playbackState)
 		{
-			if (playbackState == Com.Google.Android.Exoplayer.ExoPlayer.StateEnded)
+			if (playbackState != Com.Google.Android.Exoplayer.ExoPlayer.StateEnded)
+			{
+				return;
+			}
+
+			if (ShallFinishActivityOnPlaybackStateEnd())
+			{
+				Finish();
+			}
+			else
 			{
 				ShowControls();
 			}
+		}
+
+		/// <summary>
+		/// Determines, wether this Activity will be finished when playback has sucessfully ended.
+		/// If true, Activity will be finished on playback end.
+		/// If false, the controls will be shown.
+		/// </summary>
+		protected virtual bool ShallFinishActivityOnPlaybackStateEnd()
+		{
+			return false;
 		}
 
 		public void OnError(Exception e)
