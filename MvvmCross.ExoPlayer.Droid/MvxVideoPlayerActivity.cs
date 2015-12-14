@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Content;
@@ -51,12 +50,19 @@ namespace MvvmCross.ExoPlayer.Droid
 		ConfigurationChanges = ConfigChanges.KeyboardHidden | ConfigChanges.Keyboard | ConfigChanges.Orientation | ConfigChanges.ScreenSize,
 		LaunchMode = LaunchMode.SingleInstance
 		)]
-	public class MvxVideoPlayerActivity : MvxActivity<MvxVideoPlayerViewModel>,
-		ISurfaceHolderCallback,
-		MvxVideoPlayer.IListener,
-		MvxVideoPlayer.ICaptionListener,
-		MvxVideoPlayer.ID3MetadataListener,
-		AudioCapabilitiesReceiver.IListener
+	public class MvxVideoPlayerActivity
+		: MvxVideoPlayerActivity<MvxVideoPlayerViewModel>
+	{
+	}
+
+	public class MvxVideoPlayerActivity<TViewModel>
+		: MvxActivity,
+			ISurfaceHolderCallback,
+			MvxVideoPlayer.IListener,
+			MvxVideoPlayer.ICaptionListener,
+			MvxVideoPlayer.ID3MetadataListener,
+			AudioCapabilitiesReceiver.IListener
+		where TViewModel : IMvxVideoPlayerViewModel
 	{
 		private static readonly CookieManager DefaultCookieManager;
 
@@ -83,7 +89,7 @@ namespace MvvmCross.ExoPlayer.Droid
 		private MvxVideoItem _item;
 
 		private AudioCapabilitiesReceiver _audioCapabilitiesReceiver;
-		
+
 		public MvxVideoItem Item
 		{
 			get { return _item; }
@@ -97,6 +103,12 @@ namespace MvvmCross.ExoPlayer.Droid
 				_item = value;
 				PreparePlayer(true);
 			}
+		}
+
+		public TViewModel ViewModel
+		{
+			get { return (TViewModel) base.ViewModel; }
+			set { base.ViewModel = value; }
 		}
 
 		public bool LoadingItem
@@ -121,7 +133,7 @@ namespace MvvmCross.ExoPlayer.Droid
 
 			SetContentView(Resource.Layout.activity_videoplayer);
 			var root = FindViewById(Resource.Id.root);
-			
+
 			_shutterView = FindViewById(Resource.Id.shutter);
 
 			_videoFrame = FindViewById<AspectRatioFrameLayout>(Resource.Id.video_frame);
@@ -130,6 +142,7 @@ namespace MvvmCross.ExoPlayer.Droid
 			_subtitleLayout = FindViewById<SubtitleLayout>(Resource.Id.subtitles);
 
 			_progress = FindViewById<ProgressBar>(Resource.Id.progress);
+			LoadingItem = ViewModel.LoadingItem;
 
 			_mediaController = new MediaController(this, true);
 			_mediaController.SetAnchorView(root);
@@ -154,8 +167,12 @@ namespace MvvmCross.ExoPlayer.Droid
 		protected override void OnViewModelSet()
 		{
 			base.OnViewModelSet();
+			CreateBindings();
+		}
 
-			var set = this.CreateBindingSet<MvxVideoPlayerActivity, MvxVideoPlayerViewModel>();
+		private void CreateBindings()
+		{
+			var set = this.CreateBindingSet<MvxVideoPlayerActivity<TViewModel>, TViewModel>();
 			set.Bind(this).For(t => t.Item).To(vm => vm.VideoItem);
 			set.Bind(this).For(t => t.LoadingItem).To(vm => vm.LoadingItem);
 			set.Apply();
@@ -228,7 +245,7 @@ namespace MvvmCross.ExoPlayer.Droid
 
 			var keyCode = args.KeyCode;
 			if (keyCode == Keycode.Back || keyCode == Keycode.Escape
-				|| keyCode == Keycode.Menu)
+			    || keyCode == Keycode.Menu)
 			{
 				args.Handled = false;
 			}
@@ -237,10 +254,10 @@ namespace MvvmCross.ExoPlayer.Droid
 				try
 				{
 					// Accept long press
-					var fakeEvent = new KeyEvent(args.Event, args.Event.EventTime, args.Event.RepeatCount % 10);
+					var fakeEvent = new KeyEvent(args.Event, args.Event.EventTime, args.Event.RepeatCount%10);
 					_mediaController.DispatchKeyEvent(fakeEvent);
 				}
-				catch (Java.Lang.NullPointerException ex)
+				catch (NullPointerException ex)
 				{
 					// This try-catch seems nasty, but is necessary, since MediaController doesn't null-check before calling CanPause() on a private field.
 					// That can lead to a crash if events come too early.
@@ -453,7 +470,16 @@ namespace MvvmCross.ExoPlayer.Droid
 
 		private void ShowControls()
 		{
-			_mediaController.Show(0);
+			try
+			{
+				_mediaController.Show(0);
+			}
+			catch (NullPointerException ex)
+			{
+				// This try-catch seems nasty, but is necessary, since MediaController doesn't null-check before calling CanPause() on a private field.
+				// That can lead to a crash if events come too early.
+				MvxTrace.Warning($"ShowControls was ignored. MediaController threw NullPointerException: {ex.Message}.");
+			}
 		}
 
 		#endregion

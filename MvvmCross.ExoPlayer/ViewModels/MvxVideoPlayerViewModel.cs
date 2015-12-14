@@ -4,7 +4,7 @@ using MvvmCross.ExoPlayer.Models;
 
 namespace MvvmCross.ExoPlayer.ViewModels
 {
-	public abstract class MvxVideoPlayerViewModel : MvxViewModel
+	public abstract class MvxVideoPlayerViewModel : MvxViewModel, IMvxVideoPlayerViewModel
 	{
 		private bool _loadingItem;
 		private MvxVideoItem _videoItem;
