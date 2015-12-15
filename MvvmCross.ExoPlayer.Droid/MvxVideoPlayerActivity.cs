@@ -105,7 +105,7 @@ namespace MvvmCross.ExoPlayer.Droid
 			}
 		}
 
-		public TViewModel ViewModel
+		public new TViewModel ViewModel
 		{
 			get { return (TViewModel) base.ViewModel; }
 			set { base.ViewModel = value; }
