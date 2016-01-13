@@ -37,6 +37,7 @@
 
   <!-- TtmlNode has no declared visibility but needs to be public because TtmlSubtitle exposes it and is public -->
   <attr path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlNode']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlStyle']" name="visibility">public</attr>
 
   <attr path="/api/package[@name='com.google.android.exoplayer.extractor.webm']/interface[@name='EbmlReaderOutput']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.extractor.mp4']/class[@name='TrackSampleTable']" name="visibility">public</attr>
@@ -47,7 +48,6 @@
   <attr path="/api/package[@name='com.google.android.exoplayer.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='Format.DecreasingBandwidthComparator']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
 
-  <remove-node path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='WebvttSubtitle']/constructor[@name='WebvttSubtitle' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer.text.webvtt.WebvttCue&gt;'] and parameter[2][@type='long']]"/>
   <remove-node path="/api/package[@name='com.google.android.exoplayer.text.subrip']/class[@name='SubripParser']"/>
   <remove-node path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='ContainerMediaChunk']"/>
   <remove-node path="/api/package[@name='com.google.android.exoplayer.extractor']/class[@name='DefaultTrackOutput']"/>
