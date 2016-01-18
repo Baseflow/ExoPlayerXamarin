@@ -33,38 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cirrious.CrossCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e16445fd9b451819, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\MonoAndroid\Cirrious.CrossCore.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Cirrious.CrossCore.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\MonoAndroid\Cirrious.CrossCore.Droid.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e16445fd9b451819, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.5.1\lib\MonoAndroid\Cirrious.MvvmCross.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Binding, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\MonoAndroid\Cirrious.MvvmCross.Binding.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Binding.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\MonoAndroid\Cirrious.MvvmCross.Binding.Droid.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.5.1\lib\MonoAndroid\Cirrious.MvvmCross.Droid.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Localization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\MonoAndroid\Cirrious.MvvmCross.Localization.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ExoPlayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Xam.Plugins.Android.ExoPlayer.1.5.2\lib\MonoAndroid\ExoPlayer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
@@ -72,6 +40,30 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="ExoPlayer">
+      <HintPath>..\packages\Xam.Plugins.Android.ExoPlayer.1.5.3\lib\MonoAndroid\ExoPlayer.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.Droid">
+      <HintPath>..\packages\MvvmCross.Platform.4.0.0-beta8\lib\MonoAndroid\MvvmCross.Platform.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\packages\MvvmCross.Platform.4.0.0-beta8\lib\MonoAndroid\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.Platform.4.0.0-beta8\lib\MonoAndroid\MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Droid">
+      <HintPath>..\packages\MvvmCross.Core.4.0.0-beta8\lib\MonoAndroid\MvvmCross.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Core">
+      <HintPath>..\packages\MvvmCross.Core.4.0.0-beta8\lib\MonoAndroid\MvvmCross.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding.Droid">
+      <HintPath>..\packages\MvvmCross.Binding.4.0.0-beta8\lib\MonoAndroid\MvvmCross.Binding.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.Binding.4.0.0-beta8\lib\MonoAndroid\MvvmCross.Binding.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Player\MvxExtractorRendererBuilder.cs" />
@@ -96,4 +88,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj">
+      <Project>{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}</Project>
+      <Name>ExoPlayer.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

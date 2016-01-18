@@ -1,5 +1,5 @@
-﻿using Cirrious.MvvmCross.ViewModels;
-using MvvmCross.ExoPlayer.Models;
+﻿using MvvmCross.ExoPlayer.Models;
+using MvvmCross.Core.ViewModels;
 
 namespace MvvmCross.ExoPlayer.ViewModels
 {

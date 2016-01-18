@@ -32,7 +32,7 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 		HlsSampleSource.IEventListener,
 		IBandwidthMeterEventListener,
 		MediaCodecVideoTrackRenderer.IEventListener,
-		MediaCodecAudioTrackRenderer.IEventListener,
+	MediaCodecAudioTrackRenderer.IEventListener,
 		StreamingDrmSessionManager.IEventListener,
 		DashChunkSource.IEventListener, ITextRenderer,
 		MetadataTrackRenderer.IMetadataRenderer,
@@ -677,6 +677,11 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 				_player.SendMessage(
 					_videoRenderer, MediaCodecVideoTrackRenderer.MsgSetSurface, _surface);
 			}
+		}
+
+		public void OnAudioTrackUnderrun (int p0, long p1, long p2)
+		{
+			throw new System.NotImplementedException ();
 		}
 	}
 }
