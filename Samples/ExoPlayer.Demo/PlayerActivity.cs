@@ -552,7 +552,7 @@ namespace Com.Google.Android.Exoplayer.Demo
 
 		private static string BuildTrackIdString(MediaFormat format)
 		{
-			return format.TrackId == MediaFormat.NoValue
+			return format.TrackId == null
 				? ""
 				: String.Format(Locale.Us, " (%d)", format.TrackId);
 		}
