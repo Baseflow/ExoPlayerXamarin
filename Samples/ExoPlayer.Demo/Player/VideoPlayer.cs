@@ -91,6 +91,7 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 			void OnRendererInitializationError(Exception e);
 			void OnAudioTrackInitializationError(Audio.AudioTrack.InitializationException e);
 			void OnAudioTrackWriteError(Audio.AudioTrack.WriteException e);
+			void OnAudioTrackUnderrun(int bufferSize, long bufferSizeMs, long elapsedSinceLastFeedMs);
 			void OnDecoderInitializationError(MediaCodecTrackRenderer.DecoderInitializationException e);
 			void OnCryptoError(MediaCodec.CryptoException e);
 			void OnLoadError(int sourceId, IOException e);
@@ -541,6 +542,14 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 			if (_internalErrorListener != null)
 			{
 				_internalErrorListener.OnAudioTrackWriteError(e);
+			}
+		}
+
+		public void OnAudioTrackUnderrun(int bufferSize, long bufferSizeMs, long elapsedSinceLastFeedMs)
+		{
+			if (_internalErrorListener != null)
+			{
+				_internalErrorListener.OnAudioTrackUnderrun(bufferSize, bufferSizeMs, elapsedSinceLastFeedMs);
 			}
 		}
 
