@@ -182,7 +182,13 @@ namespace Com.Google.Android.Exoplayer.Demo
             PrintInternalError("audioTrackWriteError", e);
         }
 
-        public void OnCryptoError(MediaCodec.CryptoException e)
+		public void OnAudioTrackUnderrun(int bufferSize, long bufferSizeMs, long elapsedSinceLastFeedMs)
+		{
+			PrintInternalError("audioTrackUnderrun [" + bufferSize + ", " + bufferSizeMs + ", "
+			                   + elapsedSinceLastFeedMs + "]", null);
+		}
+
+		public void OnCryptoError(MediaCodec.CryptoException e)
         {
             PrintInternalError("cryptoError", e);
         }
