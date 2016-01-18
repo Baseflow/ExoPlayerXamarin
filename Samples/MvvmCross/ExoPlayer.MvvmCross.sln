@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Core", "ExoPlayer.Core\ExoPlayer.Core.csproj", "{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Droid", "ExoPlayer.Droid\ExoPlayer.Droid.csproj", "{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
