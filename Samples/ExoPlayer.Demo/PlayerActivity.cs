@@ -552,7 +552,7 @@ namespace Com.Google.Android.Exoplayer.Demo
 
 		private static string BuildTrackIdString(MediaFormat format)
 		{
-			return format.TrackId == MediaFormat.NoValue
+			return format.TrackId == null
 				? ""
 				: String.Format(Locale.Us, " (%d)", format.TrackId);
 		}
@@ -708,6 +708,45 @@ namespace Com.Google.Android.Exoplayer.Demo
 				return TypeHls;
 			}
 			return TypeOther;
+		}
+
+		private class KeyCompatibleMediaController : MediaController
+		{
+			private IMediaPlayerControl _playerControl;
+
+			public KeyCompatibleMediaController(Context context) : base(context)
+			{
+			}
+
+			public override void SetMediaPlayer(IMediaPlayerControl playerControl)
+			{
+				base.SetMediaPlayer(playerControl);
+				_playerControl = playerControl;
+			}
+
+			public override bool DispatchKeyEvent(KeyEvent ev)
+			{
+				var keyCode = ev.KeyCode;
+				if (_playerControl.CanSeekForward() && keyCode == Keycode.MediaFastForward)
+				{
+					if (ev.Action == KeyEventActions.Down)
+					{
+						_playerControl.SeekTo(_playerControl.CurrentPosition + 15000); // milliseconds
+						Show();
+					}
+					return true;
+				}
+				if (_playerControl.CanSeekBackward() && keyCode == Keycode.MediaRewind)
+				{
+					if (ev.Action == KeyEventActions.Down)
+					{
+						_playerControl.SeekTo(_playerControl.CurrentPosition - 5000); // milliseconds
+						Show();
+					}
+					return true;
+				}
+				return base.DispatchKeyEvent(ev);
+			}
 		}
 	}
 }
