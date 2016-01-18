@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer", "ExoPlayer\ExoPlayer.csproj", "{0B871C50-6D5D-45D0-B32D-84E25ADB869A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Demo", "Samples\ExoPlayer.Demo\ExoPlayer.Demo.csproj", "{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exoplayer.Droid", "Samples\Simple\Exoplayer.Droid.csproj", "{C66BD696-BBE4-4341-B0A9-5518A68D5153}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exoplayer.Droid", "Samples\ExoPlayer.SimpleDemo\Exoplayer.Droid.csproj", "{C66BD696-BBE4-4341-B0A9-5518A68D5153}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Demo", "Samples\Official Demo\ExoPlayer.Demo.csproj", "{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
