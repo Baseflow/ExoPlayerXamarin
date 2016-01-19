@@ -24,9 +24,6 @@ using Android.Util;
 using Android.Views;
 using Android.Views.Accessibility;
 using Android.Widget;
-using Cirrious.CrossCore.Platform;
-using Cirrious.MvvmCross.Binding.BindingContext;
-using Cirrious.MvvmCross.Droid.Views;
 using Com.Google.Android.Exoplayer;
 using Com.Google.Android.Exoplayer.Audio;
 using Com.Google.Android.Exoplayer.Drm;
@@ -39,6 +36,10 @@ using MvvmCross.ExoPlayer.Models;
 using MvvmCross.ExoPlayer.ViewModels;
 using Exception = Java.Lang.Exception;
 using Uri = Android.Net.Uri;
+using MvvmCross.ExoPlayer.ViewModels;
+using MvvmCross.Droid.Views;
+using MvvmCross.Platform.Platform;
+using MvvmCross.Binding.BindingContext;
 
 namespace MvvmCross.ExoPlayer.Droid
 {
