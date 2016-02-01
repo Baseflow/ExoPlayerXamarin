@@ -12,6 +12,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AssemblyName>ExoPlayer</AssemblyName>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <ReleaseVersion>1.5.4</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,9 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Additions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-r1.5.3.aar" />
+    <Folder Include="Jars\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\exoplayer-r1.5.4.aar" />
+  </ItemGroup>
 </Project>

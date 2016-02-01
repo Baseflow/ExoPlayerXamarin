@@ -58,4 +58,7 @@
 
   <remove-node path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='WebvttSubtitle']/constructor[@name='WebvttSubtitle' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer.text.webvtt.WebvttCue&gt;']]" />
 
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlParser']"/>
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='Mp4WebvttParser']"/>
+
 </metadata>
