@@ -61,4 +61,7 @@
   <remove-node path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlParser']"/>
   <remove-node path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='Mp4WebvttParser']"/>
 
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='Chunk']" name="managedName">ExoPlayerChunk</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.util']/class[@name='Util']" name="managedName">ExoPlayerUtil</attr>
+
 </metadata>
