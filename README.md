@@ -29,7 +29,8 @@ See the Exoplayer.Droid sample app.
 Thanks to
 =========
 
-- [Nathan Barger][NathanBarger] for doing most of the porting work
+- [Nathan Barger][NathanBarger] for doing the initial porting work
+- [MKuckert](https://github.com/MKuckert) for helping with bindings and samples
 
 License
 =======
