@@ -17,6 +17,7 @@
 using System.Collections.Generic;
 using Android.Media;
 using Com.Google.Android.Exoplayer.Drm;
+using Com.Google.Android.Exoplayer.Util;
 using Java.Lang;
 using Java.Util;
 
@@ -38,7 +39,7 @@ namespace Com.Google.Android.Exoplayer.Demo
 		public byte[] ExecuteProvisionRequest(UUID uuid, MediaDrm.ProvisionRequest request)
 		{
 			var url = request.DefaultUrl + "&signedRequest=" + System.Text.Encoding.ASCII.GetString(request.GetData());
-			return Util.Util.ExecutePost(url, null, null);
+			return ExoPlayerUtil.ExecutePost(url, null, null);
 		}
 
 		public byte[] ExecuteKeyRequest(UUID uuid, MediaDrm.KeyRequest request)
@@ -48,7 +49,7 @@ namespace Com.Google.Android.Exoplayer.Demo
 			{
 				url = PlayreadyTestDefaultUri;
 			}
-			return Util.Util.ExecutePost(url, request.GetData(), KeyRequestProperties);
+			return ExoPlayerUtil.ExecutePost(url, request.GetData(), KeyRequestProperties);
 		}
 
 	}

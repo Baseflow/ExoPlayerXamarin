@@ -52,9 +52,9 @@
   <remove-node path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='ContainerMediaChunk']"/>
   <remove-node path="/api/package[@name='com.google.android.exoplayer.extractor']/class[@name='DefaultTrackOutput']"/>
   <remove-node path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='InitializationChunk']"/>
-  <remove-node path="/api/package[@name='com.google.android.exoplayer.metadata']/class[@name='Id3Parser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]" />
-  <remove-node path="/api/package[@name='com.google.android.exoplayer.metadata']/class[@name='Id3Parser']/method[@name='canParse' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
-  <remove-node path="/api/package[@name='com.google.android.exoplayer.metadata']/class[@name='Id3Parser']" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.metadata.id3']/class[@name='Id3Parser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.metadata.id3']/class[@name='Id3Parser']/method[@name='canParse' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.metadata.id3']/class[@name='Id3Parser']" />
 
   <remove-node path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='WebvttSubtitle']/constructor[@name='WebvttSubtitle' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer.text.webvtt.WebvttCue&gt;']]" />
 

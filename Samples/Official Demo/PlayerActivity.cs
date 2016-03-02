@@ -255,7 +255,7 @@ namespace Com.Google.Android.Exoplayer.Demo
 
 		private VideoPlayer.IRendererBuilder GetRendererBuilder()
 		{
-			var userAgent = Util.Util.GetUserAgent(this, "ExoPlayerDemo");
+			var userAgent = ExoPlayerUtil.GetUserAgent(this, "ExoPlayerDemo");
 			switch (_contentType)
 			{
 				case TypeSs:
@@ -359,7 +359,7 @@ namespace Com.Google.Android.Exoplayer.Demo
 			if (exception != null)
 			{
 				// Special case DRM failures.
-				var stringId = Util.Util.SdkInt < 18
+				var stringId = ExoPlayerUtil.SdkInt < 18
 					? Resource.String.drm_error_not_supported
 					: exception.Reason == UnsupportedDrmException.ReasonUnsupportedScheme
 						? Resource.String.drm_error_unsupported_scheme
@@ -652,7 +652,7 @@ namespace Com.Google.Android.Exoplayer.Demo
 		{
 			CaptionStyleCompat style;
 			float fontScale;
-			if (Util.Util.SdkInt >= 19)
+			if (ExoPlayerUtil.SdkInt >= 19)
 			{
 				style = GetUserCaptionStyleV19();
 				fontScale = GetUserCaptionFontScaleV19();

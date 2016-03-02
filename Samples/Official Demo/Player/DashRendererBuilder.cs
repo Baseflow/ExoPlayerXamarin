@@ -24,6 +24,7 @@ using Com.Google.Android.Exoplayer.Chunk;
 using Com.Google.Android.Exoplayer.Dash;
 using Com.Google.Android.Exoplayer.Dash.Mpd;
 using Com.Google.Android.Exoplayer.Drm;
+using Com.Google.Android.Exoplayer.Extractor;
 using Com.Google.Android.Exoplayer.Text;
 using Com.Google.Android.Exoplayer.Upstream;
 using Com.Google.Android.Exoplayer.Util;
@@ -39,6 +40,7 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 	{
 		private const string Tag = "DashRendererBuilder";
 
+	    private const int EventSourceId = 123456;
 		private const int BufferSegmentSize = 64*1024;
 		private const int VideoBufferSegments = 200;
 		private const int AudioBufferSegments = 54;
@@ -191,7 +193,7 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 				StreamingDrmSessionManager drmSessionManager = null;
 				if (hasContentProtection)
 				{
-					if (Util.Util.SdkInt < 18)
+					if (ExoPlayerUtil.SdkInt < 18)
 					{
 						_player.OnRenderersError(new UnsupportedDrmException(UnsupportedDrmException.ReasonUnsupportedScheme));
 						return;
@@ -210,38 +212,78 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 
 				// Build the video renderer.
 				var videoDataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
-				var videoChunkSource = new DashChunkSource(_manifestFetcher,
-					DefaultDashTrackSelector.NewVideoInstance(_context, true, filterHdContent),
-					videoDataSource, new FormatEvaluatorAdaptiveEvaluator(bandwidthMeter), LiveEdgeLatencyMs,
-					_elapsedRealtimeOffset, mainHandler, _player);
-				var videoSampleSource = new ChunkSampleSource(videoChunkSource, loadControl,
-					VideoBufferSegments*BufferSegmentSize, mainHandler, _player,
-					VideoPlayer.TypeVideo);
-				var videoRenderer = new MediaCodecVideoTrackRenderer(_context, videoSampleSource,
-					(int) VideoScalingMode.ScaleToFit, 5000, drmSessionManager, true,
-					mainHandler, _player, 50);
+				var videoChunkSource = new DashChunkSource(_manifestFetcher
+                    , DefaultDashTrackSelector.NewVideoInstance(_context, true, filterHdContent)
+                    , videoDataSource
+                    , new FormatEvaluatorAdaptiveEvaluator(bandwidthMeter)
+                    , LiveEdgeLatencyMs
+                    , _elapsedRealtimeOffset
+                    , mainHandler
+                    , _player
+                    , EventSourceId);
+				var videoSampleSource = new ChunkSampleSource(videoChunkSource
+                    , loadControl
+                    , VideoBufferSegments*BufferSegmentSize
+                    , mainHandler
+                    , _player
+                    , VideoPlayer.TypeVideo);
+				var videoRenderer = new MediaCodecVideoTrackRenderer(_context
+                    , videoSampleSource
+                    , MediaCodecSelector.Default
+                    , (int) VideoScalingMode.ScaleToFit
+                    , 5000
+                    , drmSessionManager
+                    , true
+                    , mainHandler
+                    , _player
+                    , 50);
 
 				// Build the audio renderer.
 				var audioDataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
-				var audioChunkSource = new DashChunkSource(_manifestFetcher,
-					DefaultDashTrackSelector.NewAudioInstance(), audioDataSource, null, LiveEdgeLatencyMs,
-					_elapsedRealtimeOffset, mainHandler, _player);
-				var audioSampleSource = new ChunkSampleSource(audioChunkSource, loadControl,
-					AudioBufferSegments*BufferSegmentSize, mainHandler, _player,
-					VideoPlayer.TypeAudio);
-				var audioRenderer = new MediaCodecAudioTrackRenderer(audioSampleSource,
-					drmSessionManager, true, mainHandler, _player, AudioCapabilities.GetCapabilities(_context));
+				var audioChunkSource = new DashChunkSource(_manifestFetcher
+                    , DefaultDashTrackSelector.NewAudioInstance()
+                    , audioDataSource
+                    , null
+                    , LiveEdgeLatencyMs
+                    , _elapsedRealtimeOffset
+                    , mainHandler
+                    , _player
+                    , VideoPlayer.TypeAudio);
+				var audioSampleSource = new ChunkSampleSource(audioChunkSource
+                    , loadControl
+                    , AudioBufferSegments*BufferSegmentSize
+                    , mainHandler
+                    , _player
+                    , VideoPlayer.TypeAudio);
+				var audioRenderer = new MediaCodecAudioTrackRenderer(audioSampleSource
+                    , MediaCodecSelector.Default
+                    , drmSessionManager
+                    , true
+                    , mainHandler
+                    , _player
+                    , AudioCapabilities.GetCapabilities(_context)
+                    , (int) Stream.Music);
 
 				// Build the text renderer.
 				var textDataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
-				var textChunkSource = new DashChunkSource(_manifestFetcher,
-					DefaultDashTrackSelector.NewTextInstance(), textDataSource, null, LiveEdgeLatencyMs,
-					_elapsedRealtimeOffset, mainHandler, _player);
-				var textSampleSource = new ChunkSampleSource(textChunkSource, loadControl,
-					TextBufferSegments*BufferSegmentSize, mainHandler, _player,
-					VideoPlayer.TypeText);
-				var textRenderer = new TextTrackRenderer(textSampleSource, _player,
-					mainHandler.Looper);
+				var textChunkSource = new DashChunkSource(_manifestFetcher
+                    , DefaultDashTrackSelector.NewTextInstance()
+                    , textDataSource
+                    , null
+                    , LiveEdgeLatencyMs
+                    , _elapsedRealtimeOffset
+                    , mainHandler
+                    , _player
+                    , VideoPlayer.TypeText);
+				var textSampleSource = new ChunkSampleSource(textChunkSource
+                    , loadControl
+                    , TextBufferSegments*BufferSegmentSize
+                    , mainHandler
+                    , _player
+                    , VideoPlayer.TypeText);
+				var textRenderer = new TextTrackRenderer(textSampleSource
+                    , _player
+                    , mainHandler.Looper);
 
 				// Invoke the callback.
 				var renderers = new TrackRenderer[VideoPlayer.RendererCount];

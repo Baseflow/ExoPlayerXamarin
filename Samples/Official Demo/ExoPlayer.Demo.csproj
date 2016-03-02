@@ -68,11 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ExoPlayer\ExoPlayer.csproj">
-      <Project>{0B871C50-6D5D-45D0-B32D-84E25ADB869A}</Project>
+      <Project>{0b871c50-6d5d-45d0-b32d-84e25adb869a}</Project>
       <Name>ExoPlayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Compile Include="EventLogger.cs" />
     <Compile Include="Player\VideoPlayer.cs" />

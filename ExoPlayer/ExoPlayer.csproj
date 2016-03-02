@@ -50,10 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Additions\" />
-    <Folder Include="Jars\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-r1.5.4.aar" />
+    <LibraryProjectZip Include="Jars\exoplayer-r1.5.6.aar" />
   </ItemGroup>
 </Project>

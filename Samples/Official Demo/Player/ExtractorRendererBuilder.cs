@@ -50,15 +50,29 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 			// Build the video and audio renderers.
 			var bandwidthMeter = new DefaultBandwidthMeter(player.MainHandler, null);
 			var dataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
-			var sampleSource = new ExtractorSampleSource(_uri, dataSource, allocator,
-				BufferSegmentCount*BufferSegmentSize);
-			var videoRenderer = new MediaCodecVideoTrackRenderer(_context,
-				sampleSource, (int) VideoScalingMode.ScaleToFit, 5000, player.MainHandler,
-				player, 50);
-			var audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
-				null, true, player.MainHandler, player, AudioCapabilities.GetCapabilities(_context));
-			var textRenderer = new TextTrackRenderer(sampleSource, player,
-				player.MainHandler.Looper);
+			var sampleSource = new ExtractorSampleSource(_uri
+                , dataSource
+                , allocator
+                , BufferSegmentCount*BufferSegmentSize);
+			var videoRenderer = new MediaCodecVideoTrackRenderer(_context
+                , sampleSource
+                , MediaCodecSelector.Default
+                , (int) VideoScalingMode.ScaleToFit
+                , 5000
+                , player.MainHandler
+                , player
+                , 50);
+			var audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource
+                , MediaCodecSelector.Default
+                , null
+                , true
+                , player.MainHandler
+                , player
+                , AudioCapabilities.GetCapabilities(_context)
+                , (int) Stream.Music);
+			var textRenderer = new TextTrackRenderer(sampleSource
+                , player
+                , player.MainHandler.Looper);
 
 			// Invoke the callback.
 			var renderers = new TrackRenderer[VideoPlayer.RendererCount];
