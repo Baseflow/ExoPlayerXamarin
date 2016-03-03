@@ -17,9 +17,11 @@
 using Android.Content;
 using Android.Media;
 using Android.Net;
+using Android.Net.Rtp;
 using Android.Runtime;
 using Com.Google.Android.Exoplayer;
 using Com.Google.Android.Exoplayer.Audio;
+using Com.Google.Android.Exoplayer.Drm;
 using Com.Google.Android.Exoplayer.Extractor;
 using Com.Google.Android.Exoplayer.Text;
 using Com.Google.Android.Exoplayer.Upstream;
@@ -50,16 +52,17 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 		{
 			var allocator = new DefaultAllocator(BufferSegmentSize);
 
+
 			// Build the video and audio renderers.
 			var bandwidthMeter = new DefaultBandwidthMeter(player.MainHandler, null);
 			var dataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
 			var sampleSource = new ExtractorSampleSource(_uri, dataSource, allocator,
 				BufferSegmentCount*BufferSegmentSize);
 			var videoRenderer = new MediaCodecVideoTrackRenderer(_context,
-				sampleSource, (int) VideoScalingMode.ScaleToFit, 5000, player.MainHandler,
+				sampleSource, MediaCodecSelector.Default, (int) VideoScalingMode.ScaleToFit, 5000, player.MainHandler,
 				player, 50);
-			var audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
-				null, true, player.MainHandler, player, AudioCapabilities.GetCapabilities(_context));
+            var audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
+                MediaCodecSelector.Default, null, true, player.MainHandler, player, AudioCapabilities.GetCapabilities(_context), (int) Stream.Music);
 			var textRenderer = new TextTrackRenderer(sampleSource, player,
 				player.MainHandler.Looper);
 
