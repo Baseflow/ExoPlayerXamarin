@@ -681,7 +681,12 @@ namespace MvvmCross.ExoPlayer.Droid.Player
 
 		public void OnAudioTrackUnderrun (int p0, long p1, long p2)
 		{
-			throw new System.NotImplementedException ();
-		}
-	}
+            // Do nothing.
+        }
+
+        public void OnAvailableRangeChanged(int p0, ITimeRange p1)
+	    {
+            // Do nothing.
+        }
+    }
 }

@@ -36,7 +36,6 @@ using MvvmCross.ExoPlayer.Models;
 using MvvmCross.ExoPlayer.ViewModels;
 using Exception = Java.Lang.Exception;
 using Uri = Android.Net.Uri;
-using MvvmCross.ExoPlayer.ViewModels;
 using MvvmCross.Droid.Views;
 using MvvmCross.Platform.Platform;
 using MvvmCross.Binding.BindingContext;
@@ -338,7 +337,7 @@ namespace MvvmCross.ExoPlayer.Droid
 
 		private MvxVideoPlayer.IRendererBuilder GetRendererBuilder()
 		{
-			var userAgent = Util.GetUserAgent(this, "ExoPlayerDemo");
+			var userAgent = ExoPlayerUtil.GetUserAgent(this, "ExoPlayerDemo");
 			var url = Item.Url;
 			switch (Item.Type)
 			{
@@ -432,7 +431,7 @@ namespace MvvmCross.ExoPlayer.Droid
 			{
 				// TODO
 				// Special case DRM failures.
-				var msg = Util.SdkInt < 18
+				var msg = ExoPlayerUtil.SdkInt < 18
 					? "drm_error_not_supported"
 					: exception.Reason == UnsupportedDrmException.ReasonUnsupportedScheme
 						? "drm_error_unsupported_scheme"
@@ -549,7 +548,7 @@ namespace MvvmCross.ExoPlayer.Droid
 		{
 			CaptionStyleCompat style;
 			float fontScale;
-			if (Util.SdkInt >= 19)
+			if (ExoPlayerUtil.SdkInt >= 19)
 			{
 				style = GetUserCaptionStyleV19();
 				fontScale = GetUserCaptionFontScaleV19();
