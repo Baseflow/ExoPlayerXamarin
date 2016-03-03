@@ -51,7 +51,7 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 		{
 			_context = context;
 			_userAgent = userAgent;
-			_url = Util.Util.ToLowerInvariant(url).EndsWith("/manifest") ? url : url + "/Manifest";
+			_url = ExoPlayerUtil.ToLowerInvariant(url).EndsWith("/manifest") ? url : url + "/Manifest";
 			_drmCallback = drmCallback;
 		}
 
@@ -127,7 +127,7 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 				IDrmSessionManager drmSessionManager = null;
 				if (manifest.ProtectionElement != null)
 				{
-					if (Util.Util.SdkInt < 18)
+					if (ExoPlayerUtil.SdkInt < 18)
 					{
 						_player.OnRenderersError(
 							new UnsupportedDrmException(UnsupportedDrmException.ReasonUnsupportedScheme));
@@ -147,37 +147,66 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 
 				// Build the video renderer.
 				var videoDataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
-				var videoChunkSource = new SmoothStreamingChunkSource(_manifestFetcher,
-					new DefaultSmoothStreamingTrackSelector(_context, SmoothStreamingManifest.StreamElement.TypeVideo),
-					videoDataSource, new FormatEvaluatorAdaptiveEvaluator(bandwidthMeter), LiveEdgeLatencyMs);
-				var videoSampleSource = new ChunkSampleSource(videoChunkSource, loadControl,
-					VideoBufferSegments*BufferSegmentSize, mainHandler, _player,
-					VideoPlayer.TypeVideo);
-				var videoRenderer = new MediaCodecVideoTrackRenderer(_context, videoSampleSource,
-					(int) VideoScalingMode.ScaleToFit, 5000, drmSessionManager, true, mainHandler,
-					_player, 50);
+				var videoChunkSource = new SmoothStreamingChunkSource(_manifestFetcher
+                    , DefaultSmoothStreamingTrackSelector.NewVideoInstance(_context, true, false)
+                    , videoDataSource
+                    , new FormatEvaluatorAdaptiveEvaluator(bandwidthMeter)
+                    , LiveEdgeLatencyMs);
+				var videoSampleSource = new ChunkSampleSource(videoChunkSource
+                    , loadControl
+                    , VideoBufferSegments*BufferSegmentSize
+                    , mainHandler
+                    , _player
+                    , VideoPlayer.TypeVideo);
+				var videoRenderer = new MediaCodecVideoTrackRenderer(_context
+                    , videoSampleSource
+                    , MediaCodecSelector.Default
+                    , (int)VideoScalingMode.ScaleToFit
+                    , 5000
+                    , drmSessionManager
+                    , true
+                    , mainHandler
+                    , _player
+                    , 50);
 
 				// Build the audio renderer.
 				var audioDataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
-				var audioChunkSource = new SmoothStreamingChunkSource(_manifestFetcher,
-					new DefaultSmoothStreamingTrackSelector(_context, SmoothStreamingManifest.StreamElement.TypeAudio),
-					audioDataSource, null, LiveEdgeLatencyMs);
-				var audioSampleSource = new ChunkSampleSource(audioChunkSource, loadControl,
-					AudioBufferSegments*BufferSegmentSize, mainHandler, _player,
-					VideoPlayer.TypeAudio);
-				var audioRenderer = new MediaCodecAudioTrackRenderer(audioSampleSource,
-					drmSessionManager, true, mainHandler, _player, AudioCapabilities.GetCapabilities(_context));
+				var audioChunkSource = new SmoothStreamingChunkSource(_manifestFetcher
+                    , DefaultSmoothStreamingTrackSelector.NewAudioInstance()
+                    , audioDataSource
+                    , null
+                    , LiveEdgeLatencyMs);
+				var audioSampleSource = new ChunkSampleSource(audioChunkSource
+                    , loadControl
+                    , AudioBufferSegments*BufferSegmentSize
+                    , mainHandler
+                    , _player
+                    , VideoPlayer.TypeAudio);
+				var audioRenderer = new MediaCodecAudioTrackRenderer(audioSampleSource
+                    , MediaCodecSelector.Default
+                    , drmSessionManager
+                    , true
+                    , mainHandler
+                    , _player
+                    , AudioCapabilities.GetCapabilities(_context)
+                    , (int) Stream.Music);
 
 				// Build the text renderer.
 				var textDataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
-				var textChunkSource = new SmoothStreamingChunkSource(_manifestFetcher,
-					new DefaultSmoothStreamingTrackSelector(_context, SmoothStreamingManifest.StreamElement.TypeText),
-					textDataSource, null, LiveEdgeLatencyMs);
-				var textSampleSource = new ChunkSampleSource(textChunkSource, loadControl,
-					TextBufferSegments*BufferSegmentSize, mainHandler, _player,
-					VideoPlayer.TypeText);
-				var textRenderer = new TextTrackRenderer(textSampleSource, _player,
-					mainHandler.Looper);
+			    var textChunkSource = new SmoothStreamingChunkSource(_manifestFetcher
+			        , DefaultSmoothStreamingTrackSelector.NewTextInstance()
+                    , textDataSource
+                    , null
+                    , LiveEdgeLatencyMs);
+				var textSampleSource = new ChunkSampleSource(textChunkSource
+                    , loadControl
+                    , TextBufferSegments*BufferSegmentSize
+                    , mainHandler
+                    , _player
+                    , VideoPlayer.TypeText);
+				var textRenderer = new TextTrackRenderer(textSampleSource
+                    , _player
+                    , mainHandler.Looper);
 
 				// Invoke the callback.
 				var renderers = new TrackRenderer[VideoPlayer.RendererCount];

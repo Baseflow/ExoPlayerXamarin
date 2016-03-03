@@ -117,37 +117,39 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 				var mainHandler = _player.MainHandler;
 				var loadControl = new DefaultLoadControl(new DefaultAllocator(BufferSegmentSize));
 				var bandwidthMeter = new DefaultBandwidthMeter();
-
-				int[] variantIndices = null;
-				if (manifest is HlsMasterPlaylist)
-				{
-					var masterPlaylist = (HlsMasterPlaylist) manifest;
-					try
-					{
-						variantIndices = VideoFormatSelectorUtil.SelectVideoFormatsForDefaultDisplay(
-							_context, masterPlaylist.Variants.Cast<IFormatWrapper>().ToList(), null, false);
-					}
-					catch (MediaCodecUtil.DecoderQueryException e)
-					{
-						_player.OnRenderersError(e);
-						return;
-					}
-					if (variantIndices.Length == 0)
-					{
-						_player.OnRenderersError(new IllegalStateException("No variants selected."));
-						return;
-					}
-				}
-
-				var dataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
-				var chunkSource = new HlsChunkSource(dataSource, _url, manifest, bandwidthMeter,
-					variantIndices, HlsChunkSource.AdaptiveModeSplice);
-				var sampleSource = new HlsSampleSource(chunkSource, loadControl,
-					BufferSegments*BufferSegmentSize, mainHandler, _player, VideoPlayer.TypeVideo);
-				var videoRenderer = new MediaCodecVideoTrackRenderer(_context,
-					sampleSource, (int) VideoScalingMode.ScaleToFit, 5000, mainHandler, _player, 50);
-				var audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
-					null, true, _player.MainHandler, _player, AudioCapabilities.GetCapabilities(_context));
+                var timestampAdjusterProvider = new PtsTimestampAdjusterProvider();
+                
+                var dataSource = new DefaultUriDataSource(_context, bandwidthMeter, _userAgent);
+				var chunkSource = new HlsChunkSource(true
+                    , dataSource
+                    , _url
+                    , manifest
+                    , DefaultHlsTrackSelector.NewDefaultInstance(_context)
+                    , bandwidthMeter
+                    , timestampAdjusterProvider
+                    , HlsChunkSource.AdaptiveModeSplice);
+				var sampleSource = new HlsSampleSource(chunkSource
+                    , loadControl
+                    , BufferSegments*BufferSegmentSize
+                    , mainHandler
+                    , _player
+                    , VideoPlayer.TypeVideo);
+				var videoRenderer = new MediaCodecVideoTrackRenderer(_context
+                    , sampleSource
+                    , MediaCodecSelector.Default
+                    , (int) VideoScalingMode.ScaleToFit
+                    , 5000
+                    , mainHandler
+                    , _player
+                    , 50);
+				var audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource
+                    , MediaCodecSelector.Default
+                    , null
+                    , true
+                    , _player.MainHandler
+                    , _player
+                    , AudioCapabilities.GetCapabilities(_context)
+                    , (int) Stream.Music);
 				// TODO: The Id3Parser is currently not part of the binding
 				//MetadataTrackRenderer id3Renderer = new MetadataTrackRenderer(sampleSource, new Id3Parser(), player, mainHandler.getLooper());
 				var closedCaptionRenderer = new Eia608TrackRenderer(sampleSource, _player,

@@ -691,5 +691,10 @@ namespace Com.Google.Android.Exoplayer.Demo.Player
 					_videoRenderer, MediaCodecVideoTrackRenderer.MsgSetSurface, _surface);
 			}
 		}
+
+	    public void OnAvailableRangeChanged(int p0, ITimeRange p1)
+	    {
+            // do nothing
+	    }
 	}
 }
