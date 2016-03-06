@@ -31,6 +31,7 @@ Thanks to
 
 - [Nathan Barger][NathanBarger] for doing the initial porting work
 - [MKuckert](https://github.com/MKuckert) for helping with bindings and samples
+- [bspinner](https://github.com/bspinner) for helping with bindings and samples
 
 License
 =======
