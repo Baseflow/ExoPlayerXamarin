@@ -18,7 +18,7 @@ Documentation
     Android.Net.Uri soundString = Android.Net.Uri.Parse("http://www.montemagno.com/sample.mp3");
     
     FrameworkSampleSource sampleSource = new FrameworkSampleSource(this, soundString, null); 
-    TrackRenderer aRenderer = new MediaCodecAudioTrackRenderer(sampleSource, null, true); 
+    TrackRenderer aRenderer = MediaCodecAudioTrackRenderer(sampleSource, MediaCodecSelector.Default);
     
     mediaPlayer.Prepare(aRenderer);
     mediaPlayer.PlayWhenReady = true;
@@ -31,6 +31,7 @@ Thanks to
 
 - [Nathan Barger][NathanBarger] for doing the initial porting work
 - [MKuckert](https://github.com/MKuckert) for helping with bindings and samples
+- [bspinner](https://github.com/bspinner) for helping with bindings and samples
 
 License
 =======
