@@ -381,16 +381,18 @@ namespace MvvmCross.ExoPlayer.Droid
 
 		private void ReleasePlayer()
 		{
-			if (_player == null)
+			if (_player != null)
 			{
-				return;
+				_playerPosition = _player.CurrentPosition;
+				_player.Release();
+				_player = null;
 			}
 
-			_playerPosition = _player.CurrentPosition;
-			_player.Release();
-			_player = null;
-			_eventLogger.EndSession();
-			_eventLogger = null;
+			if (_eventLogger != null)
+			{
+				_eventLogger.EndSession();
+				_eventLogger = null;
+			}
 		}
 
 		#endregion
