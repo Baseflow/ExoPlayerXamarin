@@ -727,6 +727,7 @@ namespace Com.Google.Android.Exoplayer.Demo
 			public override bool DispatchKeyEvent(KeyEvent ev)
 			{
 				var keyCode = ev.KeyCode;
+				if (_playerControl.CanSeekForward() && (keyCode == Keycode.MediaFastForward || keyCode == Keycode.DpadRight))
 				if (_playerControl.CanSeekForward() && keyCode == Keycode.MediaFastForward)
 				{
 					if (ev.Action == KeyEventActions.Down)
@@ -736,7 +737,7 @@ namespace Com.Google.Android.Exoplayer.Demo
 					}
 					return true;
 				}
-				if (_playerControl.CanSeekBackward() && keyCode == Keycode.MediaRewind)
+				else if (_playerControl.CanSeekBackward() && (keyCode == Keycode.MediaRewind || keyCode == Keycode.DpadLeft))
 				{
 					if (ev.Action == KeyEventActions.Down)
 					{
