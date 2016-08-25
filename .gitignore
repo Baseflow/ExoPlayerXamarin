@@ -196,3 +196,4 @@ FakesAssemblies/
 *.opt
 
 [Rr]esource.[Dd]esigner.cs
+*.bak
