@@ -8,6 +8,7 @@
         <owners>Martijn van Dijk</owners>
         <licenseUrl>https://github.com/martijn00/ExoPlayerXamarin/blob/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/martijn00/ExoPlayerXamarin</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/martijn00/ExoPlayerXamarin/master/icon_exoplayer.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Xamarin bindings for ExoPlayer</description>
         <summary>Xamarin bindings library for the Google ExoPlayer library</summary>
