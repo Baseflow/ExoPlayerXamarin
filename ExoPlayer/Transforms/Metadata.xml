@@ -24,19 +24,19 @@
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/interface[@name='EbmlReader']" name="visibility">internal</attr>-->
  
   <!-- Skipping Com.Google.Android.Exoplayer.Smoothstreaming.SmoothStreamingManifest.ProtectionElement, due to a duplicate field, method or nested type name. -->
-  <attr path="api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifest.ProtectionElement']" name="managedName">SmoothStreamingManifest.SmoothStreamingProtectionElement</attr>
+<!--  <attr path="api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifest.ProtectionElement']" name="managedName">SmoothStreamingManifest.SmoothStreamingProtectionElement</attr>-->
 
   <!-- Binder is attempting to turn some protected methods public -->
-  <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.ProtectionElementParser']/method[@name='build']" name="visibility">protected</attr>
+<!--  <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.ProtectionElementParser']/method[@name='build']" name="visibility">protected</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.SmoothStreamMediaParser']/method[@name='build']" name="visibility">protected</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.StreamElementParser']/method[@name='build']" name="visibility">protected</attr>
-  <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.TrackElementParser']/method[@name='build']" name="visibility">protected</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.TrackElementParser']/method[@name='build']" name="visibility">protected</attr>-->
 
   <!-- Original code was substituting a derived class which the binder does not like for matching the base interface to reset to match -->
-  <attr path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='WebvttParser']/method[@name='parse']" name="return">com.google.android.exoplayer.text.Subtitle</attr>
+<!--  <attr path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='WebvttParser']/method[@name='parse']" name="return">com.google.android.exoplayer.text.Subtitle</attr>-->
 
   <!-- TtmlNode has no declared visibility but needs to be public because TtmlSubtitle exposes it and is public -->
-  <attr path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlNode']" name="visibility">public</attr>
+  <!--<attr path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlNode']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlStyle']" name="visibility">public</attr>
 
   <attr path="/api/package[@name='com.google.android.exoplayer.extractor.webm']/interface[@name='EbmlReaderOutput']" name="visibility">internal</attr>
@@ -60,8 +60,58 @@
 
   <remove-node path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlParser']"/>
   <remove-node path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='Mp4WebvttParser']"/>
+  -->
+	
+	<attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='Chunk']" name="managedName">ExoPlayerChunk</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.util']/class[@name='Util']" name="managedName">ExoPlayerUtil</attr>
 
-  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='Chunk']" name="managedName">ExoPlayerChunk</attr>
-  <attr path="/api/package[@name='com.google.android.exoplayer.util']/class[@name='Util']" name="managedName">ExoPlayerUtil</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2']/
+		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onRenderedFirstFrame']"
+		name="managedName">RenderedFirstFrame2</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2']/
+		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoDisabled']"
+		name="managedName">VideoDisabled2</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2']/
+		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']"
+		name="managedName">VideoSizeChanged2</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.mkv']/interface[@name='EbmlReaderOutput']" name="visibility">internal</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.mp4']/class[@name='TrackSampleTable']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.ts']/class[@name='ElementaryStreamReader']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.mp4']/class[@name='DefaultSampleValues']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.mp4']/class[@name='TrackFragment']" name="visibility">public</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser.ProtectionParser']/method[@name='build' and count(parameter)=0]" name="visibility">protected</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser.QualityLevelParser']/method[@name='build' and count(parameter)=0]" name="visibility">protected</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser.SmoothStreamingMediaParser']/method[@name='build' and count(parameter)=0]" name="visibility">protected</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser.StreamIndexParser']/method[@name='build' and count(parameter)=0]" name="visibility">protected</attr>
+
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createOutputBuffer' and count(parameter)=0]" />
+
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleOutputBuffer']/method[@name='release' and count(parameter)=0]" />
+
+	<attr path="/api/package/class/method[@name='compareTo']/parameter[1]" name="managedType">Java.Lang.Object</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='DrmInitData']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='HttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]" name="return">com.google.android.exoplayer2.upstream.DataSource</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='AdaptiveVideoTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]" name="return">com.google.android.exoplayer2.trackselection.TrackSelection</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='FixedTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]" name="return">com.google.android.exoplayer2.trackselection.TrackSelection</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='RandomTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]" name="return">com.google.android.exoplayer2.trackselection.TrackSelection</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]" name="return">com.google.android.exoplayer2.upstream.DataSource</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]" name="return">com.google.android.exoplayer2.upstream.DataSource</attr>
+<!--	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]" name="return">com.google.android.exoplayer2.upstream.DataSource</attr>-->
 
 </metadata>
