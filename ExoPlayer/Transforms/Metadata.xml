@@ -69,9 +69,9 @@
 		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onRenderedFirstFrame']"
 		name="managedName">RenderedFirstFrame2</attr>
 
-	<attr path="/api/package[@name='com.google.android.exoplayer2']/
+	<!--<attr path="/api/package[@name='com.google.android.exoplayer2']/
 		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoDisabled']"
-		name="managedName">VideoDisabled2</attr>
+		name="managedName">VideoDisabled2</attr>-->
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2']/
 		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']"
@@ -84,14 +84,16 @@
 	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.mp4']/class[@name='DefaultSampleValues']" name="visibility">public</attr>
 	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.mp4']/class[@name='TrackFragment']" name="visibility">public</attr>
 
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']" name="visibility">public</attr>
+	
 	<attr path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser.ProtectionParser']/method[@name='build' and count(parameter)=0]" name="visibility">protected</attr>
 	<attr path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser.QualityLevelParser']/method[@name='build' and count(parameter)=0]" name="visibility">protected</attr>
 	<attr path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser.SmoothStreamingMediaParser']/method[@name='build' and count(parameter)=0]" name="visibility">protected</attr>
 	<attr path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser.StreamIndexParser']/method[@name='build' and count(parameter)=0]" name="visibility">protected</attr>
 
-	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer' and count(parameter)=0]" />
+	<!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer' and count(parameter)=0]" />
 	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createOutputBuffer' and count(parameter)=0]" />
-
+-->
 	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleOutputBuffer']/method[@name='release' and count(parameter)=0]" />
 
 	<attr path="/api/package/class/method[@name='compareTo']/parameter[1]" name="managedType">Java.Lang.Object</attr>
@@ -100,6 +102,7 @@
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
 	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='decode' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]" name="return">java.lang.Object</attr>
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
 
@@ -114,4 +117,8 @@
 	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]" name="return">com.google.android.exoplayer2.upstream.DataSource</attr>
 <!--	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]" name="return">com.google.android.exoplayer2.upstream.DataSource</attr>-->
 
+<!--<attr path="/api/package[@name='com.google.android.exoplayer2.drm']/interface[@name='ExoMediaDrm.OnEventListener']" name="type">java.lang.Object</attr>-->
+
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='Cea608Decoder']/method[@name='decode' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]" />
+	
 </metadata>

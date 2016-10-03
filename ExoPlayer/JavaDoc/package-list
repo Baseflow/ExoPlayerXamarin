@@ -23,7 +23,7 @@ com.google.android.exoplayer2.source.hls.playlist
 com.google.android.exoplayer2.source.smoothstreaming
 com.google.android.exoplayer2.source.smoothstreaming.manifest
 com.google.android.exoplayer2.text
-com.google.android.exoplayer2.text.eia608
+com.google.android.exoplayer2.text.cea
 com.google.android.exoplayer2.text.subrip
 com.google.android.exoplayer2.text.ttml
 com.google.android.exoplayer2.text.tx3g

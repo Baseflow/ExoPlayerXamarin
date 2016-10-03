@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Additions\WebvttDecoder.cs" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\EnumFields.xml" />
@@ -54,9 +55,10 @@
   <ItemGroup>
     <Folder Include="Additions\" />
     <Folder Include="Jars\" />
+    <Folder Include="JavaDoc\" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-r2.0.0.aar" />
+    <LibraryProjectZip Include="Jars\exoplayer-r2.0.1.aar" />
   </ItemGroup>
   <ItemGroup>
     <None Include="JavaDoc\allclasses-frame.html" />
@@ -74,8 +76,16 @@
     <None Include="JavaDoc\stylesheet.css" />
     <None Include="JavaDoc\META-INF\MANIFEST.MF" />
     <None Include="JavaDoc\com\google\android\exoplayer2\BaseRenderer.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\C.BufferFlags.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\C.ContentType.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\C.CryptoMode.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\C.Encoding.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\C.PcmEncoding.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\C.SelectionFlags.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\C.StereoMode.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\C.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\DefaultLoadControl.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\ExoPlaybackException.Type.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\ExoPlaybackException.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\ExoPlayer.EventListener.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\ExoPlayer.ExoPlayerComponent.html" />
@@ -118,6 +128,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\decoder\CryptoInfo.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\decoder\Decoder.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\decoder\DecoderCounters.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\decoder\DecoderInputBuffer.BufferReplacementMode.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\decoder\DecoderInputBuffer.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\decoder\OutputBuffer.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\decoder\SimpleDecoder.html" />
@@ -127,6 +138,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\decoder\package-tree.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\DrmInitData.SchemeData.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\DrmInitData.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\drm\DrmSession.State.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\DrmSession.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\DrmSessionManager.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\ExoMediaCrypto.html" />
@@ -141,6 +153,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\MediaDrmCallback.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\StreamingDrmSessionManager.EventListener.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\StreamingDrmSessionManager.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\drm\UnsupportedDrmException.Reason.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\UnsupportedDrmException.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\package-frame.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\drm\package-summary.html" />
@@ -176,9 +189,11 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp3\package-frame.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp3\package-summary.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp3\package-tree.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp4\FragmentedMp4Extractor.Flags.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp4\FragmentedMp4Extractor.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp4\Mp4Extractor.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp4\PsshAtomUtil.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp4\Track.Transformation.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp4\Track.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp4\TrackEncryptionBox.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\mp4\package-frame.html" />
@@ -194,6 +209,11 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\rawcc\package-tree.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\Ac3Extractor.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\AdtsExtractor.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\DefaultStreamReaderFactory.WorkaroundFlags.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\DefaultStreamReaderFactory.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\ElementaryStreamReader.EsInfo.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\ElementaryStreamReader.Factory.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\ElementaryStreamReader.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\PsExtractor.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\TimestampAdjuster.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\TsExtractor.html" />
@@ -244,6 +264,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\source\MediaPeriod.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\MediaSource.Listener.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\MediaSource.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\source\MergingMediaSource.IllegalMergeException.Reason.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\MergingMediaSource.IllegalMergeException.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\MergingMediaSource.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\SampleStream.html" />
@@ -311,6 +332,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\source\hls\playlist\HlsMasterPlaylist.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\hls\playlist\HlsMediaPlaylist.Segment.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\hls\playlist\HlsMediaPlaylist.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\source\hls\playlist\HlsPlaylist.Type.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\hls\playlist\HlsPlaylist.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\hls\playlist\HlsPlaylistParser.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\hls\playlist\package-frame.html" />
@@ -332,7 +354,10 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\source\smoothstreaming\manifest\package-frame.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\smoothstreaming\manifest\package-summary.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\source\smoothstreaming\manifest\package-tree.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\text\CaptionStyleCompat.EdgeType.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\text\CaptionStyleCompat.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\text\Cue.AnchorType.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\text\Cue.LineType.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\text\Cue.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\text\SimpleSubtitleDecoder.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\text\Subtitle.html" />
@@ -346,10 +371,11 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\text\package-frame.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\text\package-summary.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\text\package-tree.html" />
-    <None Include="JavaDoc\com\google\android\exoplayer2\text\eia608\Eia608Decoder.html" />
-    <None Include="JavaDoc\com\google\android\exoplayer2\text\eia608\package-frame.html" />
-    <None Include="JavaDoc\com\google\android\exoplayer2\text\eia608\package-summary.html" />
-    <None Include="JavaDoc\com\google\android\exoplayer2\text\eia608\package-tree.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\text\cea\Cea608Decoder.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\text\cea\CeaOutputBuffer.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\text\cea\package-frame.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\text\cea\package-summary.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\text\cea\package-tree.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\text\subrip\SubripDecoder.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\text\subrip\package-frame.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\text\subrip\package-summary.html" />
@@ -371,18 +397,19 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\AdaptiveVideoTrackSelection.Factory.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\AdaptiveVideoTrackSelection.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\BaseTrackSelection.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\DefaultTrackSelector.Parameters.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\DefaultTrackSelector.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\FixedTrackSelection.Factory.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\FixedTrackSelection.html" />
-    <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\MappingTrackSelector.EventListener.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\MappingTrackSelector.MappedTrackInfo.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\MappingTrackSelector.SelectionOverride.html" />
-    <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\MappingTrackSelector.TrackInfo.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\MappingTrackSelector.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\RandomTrackSelection.Factory.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\RandomTrackSelection.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\TrackSelection.Factory.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\TrackSelection.html" />
-    <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\TrackSelectionArray.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\TrackSelections.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\TrackSelector.EventListener.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\TrackSelector.InvalidationListener.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\TrackSelector.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\trackselection\package-frame.html" />
@@ -413,6 +440,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\DataSource.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\DataSourceException.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\DataSourceInputStream.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\upstream\DataSpec.Flags.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\DataSpec.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\DefaultAllocator.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\DefaultBandwidthMeter.html" />
@@ -424,6 +452,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\FileDataSource.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\FileDataSourceFactory.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\HttpDataSource.Factory.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\upstream\HttpDataSource.HttpDataSourceException.Type.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\HttpDataSource.HttpDataSourceException.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\HttpDataSource.InvalidContentTypeException.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\HttpDataSource.InvalidResponseCodeException.html" />
@@ -451,6 +480,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\cache\CacheDataSink.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\cache\CacheDataSinkFactory.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\cache\CacheDataSource.EventListener.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\upstream\cache\CacheDataSource.Flags.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\cache\CacheDataSource.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\cache\CacheDataSourceFactory.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\upstream\cache\CacheEvictor.html" />
