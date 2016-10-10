@@ -1,10 +1,8 @@
 ﻿using System;
-namespace ExoPlayer.Additions
+namespace Com.Google.Android.Exoplayer2.Text.Webvtt
 {
-    public class WebvttDecoder
+    public sealed partial class WebvttDecoder : global::Com.Google.Android.Exoplayer2.Text.SimpleSubtitleDecoder
     {
-        public WebvttDecoder()
-        {
-        }
+        
     }
 }

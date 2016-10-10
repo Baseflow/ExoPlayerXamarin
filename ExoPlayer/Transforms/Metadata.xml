@@ -120,5 +120,5 @@
 <!--<attr path="/api/package[@name='com.google.android.exoplayer2.drm']/interface[@name='ExoMediaDrm.OnEventListener']" name="type">java.lang.Object</attr>-->
 
 	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='Cea608Decoder']/method[@name='decode' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]" />
-	
+
 </metadata>

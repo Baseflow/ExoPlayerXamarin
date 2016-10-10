@@ -58,7 +58,7 @@
     <Folder Include="JavaDoc\" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-r2.0.1.aar" />
+    <LibraryProjectZip Include="Jars\exoplayer-r2.0.2.aar" />
   </ItemGroup>
   <ItemGroup>
     <None Include="JavaDoc\allclasses-frame.html" />
@@ -74,7 +74,6 @@
     <None Include="JavaDoc\script.js" />
     <None Include="JavaDoc\serialized-form.html" />
     <None Include="JavaDoc\stylesheet.css" />
-    <None Include="JavaDoc\META-INF\MANIFEST.MF" />
     <None Include="JavaDoc\com\google\android\exoplayer2\BaseRenderer.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\C.BufferFlags.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\C.ContentType.html" />
@@ -173,6 +172,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\PositionHolder.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\SeekMap.Unseekable.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\SeekMap.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\TimestampAdjuster.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\TrackOutput.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\package-frame.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\package-summary.html" />
@@ -215,7 +215,6 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\ElementaryStreamReader.Factory.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\ElementaryStreamReader.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\PsExtractor.html" />
-    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\TimestampAdjuster.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\TsExtractor.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\package-frame.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\package-summary.html" />
@@ -530,6 +529,7 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\video\package-frame.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\video\package-summary.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\video\package-tree.html" />
+    <None Include="JavaDoc\META-INF\MANIFEST.MF" />
   </ItemGroup>
   <ItemGroup>
     <JavaDocIndex Include="JavaDoc\index.html" />
