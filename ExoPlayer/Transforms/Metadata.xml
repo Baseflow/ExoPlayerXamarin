@@ -2,7 +2,7 @@
   <!--<attr path="/api/package[@name='com.google.android.exoplayer.text.webvtt']/class[@name='WebvttParser']/method[@name='parse']" name="managedReturn">Com.Google.Android.Exoplayer.Text.ISubtitle</attr>
   -->
 
-    <!-- Missing internal class required to make ExoPlayer work -->
+  <!-- Missing internal class required to make ExoPlayer work -->
   <!--<attr path="/api/package[@name='com.google.android.exoplayer']/class[@name='ExoPlayerImpl']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer']/class[@name='ExoPlayerImplInternal']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer']/class[@name='MediaClock']" name="visibility">internal</attr>
@@ -22,7 +22,7 @@
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/class[@name='DefaultEbmlReader.MasterElement']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/interface[@name='EbmlEventHandler']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/interface[@name='EbmlReader']" name="visibility">internal</attr>-->
- 
+
   <!-- Skipping Com.Google.Android.Exoplayer.Smoothstreaming.SmoothStreamingManifest.ProtectionElement, due to a duplicate field, method or nested type name. -->
   <attr path="api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifest.ProtectionElement']" name="managedName">SmoothStreamingManifest.SmoothStreamingProtectionElement</attr>
 
@@ -64,4 +64,10 @@
   <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='Chunk']" name="managedName">ExoPlayerChunk</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.util']/class[@name='Util']" name="managedName">ExoPlayerUtil</attr>
 
+  <!-- packaged visibility change - so classes can be generated and consumed by Bindings Library -->
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor.mp4']/class[@name='TrackFragment']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor.mp4']/class[@name='DefaultSampleValues']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.text.ttml']/class[@name='TtmlRegion']" name="visibility">public</attr>
+
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.drm']/class[@name='FrameworkMediaDrm']"/>
 </metadata>
