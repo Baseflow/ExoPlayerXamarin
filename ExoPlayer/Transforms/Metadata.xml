@@ -65,19 +65,7 @@
 	<attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='Chunk']" name="managedName">ExoPlayerChunk</attr>
 	<attr path="/api/package[@name='com.google.android.exoplayer2.util']/class[@name='Util']" name="managedName">ExoPlayerUtil</attr>
 
-	<attr path="/api/package[@name='com.google.android.exoplayer2']/
-		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onRenderedFirstFrame']"
-		name="managedName">RenderedFirstFrame2</attr>
-
-	<!--<attr path="/api/package[@name='com.google.android.exoplayer2']/
-		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoDisabled']"
-		name="managedName">VideoDisabled2</attr>-->
-
-	<attr path="/api/package[@name='com.google.android.exoplayer2']/
-		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']"
-		name="managedName">VideoSizeChanged2</attr>
-
-	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.mkv']/interface[@name='EbmlReaderOutput']" name="visibility">internal</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.extractor.mkv']/interface[@name='EbmlReaderOutput']" name="visibility">internal</attr>
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.mp4']/class[@name='TrackSampleTable']" name="visibility">public</attr>
 	<attr path="/api/package[@name='com.google.android.exoplayer2.extractor.ts']/class[@name='ElementaryStreamReader']" name="visibility">public</attr>
@@ -102,7 +90,6 @@
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
 	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
-	<attr path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='decode' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]" name="return">java.lang.Object</attr>
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
 
@@ -119,6 +106,42 @@
 
 <!--<attr path="/api/package[@name='com.google.android.exoplayer2.drm']/interface[@name='ExoMediaDrm.OnEventListener']" name="type">java.lang.Object</attr>-->
 
-	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='Cea608Decoder']/method[@name='decode' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]" />
+ 
+  <!-- missing override remove-node/addition trick -->
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer' and count(parameter)=0]"/>
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createOutputBuffer' and count(parameter)=0]"/>
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer'] and parameter[2][@type='com.google.android.exoplayer2.text.SubtitleOutputBuffer'] and parameter[3][@type='boolean']]"/>
+  
+  <!-- invalid return type -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
+  
+  <!-- EventHandler same name as interface method conflict resolve -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2']/
+		interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onRenderedFirstFrame']"
+  name="managedName">InvokeOnRenderedFirstFrame</attr>
+  <attr  path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='SimpleExoPlayerView.ComponentListener']/method[@name='onRenderedFirstFrame' and count(parameter)=0]" name="managedName">InvokeOnRenderedFirstFrame</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']"
+     name="managedName">InvokeOnVideoSizeChanged</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='SimpleExoPlayerView.ComponentListener']/method[@name='onVideoSizeChanged' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='float']]" name="managedName">
+    InvokeOnVideoSizeChanged
+  </attr>
+  
+  <!-- SeekMap property + method naming conflict -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkExtractorWrapper.SingleTrackMetadataOutput']/method[@name='seekMap' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.extractor.SeekMap']]" name="managedName">
+    InvokeSeekMap
+  </attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='ContainerMediaChunk']/method[@name='seekMap' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.extractor.SeekMap']]" name="managedName">
+    InvokeSeekMap
+  </attr>
 
+  <!-- packaged visibility failure -->
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttSubtitle']" name="visibility">
+    public
+  </attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripSubtitle']" name="visibility">
+    public
+  </attr>
+
+   
 </metadata>
