@@ -44,7 +44,6 @@
     <Reference Include="Mono.Android" />
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\packages\Xamarin.Android.Support.v4.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -58,22 +57,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-r2.0.2.aar" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="JavaDoc\allclasses-frame.html" />
-    <None Include="JavaDoc\allclasses-noframe.html" />
-    <None Include="JavaDoc\constant-values.html" />
-    <None Include="JavaDoc\deprecated-list.html" />
-    <None Include="JavaDoc\help-doc.html" />
-    <None Include="JavaDoc\index-all.html" />
-    <None Include="JavaDoc\overview-frame.html" />
-    <None Include="JavaDoc\overview-summary.html" />
-    <None Include="JavaDoc\overview-tree.html" />
-    <None Include="JavaDoc\package-list" />
-    <None Include="JavaDoc\script.js" />
-    <None Include="JavaDoc\serialized-form.html" />
-    <None Include="JavaDoc\stylesheet.css" />
+    <None Include="packages.config" />
     <None Include="JavaDoc\com\google\android\exoplayer2\BaseRenderer.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\C.BufferFlags.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\C.ContentType.html" />
@@ -209,10 +193,11 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\rawcc\package-tree.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\Ac3Extractor.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\AdtsExtractor.html" />
-    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\DefaultStreamReaderFactory.WorkaroundFlags.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\DefaultStreamReaderFactory.Flags.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\DefaultStreamReaderFactory.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\ElementaryStreamReader.EsInfo.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\ElementaryStreamReader.Factory.html" />
+    <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\ElementaryStreamReader.TrackIdGenerator.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\ElementaryStreamReader.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\PsExtractor.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\extractor\ts\TsExtractor.html" />
@@ -530,7 +515,26 @@
     <None Include="JavaDoc\com\google\android\exoplayer2\video\package-summary.html" />
     <None Include="JavaDoc\com\google\android\exoplayer2\video\package-tree.html" />
     <None Include="JavaDoc\META-INF\MANIFEST.MF" />
-    <None Include="packages.config" />
+    <None Include="JavaDoc\allclasses-frame.html" />
+    <None Include="JavaDoc\allclasses-noframe.html" />
+    <None Include="JavaDoc\constant-values.html" />
+    <None Include="JavaDoc\deprecated-list.html" />
+    <None Include="JavaDoc\help-doc.html" />
+    <None Include="JavaDoc\index-all.html" />
+    <None Include="JavaDoc\overview-frame.html" />
+    <None Include="JavaDoc\overview-summary.html" />
+    <None Include="JavaDoc\overview-tree.html" />
+    <None Include="JavaDoc\package-list" />
+    <None Include="JavaDoc\script.js" />
+    <None Include="JavaDoc\serialized-form.html" />
+    <None Include="JavaDoc\stylesheet.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Jars\" />
+    <Folder Include="JavaDoc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\exoplayer-r2.0.4.aar" />
   </ItemGroup>
   <ItemGroup>
     <JavaDocIndex Include="JavaDoc\index.html" />
