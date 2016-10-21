@@ -45,7 +45,7 @@ namespace Com.Google.Android.Exoplayer2.Text
 			{
 			}
 		}
-
+        /*
 		static IntPtr id_decode_Lcom_google_android_exoplayer2_text_SubtitleInputBuffer_Lcom_google_android_exoplayer2_text_SubtitleOutputBuffer_Z;
 		// Metadata.xml XPath method reference: path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer'] and parameter[2][@type='com.google.android.exoplayer2.text.SubtitleOutputBuffer'] and parameter[3][@type='boolean']]"
 		[Register("decode", "(Lcom/google/android/exoplayer2/text/SubtitleInputBuffer;Lcom/google/android/exoplayer2/text/SubtitleOutputBuffer;Z)Lcom/google/android/exoplayer2/text/SubtitleDecoderException;", "")]
@@ -65,6 +65,6 @@ namespace Com.Google.Android.Exoplayer2.Text
 			finally
 			{
 			}
-		}
+		}*/
 	}
 }

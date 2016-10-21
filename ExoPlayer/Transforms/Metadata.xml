@@ -88,12 +88,12 @@
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='DrmInitData']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
 
-	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
-	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>
+<!--	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>-->
+<!--	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]" name="return">java.lang.Object</attr>-->
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
 
-	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
+<!--	<attr path="/api/package[@name='com.google.android.exoplayer2.text.eia608']/class[@name='Eia608Decoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]/parameter[1]" name="managedType">Java.Lang.Object</attr>-->
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='HttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]" name="return">com.google.android.exoplayer2.upstream.DataSource</attr>
 
@@ -135,13 +135,17 @@
     InvokeSeekMap
   </attr>
 
-  <!-- packaged visibility failure -->
-  <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttSubtitle']" name="visibility">
-    public
-  </attr>
-  <attr path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripSubtitle']" name="visibility">
-    public
-  </attr>
+	<!-- packaged visibility failure -->
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttSubtitle']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripSubtitle']" name="visibility">public</attr>
 
-   
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='decode' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]" />
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='I'] and parameter[2][@type='O'] and parameter[3][@type='boolean']]" />
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='TrackSelections']" name="visibility">protected</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.metadata.id3']/class[@name='Id3Decoder']/method[@name='decode' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]" name="return">java.lang.Object</attr>
+
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2']/class[@name='SimpleExoPlayer.ComponentListener']/method[@name='onMetadata' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]" />
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2.metadata']/interface[@name='MetadataRenderer.Output']/method[@name='onMetadata' and count(parameter)=1 and parameter[1][@type='T']]" />
 </metadata>

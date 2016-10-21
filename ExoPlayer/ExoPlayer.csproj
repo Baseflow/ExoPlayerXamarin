@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Additions\MissingOverrideAdditions\SimpleSubtitleDecoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Additions\IExoMediaDrmOnEventListener.cs" />
+    <Compile Include="Additions\TrackSelections.cs" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\EnumFields.xml" />
