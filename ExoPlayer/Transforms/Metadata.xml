@@ -144,8 +144,17 @@
 
 	<attr path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='TrackSelections']" name="visibility">protected</attr>
 
-	<attr path="/api/package[@name='com.google.android.exoplayer2.metadata.id3']/class[@name='Id3Decoder']/method[@name='decode' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]" name="return">java.lang.Object</attr>
+<!--	<attr path="/api/package[@name='com.google.android.exoplayer2.metadata.id3']/class[@name='Id3Decoder']/method[@name='decode' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]" name="return">java.lang.Object</attr>-->
 
 	<remove-node path="/api/package[@name='com.google.android.exoplayer2']/class[@name='SimpleExoPlayer.ComponentListener']/method[@name='onMetadata' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]" />
 	<remove-node path="/api/package[@name='com.google.android.exoplayer2.metadata']/interface[@name='MetadataRenderer.Output']/method[@name='onMetadata' and count(parameter)=1 and parameter[1][@type='T']]" />
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.ttml']/class[@name='TtmlSubtitle']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttSubtitle']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttCue']" name="visibility">public</attr>
+
+	<attr path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='queueInputBuffer']/parameter[1]" name="managedType">Java.Lang.Object</attr>
+
+
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='Cea608Decoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]"/>
 </metadata>
