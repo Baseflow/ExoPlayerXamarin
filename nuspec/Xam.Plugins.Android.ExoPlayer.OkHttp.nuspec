@@ -13,6 +13,9 @@
         <description>Xamarin bindings for ExoPlayer OkHttp</description>
         <summary>Xamarin bindings library for the Google ExoPlayer OkHttp extionsion</summary>
         <tags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3, okhttp</tags>
+		<dependencies>
+			<dependency id="Xam.Plugins.Android.ExoPlayer" version="2.1.1" />
+        </dependencies>
     </metadata>
     <files>
         <file src="..\ExoPlayer.OkHttp\bin\Release\ExoPlayer.OkHttp.dll" target="lib\MonoAndroid\ExoPlayer.OkHttp.dll" />
