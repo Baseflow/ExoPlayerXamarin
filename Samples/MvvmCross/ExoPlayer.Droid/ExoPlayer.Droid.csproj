@@ -43,6 +43,14 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExoPlayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Android.ExoPlayer.2.1.1\lib\MonoAndroid\ExoPlayer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExoPlayer.OkHttp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Android.ExoPlayer.OkHttp.2.1.1\lib\MonoAndroid\ExoPlayer.OkHttp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
