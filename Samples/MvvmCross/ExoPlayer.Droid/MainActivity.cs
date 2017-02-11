@@ -1,8 +1,7 @@
 ﻿using Android.App;
-using Android.Widget;
 using Android.OS;
 
-namespace ExoPlayer.Droid
+namespace MvvmCross.ExoPlayer.Droid
 {
     [Activity(Label = "ExoPlayer.Droid", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
