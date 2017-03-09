@@ -8,6 +8,6 @@
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
 
-	<attr path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]" name="return">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-	
+<!--	<attr path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]" name="return">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>-->
+
 </metadata>
