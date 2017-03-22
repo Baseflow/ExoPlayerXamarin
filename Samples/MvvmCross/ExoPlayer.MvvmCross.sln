@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Core", "ExoPlayer.Core\ExoPlayer.Core.csproj", "{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Droid", "ExoPlayer.Droid\ExoPlayer.Droid.csproj", "{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Droid", "ExoPlayer.Droid\ExoPlayer.Droid.csproj", "{E8004014-EA91-44AA-88CE-E159B51245AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,12 @@ Global
 		{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF2EF832-FF56-4342-BB4D-A95C908B3CB7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{702DC8FE-A697-4FB0-B998-0305AE2E1DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8004014-EA91-44AA-88CE-E159B51245AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8004014-EA91-44AA-88CE-E159B51245AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8004014-EA91-44AA-88CE-E159B51245AD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E8004014-EA91-44AA-88CE-E159B51245AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8004014-EA91-44AA-88CE-E159B51245AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8004014-EA91-44AA-88CE-E159B51245AD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -48,7 +48,7 @@ namespace MvvmCross.ExoPlayer.Droid
 	[Activity(
 		Name = "mvvmcross.exoplayer.droid.MvxVideoPlayerActivity",
 		ConfigurationChanges = ConfigChanges.KeyboardHidden | ConfigChanges.Keyboard | ConfigChanges.Orientation | ConfigChanges.ScreenSize,
-		LaunchMode = LaunchMode.SingleInstance
+		LaunchMode = LaunchMode.SingleInstance, MainLauncher = true
 		)]
 	public class MvxVideoPlayerActivity
 		: MvxVideoPlayerActivity<MvxVideoPlayerViewModel>
@@ -129,7 +129,8 @@ namespace MvvmCross.ExoPlayer.Droid
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
-			base.OnCreate(savedInstanceState);
+            if(savedInstanceState!=null)
+			    base.OnCreate(savedInstanceState);
 
 			SetContentView(Resource.Layout.activity_videoplayer);
 			var root = FindViewById(Resource.Id.root);
