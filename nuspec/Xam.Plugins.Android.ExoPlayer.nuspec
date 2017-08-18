@@ -15,6 +15,9 @@
         <tags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</tags>
         <dependencies>
             <dependency id="Xam.Plugins.Android.ExoPlayer.Core" version="2.5.1" />
+            <dependency id="Xam.Plugins.Android.ExoPlayer.Dash" version="2.5.1" />
+            <dependency id="Xam.Plugins.Android.ExoPlayer.Hls" version="2.5.1" />
+            <dependency id="Xam.Plugins.Android.ExoPlayer.SmoothStreaming" version="2.5.1" />
             <dependency id="Xam.Plugins.Android.ExoPlayer.UI" version="2.5.1" />
         </dependencies>
     </metadata>
