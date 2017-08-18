@@ -4,23 +4,16 @@
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='CacheSpan']/method[@name='compareTo']/parameter">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='DrmInitData']/method[@name='compare']/parameter">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleInputBuffer']/method[@name='compareTo']/parameter">java.lang.Object</attr>
-    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsMediaPlaylist.Segment']/method[@name='compareTo']/parameter">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ClippingMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]/parameter">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']/method[@name='compare' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.cache.CacheSpan']]/parameter">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]/parameter">java.lang.Object</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]">java.lang.Object</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]">java.lang.Object</attr>
-    <attr path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='AdaptiveVideoTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]" name="return">com.google.android.exoplayer2.trackselection.TrackSelection</attr>
+
     <attr path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='FixedTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]" name="return">com.google.android.exoplayer2.trackselection.TrackSelection</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='RandomTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]" name="return">com.google.android.exoplayer2.trackselection.TrackSelection</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripDecoder']/method[@name='decode' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.ttml']/class[@name='TtmlDecoder']/method[@name='decode' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttDecoder']/method[@name='decode' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttDecoder']/method[@name='decode' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='int']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
-    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer'] and parameter[2][@type='com.google.android.exoplayer2.text.SubtitleOutputBuffer'] and parameter[3][@type='boolean']]/parameter">java.lang.Object</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer'] and parameter[2][@type='com.google.android.exoplayer2.text.SubtitleOutputBuffer'] and parameter[3][@type='boolean']]">java.lang.Object</attr>
+
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='HttpDataSource.BaseFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='HttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
 
@@ -33,13 +26,6 @@
     <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttCue']" name="visibility">public</attr>
 
     <!-- Rename (naming conflict not resolved correctly, interface method renamed instead of new method) -->
-    <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='InitializationChunk']/method[@name='seekMap' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.extractor.SeekMap']]" name="managedName">
-        SeekMap
-    </attr>
-    <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='InitializationChunk']/method[@name='getSeekMap' and count(parameter)=0]" name="managedName">
-        SeekMapInstance
-    </attr>
-
     <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='ChunkExtractorWrapper']/method[@name='getSeekMap' and count(parameter)=0]" name="managedName">
         SeekMapInstance
     </attr>
@@ -48,11 +34,7 @@
     </attr>
 
     <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onRenderedFirstFrame']" name="managedName">InvokeOnRenderedFirstFrame</attr>
-    <attr path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='SimpleExoPlayerView.ComponentListener']/method[@name='onRenderedFirstFrame' and count(parameter)=0]" name="managedName">InvokeOnRenderedFirstFrame</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']" name="managedName">InvokeOnVideoSizeChanged</attr>
-    <attr path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='SimpleExoPlayerView.ComponentListener']/method[@name='onVideoSizeChanged' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='float']]" name="managedName">
-        InvokeOnVideoSizeChanged
-    </attr>
 
     <!-- Remove method (abstract or interface) already implemented because it uses derived parameters -->
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleOutputBuffer']/method[@name='release' and count(parameter)=0]" />
@@ -78,8 +60,6 @@
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='PriorityDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource</attr>
 
-<!--    <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getPreferredQueueSize' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]/parameter[2]">System.Collections.Generic.IList&lt;Com.Google.Android.Exoplayer2.Source.Chunk.MediaChunk&gt;</attr>-->
-
-<remove-node path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getPreferredQueueSize' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getPreferredQueueSize' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]" />
 	
 </metadata>
