@@ -7,4 +7,7 @@
   This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
+
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>
+	
 </metadata>

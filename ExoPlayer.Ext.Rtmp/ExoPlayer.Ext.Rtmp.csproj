@@ -59,5 +59,11 @@
   <ItemGroup>
     <LibraryProjectZip Include="Jars\extension-rtmp-r2.5.1.aar" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj">
+      <Project>{3CFF9208-5DAB-4377-B7E5-F4407FF5BD46}</Project>
+      <Name>ExoPlayer.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>

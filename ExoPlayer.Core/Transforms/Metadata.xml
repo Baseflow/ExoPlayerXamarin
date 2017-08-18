@@ -77,5 +77,9 @@
 	<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='CacheDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='PriorityDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource</attr>
+
+<!--    <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getPreferredQueueSize' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]/parameter[2]">System.Collections.Generic.IList&lt;Com.Google.Android.Exoplayer2.Source.Chunk.MediaChunk&gt;</attr>-->
+
+<remove-node path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getPreferredQueueSize' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]" />
 	
 </metadata>
