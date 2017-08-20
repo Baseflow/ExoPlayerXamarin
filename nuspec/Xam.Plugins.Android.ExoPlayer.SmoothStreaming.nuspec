@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Xam.Plugins.Android.ExoPlayer.SmoothStreaming</id>
+        <version>2.5.1</version>
+        <title>ExoPlayer SmoothStreaming Extension for Xamarin.Android</title>
+        <authors>Martijn van Dijk</authors>
+        <owners>Martijn van Dijk</owners>
+        <licenseUrl>https://github.com/martijn00/ExoPlayerXamarin/blob/master/LICENSE.md</licenseUrl>
+        <projectUrl>https://github.com/martijn00/ExoPlayerXamarin</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/martijn00/ExoPlayerXamarin/master/icon_exoplayer.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Xamarin bindings for ExoPlayer SmoothStreaming</description>
+        <summary>Xamarin bindings library for the Google ExoPlayer extionsion</summary>
+        <tags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</tags>
+        <dependencies>
+            <dependency id="Xam.Plugins.Android.ExoPlayer.Core" version="2.5.1" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\ExoPlayer.SmoothStreaming\bin\Release\ExoPlayer.SmoothStreaming.dll" target="lib\MonoAndroid\ExoPlayer.SmoothStreaming.dll" />
+        <file src="..\ExoPlayer.SmoothStreaming\bin\Release\ExoPlayer.SmoothStreaming.pdb" target="lib\MonoAndroid\ExoPlayer.SmoothStreaming.pdb" />
+    </files>
+</package>
