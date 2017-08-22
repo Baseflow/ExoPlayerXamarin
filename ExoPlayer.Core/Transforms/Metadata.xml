@@ -42,8 +42,15 @@
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='createInputBuffer' and count(parameter)=0]" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='I'] and parameter[2][@type='O'] and parameter[3][@type='boolean']]"/>
 
-	<remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']" />
-
+<!--	<remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']" />-->
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='REPEAT_MODE_ALL']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='REPEAT_MODE_OFF']" />
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='REPEAT_MODE_ONE']" />
+<!--	<remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='STATE_BUFFERING']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='STATE_ENDED']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='STATE_IDLE']" />
+	<remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='STATE_READY']" />-->
+	
     <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='BaseMediaChunkOutput']" name="visibility">public</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.text.dvb']/class[@name='DvbSubtitle']" name="visibility">public</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.text.ssa']/class[@name='SsaSubtitle']" name="visibility">public</attr>
