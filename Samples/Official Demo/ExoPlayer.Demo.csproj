@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <ReleaseVersion>1.5.4</ReleaseVersion>
+    <ReleaseVersion>2.5.1</ReleaseVersion>
     <AndroidTlsProvider></AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
