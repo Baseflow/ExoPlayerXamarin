@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="InteractiveMediaAds">
+      <HintPath>..\packages\Xam.Plugins.Android.Interactivemedia.Ads.3.7.4\lib\MonoAndroid\InteractiveMediaAds.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -50,6 +53,7 @@
   <ItemGroup>
     <None Include="Additions\AboutAdditions.txt" />
     <None Include="Jars\AboutJars.txt" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\EnumFields.xml" />
