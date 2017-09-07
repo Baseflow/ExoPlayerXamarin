@@ -27,6 +27,7 @@ using Com.Google.Android.Exoplayer2.Util;
 using Java.IO;
 using Java.Lang;
 using Java.Util;
+using Java.Interop;
 
 namespace Com.Google.Android.Exoplayer2.Demo
 {
@@ -81,7 +82,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 						}
 					}
 				}
-				catch (System.Exception e)
+				catch (System.Exception)
 				{
 					Toast.MakeText(ApplicationContext, Resource.String.sample_list_load_error, ToastLength.Long)
 						.Show();
@@ -110,7 +111,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 			StartActivity(sample.buildIntent(this));
 		}
 
-		private sealed class SampleListLoader : AsyncTask<string, Java.Lang.Void, List<SampleGroup>>
+		private sealed class SampleListLoader : AsyncTask<string, Void, List<SampleGroup>>
 		{
 			private bool sawError;
 			private SampleChooserActivity context;
@@ -120,27 +121,27 @@ namespace Com.Google.Android.Exoplayer2.Demo
 				this.context = context;
 			}
 
-			protected override List<SampleGroup> RunInBackground(params string[] uris)
+			protected override List<SampleGroup> RunInBackground(params string[] @params)
 			{
 				var result = new List<SampleGroup>();
 				var userAgent = Util.Util.GetUserAgent(context, "ExoPlayerDemo");
 				var dataSource = new DefaultDataSource(context, null, userAgent, false);
-				foreach (var uri in uris)
+				foreach (var uri in @params)
 				{
 					var dataSpec = new DataSpec(global::Android.Net.Uri.Parse(uri));
 					var inputStream = new DataSourceInputStream(dataSource, dataSpec);
 					var memory = new MemoryStream();
 					var buffer = new byte[1024];
-					while (inputStream.Available() > 0)
+					int read;
+					while ((read = inputStream.Read(buffer)) > 0)
 					{
-						inputStream.Read(buffer);
-						memory.Write(buffer, 0, buffer.Length);
+						memory.Write(buffer, 0, read);
 					}
 					memory.Seek(0, SeekOrigin.Begin);
 
 					try
 					{
-						readSampleGroups(new JsonReader(new InputStreamReader(memory, "UTF-8")), result);
+						ReadSampleGroups(new JsonReader(new InputStreamReader(memory, "UTF-8")), result);
 					}
 					catch (System.Exception e)
 					{
@@ -155,22 +156,29 @@ namespace Com.Google.Android.Exoplayer2.Demo
 				return result;
 			}
 
+			protected override void OnPostExecute(Object result)
+			{
+				base.OnPostExecute(result);
+				// This overload is required so that the following overload is also called?! ¯\_(ツ)_/¯
+			}
+
 			protected override void OnPostExecute(List<SampleGroup> result)
 			{
+				base.OnPostExecute(result);
 				context.onSampleGroups(result, sawError);
 			}
 
-			private void readSampleGroups(JsonReader reader, List<SampleGroup> groups)
+			private void ReadSampleGroups(JsonReader reader, List<SampleGroup> groups)
 			{
 				reader.BeginArray();
 				while (reader.HasNext)
 				{
-					readSampleGroup(reader, groups);
+					ReadSampleGroup(reader, groups);
 				}
 				reader.EndArray();
 			}
 
-			private void readSampleGroup(JsonReader reader, List<SampleGroup> groups)
+			private void ReadSampleGroup(JsonReader reader, List<SampleGroup> groups)
 			{
 				var groupName = "";
 				var samples = new List<Sample>();
@@ -188,7 +196,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 							reader.BeginArray();
 							while (reader.HasNext)
 							{
-								samples.Add(readEntry(reader, false));
+								samples.Add(ReadEntry(reader, false));
 							}
 							reader.EndArray();
 							break;
@@ -201,11 +209,11 @@ namespace Com.Google.Android.Exoplayer2.Demo
 				}
 				reader.EndObject();
 
-				SampleGroup group = getGroup(groupName, groups);
+				SampleGroup group = GetGroup(groupName, groups);
 				group.samples.AddRange(samples);
 			}
 
-			private Sample readEntry(JsonReader reader, bool insidePlaylist)
+			private Sample ReadEntry(JsonReader reader, bool insidePlaylist)
 			{
 				string sampleName = null;
 				string uri = null;
@@ -235,7 +243,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 							break;
 						case "drm_scheme":
 							Assertions.CheckState(!insidePlaylist, "Invalid attribute on nested item: drm_scheme");
-							drmUuid = getDrmUuid(reader.NextString());
+							drmUuid = GetDrmUuid(reader.NextString());
 							break;
 						case "drm_license_url":
 							Assertions.CheckState(!insidePlaylist,
@@ -266,7 +274,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 							reader.BeginArray();
 							while (reader.HasNext)
 							{
-								playlistSamples.Add((UriSample)readEntry(reader, true));
+								playlistSamples.Add((UriSample)ReadEntry(reader, true));
 							}
 							reader.EndArray();
 							break;
@@ -292,7 +300,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 				}
 			}
 
-			private SampleGroup getGroup(string groupName, List<SampleGroup> groups)
+			private SampleGroup GetGroup(string groupName, List<SampleGroup> groups)
 			{
 				for (int i = 0; i < groups.Count; i++)
 				{
@@ -306,7 +314,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 				return group;
 			}
 
-			private UUID getDrmUuid(string typeString)
+			private UUID GetDrmUuid(string typeString)
 			{
 				switch (typeString.ToLowerInvariant())
 				{
@@ -321,7 +329,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 						{
 							return UUID.FromString(typeString);
 						}
-						catch (RuntimeException e)
+						catch (RuntimeException)
 						{
 							throw new ParserException("Unsupported drm type: " + typeString);
 						}
@@ -340,7 +348,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 				this.sampleGroups = sampleGroups;
 			}
 
-			public override Java.Lang.Object GetChild(int groupPosition, int childPosition)
+			public override Object GetChild(int groupPosition, int childPosition)
 			{
 				return sampleGroups[groupPosition].samples[childPosition];
 			}
@@ -368,7 +376,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 				return sampleGroups[groupPosition].samples.Count;
 			}
 
-			public override Java.Lang.Object GetGroup(int groupPosition)
+			public override Object GetGroup(int groupPosition)
 			{
 				return sampleGroups[groupPosition];
 			}
@@ -401,7 +409,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 			}
 		}
 
-		internal sealed class SampleGroup : Java.Lang.Object
+		internal sealed class SampleGroup : Object
 		{
 
 			public readonly string title;
@@ -414,7 +422,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 			}
 		}
 
-		internal abstract class Sample : Java.Lang.Object
+		internal abstract class Sample : Object
 		{
 			public readonly string name;
 			public readonly bool preferExtensionDecoders;

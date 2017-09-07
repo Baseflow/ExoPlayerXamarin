@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
+using System;
 using Android.App;
+using Android.Runtime;
 using Com.Google.Android.Exoplayer2.Upstream;
 using Utils = Com.Google.Android.Exoplayer2.Util.Util;
 
@@ -26,6 +28,14 @@ namespace Com.Google.Android.Exoplayer2.Demo
 	public class DemoApplication : Application
 	{
 		protected string userAgent;
+
+		public DemoApplication(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+		{
+		}
+
+		public DemoApplication()
+		{
+		}
 
 		public override void OnCreate()
 		{

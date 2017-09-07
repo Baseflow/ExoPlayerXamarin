@@ -338,7 +338,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 				{
 					mediaSource = CreateAdsMediaSource(mediaSource, Uri.Parse(adTagUriString));
 				}
-				catch (System.Exception e)
+				catch (System.Exception)
 				{
 					ShowToast(Resource.String.ima_not_loaded);
 				}
