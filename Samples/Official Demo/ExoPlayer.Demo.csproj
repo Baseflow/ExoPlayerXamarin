@@ -7,7 +7,7 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Com.Google.Android.Exoplayer.Demo</RootNamespace>
+    <RootNamespace>Com.Google.Android.Exoplayer2.Demo</RootNamespace>
     <AssemblyName>Com.Google.Android.Exoplayer.Demo</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
@@ -60,35 +60,15 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\values\strings.xml" />
+    <Compile Include="DemoApplication.cs" />
+    <Compile Include="DemoUtil.cs" />
+    <Compile Include="EventLogger.cs" />
+    <Compile Include="PlayerActivity.cs" />
+    <Compile Include="SampleChooserActivity.cs" />
+    <Compile Include="TrackSelectionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="EventLogger.cs" />
-    <Compile Include="Player\VideoPlayer.cs" />
-    <Compile Include="Player\DashRendererBuilder.cs" />
-    <Compile Include="Player\ExtractorRendererBuilder.cs" />
-    <Compile Include="Player\HlsRendererBuilder.cs" />
-    <Compile Include="Player\SmoothStreamingRendererBuilder.cs" />
-    <Compile Include="PlayerActivity.cs" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\layout\player_activity.xml" />
-    <AndroidResource Include="Resources\layout\sample_chooser_activity.xml" />
-    <AndroidResource Include="Resources\layout\sample_chooser_inline_header.xml" />
-    <AndroidResource Include="Resources\values\styles.xml" />
-    <AndroidResource Include="Resources\values\constants.xml" />
-    <Compile Include="SmoothStreamingTestMediaDrmCallback.cs" />
-    <Compile Include="WidevineTestMediaDrmCallback.cs" />
-    <Compile Include="SampleChooserActivity.cs" />
-    <Compile Include="Samples.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ExoPlayer.Core\ExoPlayer.Core.csproj">
@@ -135,6 +115,26 @@
       <Project>{0B871C50-6D5D-45D0-B32D-84E25ADB869A}</Project>
       <Name>ExoPlayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\media.exolist.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_banner.png" />
+    <AndroidResource Include="Resources\layout\list_divider.xml" />
+    <AndroidResource Include="Resources\layout\player_activity.xml" />
+    <AndroidResource Include="Resources\layout\sample_chooser_activity.xml" />
+    <AndroidResource Include="Resources\layout\track_selection_dialog.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
