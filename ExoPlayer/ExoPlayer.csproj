@@ -7,12 +7,12 @@
     <ProjectGuid>{0B871C50-6D5D-45D0-B32D-84E25ADB869A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>ExoPlayer</RootNamespace>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AssemblyName>ExoPlayer</AssemblyName>
     <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
-    <ReleaseVersion>2.5.1</ReleaseVersion>
+    <ReleaseVersion>2.5.2</ReleaseVersion>
     <AndroidTlsProvider>
     </AndroidTlsProvider>
     <AndroidClassParser>class-parse</AndroidClassParser>
@@ -63,9 +63,6 @@
     <Folder Include="Jars\" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-r2.5.1.aar" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj">
       <Project>{3CFF9208-5DAB-4377-B7E5-F4407FF5BD46}</Project>
       <Name>ExoPlayer.Core</Name>
@@ -86,6 +83,9 @@
       <Project>{F9E526F9-5985-478F-BA44-35D82D00DD33}</Project>
       <Name>ExoPlayer.UI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\exoplayer-r2.5.2.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>

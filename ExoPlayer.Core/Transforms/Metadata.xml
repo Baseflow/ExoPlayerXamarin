@@ -36,6 +36,8 @@
     <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onRenderedFirstFrame']" name="managedName">InvokeOnRenderedFirstFrame</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']" name="managedName">InvokeOnVideoSizeChanged</attr>
 
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/class[@name='SimpleExoPlayer']/method[@name='setVideoListener' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.SimpleExoPlayer.VideoListener']]" />
+	
     <!-- Remove method (abstract or interface) already implemented because it uses derived parameters -->
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleOutputBuffer']/method[@name='release' and count(parameter)=0]" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='createOutputBuffer' and count(parameter)=0]" />
