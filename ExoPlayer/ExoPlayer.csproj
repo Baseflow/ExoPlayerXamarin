@@ -12,7 +12,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AssemblyName>ExoPlayer</AssemblyName>
     <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
-    <ReleaseVersion>2.5.2</ReleaseVersion>
+    <ReleaseVersion>2.5.3</ReleaseVersion>
     <AndroidTlsProvider>
     </AndroidTlsProvider>
     <AndroidClassParser>class-parse</AndroidClassParser>
@@ -85,7 +85,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-r2.5.2.aar" />
+    <LibraryProjectZip Include="Jars\exoplayer-r2.5.3.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>
