@@ -58,12 +58,7 @@
       <SubType>Designer</SubType>
     </TransformFile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Jars\" />
-  </ItemGroup>
-  <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-r2.5.1.aar" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj">
       <Project>{3CFF9208-5DAB-4377-B7E5-F4407FF5BD46}</Project>
@@ -87,7 +82,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-r2.5.3.aar" />
+    <None Include="Jars\exoplayer-r2.6.0.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>

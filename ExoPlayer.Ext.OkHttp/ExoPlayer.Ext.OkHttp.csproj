@@ -71,8 +71,5 @@
       <Name>ExoPlayer.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <LibraryProjectZip Include="Jars\extension-okhttp-r2.5.3.aar" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>
