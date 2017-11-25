@@ -20,6 +20,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Text;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Com.Google.Android.Exoplayer2.Drm;
@@ -487,7 +488,17 @@ namespace Com.Google.Android.Exoplayer2.Demo
 			// Do nothing.
 		}
 
-		public void OnPlayerStateChanged(bool playWhenReady, int playbackState)
+        public void OnRepeatModeChanged(int repeatMode)
+		{
+		    // Do nothing.
+		}
+
+        public void OnSeekProcessed()
+	    {
+	        // Do nothing.
+	    }
+
+        public void OnPlayerStateChanged(bool playWhenReady, int playbackState)
 		{
 			if (playbackState == Player.StateEnded)
 			{
@@ -496,28 +507,28 @@ namespace Com.Google.Android.Exoplayer2.Demo
 			UpdateButtonVisibilities();
 		}
 
-		public void OnRepeatModeChanged(int repeatMode)
-		{
-			// Do nothing.
-		}
-
-		public void OnPositionDiscontinuity()
-		{
-			if (inErrorState)
-			{
-				// This will only occur if the user has performed a seek whilst in the error state. Update the
-				// resume position so that if the user then retries, playback will resume from the position to
-				// which they seeked.
-				UpdateResumePosition();
-			}
-		}
+	    public void OnShuffleModeEnabledChanged(bool p0)
+	    {
+	        throw new NotImplementedException();
+	    }
 
 		public void OnPlaybackParametersChanged(PlaybackParameters playbackParameters)
 		{
 			// Do nothing.
 		}
 
-		public void OnTimelineChanged(Timeline timeline, Java.Lang.Object manifest)
+	    public void OnPositionDiscontinuity(int reason)
+	    {
+	        if (inErrorState)
+	        {
+	            // This will only occur if the user has performed a seek whilst in the error state. Update the
+	            // resume position so that if the user then retries, playback will resume from the position to
+	            // which they seeked.
+	            UpdateResumePosition();
+	        }
+	    }
+
+        public void OnTimelineChanged(Timeline timeline, Java.Lang.Object manifest)
 		{
 			// Do nothing.
 		}

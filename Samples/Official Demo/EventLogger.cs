@@ -81,15 +81,25 @@ namespace Com.Google.Android.Exoplayer2.Demo
 				+ getStateString(state) + "]");
 		}
 
-		public void OnRepeatModeChanged(int repeatMode)
+	    public void OnPositionDiscontinuity(int reason)
+	    {
+	        Log.Debug(TAG, "discontinuity [" + getSessionTimeString() + ", " + reason + "]");
+	    }
+
+        public void OnRepeatModeChanged(int repeatMode)
 		{
 			Log.Debug(TAG, "repeatMode [" + getRepeatModeString(repeatMode) + "]");
 		}
 
-		public void OnPositionDiscontinuity()
-		{
-			Log.Debug(TAG, "positionDiscontinuity");
-		}
+	    public void OnSeekProcessed()
+	    {
+	        Log.Debug(TAG, "seek [" + getSessionTimeString() + "]");
+	    }
+
+        public void OnShuffleModeEnabledChanged(bool enabled)
+	    {
+	        Log.Debug(TAG, "shuffle [" + getSessionTimeString() + ", " + enabled + "]");
+	    }
 
 		public void OnPlaybackParametersChanged(PlaybackParameters playbackParameters)
 		{
@@ -227,7 +237,12 @@ namespace Com.Google.Android.Exoplayer2.Demo
 			Log.Debug(TAG, "audioSessionId [" + audioSessionId + "]");
 		}
 
-		public void OnAudioDecoderInitialized(string decoderName, long elapsedRealtimeMs,
+	    public void OnAudioSinkUnderrun(int p0, long p1, long p2)
+	    {
+	        throw new System.NotImplementedException();
+	    }
+
+	    public void OnAudioDecoderInitialized(string decoderName, long elapsedRealtimeMs,
 			long initializationDurationMs)
 		{
 			Log.Debug(TAG, "audioDecoderInitialized [" + getSessionTimeString() + ", " + decoderName + "]");
