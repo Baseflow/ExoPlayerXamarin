@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer", "ExoPlayer\ExoPlayer.csproj", "{0B871C50-6D5D-45D0-B32D-84E25ADB869A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Demo", "Samples\Official Demo\ExoPlayer.Demo.csproj", "{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}"
@@ -36,12 +38,14 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B871C50-6D5D-45D0-B32D-84E25ADB869A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0B871C50-6D5D-45D0-B32D-84E25ADB869A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B871C50-6D5D-45D0-B32D-84E25ADB869A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B871C50-6D5D-45D0-B32D-84E25ADB869A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CFF9208-5DAB-4377-B7E5-F4407FF5BD46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3CFF9208-5DAB-4377-B7E5-F4407FF5BD46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CFF9208-5DAB-4377-B7E5-F4407FF5BD46}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -83,8 +87,8 @@ Global
 		{67FF9C9C-CE2E-42F4-8508-7FA297C69B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67FF9C9C-CE2E-42F4-8508-7FA297C69B0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		version = 2.5.3
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{05CAE29B-694A-4AA9-AC07-F6F2F6B1C857} = {4EF4950F-D0EE-4F8A-90E6-5F7F0B51EC78}
@@ -93,5 +97,11 @@ Global
 		{BBFD892E-1470-426D-ACA1-8F3537B36253} = {B29C2433-CA76-4C51-8427-FA45A3E32FA6}
 		{73D047CF-45E4-4CA9-A9CB-DDA8CB87DF8D} = {B29C2433-CA76-4C51-8427-FA45A3E32FA6}
 		{67FF9C9C-CE2E-42F4-8508-7FA297C69B0F} = {B29C2433-CA76-4C51-8427-FA45A3E32FA6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93536401-D015-479E-B4AC-9BF8F73D507E}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		version = 2.5.1
 	EndGlobalSection
 EndGlobal

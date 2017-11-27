@@ -17,6 +17,7 @@
 using System;
 using Android.App;
 using Android.Runtime;
+using Android.Support.Compat;
 using Com.Google.Android.Exoplayer2.Upstream;
 using Utils = Com.Google.Android.Exoplayer2.Util.Util;
 

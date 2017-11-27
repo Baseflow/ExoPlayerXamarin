@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>ExoPlayer.Ext.Ima</RootNamespace>
     <AssemblyName>ExoPlayer.Ext.Ima</AssemblyName>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
@@ -55,6 +55,7 @@
     <None Include="Additions\AboutAdditions.txt" />
     <None Include="Jars\AboutJars.txt" />
     <None Include="packages.config" />
+    <LibraryProjectZip Include="Jars\extension-ima-2.6.0.aar" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\EnumFields.xml" />
@@ -66,9 +67,6 @@
       <Project>{3CFF9208-5DAB-4377-B7E5-F4407FF5BD46}</Project>
       <Name>ExoPlayer.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <LibraryProjectZip Include="Jars\extension-ima-r2.5.3.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>
