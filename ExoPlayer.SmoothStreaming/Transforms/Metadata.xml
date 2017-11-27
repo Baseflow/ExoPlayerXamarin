@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
 	<!--
   This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
@@ -9,6 +9,11 @@
   -->
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>
+
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getSegments']/parameter[@name='manifest']">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getSegments']/parameter[@name='keys']">java.lang.Object[]</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getAllSegments']/parameter[@name='manifest']">java.lang.Object</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getManifest']">java.lang.Object</attr>
 
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='onLoadCanceled' and count(parameter)=4 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long'] and parameter[4][@type='boolean']]/parameter[1]">Java.Lang.Object</attr>
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='onLoadCompleted' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long']]/parameter[1]">Java.Lang.Object</attr>
