@@ -15,11 +15,13 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <ReleaseVersion>2.5.3</ReleaseVersion>
+    <ReleaseVersion>2.6.0</ReleaseVersion>
     <AndroidTlsProvider></AndroidTlsProvider>
+    <AndroidLinkSkip></AndroidLinkSkip>
+    <AndroidStoreUncompressedFileExtensions></AndroidStoreUncompressedFileExtensions>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,12 +32,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AndroidLinkSkip>
-    </AndroidLinkSkip>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
-    <AndroidStoreUncompressedFileExtensions>
-    </AndroidStoreUncompressedFileExtensions>
     <MandroidI18n>
     </MandroidI18n>
     <Debugger>Xamarin</Debugger>
@@ -146,6 +144,10 @@
     <ProjectReference Include="..\..\ExoPlayer\ExoPlayer.csproj">
       <Project>{0B871C50-6D5D-45D0-B32D-84E25ADB869A}</Project>
       <Name>ExoPlayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Leanback\ExoPlayer.Ext.Leanback.csproj">
+      <Project>{F3ABA70C-567D-4B47-A1F5-C0181038EC26}</Project>
+      <Name>ExoPlayer.Ext.Leanback</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
