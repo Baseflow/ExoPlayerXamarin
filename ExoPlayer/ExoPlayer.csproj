@@ -84,7 +84,7 @@
     <Folder Include="Jars\" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\exoplayer-2.7.0.aar" />
+    <LibraryProjectZip Include="Jars\exoplayer-2.7.2.aar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>
