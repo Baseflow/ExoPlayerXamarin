@@ -36,7 +36,12 @@
     </attr>
 
     <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onRenderedFirstFrame']" name="managedName">InvokeOnRenderedFirstFrame</attr>
-    <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']" name="managedName">InvokeOnVideoSizeChanged</attr>
+<!--    <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']" name="managedName">InvokeOnVideoSizeChanged</attr>-->
+
+    <attr path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoRendererEventListener']/method[@name='onDroppedFrames']" name="managedName">InvokeOnDroppedFrames</attr>
+    
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']" name="managedName">InvokeOnVideoSizeChanged</attr>
+    
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2']/class[@name='SimpleExoPlayer']/method[@name='setVideoListener' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.SimpleExoPlayer.VideoListener']]" />
 	
@@ -85,5 +90,5 @@
     <!-- Those methods mark the whole file invalid. Remove them for now -->
 	<remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='prepareSource']" />
 	<remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='createPeriod']" />
-
+    
 </metadata>

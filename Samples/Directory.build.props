@@ -14,4 +14,8 @@
     <Platform>AnyCPU</Platform>
     <DebugType>full</DebugType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Build.Download" Version="0.4.9" />
+  </ItemGroup>
 </Project>

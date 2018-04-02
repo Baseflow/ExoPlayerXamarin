@@ -20,6 +20,7 @@
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
 
+    <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <Platform>AnyCPU</Platform>
     <DebugType>full</DebugType>
   </PropertyGroup>
