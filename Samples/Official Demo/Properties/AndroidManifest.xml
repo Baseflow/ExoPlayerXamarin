@@ -13,12 +13,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.google.android.exoplayer2.demo" android:versionCode="2501" android:versionName="2.5.1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.google.android.exoplayer2.demo" android:versionCode="2501" android:versionName="2.5.1" android:installLocation="auto">
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-feature android:name="android.software.leanback" android:required="false" />
 	<uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="25" />
+	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
 	<application android:label="@string/application_name" android:icon="@mipmap/ic_launcher" android:banner="@drawable/ic_banner" android:largeHeap="true" android:allowBackup="false" android:name="com.google.android.exoplayer2.demo.DemoApplication">
 		<activity android:name="com.google.android.exoplayer2.demo.SampleChooserActivity" android:configChanges="keyboardHidden" android:label="@string/application_name">
 			<intent-filter>
