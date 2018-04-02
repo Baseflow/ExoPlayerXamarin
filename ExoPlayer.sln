@@ -35,6 +35,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Ext.Leanback", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Ext.Cast", "ExoPlayer.Ext.Cast\ExoPlayer.Ext.Cast.csproj", "{A4DA2B7F-53E4-4CBA-B464-641338CD31AC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{A6160C08-9FE9-4FF5-98F5-2C73DFEEDEA3}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		build.cake = build.cake
+		build.ps1 = build.ps1
+		build.sh = build.sh
+		Directory.build.props = Directory.build.props
+		Directory.build.targets = Directory.build.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

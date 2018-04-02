@@ -1,0 +1,34 @@
+﻿<Project>
+  <PropertyGroup>
+    <Copyright>Copyright (c) Martijn van Dijk</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/martijn00/ExoPlayerXamarin/develop/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/martijn00/ExoPlayerXamarin</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/martijn00/ExoPlayerXamarin/develop/icon_exoplayer.png</PackageIconUrl>
+    <Authors>Martijn van Dijk</Authors>
+    <Owners>martijn00</Owners>
+    <PackageTags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</PackageTags>
+    <PackageReleaseNotes>https://github.com/martijn00/ExoPlayerXamarin</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/martijn00/ExoPlayerXamarin</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Version>2.7.2</Version>
+
+    <LangVersion>latest</LangVersion>
+    <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000</NoWarn>
+    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
+
+    <Platform>AnyCPU</Platform>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.3.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SourceLinkEnabled)' != 'false'">
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.0" PrivateAssets="All" /> 
+  </ItemGroup>
+</Project>
