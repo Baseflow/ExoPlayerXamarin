@@ -4,7 +4,7 @@
     <AssemblyName>ExoPlayer.Ext.Leanback</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Leanback</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Ext.Leanback</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Leanback</PackageId>
     <IsBindingProject>true</IsBindingProject>
     <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
