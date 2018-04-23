@@ -62,10 +62,19 @@ Task("ResolveBuildTools")
     .WithCriteria(() => IsRunningOnWindows())
     .Does(() => 
 {
-    var vsLatest = VSWhereLatest();
+    var vsWhereSettings = new VSWhereLatestSettings
+    {
+        IncludePrerelease = true,
+        Requires = "Component.Xamarin"
+    };
+    
+    var vsLatest = VSWhereLatest(vsWhereSettings);
     msBuildPath = (vsLatest == null)
         ? null
         : vsLatest.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
+
+    if (msBuildPath != null)
+        Information("Found MSBuild at {0}", msBuildPath.ToString());
 });
 
 Task("Restore")
@@ -97,9 +106,26 @@ Task("Build")
         .WithProperty("Version", versionInfo.SemVer)
         .WithProperty("PackageVersion", versionInfo.SemVer)
         .WithProperty("InformationalVersion", versionInfo.InformationalVersion)
-        .WithProperty("NoPackageAnalysis", "True");
+        .WithProperty("NoPackageAnalysis", "True")
+        .WithTarget("Build");
+
+    settings.BinaryLogger = new MSBuildBinaryLogSettings 
+    {
+        Enabled = true,
+        FileName = "log.binlog"
+    };
 
     MSBuild(sln, settings);
+
+    var testItems = GetFiles("./UnitTests/*.UnitTest/*.UnitTest.csproj");
+    foreach(var testItem in testItems)
+    {
+        var name = testItem.GetFilenameWithoutExtension();
+
+        settings.BinaryLogger.FileName = name + ".binlog";
+
+        MSBuild(testItem, settings);
+    }
 });
 
 Task("UnitTest")
@@ -207,7 +233,8 @@ MSBuildSettings GetDefaultBuildSettings()
         Configuration = configuration,
         ToolPath = msBuildPath,
         Verbosity = verbosity,
-        ArgumentCustomization = args => args.Append("/m")
+        ArgumentCustomization = args => args.Append("/m"),
+        ToolVersion = MSBuildToolVersion.VS2017
     };
 
     return settings;

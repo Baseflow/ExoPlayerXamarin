@@ -1,10 +1,12 @@
--
+  -
   branches:
       only:
         - master
         - /release\/.*/
   version: 1.0.{build}
   image: Visual Studio 2017
+  install:
+  - appveyor-retry powershell .\install-android-sdk.ps1
   before_build:
   - cmd: dotnet --info
   environment:
@@ -15,13 +17,17 @@
   - ps: .\build.ps1
   test: off
   cache:
-  - packages -> **\packages.config
+  - '%USERPROFILE%\.nuget\packages -> **\project.json'  # project.json cache
+  on_failure:
+  - ps: Get-ChildItem *.binlog -recurse | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 -
   branches:
       only:
         - develop
   version: 1.0.{build}
   image: Visual Studio 2017
+  install:
+  - appveyor-retry powershell .\install-android-sdk.ps1
   before_build:
   - cmd: dotnet --info
   environment:
@@ -32,4 +38,6 @@
   - ps: .\build.ps1
   test: off
   cache:
-  - packages -> **\packages.config
+  - '%USERPROFILE%\.nuget\packages -> **\project.json'  # project.json cache
+  on_failure:
+  - ps: Get-ChildItem *.binlog -recurse | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
