@@ -1,11 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<!--
-  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
-  
-  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
-  -->
 	<remove-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/interface[@name='ImaAdsLoader.EventListener']" />
+
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean']]">protected</attr>
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
 </metadata>

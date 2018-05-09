@@ -27,5 +27,17 @@
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls']/class[@name='HlsMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls']/class[@name='HlsMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=3 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='android.os.Handler'] and parameter[3][@type='com.google.android.exoplayer2.source.MediaSourceEventListener']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.hls']/class[@name='HlsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean']]">protected</attr>
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.hls']/class[@name='HlsMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloadAction']/method[@name='createDownloader' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.offline.DownloaderConstructorHelper']]">com.google.android.exoplayer2.offline.Downloader</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloadHelper']/method[@name='getRemoveAction' and count(parameter)=1 and parameter[1][@type='byte[]']]">com.google.android.exoplayer2.offline.DownloadAction</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]">com.google.android.exoplayer2.offline.DownloadAction</attr>
+
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloadAction']/method[@name='writeKey']/parameter[2]">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getSegments']/parameter[2]">java.lang.Object</attr>
+
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='RenditionKey']/method[@name='compareTo']/parameter">java.lang.Object</attr>
     
 </metadata>
