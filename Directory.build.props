@@ -26,7 +26,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.3.1" PrivateAssets="All" />
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
     <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="All" />
   </ItemGroup>
 
