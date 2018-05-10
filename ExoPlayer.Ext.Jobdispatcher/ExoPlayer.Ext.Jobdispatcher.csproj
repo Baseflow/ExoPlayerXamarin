@@ -7,7 +7,6 @@
     <PackageId>Xam.Plugins.Android.ExoPlayer.Jobdispatcher</PackageId>
     <IsBindingProject>true</IsBindingProject>
     <EnableDefaultItems>false</EnableDefaultItems>
-    <ReleaseVersion>2.7.0</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +23,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2" />
     <PackageReference Include="Xamarin.Firebase.JobDispatcher" Version="0.7.0-beta1" PrivateAssets="All" />
   </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
