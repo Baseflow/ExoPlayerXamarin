@@ -32,8 +32,8 @@
     <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='ChunkExtractorWrapper']/method[@name='seekMap' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.extractor.SeekMap']]">SeekMap</attr>
 
     <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onRenderedFirstFrame']">InvokeOnRenderedFirstFrame</attr>
-    <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']">InvokeOnVideoSizeChanged</attr>
-    <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']">InvokeOnVideoSizeChanged</attr>
+<!--    <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleExoPlayer.VideoListener']/method[@name='onVideoSizeChanged']">InvokeOnVideoSizeChanged</attr>-->
+
     
 <!--    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onDroppedFrames']" name="managedName">InvokeOnDroppedFrames</attr>-->
 <!--    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioDecoderInitialized']" name="managedName">InvokeOnAudioDecoderInitialized</attr>-->
@@ -107,13 +107,15 @@
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='createUnexpectedDecodeException' and count(parameter)=1 and parameter[1][@type='java.lang.Throwable']]" />
 
-    <attr path="/api/package[@name='com.google.android.exoplayer2.util']/class[@name='EventLogger']/method[@name='onVideoSizeChanged' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='float']]" name="managedName">InvokeOnVideoSizeChanged</attr>
+<!--    <attr path="/api/package[@name='com.google.android.exoplayer2.util']/class[@name='EventLogger']/method[@name='onVideoSizeChanged' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='float']]" name="managedName">InvokeOnVideoSizeChanged</attr>-->
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdPlaybackState.AdGroup']/field[@name='uris']"/>
 
-<!--    <remove-node path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']" />-->
+<!--    <remove-node path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']" />-->
+<!--    <remove-node path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']" />-->
 
+<!--    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']" name="argsType">AuthTwitterErrorEventArgs</attr>-->
+    
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='handlePrepareError' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='java.io.IOException']]"/>
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='setSupportedContentTypes' and count(parameter)=1 and parameter[1][@type='int...']]"/>
 
@@ -138,7 +140,7 @@
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='RenderersFactory']/method[@name='createRenderers' and count(parameter)=6 and parameter[6]]">java.lang.Object</attr>
 
-    <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']">InvokeOnVideoSizeChanged</attr>
+    <attr name="argsType" path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']">VideoRendererSizeChangedEventArgs</attr>
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onVideoSizeChanged']" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioSessionId']" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioUnderrun']" />
@@ -153,5 +155,7 @@
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='disabled' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.decoder.DecoderCounters']]" name="managedName" >InvokeDisabled</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='inputFormatChanged' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.Format']]" name="managedName" >InvokeInputFormatChanged</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='audioTrackUnderrun' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='long'] and parameter[3][@type='long']]" name="managedName" >InvokeAudioTrackUnderrun</attr>
+
+<!--    <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']">InvokeOnVideoSizeChanged</attr>-->
     
 </metadata>
