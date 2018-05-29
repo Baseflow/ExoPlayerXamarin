@@ -145,6 +145,10 @@
       <Project>{f9e526f9-5985-478f-ba44-35d82d00dd33}</Project>
       <Name>ExoPlayer.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Jobdispatcher\ExoPlayer.Ext.Jobdispatcher.csproj">
+      <Project>{5697AC53-B9CD-45B1-8A43-C54EED04E003}</Project>
+      <Name>ExoPlayer.Ext.Jobdispatcher</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

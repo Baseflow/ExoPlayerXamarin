@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<!--
-  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
-  
-  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
-  -->
-
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifestParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getSegments']/parameter[@name='manifest']">java.lang.Object</attr>
-    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getSegments']/parameter[@name='keys']">java.lang.Object[]</attr>
-    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getAllSegments']/parameter[@name='manifest']">java.lang.Object</attr>
+<!--    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getSegments']/parameter[@name='keys']">java.lang.Object[]</attr>-->
+<!--    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getAllSegments']/parameter[@name='manifest']">java.lang.Object</attr>-->
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getManifest']">java.lang.Object</attr>
 
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='onLoadCanceled' and count(parameter)=4 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long'] and parameter[4][@type='boolean']]/parameter[1]">Java.Lang.Object</attr>
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='onLoadCompleted' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long']]/parameter[1]">Java.Lang.Object</attr>
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='onLoadError' and count(parameter)=4 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long'] and parameter[4][@type='java.io.IOException']]/parameter[1]">Java.Lang.Object</attr>
 
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='FilteringSsManifestParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>
+<!--    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='FilteringSsManifestParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>-->
 
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getAllRepresentationKeys' and count(parameter)=0]">java.lang.Object[]</attr>
+<!--    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getAllRepresentationKeys' and count(parameter)=0]">java.lang.Object[]</attr>-->
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=3 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='android.os.Handler'] and parameter[3][@type='com.google.android.exoplayer2.source.MediaSourceEventListener']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
 
@@ -38,5 +30,5 @@
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='StreamKey']/method[@name='compareTo']/parameter">java.lang.Object</attr>
-    
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='TrackKey']/method[@name='compareTo']/parameter">java.lang.Object</attr>
 </metadata>

@@ -30,12 +30,6 @@
     <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='ChunkExtractorWrapper']/method[@name='getSeekMap' and count(parameter)=0]">SeekMapInstance</attr>
     <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='ChunkExtractorWrapper']/method[@name='seekMap' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.extractor.SeekMap']]">SeekMap</attr>
 
-    <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']">InvokeOnVideoSizeChanged</attr>
-    
-<!--    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onDroppedFrames']" name="managedName">InvokeOnDroppedFrames</attr>-->
-<!--    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioDecoderInitialized']" name="managedName">InvokeOnAudioDecoderInitialized</attr>-->
-    
-    
     <remove-node path="/api/package[@name='com.google.android.exoplayer2']/class[@name='SimpleExoPlayer']/method[@name='setVideoListener' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.SimpleExoPlayer.VideoListener']]" />
 	
     <!-- Remove method (abstract or interface) already implemented because it uses derived parameters -->
@@ -99,15 +93,14 @@
 
     <attr path="/api/package[@name='com.google.android.exoplayer2.util']/class[@name='EventLogger']/method[@name='onVideoSizeChanged' and count(parameter)=5 and parameter[1][@type='com.google.android.exoplayer2.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='float']]" name="managedName">InvokeOnVideoSizeChanged</attr>
 
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdPlaybackState.AdGroup']/field[@name='uris']"/>
-
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='enabled' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.decoder.DecoderCounters']]" name="managedName" >InvokeEnabled</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='disabled' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.decoder.DecoderCounters']]" name="managedName" >InvokeDisabled</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='inputFormatChanged' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.Format']]" name="managedName" >InvokeInputFormatChanged</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='audioTrackUnderrun' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='long'] and parameter[3][@type='long']]" name="managedName" >InvokeAudioTrackUnderrun</attr>
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/class[@name='AnalyticsCollector']" />
-
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdPlaybackState.AdGroup']/field[@name='uris']"/>
+    
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='handlePrepareError' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='java.io.IOException']]"/>
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='setSupportedContentTypes' and count(parameter)=1 and parameter[1][@type='int...']]"/>
 
@@ -134,4 +127,22 @@
     
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.offline']/interface[@name='FilterableManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;K&gt;']]" />
+
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='RenderersFactory']/method[@name='createRenderers' and count(parameter)=6 and parameter[6]]">java.lang.Object</attr>
+
+    <attr name="argsType" path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']">VideoRendererSizeChangedEventArgs</attr>
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onVideoSizeChanged']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioSessionId']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioUnderrun']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderInitialized']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderEnabled']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderDisabled']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderInputFormatChanged']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onRenderedFirstFrame']" />
+
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='audioSessionId' and count(parameter)=1 and parameter[1][@type='int']]" name="managedName" >InvokeAudioSessionId</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='enabled' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.decoder.DecoderCounters']]" name="managedName" >InvokeEnabled</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='disabled' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.decoder.DecoderCounters']]" name="managedName" >InvokeDisabled</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='inputFormatChanged' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.Format']]" name="managedName" >InvokeInputFormatChanged</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='audioTrackUnderrun' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='long'] and parameter[3][@type='long']]" name="managedName" >InvokeAudioTrackUnderrun</attr>
 </metadata>
