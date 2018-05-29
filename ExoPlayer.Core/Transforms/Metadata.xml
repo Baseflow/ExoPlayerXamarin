@@ -97,7 +97,7 @@
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='createUnexpectedDecodeException' and count(parameter)=1 and parameter[1][@type='java.lang.Throwable']]" />
 
-    <attr path="/api/package[@name='com.google.android.exoplayer2.util']/class[@name='EventLogger']/method[@name='onVideoSizeChanged' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='float']]" name="managedName">InvokeOnVideoSizeChanged</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.util']/class[@name='EventLogger']/method[@name='onVideoSizeChanged' and count(parameter)=5 and parameter[1][@type='com.google.android.exoplayer2.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='float']]" name="managedName">InvokeOnVideoSizeChanged</attr>
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdPlaybackState.AdGroup']/field[@name='uris']"/>
 
