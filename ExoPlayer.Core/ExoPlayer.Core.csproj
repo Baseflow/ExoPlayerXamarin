@@ -7,7 +7,6 @@
     <PackageId>Xam.Plugins.Android.ExoPlayer.Core</PackageId>
     <IsBindingProject>true</IsBindingProject>
     <EnableDefaultItems>false</EnableDefaultItems>
-    <AndroidClassParser>class-parse</AndroidClassParser>
   </PropertyGroup>
   
   <ItemGroup>
