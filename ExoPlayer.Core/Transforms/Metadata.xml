@@ -114,15 +114,6 @@
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='SingleSampleMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloadAction']/method[@name='writeToStream' and count(parameter)=1 and parameter[1][@type='java.io.DataOutputStream']]">protected</attr>
 
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onVideoSizeChanged']" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioSessionId']" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioUnderrun']" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderInitialized']" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderEnabled']" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderDisabled']" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderInputFormatChanged']" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onRenderedFirstFrame']" />
-
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='ProgressiveDownloadAction']/method[@name='createDownloader' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.offline.DownloaderConstructorHelper']]">com.google.android.exoplayer2.offline.Downloader</attr>
     
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]" />
