@@ -136,4 +136,20 @@
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='disabled' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.decoder.DecoderCounters']]" name="managedName" >InvokeDisabled</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='inputFormatChanged' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.Format']]" name="managedName" >InvokeInputFormatChanged</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='audioTrackUnderrun' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='long'] and parameter[3][@type='long']]" name="managedName" >InvokeAudioTrackUnderrun</attr>
+
+    <!-- remove dupes -->
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoEnabled']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoDisabled']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoInputFormatChanged']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onDroppedFrames']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoDecoderInitialized']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onRenderedFirstFrame']" name="eventName"></attr>
+
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioDecoderInitialized']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioEnabled']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioDisabled']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioInputFormatChanged']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioSessionId']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioSinkUnderrun']" name="eventName"></attr>
 </metadata>
