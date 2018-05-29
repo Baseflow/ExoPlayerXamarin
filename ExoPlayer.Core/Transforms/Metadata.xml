@@ -128,6 +128,12 @@
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloadAction']/method[@name='writeToStream' and count(parameter)=1 and parameter[1][@type='java.io.DataOutputStream']]">protected</attr>
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onVideoSizeChanged']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioSessionId']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioUnderrun']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderInitialized']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderEnabled']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderDisabled']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderInputFormatChanged']" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onRenderedFirstFrame']" />
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource.MediaSourceHolder']/method[@name='compareTo']/parameter">java.lang.Object</attr>
