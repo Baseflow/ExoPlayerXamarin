@@ -24,5 +24,6 @@
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloadAction']/method[@name='writeKey']/parameter[2]">java.lang.Object</attr>
     
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='DashManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.dash.manifest.RepresentationKey&gt;']]">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='DashManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.dash.manifest.RepresentationKey&gt;']]/parameter[1]">System.Collections.IList</attr>
     
 </metadata>

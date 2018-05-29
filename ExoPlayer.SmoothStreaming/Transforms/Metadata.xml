@@ -25,4 +25,8 @@
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='StreamKey']/method[@name='compareTo']/parameter">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='TrackKey']/method[@name='compareTo']/parameter">java.lang.Object</attr>
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.StreamKey&gt;']]">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.StreamKey&gt;']]/parameter[1]">System.Collections.IList</attr>
+    
 </metadata>
