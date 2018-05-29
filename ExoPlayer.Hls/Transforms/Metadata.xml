@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<!--
-  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
-  
-  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
-  -->
-
+    
 	<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsMediaPlaylist.Segment']/method[@name='compareTo']/parameter">java.lang.Object</attr>
-
-    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getSegments']/parameter[@name='manifest']">java.lang.Object</attr>
-    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getSegments']/parameter[@name='keys']">java.lang.Object[]</attr>
-    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getAllSegments']/parameter[@name='manifest']">java.lang.Object</attr>
+    
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getManifest']">java.lang.Object</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getManifest']" name="visibility">public</attr>
 
@@ -21,9 +11,6 @@
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsPlaylistTracker']/method[@name='onLoadError' and count(parameter)=4 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long'] and parameter[4][@type='java.io.IOException']]/parameter[1]">Java.Lang.Object</attr>
 	
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsPlaylistParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>
-
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getAllRepresentationKeys' and count(parameter)=0]">Java.Lang.Object[]</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='FilteringHlsPlaylistParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">Java.Lang.Object</attr>
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls']/class[@name='HlsMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls']/class[@name='HlsMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=3 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='android.os.Handler'] and parameter[3][@type='com.google.android.exoplayer2.source.MediaSourceEventListener']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
