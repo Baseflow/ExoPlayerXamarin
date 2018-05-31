@@ -25,5 +25,10 @@
     
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='DashManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.dash.manifest.RepresentationKey&gt;']]">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='DashManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.dash.manifest.RepresentationKey&gt;']]/parameter[1]">System.Collections.IList</attr>
+
+    <!-- Only in debug mode  -->
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloader']/method[@name='getAllRepresentationKeys' and count(parameter)=0]">Java.Lang.Object[]</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloader']/method[@name='getSegments']/parameter[@name='keys']">java.lang.Object[]</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='FilteringDashManifestParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>
     
 </metadata>

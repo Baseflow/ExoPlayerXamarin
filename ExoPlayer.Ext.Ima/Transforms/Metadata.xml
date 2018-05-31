@@ -2,4 +2,7 @@
 <metadata>
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean']]">protected</attr>
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
+
+    <!-- Only in debug mode  -->
+
 </metadata>

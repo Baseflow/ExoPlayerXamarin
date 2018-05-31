@@ -28,5 +28,10 @@
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.StreamKey&gt;']]">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.StreamKey&gt;']]/parameter[1]">System.Collections.IList</attr>
+
+    <!-- Only in debug mode  -->
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getSegments']/parameter[@name='keys']">java.lang.Object[]</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='FilteringSsManifestParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getAllRepresentationKeys' and count(parameter)=0]">java.lang.Object[]</attr>
     
 </metadata>
