@@ -127,7 +127,9 @@
 
     <!--  Need to remove becayse Java messes up  -->
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/class[@name='AnalyticsCollector']" />
-
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/class[@name='AnalyticsListener.EventTime']" />
+                 
     <!-- Need to remove for AdsLoader -->
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='handlePrepareError' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='java.io.IOException']]" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='setSupportedContentTypes' and count(parameter)=1 and parameter[1][@type='int...']]" />
