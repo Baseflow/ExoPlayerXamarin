@@ -36,6 +36,6 @@
   </PropertyGroup>
   
   <ItemGroup Condition="$(TargetFramework.StartsWith('uap'))">
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.8" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
   </ItemGroup>
 </Project>

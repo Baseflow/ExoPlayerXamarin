@@ -9,17 +9,20 @@
     <PackageTags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</PackageTags>
     <PackageReleaseNotes>https://github.com/martijn00/ExoPlayerXamarin</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	<PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/martijn00/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>2.8.3</Version>
+    <Version>2.8.4</Version>
 
     <LangVersion>latest</LangVersion>
     <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114</NoWarn>
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
-
+	<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+	
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <Platform>AnyCPU</Platform>
     <DebugType>full</DebugType>
@@ -31,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SourceLinkEnabled)' != 'false'">
-    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.1" PrivateAssets="All" /> 
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-62925-02" PrivateAssets="All"/>
   </ItemGroup>
 </Project>
