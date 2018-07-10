@@ -14,8 +14,8 @@ var nuspecDir = new DirectoryPath("./nuspec");
 var nugetPackagesDir = new DirectoryPath("./nuget/packages");
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
-var verbosityArg = Argument("verbosity", "Minimal");
-var verbosity = Verbosity.Minimal;
+var verbosityArg = Argument("verbosity", "Diagnostic");
+var verbosity = Verbosity.Diagnostic;
 
 var isRunningOnAppVeyor = AppVeyor.IsRunningOnAppVeyor;
 GitVersion versionInfo = null;
