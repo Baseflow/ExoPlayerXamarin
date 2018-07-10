@@ -37,5 +37,7 @@
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getSegments']/parameter[@name='keys']">java.lang.Object[]</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getAllRepresentationKeys' and count(parameter)=0]">Java.Lang.Object[]</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='FilteringHlsPlaylistParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">Java.Lang.Object</attr>
-    
+
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.hls']/interface[@name='HlsExtractorFactory']/field[@name='DEFAULT']" />
+  
 </metadata>
