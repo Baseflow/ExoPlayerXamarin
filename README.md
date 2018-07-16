@@ -35,18 +35,20 @@ and extend, and can be updated through Play Store application updates.
 The ExoPlayer plugin is available on [Nuget][Nuget].
 
 ```c#
-protected Com.Google.Android.Exoplayer.IExoPlayer mediaPlayer;
-if (mediaPlayer == null) 
-{ 
-	mediaPlayer = Com.Google.Android.Exoplayer.ExoPlayerFactory.NewInstance(1);
-} 
-Android.Net.Uri soundString = Android.Net.Uri.Parse("http://www.montemagno.com/sample.mp3");
+    SimpleExoPlayer _player;
+    var mediaUri = Android.Net.Uri.Parse("https://ia800806.us.archive.org/15/items/Mp3Playlist_555/AaronNeville-CrazyLove.mp3");
 
-FrameworkSampleSource sampleSource = new FrameworkSampleSource(this, soundString, null); 
-TrackRenderer aRenderer = MediaCodecAudioTrackRenderer(sampleSource, MediaCodecSelector.Default);
+    var userAgent = Util.GetUserAgent(context, "ExoPlayerDemo");
+    var defaultHttpDataSourceFactory = new DefaultHttpDataSourceFactory(userAgent);
+    var defaultDataSourceFactory = new DefaultDataSourceFactory(context, null, defaultHttpDataSourceFactory);
+    var extractorMediaSource = new ExtractorMediaSource(mediaUri, defaultDataSourceFactory, new DefaultExtractorsFactory(), null, null);
+    var defaultBandwidthMeter = new DefaultBandwidthMeter();
+    var adaptiveTrackSelectionFactory = new AdaptiveTrackSelection.Factory(defaultBandwidthMeter);
+    var defaultTrackSelector = new DefaultTrackSelector(adaptiveTrackSelectionFactory);
 
-mediaPlayer.Prepare(aRenderer);
-mediaPlayer.PlayWhenReady = true;
+    _player = ExoPlayerFactory.NewSimpleInstance(context, defaultTrackSelector);
+    _player.Prepare(extractorMediaSource);
+    _player.PlayWhenReady = true;
 ```
 
 See the Exoplayer.Droid sample app for further details.
