@@ -117,6 +117,10 @@
       <Project>{6223c606-24b3-4eb4-a1d0-8fefc0171865}</Project>
       <Name>ExoPlayer.Ext.Ima</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Jobdispatcher\ExoPlayer.Ext.Jobdispatcher.csproj">
+      <Project>{5697ac53-b9cd-45b1-8a43-c54eed04e003}</Project>
+      <Name>ExoPlayer.Ext.Jobdispatcher</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ExoPlayer.Ext.Leanback\ExoPlayer.Ext.Leanback.csproj">
       <Project>{f3aba70c-567d-4b47-a1f5-c0181038ec26}</Project>
       <Name>ExoPlayer.Ext.Leanback</Name>
@@ -144,10 +148,6 @@
     <ProjectReference Include="..\..\ExoPlayer.UI\ExoPlayer.UI.csproj">
       <Project>{f9e526f9-5985-478f-ba44-35d82d00dd33}</Project>
       <Name>ExoPlayer.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.Jobdispatcher\ExoPlayer.Ext.Jobdispatcher.csproj">
-      <Project>{5697AC53-B9CD-45B1-8A43-C54EED04E003}</Project>
-      <Name>ExoPlayer.Ext.Jobdispatcher</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
