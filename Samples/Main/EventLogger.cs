@@ -164,7 +164,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                         {
                             var status = getTrackStatusString(trackSelection, trackGroup, trackIndex);
                             var formatSupport = getFormatSupportString(
-                                mappedTrackInfo.GetTrackFormatSupport(rendererIndex, groupIndex, trackIndex));
+                                mappedTrackInfo.GetTrackSupport(rendererIndex, groupIndex, trackIndex));
 
                             Log.Debug(TAG, "      " + status + " Track:" + trackIndex + ", "
                                 + Format.ToLogString(trackGroup.GetFormat(trackIndex))
@@ -191,7 +191,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 }
             }
             // Log tracks not associated with a renderer.
-            TrackGroupArray unassociatedTrackGroups = mappedTrackInfo.UnassociatedTrackGroups;
+            TrackGroupArray unassociatedTrackGroups = mappedTrackInfo.UnmappedTrackGroups;
             if (unassociatedTrackGroups.Length > 0)
             {
                 Log.Debug(TAG, "  Renderer:None [");
