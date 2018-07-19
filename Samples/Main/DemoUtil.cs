@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -92,7 +92,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
 		private static string buildSampleMimeTypestring(Format format)
 		{
-			return format.SampleMimeType == null ? "" : format.SampleMimeType;
+            return format.SampleMimeType ?? "";
 		}
 	}
 }

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -44,7 +44,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 		private TrackGroupArray trackGroups;
 		private bool[] trackGroupsAdaptive;
 		private bool isDisabled;
-		private MappingTrackSelector.SelectionOverride _override;
+		//private MappingTrackSelector.SelectionOverride _override;
 
 		private CheckedTextView disableView;
 		private CheckedTextView defaultView;
@@ -86,9 +86,10 @@ namespace Com.Google.Android.Exoplayer2.Demo
 								!= RendererCapabilities.AdaptiveNotSupported
 					&& trackGroups.Get(i).Length > 1;
 			}
-			isDisabled = selector.GetRendererDisabled(rendererIndex);
 
-			_override = selector.GetSelectionOverride(rendererIndex, trackGroups);
+			/*isDisabled = selector.GetRendererDisabled(rendererIndex);
+
+			_override = selector.GetSelectionOverride(rendererIndex, trackGroups);*/
 
 			AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 			builder.SetTitle(title)
