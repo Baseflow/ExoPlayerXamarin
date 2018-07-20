@@ -281,7 +281,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 trackKeys = new List<TrackKey>();
                 trackTitles = new ArrayAdapter<string>(builder.Context, android.Resource.Layout.SimpleListItemMultipleChoice);
 
-                representationList = dialogView.FindViewById(Resource.Id.representation_list);
+                representationList = (ListView)dialogView.FindViewById(Resource.Id.representation_list);
                 representationList.ChoiceMode = ChoiceMode.Multiple;
                 representationList.Adapter = trackTitles;
             }
@@ -317,7 +317,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             {
                 Toast.MakeText(
                        downloadTracker.Context.ApplicationContext, Resource.String.download_start_error, ToastLength.Long)
-                    .show();
+                    .Show();
             }
 
             public void OnClick(IDialogInterface dialog, int which)
