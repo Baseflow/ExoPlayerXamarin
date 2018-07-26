@@ -264,7 +264,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 if (mappedTrackInfo != null)
                 {
                     string title = ((Button)view).Text;
-                    int rendererIndex = (int)view.GetTag(1);
+                    int rendererIndex = (int)view.GetTag(view.Id);
                     int rendererType = mappedTrackInfo.GetRendererType(rendererIndex);
                     bool allowAdaptiveSelections =
                         rendererType == C.TrackTypeVideo
@@ -404,7 +404,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 bool preferExtensionDecoders =
                     intent.GetBooleanExtra(PREFER_EXTENSION_DECODERS_EXTRA, false);
                 int extensionRendererMode =
-                    ((DemoApplication)Application).useExtensionRenderers()
+                    ((DemoApplication)Application).UseExtensionRenderers()
                         ? (preferExtensionDecoders ? DefaultRenderersFactory.ExtensionRendererModePrefer
                         : DefaultRenderersFactory.ExtensionRendererModeOn)
                         : DefaultRenderersFactory.ExtensionRendererModeOff;
@@ -520,7 +520,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         private List<object> GetOfflineStreamKeys(android.Net.Uri uri)
         {
-            return ((DemoApplication)Application).getDownloadTracker().GetOfflineStreamKeys(uri);
+            return ((DemoApplication)Application).GetDownloadTracker().GetOfflineStreamKeys(uri);
         }
 
         private DefaultDrmSessionManager BuildDrmSessionManagerV18(UUID uuid, string licenseUrl, string[] keyRequestPropertiesArray, bool multiSession)
@@ -654,7 +654,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
         }
 
-        private class AdMediaSourceFactory : AdsMediaSource.IMediaSourceFactory
+        private class AdMediaSourceFactory : Java.Lang.Object, AdsMediaSource.IMediaSourceFactory
         {
             PlayerActivity activity;
 
@@ -663,16 +663,9 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 this.activity = activity;
             }
 
-            public IntPtr Handle => throw new NotImplementedException();
-
             public IMediaSource CreateMediaSource(android.Net.Uri uri)
             {
                 return activity.BuildMediaSource(uri);
-            }
-
-            public void Dispose()
-            {
-                throw new NotImplementedException();
             }
 
             public int[] GetSupportedTypes()
@@ -719,7 +712,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                             continue;
                     }
                     button.SetText(label);
-                    button.SetTag(1, i);
+                    button.SetTag(button.Id, i);
                     button.SetOnClickListener(this);
                     debugRootView.AddView(button);
                 }
@@ -829,16 +822,9 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
         }
 
-        internal class PlayerErrorMessageProvider : Util.IErrorMessageProvider
+        internal class PlayerErrorMessageProvider : Java.Lang.Object, IErrorMessageProvider
         {
             private Activity activity;
-
-            public IntPtr Handle => throw new NotImplementedException();
-
-            public void Dispose()
-            {
-                throw new NotImplementedException();
-            }
 
             public PlayerErrorMessageProvider(Activity activity)
             {

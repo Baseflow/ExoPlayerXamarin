@@ -39,7 +39,7 @@ using System.Linq;
 
 namespace Com.Google.Android.Exoplayer2.Demo
 {
-    public class DownloadTracker : IListener
+    public class DownloadTracker : Java.Lang.Object, IListener
     {
 
         /** Listens for changes in the tracked downloads. */
@@ -61,8 +61,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         internal Context Context { get { return context; } }
         internal ITrackNameProvider TrackNameProvider { get { return TrackNameProvider; } }
-
-        public IntPtr Handle => throw new NotImplementedException();
 
         public DownloadTracker(
             Context context,
@@ -127,16 +125,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 StartDownloadDialogHelper helper = new StartDownloadDialogHelper(activity, GetDownloadHelper(uri, extension), this, name);
                 helper.Prepare();
             }
-        }
-
-        internal void removeListener(SampleChooserActivity sampleChooserActivity)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void addListener(SampleChooserActivity sampleChooserActivity)
-        {
-            throw new NotImplementedException();
         }
 
         // DownloadManager.Listener
@@ -207,11 +195,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }));
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
         internal void StartDownload(DownloadAction action)
         {
             if (trackedDownloadStates.ContainsKey(action.Uri))
@@ -248,7 +231,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
         }
 
-        internal class StartDownloadDialogHelper : DownloadHelper.ICallback, IDialogInterfaceOnClickListener
+        internal class StartDownloadDialogHelper : Java.Lang.Object, DownloadHelper.ICallback, IDialogInterfaceOnClickListener
         {
 
             private DownloadHelper downloadHelper;
@@ -260,8 +243,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
             private List<TrackKey> trackKeys;
             private ArrayAdapter<string> trackTitles;
             private ListView representationList;
-
-            public IntPtr Handle => throw new NotImplementedException();
 
             public StartDownloadDialogHelper(Activity activity, DownloadHelper downloadHelper, DownloadTracker downloadTracker, string name)
             {
@@ -338,11 +319,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
                     downloadTracker.StartDownload(downloadAction);
                 }
-            }
-
-            public void Dispose()
-            {
-                //Do nothing
             }
         }
     }

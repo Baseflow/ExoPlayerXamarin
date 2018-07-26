@@ -51,7 +51,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <AndroidErrorOnCustomJavaObject>false</AndroidErrorOnCustomJavaObject>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExoPlayer.Core, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExoPlayer.Core\bin\Debug\monoandroid81\ExoPlayer.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
@@ -67,6 +75,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DemoApplication.cs" />
     <Compile Include="PlayerActivity.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="SampleChooserActivity.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,15 +85,14 @@
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
       <Version>27.0.2</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.GooglePlayServices.Gcm">
+      <Version>60.1142.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\media.exolist.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ExoPlayer.Core\ExoPlayer.Core.csproj">
-      <Project>{3cff9208-5dab-4377-b7e5-f4407ff5bd46}</Project>
-      <Name>ExoPlayer.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ExoPlayer.Dash\ExoPlayer.Dash.csproj">
       <Project>{ed6be01e-8554-4bfa-8925-d39afaf789f9}</Project>
       <Name>ExoPlayer.Dash</Name>

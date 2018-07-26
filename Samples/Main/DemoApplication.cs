@@ -26,7 +26,7 @@ using Com.Google.Android.Exoplayer2.Upstream;
 using Com.Google.Android.Exoplayer2.Upstream.Cache;
 using android = Android;
 using Java.IO;
-
+using Android.Runtime;
 
 namespace Com.Google.Android.Exoplayer2.Demo
 {
@@ -55,6 +55,13 @@ namespace Com.Google.Android.Exoplayer2.Demo
         private Offline.DownloadManager downloadManager;
         private DownloadTracker downloadTracker;
 
+        public DemoApplication(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        {
+        }
+
+        public DemoApplication()
+        {
+        }
 
         public override void OnCreate()
         {
@@ -67,7 +74,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
         {
             DefaultDataSourceFactory upstreamFactory = new DefaultDataSourceFactory(this, listener, BuildHttpDataSourceFactory(listener));
 
-            return buildReadOnlyCacheDataSource(upstreamFactory, getDownloadCache());
+            return BuildReadOnlyCacheDataSource(upstreamFactory, GetDownloadCache());
         }
 
         /** Returns a {@link HttpDataSource.Factory}. */
@@ -77,33 +84,34 @@ namespace Com.Google.Android.Exoplayer2.Demo
         }
 
         /** Returns whether extension renderers should be used. */
-        public bool useExtensionRenderers()
+        public bool UseExtensionRenderers()
         {
             return android.Support.Compat.BuildConfig.Flavor.Equals("withExtensions");
         }
 
-        public Offline.DownloadManager getDownloadManager()
+        public Offline.DownloadManager GetDownloadManager()
         {
-            initDownloadManager();
+            InitDownloadManager();
             return downloadManager;
         }
 
-        public DownloadTracker getDownloadTracker()
+        public DownloadTracker GetDownloadTracker()
         {
-            initDownloadManager();
+            InitDownloadManager();
             return downloadTracker;
+
         }
 
-        object _lock;
+        private readonly object _lock = new object();
 
-        private void initDownloadManager()
+        private void InitDownloadManager()
         {
             lock (_lock)
             {
                 if (downloadManager == null)
                 {
                     DownloaderConstructorHelper downloaderConstructorHelper = new DownloaderConstructorHelper(
-                        getDownloadCache(),
+                        GetDownloadCache(),
                         BuildHttpDataSourceFactory(/* listener= */ null));
 
                     downloadManager =
@@ -111,27 +119,27 @@ namespace Com.Google.Android.Exoplayer2.Demo
                             downloaderConstructorHelper,
                             MAX_SIMULTANEOUS_DOWNLOADS,
                             Offline.DownloadManager.DefaultMinRetryCount,
-                            new File(getDownloadDirectory(), DOWNLOAD_ACTION_FILE),
+                            new File(GetDownloadDirectory(), DOWNLOAD_ACTION_FILE),
                             DOWNLOAD_DESERIALIZERS);
 
                     downloadTracker =
                         new DownloadTracker(
                             /* context= */ this,
                             BuildDataSourceFactory(/* listener= */ null),
-                            new File(getDownloadDirectory(), DOWNLOAD_TRACKER_ACTION_FILE),
+                            new File(GetDownloadDirectory(), DOWNLOAD_TRACKER_ACTION_FILE),
                             DOWNLOAD_DESERIALIZERS);
                     downloadManager.AddListener(downloadTracker);
                 }
             }
         }
 
-        private ICache getDownloadCache()
+        private ICache GetDownloadCache()
         {
             lock (_lock)
             {
                 if (downloadCache == null)
                 {
-                    File downloadContentDirectory = new File(getDownloadDirectory(), DOWNLOAD_CONTENT_DIRECTORY);
+                    File downloadContentDirectory = new File(GetDownloadDirectory(), DOWNLOAD_CONTENT_DIRECTORY);
                     downloadCache = new SimpleCache(downloadContentDirectory, new NoOpCacheEvictor());
                 }
             }
@@ -139,7 +147,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         }
 
-        private File getDownloadDirectory()
+        private File GetDownloadDirectory()
         {
             if (downloadDirectory == null)
             {
@@ -152,7 +160,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             return downloadDirectory;
         }
 
-        private static CacheDataSourceFactory buildReadOnlyCacheDataSource(
+        private static CacheDataSourceFactory BuildReadOnlyCacheDataSource(
             DefaultDataSourceFactory upstreamFactory, ICache cache)
         {
             return new CacheDataSourceFactory(

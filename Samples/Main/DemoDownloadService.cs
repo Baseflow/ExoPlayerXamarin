@@ -16,6 +16,7 @@
 
 using System.Collections.Generic;
 using Android.App;
+using Android.Util;
 using Com.Google.Android.Exoplayer2.Offline;
 using Com.Google.Android.Exoplayer2.Scheduler;
 using Com.Google.Android.Exoplayer2.UI;
@@ -38,7 +39,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
         {
             get
             {
-                return ((DemoApplication)Application).getDownloadManager();
+                return ((DemoApplication)Application).GetDownloadManager();
             }
         }
 
@@ -58,10 +59,15 @@ namespace Com.Google.Android.Exoplayer2.Demo
         {
         }
 
+        public override void OnCreate()
+        {
+            base.OnCreate();
+            Log.Debug("DemoDownloadService", "Service started.");
+        }
 
         protected Offline.DownloadManager GetDownloadManager()
         {
-            return ((DemoApplication)Application).getDownloadManager();
+            return ((DemoApplication)Application).GetDownloadManager();
         }
 
 

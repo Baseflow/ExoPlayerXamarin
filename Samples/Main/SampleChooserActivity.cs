@@ -26,13 +26,9 @@ using Com.Google.Android.Exoplayer2.Upstream;
 using Com.Google.Android.Exoplayer2.Util;
 using Java.IO;
 using Java.Lang;
-using Java.Util;
-using Java.Interop;
 using Utils = Com.Google.Android.Exoplayer2.Util.Util;
-using android = Android;
-using Android.Net;
 using Android.Graphics;
-using System;
+using android = Android;
 using Android.Content.Res;
 
 namespace Com.Google.Android.Exoplayer2.Demo
@@ -45,7 +41,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         private DownloadTracker downloadTracker;
         private SampleAdapter sampleAdapter;
-
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -86,7 +81,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 uris = uriList.ToArray();
             }
 
-            downloadTracker = ((DemoApplication)Application).getDownloadTracker();
+            downloadTracker = ((DemoApplication)Application).GetDownloadTracker();
             SampleListLoader loaderTask = new SampleListLoader(this);
             loaderTask.Execute(uris);
 
@@ -106,20 +101,20 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         protected override void OnStart()
         {
+            downloadTracker.AddListener(this);
+            sampleAdapter.NotifyDataSetChanged();
             base.OnStart();
-            downloadTracker.addListener(this);
-            sampleAdapter.notifyDataSetChanged();
         }
 
         protected override void OnStop()
         {
-            downloadTracker.removeListener(this);
+            downloadTracker.RemoveListener(this);
             base.OnStop();
         }
 
         public void OnDownloadsChanged()
         {
-            sampleAdapter.notifyDataSetChanged();
+            sampleAdapter.NotifyDataSetChanged();
         }
 
         private void OnSampleGroups(List<SampleGroup> groups, bool sawError)
@@ -135,7 +130,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         public bool OnChildClick(ExpandableListView parent, View view, int groupPosition, int childPosition, long id)
         {
-            Sample sample = (Sample)view.GetTag(1);
+            Sample sample = (Sample)view.GetTag(view.Id);
             StartActivity(sample.BuildIntent(this));
             return true;
         }
@@ -217,7 +212,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                     {
                         ReadSampleGroups(new JsonReader(new InputStreamReader(memory, "UTF-8")), result);
                     }
-                    catch (Java.Lang.Exception e)
+                    catch (Exception e)
                     {
                         Log.Error(TAG, "Error loading sample list: " + uri, e);
                         sawError = true;
@@ -227,12 +222,19 @@ namespace Com.Google.Android.Exoplayer2.Demo
                         Utils.CloseQuietly(dataSource);
                     }
                 }
+
                 return result;
             }
 
+            protected override void OnPostExecute(Object result)
+            {
+                base.OnPostExecute(result);
+                // This overload is required so that the following overload is also called?! ¯\_(ツ)_/¯
+            }
 
             protected override void OnPostExecute(List<SampleGroup> result)
             {
+                base.OnPostExecute(result);
                 activity.OnSampleGroups(result, sawError);
             }
 
@@ -410,7 +412,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             public void SetSampleGroups(List<SampleGroup> sampleGroups)
             {
                 this.sampleGroups = sampleGroups;
-                notifyDataSetChanged();
+                NotifyDataSetChanged();
             }
 
 
@@ -433,11 +435,13 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 if (view == null)
                 {
                     view = activity.LayoutInflater.Inflate(Resource.Layout.sample_list_item, parent, false);
-                    View downloadButton = view.FindViewById(Resource.Id.download_button);
+                    ImageView downloadButton = (ImageView)view.FindViewById(Resource.Id.download_button);
                     downloadButton.SetOnClickListener(this);
-                    downloadButton.SetFocusable(ViewFocusability.NotFocusable);
+                    //downloadButton.SetFocusable(ViewFocusability.NotFocusable);
+
+                    downloadButton.Focusable = false;
                 }
-                initializeChildView(view, (Sample)GetChild(groupPosition, childPosition));
+                InitializeChildView(view, (Sample)GetChild(groupPosition, childPosition));
                 return view;
             }
 
@@ -448,7 +452,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
 
 
-            public override Java.Lang.Object GetGroup(int groupPosition)
+            public override Object GetGroup(int groupPosition)
             {
                 return sampleGroups[groupPosition];
             }
@@ -467,7 +471,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 if (view == null)
                 {
                     view =
-                        activity.LayoutInflater.Inflate(android.Resource.Layout.simple_expandable_list_item_1, parent, false);
+                        activity.LayoutInflater.Inflate(android.Resource.Layout.SimpleExpandableListItem1, parent, false);
                 }
               ((TextView)view).SetText(((SampleGroup)GetGroup(groupPosition)).title, TextView.BufferType.Normal);
                 return view;
@@ -497,30 +501,24 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 return true;
             }
 
-
             public void OnClick(View view)
             {
-                activity.OnSampleDownloadButtonClicked((Sample)view.GetTag(1));
+                activity.OnSampleDownloadButtonClicked((Sample)view.GetTag(view.Id));
             }
 
-            private void initializeChildView(View view, Sample sample)
+            private void InitializeChildView(View view, Sample sample)
             {
-                view.SetTag(1, sample);
-                TextView sampleTitle = view.FindViewById(Resource.Id.sample_title);
+                view.SetTag(view.Id, sample);
+                TextView sampleTitle = (TextView)view.FindViewById(Resource.Id.sample_title);
                 sampleTitle.SetText(sample.name, TextView.BufferType.Normal);
 
                 bool canDownload = activity.GetDownloadUnsupportedstringId(sample) == 0;
                 bool isDownloaded = canDownload && activity.downloadTracker.IsDownloaded(((UriSample)sample).uri);
-                ImageButton downloadButton = view.FindViewById(Resource.Id.download_button);
-                downloadButton.SetTag(1, sample);
-                downloadButton.SetColorFilter(Color.ParseColor(canDownload ? (isDownloaded ? "FF42A5F5" : "FFBDBDBD") : "FFEEEEEE"));
+                ImageButton downloadButton = (ImageButton)view.FindViewById(Resource.Id.download_button);
+                downloadButton.SetTag(downloadButton.Id, sample);
+                downloadButton.SetColorFilter(new Color((canDownload ? (isDownloaded ? int.Parse("FF42A5F5", System.Globalization.NumberStyles.HexNumber) : int.Parse("FFBDBDBD", System.Globalization.NumberStyles.HexNumber)) : int.Parse("FFEEEEEE", System.Globalization.NumberStyles.HexNumber))));
                 downloadButton.SetImageResource(
                     isDownloaded ? Resource.Drawable.ic_download_done : Resource.Drawable.ic_download);
-            }
-
-            internal void notifyDataSetChanged()
-            {
-                throw new NotImplementedException();
             }
         }
 
