@@ -7,6 +7,7 @@
     <PackageId>Xam.Plugins.Android.ExoPlayer.Core</PackageId>
     <IsBindingProject>true</IsBindingProject>
     <EnableDefaultItems>false</EnableDefaultItems>
+    <!--<AndroidClassParser>class-parse</AndroidClassParser>-->
   </PropertyGroup>
   
   <ItemGroup>
@@ -19,6 +20,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <None Remove="Additions\DownloadService.cs" />
     <None Remove="Additions\IAnalyticsListener.cs" />
   </ItemGroup>
   

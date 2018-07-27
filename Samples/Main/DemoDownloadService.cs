@@ -16,6 +16,8 @@
 
 using System.Collections.Generic;
 using Android.App;
+using Android.Content;
+using Android.OS;
 using Android.Util;
 using Com.Google.Android.Exoplayer2.Offline;
 using Com.Google.Android.Exoplayer2.Scheduler;
@@ -25,15 +27,18 @@ using static Com.Google.Android.Exoplayer2.Offline.DownloadManager;
 using Utils = Com.Google.Android.Exoplayer2.Util.Util;
 
 
+
 namespace Com.Google.Android.Exoplayer2.Demo
 {
     /** A service for downloading media. */
+    [Service(Exported = false, Name = "com.google.android.exoplayer2.demo.DemoDownloadService")]
+    [IntentFilter(actions: new string[] { "com.google.android.exoplayer.downloadService.action.INIT" }, Categories = new string[] { "android.intent.category.DEFAULT" })]
     public class DemoDownloadService : DownloadService
     {
 
-        private static readonly string CHANNEL_ID = "download_channel";
+        public static readonly string CHANNEL_ID = "download_channel";
         private static readonly int JOB_ID = 1;
-        private static readonly int FOREGROUND_NOTIFICATION_ID = 1;
+        public static readonly int FOREGROUND_NOTIFICATION_ID = 1;
 
         protected override Offline.DownloadManager DownloadManager
         {
@@ -51,12 +56,26 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
         }
 
-        public DemoDownloadService() : base(
-            FOREGROUND_NOTIFICATION_ID,
-            DefaultForegroundNotificationUpdateInterval,
-            CHANNEL_ID,
-            Resource.String.exo_download_notification_channel_name)
+        public override IBinder OnBind(Intent intent)
         {
+            // Return null because this is a pure started service. A hybrid service would return a binder that would
+            return null;
+        }
+
+        public DemoDownloadService()
+        {
+            //this.foregroundNotificationUpdater = DownloadService.ForegroundNotificationUpdater(foregroundNotificationId, foregroundNotificationUpdateInterval);
+
+            Log.Debug("DemoDownloadService", "Service created.");
+        }
+
+        public DemoDownloadService()
+        {
+            super(
+                FOREGROUND_NOTIFICATION_ID,
+                DEFAULT_FOREGROUND_NOTIFICATION_UPDATE_INTERVAL,
+                CHANNEL_ID,
+                R.string.exo_download_notification_channel_name);
         }
 
         public override void OnCreate()
@@ -70,12 +89,10 @@ namespace Com.Google.Android.Exoplayer2.Demo
             return ((DemoApplication)Application).GetDownloadManager();
         }
 
-
         protected PlatformScheduler GetScheduler()
         {
             return Utils.SdkInt >= 21 ? new PlatformScheduler(this, JOB_ID) : null;
         }
-
 
         protected override Notification GetForegroundNotification(TaskState[] taskStates)
         {
@@ -87,7 +104,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 /* message= */ null,
                 taskStates);
         }
-
 
         protected override void OnTaskStateChanged(TaskState taskState)
         {
@@ -120,5 +136,4 @@ namespace Com.Google.Android.Exoplayer2.Demo
             NotificationUtil.SetNotification(this, notificationId, notification);
         }
     }
-
 }

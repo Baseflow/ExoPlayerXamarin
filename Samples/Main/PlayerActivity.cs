@@ -307,8 +307,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 android.Net.Uri[] uris;
                 string[] extensions;
 
-                eventLogger = new EventLogger(trackSelector);
-
                 if (ACTION_VIEW.Equals(action))
                 {
                     uris = new android.Net.Uri[] { intent.Data };
@@ -417,6 +415,8 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
                 player = ExoPlayerFactory.NewSimpleInstance(renderersFactory, trackSelector, drmSessionManager);
 
+                eventLogger = new EventLogger(trackSelector);
+
                 player.AddListener(new PlayerEventListener(this));
                 player.PlayWhenReady = startAutoPlay;
 
@@ -431,7 +431,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 player.AddVideoDebugListener(eventLogger);
 
                 player.AddMetadataOutput(eventLogger);
-                //end todo
+                //end Todo
 
                 playerView.Player = player;
                 playerView.SetPlaybackPreparer(this);

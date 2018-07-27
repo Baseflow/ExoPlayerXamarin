@@ -56,10 +56,6 @@
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExoPlayer.Core, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ExoPlayer.Core\bin\Debug\monoandroid81\ExoPlayer.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
@@ -91,60 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\media.exolist.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ExoPlayer.Dash\ExoPlayer.Dash.csproj">
-      <Project>{ed6be01e-8554-4bfa-8925-d39afaf789f9}</Project>
-      <Name>ExoPlayer.Dash</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.Cast\ExoPlayer.Ext.Cast.csproj">
-      <Project>{a4da2b7f-53e4-4cba-b464-641338cd31ac}</Project>
-      <Name>ExoPlayer.Ext.Cast</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.Gvr\ExoPlayer.Ext.Gvr.csproj">
-      <Project>{d9223396-a227-49f9-b686-a63e0640d145}</Project>
-      <Name>ExoPlayer.Ext.Gvr</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.Ima\ExoPlayer.Ext.Ima.csproj">
-      <Project>{6223c606-24b3-4eb4-a1d0-8fefc0171865}</Project>
-      <Name>ExoPlayer.Ext.Ima</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.Jobdispatcher\ExoPlayer.Ext.Jobdispatcher.csproj">
-      <Project>{5697ac53-b9cd-45b1-8a43-c54eed04e003}</Project>
-      <Name>ExoPlayer.Ext.Jobdispatcher</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.Leanback\ExoPlayer.Ext.Leanback.csproj">
-      <Project>{f3aba70c-567d-4b47-a1f5-c0181038ec26}</Project>
-      <Name>ExoPlayer.Ext.Leanback</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.MediaSession\ExoPlayer.Ext.MediaSession.csproj">
-      <Project>{bbfd892e-1470-426d-aca1-8f3537b36253}</Project>
-      <Name>ExoPlayer.Ext.MediaSession</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.OkHttp\ExoPlayer.Ext.OkHttp.csproj">
-      <Project>{73d047cf-45e4-4ca9-a9cb-dda8cb87df8d}</Project>
-      <Name>ExoPlayer.Ext.OkHttp</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.Rtmp\ExoPlayer.Ext.Rtmp.csproj">
-      <Project>{67ff9c9c-ce2e-42f4-8508-7fa297c69b0f}</Project>
-      <Name>ExoPlayer.Ext.Rtmp</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Hls\ExoPlayer.Hls.csproj">
-      <Project>{c8a41ad7-09d3-44b3-975e-d8aa58965c6c}</Project>
-      <Name>ExoPlayer.Hls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.SmoothStreaming\ExoPlayer.SmoothStreaming.csproj">
-      <Project>{632d0085-1f2b-42ec-b4fc-d32a11e8a669}</Project>
-      <Name>ExoPlayer.SmoothStreaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.UI\ExoPlayer.UI.csproj">
-      <Project>{f9e526f9-5985-478f-ba44-35d82d00dd33}</Project>
-      <Name>ExoPlayer.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer\ExoPlayer.csproj">
-      <Project>{0b871c50-6d5d-45d0-b32d-84e25adb869a}</Project>
-      <Name>ExoPlayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_download.png" />
@@ -211,6 +153,60 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_download_done.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ExoPlayer.Core\ExoPlayer.Core.csproj">
+      <Project>{3cff9208-5dab-4377-b7e5-f4407ff5bd46}</Project>
+      <Name>ExoPlayer.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Dash\ExoPlayer.Dash.csproj">
+      <Project>{ed6be01e-8554-4bfa-8925-d39afaf789f9}</Project>
+      <Name>ExoPlayer.Dash</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Cast\ExoPlayer.Ext.Cast.csproj">
+      <Project>{a4da2b7f-53e4-4cba-b464-641338cd31ac}</Project>
+      <Name>ExoPlayer.Ext.Cast</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Gvr\ExoPlayer.Ext.Gvr.csproj">
+      <Project>{d9223396-a227-49f9-b686-a63e0640d145}</Project>
+      <Name>ExoPlayer.Ext.Gvr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Ima\ExoPlayer.Ext.Ima.csproj">
+      <Project>{6223c606-24b3-4eb4-a1d0-8fefc0171865}</Project>
+      <Name>ExoPlayer.Ext.Ima</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Jobdispatcher\ExoPlayer.Ext.Jobdispatcher.csproj">
+      <Project>{5697ac53-b9cd-45b1-8a43-c54eed04e003}</Project>
+      <Name>ExoPlayer.Ext.Jobdispatcher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Leanback\ExoPlayer.Ext.Leanback.csproj">
+      <Project>{f3aba70c-567d-4b47-a1f5-c0181038ec26}</Project>
+      <Name>ExoPlayer.Ext.Leanback</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.MediaSession\ExoPlayer.Ext.MediaSession.csproj">
+      <Project>{bbfd892e-1470-426d-aca1-8f3537b36253}</Project>
+      <Name>ExoPlayer.Ext.MediaSession</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.OkHttp\ExoPlayer.Ext.OkHttp.csproj">
+      <Project>{73d047cf-45e4-4ca9-a9cb-dda8cb87df8d}</Project>
+      <Name>ExoPlayer.Ext.OkHttp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Rtmp\ExoPlayer.Ext.Rtmp.csproj">
+      <Project>{67ff9c9c-ce2e-42f4-8508-7fa297c69b0f}</Project>
+      <Name>ExoPlayer.Ext.Rtmp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Hls\ExoPlayer.Hls.csproj">
+      <Project>{c8a41ad7-09d3-44b3-975e-d8aa58965c6c}</Project>
+      <Name>ExoPlayer.Hls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.SmoothStreaming\ExoPlayer.SmoothStreaming.csproj">
+      <Project>{632d0085-1f2b-42ec-b4fc-d32a11e8a669}</Project>
+      <Name>ExoPlayer.SmoothStreaming</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.UI\ExoPlayer.UI.csproj">
+      <Project>{f9e526f9-5985-478f-ba44-35d82d00dd33}</Project>
+      <Name>ExoPlayer.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -54,12 +54,12 @@ namespace Com.Google.Android.Exoplayer2.Demo
             TIME_FORMAT.GroupingUsed = false;
         }
 
-        private readonly MappingTrackSelector trackSelector;
+        private readonly DefaultTrackSelector trackSelector;
         private readonly Timeline.Window window;
         private readonly Timeline.Period period;
         private readonly long startTimeMs;
 
-        public EventLogger(MappingTrackSelector trackSelector)
+        public EventLogger(DefaultTrackSelector trackSelector)
         {
             this.trackSelector = trackSelector;
             window = new Timeline.Window();

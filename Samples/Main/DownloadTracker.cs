@@ -60,7 +60,13 @@ namespace Com.Google.Android.Exoplayer2.Demo
         private Handler actionFileWriteHandler;
 
         internal Context Context { get { return context; } }
-        internal ITrackNameProvider TrackNameProvider { get { return TrackNameProvider; } }
+        internal ITrackNameProvider TrackNameProvider
+        {
+            get
+            {
+                return trackNameProvider;
+            }
+        }
 
         public DownloadTracker(
             Context context,
@@ -97,7 +103,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         public List<object> GetOfflineStreamKeys(android.Net.Uri uri)
         {
-            if (trackedDownloadStates.ContainsKey(uri))
+            if (!trackedDownloadStates.ContainsKey(uri))
             {
                 return new List<object>();
             }
@@ -190,7 +196,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 }
                 catch (IOException e)
                 {
-                    Log.Error(TAG, "Failed to store tracked actions", e);
+                    Log.Error(TAG, string.Format("Failed to store tracked actions\r\n{0}", e.ToString()), e);
                 }
             }));
         }
@@ -283,7 +289,12 @@ namespace Com.Google.Android.Exoplayer2.Demo
                         for (int k = 0; k < trackGroup.Length; k++)
                         {
                             trackKeys.Add(new TrackKey(i, j, k));
-                            trackTitles.Add(downloadTracker.TrackNameProvider.GetTrackName(trackGroup.GetFormat(k)));
+
+                            var trackNameProvider = downloadTracker.TrackNameProvider;
+
+                            var trackName = trackNameProvider.GetTrackName(trackGroup.GetFormat(k));
+
+                            trackTitles.Add(trackName);
                         }
                     }
                     if (trackKeys.Count != 0)
@@ -303,7 +314,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
             public void OnClick(IDialogInterface dialog, int which)
             {
-                List<TrackKey> selectedTrackKeys = new List<TrackKey>();
+                Java.Util.ArrayList selectedTrackKeys = new Java.Util.ArrayList();
                 for (int i = 0; i < representationList.ChildCount; i++)
                 {
                     if (representationList.IsItemChecked(i))
@@ -311,7 +322,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                         selectedTrackKeys.Add(trackKeys[i]);
                     }
                 }
-                if (selectedTrackKeys.Count != 0 || trackKeys.Count == 0)
+                if (!selectedTrackKeys.IsEmpty || trackKeys.Count == 0)
                 {
                     // We have selected keys, or we're dealing with single stream content.
                     DownloadAction downloadAction =
