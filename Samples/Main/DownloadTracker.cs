@@ -41,7 +41,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
 {
     public class DownloadTracker : Java.Lang.Object, IListener
     {
-
         /** Listens for changes in the tracked downloads. */
         public interface IListener
         {
@@ -217,8 +216,8 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         private void StartServiceWithAction(DownloadAction action)
         {
-            DownloadService.StartWithAction(context, typeof(DemoDownloadService), action, false);        }
-
+            DownloadService.StartWithAction(context, typeof(DemoDownloadService), action, false);
+        }
 
         private DownloadHelper GetDownloadHelper(android.Net.Uri uri, string extension)
         {
@@ -240,7 +239,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         internal class StartDownloadDialogHelper : Java.Lang.Object, DownloadHelper.ICallback, IDialogInterfaceOnClickListener
         {
-
             private DownloadHelper downloadHelper;
             private DownloadTracker downloadTracker;
             private string name;

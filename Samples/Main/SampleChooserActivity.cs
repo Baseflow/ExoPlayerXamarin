@@ -415,18 +415,15 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 NotifyDataSetChanged();
             }
 
-
             public override Java.Lang.Object GetChild(int groupPosition, int childPosition)
             {
                 return ((SampleGroup)GetGroup(groupPosition)).samples[childPosition];
             }
 
-
             public override long GetChildId(int groupPosition, int childPosition)
             {
                 return childPosition;
             }
-
 
             public override View GetChildView(int groupPosition, int childPosition, bool isLastChild,
                 View convertView, ViewGroup parent)
@@ -445,24 +442,20 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 return view;
             }
 
-
             public override int GetChildrenCount(int groupPosition)
             {
                 return ((SampleGroup)GetGroup(groupPosition)).samples.Count;
             }
-
 
             public override Object GetGroup(int groupPosition)
             {
                 return sampleGroups[groupPosition];
             }
 
-
             public override long GetGroupId(int groupPosition)
             {
                 return groupPosition;
             }
-
 
             public override View GetGroupView(int groupPosition, bool isExpanded, View convertView,
                 ViewGroup parent)
@@ -477,7 +470,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 return view;
             }
 
-
             public override int GroupCount
             {
                 get
@@ -486,7 +478,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 }
             }
 
-
             public override bool HasStableIds
             {
                 get
@@ -494,7 +485,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                     return false;
                 }
             }
-
 
             public override bool IsChildSelectable(int groupPosition, int childPosition)
             {
@@ -524,7 +514,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         internal class SampleGroup : Java.Lang.Object
         {
-
             public string title;
             public List<Sample> samples;
 
@@ -533,7 +522,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 this.title = title;
                 this.samples = new List<Sample>();
             }
-
         }
 
         internal class DrmInfo
@@ -591,12 +579,10 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 }
                 return intent;
             }
-
         }
 
         internal class UriSample : Sample
         {
-
             public android.Net.Uri uri;
             public string extension;
             public string adTagUri;
@@ -615,7 +601,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 this.adTagUri = adTagUri;
             }
 
-
             public override Intent BuildIntent(Context context)
             {
                 return base.BuildIntent(context)
@@ -624,7 +609,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                     .PutExtra(PlayerActivity.AD_TAG_URI_EXTRA, adTagUri)
                     .SetAction(PlayerActivity.ACTION_VIEW);
             }
-
         }
 
         internal class PlaylistSample : Sample
@@ -640,7 +624,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
             {
                 this.children = children;
             }
-
 
             public override Intent BuildIntent(Context context)
             {

@@ -36,7 +36,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
      [Application]
     public class DemoApplication : Application
     {
-
         private const string DOWNLOAD_ACTION_FILE = "actions";
         private const string DOWNLOAD_TRACKER_ACTION_FILE = "tracked_actions";
         private const string DOWNLOAD_CONTENT_DIRECTORY = "downloads";
@@ -49,7 +48,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             ProgressiveDownloadAction.Deserializer
         };
 
-        protected String userAgent;
+        protected string userAgent;
 
         private File downloadDirectory;
         private ICache downloadCache;

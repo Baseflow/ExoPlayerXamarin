@@ -52,7 +52,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
         }
 
 
-
         /** Starts a download service without adding a new {@link DownloadAction}. */
         public const string ACTION_INIT = "com.google.android.exoplayer.downloadService.action.INIT";
 
@@ -105,7 +104,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
         ///TODO Must call Initialize() from child class.
         public DownloadService()
         {
-
         }
 
         /**
@@ -220,7 +218,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
             Utils.StartForegroundService(context, intent);
         }
 
-        //@Override
         public override void OnCreate()
         {
             Logd("onCreate");
@@ -233,8 +230,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
             downloadManager.AddListener(downloadManagerListener);
         }
 
-
-        //@Override
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
 
@@ -289,7 +284,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
             return StartCommandResult.Sticky;
         }
 
-        //@Override
         public override void OnDestroy()
         {
             Logd("onDestroy");
@@ -298,8 +292,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
             MaybeStopWatchingRequirements();
         }
 
-        //@Nullable
-        //@Override
         public override IBinder OnBind(Intent intent)
         {
             return null;
@@ -318,7 +310,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
          * place are met. If {@code null}, the service will only be restarted if the process is still in
          * memory when the requirements are met.
          */
-        //@Nullable
         protected abstract IScheduler Scheduler { get; }
 
         /**
@@ -419,13 +410,11 @@ namespace Com.Google.Android.Exoplayer2.Offline
                 this.service = service;
             }
 
-            //@Override
             public void OnInitialized(Offline.DownloadManager downloadManager)
             {
                 service.MaybeStartWatchingRequirements();
             }
 
-            //@Override
             public void OnTaskStateChanged(Offline.DownloadManager downloadManager, TaskState taskState)
             {
                 service.OnTaskStateChanged(taskState);
@@ -440,7 +429,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
                 }
             }
 
-            //@Override
             public void OnIdle(Offline.DownloadManager downloadManager)
             {
                 service.Stop();
@@ -498,7 +486,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
                 }
             }
 
-            //@Override
             public void Run()
             {
                 Update();
@@ -541,7 +528,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
                 }
             }
 
-            //@Override
             public void RequirementsMet(RequirementsWatcher requirementsWatcher)
             {
                 StartServiceWithAction(ACTION_START_DOWNLOADS);
@@ -551,7 +537,6 @@ namespace Com.Google.Android.Exoplayer2.Offline
                 }
             }
 
-            //@Override
             public void RequirementsNotMet(RequirementsWatcher requirementsWatcher)
             {
                 StartServiceWithAction(ACTION_STOP_DOWNLOADS);
@@ -573,5 +558,4 @@ namespace Com.Google.Android.Exoplayer2.Offline
             }
         }
     }
-
 }

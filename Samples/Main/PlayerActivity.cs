@@ -119,7 +119,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         // Activity lifecycle
 
-        //override
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -155,8 +155,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 ClearStartPosition();
             }
         }
-
-        //override
+        
         protected override void OnNewIntent(Intent intent)
         {
             ReleasePlayer();
@@ -164,7 +163,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
             Intent = intent;
         }
 
-        //override
         protected override void OnStart()
         {
             base.OnStart();
@@ -174,7 +172,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
         }
 
-        //override
         protected override void OnResume()
         {
             base.OnResume();
@@ -184,7 +181,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
         }
 
-        //override
         protected override void OnPause()
         {
             base.OnPause();
@@ -194,7 +190,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
         }
 
-        //override
         protected override void OnStop()
         {
             base.OnStop();
@@ -204,14 +199,12 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
         }
 
-        //override
         protected override void OnDestroy()
         {
             base.OnDestroy();
             ReleaseAdsLoader();
         }
 
-        //override
         public void OnRequestPermissionsResult(int requestCode, string[] permissions, int[] grantResults)
         {
             if (grantResults.Length == 0)
@@ -230,8 +223,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 Finish();
             }
         }
-
-        //override
+        
         protected override void OnSaveInstanceState(Bundle outState)
         {
             UpdateTrackSelectorParameters();
@@ -241,10 +233,8 @@ namespace Com.Google.Android.Exoplayer2.Demo
             outState.PutInt(KEY_WINDOW, startWindow);
             outState.PutLong(KEY_POSITION, startPosition);
         }
-
         // Activity input
-
-        //override
+        
         public override bool DispatchKeyEvent(KeyEvent @event)
         {
             // See whether the player view wants to handle media or DPAD keys events.
@@ -252,8 +242,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
         }
 
         // OnClickListener methods
-
-        //override
+        
         public void OnClick(View view)
         {
             if (view.Parent == debugRootView)
@@ -279,16 +268,12 @@ namespace Com.Google.Android.Exoplayer2.Demo
         }
 
         // PlaybackControlView.PlaybackPreparer implementation
-
-        //override
         public void PreparePlayback()
         {
             InitializePlayer();
         }
 
         // PlaybackControlView.VisibilityListener implementation
-
-        //override
         public void OnVisibilityChange(int visibility)
         {
             debugRootView.Visibility = (ViewStates)visibility;
@@ -631,7 +616,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 {
                     Constructor loaderConstructor = loaderClass.AsSubclass(Class.FromType(typeof(IAdsLoader))).GetConstructor(Class.FromType(typeof(Context)), Class.FromType(typeof(android.Net.Uri)));
 
-
                     adsLoader = (IAdsLoader)loaderConstructor.NewInstance(this, adTagUri);
                     adUiViewGroup = new FrameLayout(this);
                     // The demo app has a non-null overlay frame layout.
@@ -673,7 +657,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
         }
 
         // User controls
-
         private void UpdateButtonVisibilities()
         {
             debugRootView.RemoveAllViews();
@@ -758,8 +741,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             {
                 this.activity = activity;
             }
-
-            //override
+            
             public override void OnPlayerStateChanged(bool playWhenReady, int playbackState)
             {
                 if (playbackState == Player.StateEnded)
@@ -768,8 +750,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 }
                 activity.UpdateButtonVisibilities();
             }
-
-            //override
+            
             public override void OnPositionDiscontinuity(int reason)
             {
                 if (activity.player.PlaybackError != null)
@@ -779,8 +760,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                     activity.UpdateStartPosition();
                 }
             }
-
-            //override
+            
             public override void OnPlayerError(ExoPlaybackException e)
             {
                 if (IsBehindLiveWindow(e))
@@ -828,8 +808,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             {
                 this.activity = activity;
             }
-
-            //override
+            
             public Pair GetErrorMessage(ExoPlaybackException e)
             {
                 string errorstring = activity.ApplicationContext.GetString(Resource.String.error_generic);
@@ -862,7 +841,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
                         else
                         {
                             errorstring =
-
                                activity.ApplicationContext.GetString(Resource.String.error_instantiating_decoder, decoderInitializationException.DecoderName);
                         }
                     }

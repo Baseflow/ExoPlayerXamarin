@@ -25,8 +25,6 @@ using static Com.Google.Android.Exoplayer2.Offline.DownloadManager;
 using Com.Google.Android.Exoplayer2.Offline;
 using Utils = Com.Google.Android.Exoplayer2.Util.Util;
 
-
-
 namespace Com.Google.Android.Exoplayer2.Demo
 {
     /** A service for downloading media. */
@@ -119,8 +117,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
             }
             else if (taskState.State == TaskState.StateFailed)
             {
-                
-
                 notification =
                     DownloadNotificationUtil.BuildDownloadFailedNotification(
                         /* context= */ this,
