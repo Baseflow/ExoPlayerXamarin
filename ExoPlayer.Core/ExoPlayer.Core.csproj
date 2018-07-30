@@ -19,9 +19,5 @@
     <AndroidResource Include="Resources\**\*.xml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
   </ItemGroup>
   
-  <ItemGroup>
-    <None Remove="Additions\DownloadService.cs" />
-  </ItemGroup>
-  
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
