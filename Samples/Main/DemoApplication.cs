@@ -33,6 +33,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
     /**
      * Placeholder application to facilitate overriding Application methods for debugging and testing.
      */
+     [Application]
     public class DemoApplication : Application
     {
 

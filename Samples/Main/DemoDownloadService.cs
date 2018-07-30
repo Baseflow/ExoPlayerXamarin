@@ -22,6 +22,7 @@ using Com.Google.Android.Exoplayer2.Scheduler;
 using Com.Google.Android.Exoplayer2.UI;
 using Com.Google.Android.Exoplayer2.Util;
 using static Com.Google.Android.Exoplayer2.Offline.DownloadManager;
+using Com.Google.Android.Exoplayer2.Offline;
 using Utils = Com.Google.Android.Exoplayer2.Util.Util;
 
 
@@ -56,7 +57,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         public override IBinder OnBind(Intent intent)
         {
-            // Return null because this is a pure started service. A hybrid service would return a binder that would
+            // Return null because this is a pure started service. A hybrid service would return a binder that would allow communication back and forth
             return null;
         }
 
