@@ -20,7 +20,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Remove="Additions\IAnalyticsListener.cs" />
+    <None Remove="Additions\DownloadService.cs" />
   </ItemGroup>
   
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />

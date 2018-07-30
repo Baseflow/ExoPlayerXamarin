@@ -111,7 +111,9 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
             if (action is SegmentDownloadAction)
             {
-                return (List<object>)((SegmentDownloadAction)action).Keys;
+                List<object> objs = new List<object>(((SegmentDownloadAction)action).Keys.ToArray());
+
+                return objs;
             }
 
             return new List<object>();

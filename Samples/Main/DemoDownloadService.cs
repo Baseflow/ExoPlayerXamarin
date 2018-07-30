@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Util;
 using Com.Google.Android.Exoplayer2.Scheduler;
 using Com.Google.Android.Exoplayer2.UI;
