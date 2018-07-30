@@ -91,11 +91,11 @@ namespace Com.Google.Android.Exoplayer2.Demo
             // (e.g. if device screen is locked).
             try
             {
-                Offline.DownloadService.Start(this, Class.FromType(typeof(DemoDownloadService)));
+                Demo.DownloadService.Start(this, typeof(DemoDownloadService));
             }
             catch (IllegalStateException e)
             {
-                Offline.DownloadService.StartForeground(this, Class.FromType(typeof(DemoDownloadService)));
+                Demo.DownloadService.StartForeground(this, typeof(DemoDownloadService));
             }
         }
 

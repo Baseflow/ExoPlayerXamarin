@@ -122,7 +122,7 @@
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioSinkUnderrun']" name="eventName"></attr>
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getPreferredQueueSize' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]" />
-    
+
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]/parameter[2]" >Java.Util.IList</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='ProgressiveDownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]/parameter[2]" >Java.Util.IList</attr>
 
@@ -135,12 +135,7 @@
     <!-- Need to remove for AdsLoader -->
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='handlePrepareError' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='java.io.IOException']]" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='setSupportedContentTypes' and count(parameter)=1 and parameter[1][@type='int...']]" />
-
-    <!-- required to recreate the DemoDownloadService constructor--> 
-    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadService.ForegroundNotificationUpdater']">public</attr>
-    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadService']/field[@name='foregroundNotificationUpdater']">public</attr>
-    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadService']/field[@name='channelId']">public</attr>
-    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadService']/field[@name='channelName']">public</attr>
-    <add-node 
     
+    <!--Implemented in the demo application because there is currently no way to implement the DownloadService as it requires a parameterless constructor.-->
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadService']" />
 </metadata>

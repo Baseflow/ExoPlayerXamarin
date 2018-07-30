@@ -54,8 +54,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
     /** An activity that plays media using {@link SimpleExoPlayer}. */
     public class PlayerActivity : Activity, View.IOnClickListener, IPlaybackPreparer, PlayerControlView.IVisibilityListener
     {
-
-
         public static string DRM_SCHEME_EXTRA = "drm_scheme";
         public static string DRM_LICENSE_URL_EXTRA = "drm_license_url";
         public static string DRM_KEY_REQUEST_PROPERTIES_EXTRA = "drm_key_request_properties";

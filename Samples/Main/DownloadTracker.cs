@@ -55,7 +55,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
         private IDataSourceFactory dataSourceFactory;
         private ITrackNameProvider trackNameProvider;
         private List<IListener> listeners;
-        private Dictionary<android.Net.Uri, DownloadAction> trackedDownloadStates;
+        private Dictionary<string, DownloadAction> trackedDownloadStates;
         private ActionFile actionFile;
         private Handler actionFileWriteHandler;
 
@@ -79,7 +79,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             this.actionFile = new ActionFile(actionFile);
             trackNameProvider = new DefaultTrackNameProvider(context.Resources);
             listeners = new List<IListener>();
-            trackedDownloadStates = new Dictionary<android.Net.Uri, DownloadAction>();
+            trackedDownloadStates = new Dictionary<string, DownloadAction>();
             HandlerThread actionFileWriteThread = new HandlerThread("DownloadTracker");
             actionFileWriteThread.Start();
             actionFileWriteHandler = new Handler(actionFileWriteThread.Looper);
@@ -98,16 +98,16 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         public bool IsDownloaded(android.Net.Uri uri)
         {
-            return trackedDownloadStates.ContainsKey(uri);
+            return trackedDownloadStates.ContainsKey(uri.ToString());
         }
 
         public List<object> GetOfflineStreamKeys(android.Net.Uri uri)
         {
-            if (!trackedDownloadStates.ContainsKey(uri))
+            if (!trackedDownloadStates.ContainsKey(uri.ToString()))
             {
                 return new List<object>();
             }
-            DownloadAction action = trackedDownloadStates[uri];
+            DownloadAction action = trackedDownloadStates[uri.ToString()];
 
             if (action is SegmentDownloadAction)
             {
@@ -148,7 +148,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 || (!action.IsRemoveAction && taskState.State == TaskState.StateFailed))
             {
                 // A download has been removed, or has failed. Stop tracking it.
-                if (trackedDownloadStates.Remove(uri) != false)
+                if (trackedDownloadStates.Remove(uri.ToString()) != false)
                 {
                     HandleTrackedDownloadStatesChanged();
                 }
@@ -170,7 +170,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
                 foreach (DownloadAction action in allActions)
                 {
-                    trackedDownloadStates[action.Uri] = action;
+                    trackedDownloadStates[action.Uri.ToString()] = action;
                 }
             }
             catch (IOException e)
@@ -203,20 +203,19 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         internal void StartDownload(DownloadAction action)
         {
-            if (trackedDownloadStates.ContainsKey(action.Uri))
+            if (trackedDownloadStates.ContainsKey(action.Uri.ToString()))
             {
                 // This content is already being downloaded. Do nothing.
                 return;
             }
-            trackedDownloadStates[action.Uri] = action;
+            trackedDownloadStates[action.Uri.ToString()] = action;
             HandleTrackedDownloadStatesChanged();
             StartServiceWithAction(action);
         }
 
         private void StartServiceWithAction(DownloadAction action)
         {
-            DownloadService.StartWithAction(context, Class.FromType(typeof(DemoDownloadService)), action, false);
-        }
+            DownloadService.StartWithAction(context, typeof(DemoDownloadService), action, false);        }
 
 
         private DownloadHelper GetDownloadHelper(android.Net.Uri uri, string extension)

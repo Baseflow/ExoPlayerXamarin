@@ -18,8 +18,8 @@ using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Runtime;
 using Android.Util;
-using Com.Google.Android.Exoplayer2.Offline;
 using Com.Google.Android.Exoplayer2.Scheduler;
 using Com.Google.Android.Exoplayer2.UI;
 using Com.Google.Android.Exoplayer2.Util;
@@ -67,15 +67,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             //this.foregroundNotificationUpdater = DownloadService.ForegroundNotificationUpdater(foregroundNotificationId, foregroundNotificationUpdateInterval);
 
             Log.Debug("DemoDownloadService", "Service created.");
-        }
-
-        public DemoDownloadService()
-        {
-            super(
-                FOREGROUND_NOTIFICATION_ID,
-                DEFAULT_FOREGROUND_NOTIFICATION_UPDATE_INTERVAL,
-                CHANNEL_ID,
-                R.string.exo_download_notification_channel_name);
+            Initialize(FOREGROUND_NOTIFICATION_ID, DEFAULT_FOREGROUND_NOTIFICATION_UPDATE_INTERVAL, CHANNEL_ID, Resource.String.exo_download_notification_channel_name);
         }
 
         public override void OnCreate()
@@ -112,6 +104,10 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 return;
             }
             Notification notification = null;
+
+            byte[] bytes = new byte[taskState.Action.Data.Count];
+            taskState.Action.Data.CopyTo(bytes, 0);
+
             if (taskState.State == TaskState.StateCompleted)
             {
                 notification =
@@ -120,17 +116,19 @@ namespace Com.Google.Android.Exoplayer2.Demo
                         Resource.Drawable.exo_controls_play,
                         CHANNEL_ID,
                         /* contentIntent= */ null,
-                        Utils.FromUtf8Bytes(((List<byte>)taskState.Action.Data).ToArray()));
+                        Utils.FromUtf8Bytes(bytes));
             }
             else if (taskState.State == TaskState.StateFailed)
             {
+                
+
                 notification =
                     DownloadNotificationUtil.BuildDownloadFailedNotification(
                         /* context= */ this,
                         Resource.Drawable.exo_controls_play,
                         CHANNEL_ID,
                         /* contentIntent= */ null,
-                       Utils.FromUtf8Bytes(((List<byte>)taskState.Action.Data).ToArray()));
+                       Utils.FromUtf8Bytes(bytes));
             }
             int notificationId = FOREGROUND_NOTIFICATION_ID + 1 + taskState.TaskId;
             NotificationUtil.SetNotification(this, notificationId, notification);
