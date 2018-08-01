@@ -79,7 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.GooglePlayServices.Gcm">
       <Version>60.1142.1</Version>

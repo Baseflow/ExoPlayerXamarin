@@ -23,8 +23,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2" />
-    <PackageReference Include="Xamarin.Firebase.JobDispatcher" Version="0.7.0-beta1" PrivateAssets="All" />
+    <PackageReference Include="Xamarin.Firebase.JobDispatcher" Version="0.8.5" />
   </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
