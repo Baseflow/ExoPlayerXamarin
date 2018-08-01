@@ -2,7 +2,7 @@
 <metadata>
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='RepresentationKey']/method[@name='compareTo']/parameter">java.lang.Object</attr>
-    
+
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloader']/method[@name='getSegments']/parameter[@name='manifest']">java.lang.Object</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloader']/method[@name='getManifest']">java.lang.Object</attr>
 
@@ -21,8 +21,10 @@
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloadHelper']/method[@name='getRemoveAction' and count(parameter)=1 and parameter[1][@type='byte[]']]">com.google.android.exoplayer2.offline.DownloadAction</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]">com.google.android.exoplayer2.offline.DownloadAction</attr>
 
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]/parameter[2]">Java.Util.IList</attr>
+
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloadAction']/method[@name='writeKey']/parameter[2]">java.lang.Object</attr>
-    
+
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='DashManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.dash.manifest.RepresentationKey&gt;']]">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='DashManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.source.dash.manifest.RepresentationKey&gt;']]/parameter[1]">System.Collections.IList</attr>
 
@@ -30,5 +32,5 @@
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloader']/method[@name='getAllRepresentationKeys' and count(parameter)=0]">Java.Lang.Object[]</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash.offline']/class[@name='DashDownloader']/method[@name='getSegments']/parameter[@name='keys']">java.lang.Object[]</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='FilteringDashManifestParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>
-    
+
 </metadata>

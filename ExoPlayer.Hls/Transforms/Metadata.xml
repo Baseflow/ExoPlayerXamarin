@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    
-	<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsMediaPlaylist.Segment']/method[@name='compareTo']/parameter">java.lang.Object</attr>
-    
+
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsMediaPlaylist.Segment']/method[@name='compareTo']/parameter">java.lang.Object</attr>
+
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getManifest']">java.lang.Object</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getManifest']" name="visibility">public</attr>
 
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsPlaylistTracker']/method[@name='onLoadCanceled' and count(parameter)=4 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long'] and parameter[4][@type='boolean']]/parameter[1]">Java.Lang.Object</attr>
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsPlaylistTracker']/method[@name='onLoadCompleted' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long']]/parameter[1]">Java.Lang.Object</attr>
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsPlaylistTracker']/method[@name='onLoadError' and count(parameter)=4 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.hls.playlist.HlsPlaylist&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long'] and parameter[4][@type='java.io.IOException']]/parameter[1]">Java.Lang.Object</attr>
-	
+
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsPlaylistParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">java.lang.Object</attr>
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls']/class[@name='HlsMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
@@ -21,6 +21,7 @@
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloadAction']/method[@name='createDownloader' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.offline.DownloaderConstructorHelper']]">com.google.android.exoplayer2.offline.Downloader</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloadHelper']/method[@name='getRemoveAction' and count(parameter)=1 and parameter[1][@type='byte[]']]">com.google.android.exoplayer2.offline.DownloadAction</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]">com.google.android.exoplayer2.offline.DownloadAction</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]/parameter[2]">Java.Util.IList</attr>
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloadAction']/method[@name='writeKey']/parameter[2]">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.offline']/class[@name='HlsDownloader']/method[@name='getSegments']/parameter[2]">java.lang.Object</attr>
@@ -41,7 +42,7 @@
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.hls']/interface[@name='HlsExtractorFactory']/field[@name='DEFAULT']" />
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='DefaultHlsPlaylistTracker']/method[@name='onLoadCanceled']/parameter[1]">java.lang.Object</attr>
-  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='DefaultHlsPlaylistTracker']/method[@name='onLoadCompleted']/parameter[1]">java.lang.Object</attr>
-  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='DefaultHlsPlaylistTracker']/method[@name='onLoadError']/parameter[1]">java.lang.Object</attr>
-  
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='DefaultHlsPlaylistTracker']/method[@name='onLoadCompleted']/parameter[1]">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='DefaultHlsPlaylistTracker']/method[@name='onLoadError']/parameter[1]">java.lang.Object</attr>
+
 </metadata>
