@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
-      <Version>27.0.2</Version>
+      <Version>26.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
