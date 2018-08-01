@@ -17,7 +17,7 @@
     <None Include="..\readme.txt" pack="true" PackagePath="." />
     <AndroidResource Include="Resources\**\*.xml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.v17.Leanback" Version="27.0.2.1" />
   </ItemGroup>

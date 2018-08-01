@@ -17,6 +17,10 @@
     <None Include="..\readme.txt" pack="true" PackagePath="." />
     <AndroidResource Include="Resources\**\*.xml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="60.1142.1" />
+  </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
