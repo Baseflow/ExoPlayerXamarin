@@ -94,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView">
-      <Version>26.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework">
       <Version>60.1142.1</Version>
