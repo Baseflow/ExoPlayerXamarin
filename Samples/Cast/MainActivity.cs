@@ -47,8 +47,6 @@ namespace Com.Google.Android.Exoplayer2.CastDemo
             mediaQueueList.SetLayoutManager(new LinearLayoutManager(this));
             mediaQueueList.HasFixedSize = true;
 
-
-
             ItemTouchHelper helper = new ItemTouchHelper(new RecyclerViewCallback(playerManager, mediaQueueListAdapter));
             helper.AttachToRecyclerView(mediaQueueList);
 
