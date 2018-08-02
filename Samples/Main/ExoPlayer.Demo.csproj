@@ -74,8 +74,14 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.Compat">
+      <Version>27.0.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils">
+      <Version>27.0.2.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
-      <Version>26.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +154,10 @@
     <ProjectReference Include="..\..\ExoPlayer.UI\ExoPlayer.UI.csproj">
       <Project>{f9e526f9-5985-478f-ba44-35d82d00dd33}</Project>
       <Name>ExoPlayer.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer\ExoPlayer.csproj">
+      <Project>{0b871c50-6d5d-45d0-b32d-84e25adb869a}</Project>
+      <Name>ExoPlayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
