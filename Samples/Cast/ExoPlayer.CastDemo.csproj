@@ -57,24 +57,6 @@
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExoPlayer.Core">
-      <HintPath>..\..\ExoPlayer.Ext.Cast\bin\Debug\monoandroid81\ExoPlayer.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="ExoPlayer.Dash">
-      <HintPath>..\..\ExoPlayer.Dash\bin\Debug\monoandroid81\ExoPlayer.Dash.dll</HintPath>
-    </Reference>
-    <Reference Include="ExoPlayer.Ext.Cast">
-      <HintPath>..\..\ExoPlayer.Ext.Cast\bin\Debug\monoandroid81\ExoPlayer.Ext.Cast.dll</HintPath>
-    </Reference>
-    <Reference Include="ExoPlayer.Hls">
-      <HintPath>..\..\ExoPlayer.Hls\bin\Debug\monoandroid81\ExoPlayer.Hls.dll</HintPath>
-    </Reference>
-    <Reference Include="ExoPlayer.SmoothStreaming">
-      <HintPath>..\..\ExoPlayer.SmoothStreaming\bin\Debug\monoandroid81\ExoPlayer.SmoothStreaming.dll</HintPath>
-    </Reference>
-    <Reference Include="ExoPlayer.UI">
-      <HintPath>..\..\ExoPlayer.UI\bin\Debug\monoandroid81\ExoPlayer.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -91,14 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView">
-      <Version>27.0.2.1</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework">
-      <Version>60.1142.1</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
@@ -132,6 +106,50 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.Compat">
+      <Version>27.0.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Core.UI">
+      <Version>27.0.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <Version>27.0.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework">
+      <Version>70.1501.0-preview2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ExoPlayer.Core\ExoPlayer.Core.csproj">
+      <Project>{3cff9208-5dab-4377-b7e5-f4407ff5bd46}</Project>
+      <Name>ExoPlayer.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Dash\ExoPlayer.Dash.csproj">
+      <Project>{ed6be01e-8554-4bfa-8925-d39afaf789f9}</Project>
+      <Name>ExoPlayer.Dash</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Ext.Cast\ExoPlayer.Ext.Cast.csproj">
+      <Project>{a4da2b7f-53e4-4cba-b464-641338cd31ac}</Project>
+      <Name>ExoPlayer.Ext.Cast</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.Hls\ExoPlayer.Hls.csproj">
+      <Project>{c8a41ad7-09d3-44b3-975e-d8aa58965c6c}</Project>
+      <Name>ExoPlayer.Hls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.SmoothStreaming\ExoPlayer.SmoothStreaming.csproj">
+      <Project>{632d0085-1f2b-42ec-b4fc-d32a11e8a669}</Project>
+      <Name>ExoPlayer.SmoothStreaming</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer.UI\ExoPlayer.UI.csproj">
+      <Project>{f9e526f9-5985-478f-ba44-35d82d00dd33}</Project>
+      <Name>ExoPlayer.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExoPlayer\ExoPlayer.csproj">
+      <Project>{0b871c50-6d5d-45d0-b32d-84e25adb869a}</Project>
+      <Name>ExoPlayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

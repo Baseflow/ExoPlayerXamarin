@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.Compat" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v17.Leanback" Version="27.0.2.1" />
   </ItemGroup>
   
