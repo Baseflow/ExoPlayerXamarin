@@ -413,6 +413,8 @@ namespace Com.Google.Android.Exoplayer2.CastDemo
                     return new HlsMediaSource.Factory(DATA_SOURCE_FACTORY).CreateMediaSource(uri);
                 case DemoUtil.MIME_TYPE_VIDEO_MP4:
                     return new ExtractorMediaSource.Factory(DATA_SOURCE_FACTORY).CreateMediaSource(uri);
+                case DemoUtil.MIME_TYPE_AUDIO:
+                    return new ExtractorMediaSource.Factory(DATA_SOURCE_FACTORY).CreateMediaSource(uri);
                 default:
                     {
                         throw new IllegalStateException("Unsupported type: " + sample.mimeType);
