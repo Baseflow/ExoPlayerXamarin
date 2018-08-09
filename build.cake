@@ -108,6 +108,7 @@ Task("Build")
         .WithProperty("PackageVersion", versionInfo.SemVer)
         .WithProperty("InformationalVersion", versionInfo.InformationalVersion)
         .WithProperty("NoPackageAnalysis", "True")
+		.WithProperty("DesignTimeBuild", "False")
         .WithTarget("Build");
 	
     MSBuild(sln, settings);
