@@ -24,6 +24,8 @@ using Com.Google.Android.Exoplayer2.Util;
 using static Com.Google.Android.Exoplayer2.Offline.DownloadManager;
 using Com.Google.Android.Exoplayer2.Offline;
 using Utils = Com.Google.Android.Exoplayer2.Util.Util;
+using Android.Runtime;
+using System;
 
 namespace Com.Google.Android.Exoplayer2.Demo
 {
@@ -32,10 +34,38 @@ namespace Com.Google.Android.Exoplayer2.Demo
     [IntentFilter(actions: new string[] { "com.google.android.exoplayer.downloadService.action.INIT" }, Categories = new string[] { "android.intent.category.DEFAULT" })]
     public class DemoDownloadService : DownloadService
     {
-
         public static readonly string CHANNEL_ID = "download_channel";
         private static readonly int JOB_ID = 1;
         public static readonly int FOREGROUND_NOTIFICATION_ID = 1;
+
+        public DemoDownloadService() : this (FOREGROUND_NOTIFICATION_ID, DefaultForegroundNotificationUpdateInterval, CHANNEL_ID, Resource.String.exo_download_notification_channel_name)
+        {
+        }
+
+        protected DemoDownloadService(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        {
+        }
+
+        protected DemoDownloadService(int foregroundNotificationId) : base(foregroundNotificationId)
+        {
+        }
+
+        protected DemoDownloadService(int foregroundNotificationId, long foregroundNotificationUpdateInterval) : base(foregroundNotificationId, foregroundNotificationUpdateInterval)
+        {
+        }
+
+        protected DemoDownloadService(int foregroundNotificationId, long foregroundNotificationUpdateInterval, string channelId, int channelName) : base(foregroundNotificationId, foregroundNotificationUpdateInterval, channelId, channelName)
+        {
+        }
+
+        /*
+        public DemoDownloadService()
+        {
+            //this.foregroundNotificationUpdater = DownloadService.ForegroundNotificationUpdater(foregroundNotificationId, foregroundNotificationUpdateInterval);
+
+            Log.Debug("DemoDownloadService", "Service created.");
+            //Initialize(FOREGROUND_NOTIFICATION_ID, DEFAULT_FOREGROUND_NOTIFICATION_UPDATE_INTERVAL, CHANNEL_ID, Resource.String.exo_download_notification_channel_name);
+        }*/
 
         protected override Offline.DownloadManager DownloadManager
         {
@@ -57,14 +87,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
         {
             // Return null because this is a pure started service. A hybrid service would return a binder that would allow communication back and forth
             return null;
-        }
-
-        public DemoDownloadService()
-        {
-            //this.foregroundNotificationUpdater = DownloadService.ForegroundNotificationUpdater(foregroundNotificationId, foregroundNotificationUpdateInterval);
-
-            Log.Debug("DemoDownloadService", "Service created.");
-            Initialize(FOREGROUND_NOTIFICATION_ID, DEFAULT_FOREGROUND_NOTIFICATION_UPDATE_INTERVAL, CHANNEL_ID, Resource.String.exo_download_notification_channel_name);
         }
 
         public override void OnCreate()

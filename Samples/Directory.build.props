@@ -14,7 +14,4 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" />
-  </ItemGroup>
 </Project>

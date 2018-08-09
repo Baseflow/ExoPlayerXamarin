@@ -136,7 +136,7 @@
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='setSupportedContentTypes' and count(parameter)=1 and parameter[1][@type='int...']]" />
     
     <!--Implemented in the demo application because there is currently no way to implement the DownloadService as it requires a parameterless constructor.-->
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadService']" />
+    <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadService']" />-->
     
     <!-- Cannot convert IList to List<T>-->
     <attr path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloadAction']/field[@name='keys']" name="type">Java.Util.IList</attr>

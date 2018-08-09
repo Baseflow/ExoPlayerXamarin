@@ -216,7 +216,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
 
         private void StartServiceWithAction(DownloadAction action)
         {
-            DownloadService.StartWithAction(context, typeof(DemoDownloadService), action, false);
+            DownloadService.StartWithAction(context, Java.Lang.Class.FromType(typeof(DemoDownloadService)), action, false);
         }
 
         private DownloadHelper GetDownloadHelper(android.Net.Uri uri, string extension)
