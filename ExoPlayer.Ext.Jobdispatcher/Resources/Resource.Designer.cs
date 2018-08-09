@@ -2,7 +2,7 @@
 
 namespace ExoPlayer.Core.Additions
 {
-    public class Resource
+    public partial class Resource
     {
     }
 }

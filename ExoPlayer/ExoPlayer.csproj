@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
     <TargetFrameworks>MonoAndroid81</TargetFrameworks>
     <AssemblyName>ExoPlayer</AssemblyName>
@@ -15,7 +15,6 @@
     <TransformFile Include="Transforms\*.xml" />
     <Compile Include="Additions\*.cs" />
     <None Include="..\readme.txt" pack="true" PackagePath="." />
-    <AndroidResource Include="Resources\**\*.xml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
   </ItemGroup>
   
   <ItemGroup>
@@ -25,6 +24,4 @@
     <ProjectReference Include="..\ExoPlayer.SmoothStreaming\ExoPlayer.SmoothStreaming.csproj" />
     <ProjectReference Include="..\ExoPlayer.UI\ExoPlayer.UI.csproj" />
   </ItemGroup>
-  
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
