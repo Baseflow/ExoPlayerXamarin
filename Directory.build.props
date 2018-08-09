@@ -9,7 +9,7 @@
     <PackageTags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</PackageTags>
     <PackageReleaseNotes>https://github.com/martijn00/ExoPlayerXamarin</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-	<PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/martijn00/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
@@ -20,16 +20,15 @@
     <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114</NoWarn>
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
-	<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-	
+
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <Platform>AnyCPU</Platform>
     <DebugType>full</DebugType>
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.4" PrivateAssets="All" />
     <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="All" />
   </ItemGroup>
   <!--
