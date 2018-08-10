@@ -26,6 +26,7 @@ using Com.Google.Android.Exoplayer2.Offline;
 using Utils = Com.Google.Android.Exoplayer2.Util.Util;
 using Android.Runtime;
 using System;
+using Java.Interop;
 
 namespace Com.Google.Android.Exoplayer2.Demo
 {
@@ -38,6 +39,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
         private static readonly int JOB_ID = 1;
         public static readonly int FOREGROUND_NOTIFICATION_ID = 1;
 
+        [Export(SuperArgumentsString = "1, 1000, \"download_channel\", 2131427508")]
         public DemoDownloadService() : this (FOREGROUND_NOTIFICATION_ID, DefaultForegroundNotificationUpdateInterval, CHANNEL_ID, Resource.String.exo_download_notification_channel_name)
         {
         }
@@ -57,15 +59,6 @@ namespace Com.Google.Android.Exoplayer2.Demo
         protected DemoDownloadService(int foregroundNotificationId, long foregroundNotificationUpdateInterval, string channelId, int channelName) : base(foregroundNotificationId, foregroundNotificationUpdateInterval, channelId, channelName)
         {
         }
-
-        /*
-        public DemoDownloadService()
-        {
-            //this.foregroundNotificationUpdater = DownloadService.ForegroundNotificationUpdater(foregroundNotificationId, foregroundNotificationUpdateInterval);
-
-            Log.Debug("DemoDownloadService", "Service created.");
-            //Initialize(FOREGROUND_NOTIFICATION_ID, DEFAULT_FOREGROUND_NOTIFICATION_UPDATE_INTERVAL, CHANNEL_ID, Resource.String.exo_download_notification_channel_name);
-        }*/
 
         protected override Offline.DownloadManager DownloadManager
         {
