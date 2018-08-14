@@ -16,6 +16,10 @@
     <Compile Include="Additions\*.cs" />
     <None Include="..\readme.txt" pack="true" PackagePath="." />
   </ItemGroup>
+
+   <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="27.0.2" />
+  </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
