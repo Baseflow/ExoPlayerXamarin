@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.ext.mediasession']/class[@name='MediaSessionConnector']/method[@name='setQueueNavigator' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.QueueNavigator']]/parameter">java.lang.Object</attr>
-	<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.ext.mediasession']/class[@name='MediaSessionConnector']/method[@name='setQueueEditor' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector.QueueEditor']]/parameter">java.lang.Object</attr>
+  
 </metadata>
