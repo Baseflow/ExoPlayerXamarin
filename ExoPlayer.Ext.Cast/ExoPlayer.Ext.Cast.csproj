@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
     <TargetFrameworks>MonoAndroid81</TargetFrameworks>
     <AssemblyName>ExoPlayer.Ext.Cast</AssemblyName>
@@ -15,9 +15,17 @@
     <TransformFile Include="Transforms\*.xml" />
     <Compile Include="Additions\*.cs" />
     <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaDocIndex Include="JavaDocs\index.html" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.Compat" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.Core.UI" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="70.1501.0-preview2" PrivateAssets="All" />
   </ItemGroup>
   

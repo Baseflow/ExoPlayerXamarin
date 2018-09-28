@@ -45,4 +45,12 @@
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='DefaultHlsPlaylistTracker']/method[@name='onLoadCompleted']/parameter[1]">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='DefaultHlsPlaylistTracker']/method[@name='onLoadError']/parameter[1]">java.lang.Object</attr>
 
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.hls']/class[@name='HlsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.source.hls.playlist']/class[@name='HlsPlaylist']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="Copy" native="false" return="Java.Lang.Object" static="false" synchronized="false" visibility="public">
+      <parameter name="streamKeys" type="java.util.List&lt;com.google.android.exoplayer2.offline.StreamKey&gt;" />
+    </method>
+  </add-node>
+  
 </metadata>

@@ -31,3 +31,7 @@
 *.nupkg   binary
 *.png     binary
 *.sdf     binary
+
+*.html linguist-language=csharp
+*.css linguist-language=csharp
+*.js linguist-language=csharp

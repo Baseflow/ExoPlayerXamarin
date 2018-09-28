@@ -139,5 +139,42 @@
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadService.ForegroundNotificationUpdater']">public</attr>
   
     <!-- Cannot convert IList to List<T>-->
-    <attr path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloadAction']/field[@name='keys']" name="type">Java.Util.IList</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloadAction']/field[@name='keys']">Java.Util.IList</attr>
+  
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.extractor']/interface[@name='BinarySearchSeeker.SeekTimestampConverter']">public</attr>
+
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='ProgressiveDownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='Java.Util.IList']]">Com.Google.Android.Exoplayer2.Offline.DownloadAction</attr>
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='ProgressiveDownloadHelper']/method[@name='getRemoveAction' and count(parameter)=1 and parameter[1][@type='byte[]']]">Com.Google.Android.Exoplayer2.Offline.DownloadAction</attr>
+
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='StreamKey']/method[@name='compareTo']/parameter">java.lang.Object</attr>
+
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='CompositeMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='SingleSampleMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='AdaptiveTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='com.google.android.exoplayer2.upstream.BandwidthMeter'] and parameter[3][@type='int...']]">Com.Google.Android.Exoplayer2.Trackselection.ITrackSelection</attr>
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='FixedTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='com.google.android.exoplayer2.upstream.BandwidthMeter'] and parameter[3][@type='int...']]">Com.Google.Android.Exoplayer2.Trackselection.ITrackSelection</attr>
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='RandomTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='com.google.android.exoplayer2.upstream.BandwidthMeter'] and parameter[3][@type='int...']]">Com.Google.Android.Exoplayer2.Trackselection.ITrackSelection</attr>
+
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='CompositeMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=4 and parameter[1][@type='T'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline'] and parameter[4][@type='java.lang.Object']]/parameter[1]">Com.Google.Android.Exoplayer2.Source.MediaSourceMediaPeriodId</attr>
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource.MediaSourceHolder']/method[@name='compareTo']/parameter">java.lang.Object</attr>
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource.MediaSourceHolder']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="CompareTo" native="false" return="int" static="false" synchronized="false" visibility="public">
+      <parameter name="o" type="Java.Lang.Object" />
+    </method>
+  </add-node>
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+      <parameter name="id" type="Com.Google.Android.Exoplayer2.Source.MediaSourceMediaPeriodId" />
+      <parameter name="mediaSource" type="Com.Google.Android.Exoplayer2.Source.IMediaSource" />
+      <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
+      <parameter name="manifest" type="Java.Lang.Object" />
+    </method>
+  </add-node>
+
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;'] and parameter[4][@type='com.google.android.exoplayer2.source.chunk.ChunkHolder']]/parameter[3]" >Java.Util.IList</attr>
+
 </metadata>

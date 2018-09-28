@@ -15,6 +15,7 @@
     <TransformFile Include="Transforms\*.xml" />
     <Compile Include="Additions\*.cs" />
     <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaDocIndex Include="JavaDocs\index.html" />
   </ItemGroup>
   
   <ItemGroup>

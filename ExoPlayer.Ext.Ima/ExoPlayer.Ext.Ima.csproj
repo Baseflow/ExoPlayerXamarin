@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
     <TargetFrameworks>MonoAndroid81</TargetFrameworks>
     <AssemblyName>ExoPlayer.Ext.Ima</AssemblyName>
@@ -15,6 +15,7 @@
     <TransformFile Include="Transforms\*.xml" />
     <Compile Include="Additions\*.cs" />
     <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaDocIndex Include="JavaDocs\index.html" />
   </ItemGroup>
   
   <ItemGroup>

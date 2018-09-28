@@ -5,4 +5,6 @@
 
     <!-- Only in debug mode  -->
 
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+  
 </metadata>
