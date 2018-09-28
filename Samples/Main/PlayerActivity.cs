@@ -501,7 +501,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             return src;
         }
 
-        private List<object> GetOfflineStreamKeys(android.Net.Uri uri)
+        private List<StreamKey> GetOfflineStreamKeys(android.Net.Uri uri)
         {
             return ((DemoApplication)Application).GetDownloadTracker().GetOfflineStreamKeys(uri);
         }
@@ -733,7 +733,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
             return false;
         }
 
-        private class PlayerEventListener : PlayerDefaultEventListener
+        private class PlayerEventListener : Java.Lang.Object, IPlayerEventListener
         {
             PlayerActivity activity;
 

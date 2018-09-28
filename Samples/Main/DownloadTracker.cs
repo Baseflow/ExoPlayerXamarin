@@ -100,22 +100,22 @@ namespace Com.Google.Android.Exoplayer2.Demo
             return trackedDownloadStates.ContainsKey(uri.ToString());
         }
 
-        public List<object> GetOfflineStreamKeys(android.Net.Uri uri)
+        public List<StreamKey> GetOfflineStreamKeys(android.Net.Uri uri)
         {
             if (!trackedDownloadStates.ContainsKey(uri.ToString()))
             {
-                return new List<object>();
+                return new List<StreamKey>();
             }
             DownloadAction action = trackedDownloadStates[uri.ToString()];
 
             if (action is SegmentDownloadAction)
             {
-                List<object> objs = new List<object>(((SegmentDownloadAction)action).Keys.ToArray());
+                List<StreamKey> objs = new List<StreamKey>(((SegmentDownloadAction)action).Keys.ToArray());
 
                 return objs;
             }
 
-            return new List<object>();
+            return new List<StreamKey>();
         }
 
         public void ToggleDownload(Activity activity, string name, android.Net.Uri uri, string extension)

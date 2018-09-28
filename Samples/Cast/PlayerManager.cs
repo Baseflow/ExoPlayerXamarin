@@ -23,7 +23,7 @@ namespace Com.Google.Android.Exoplayer2.CastDemo
     * Manages players and an internal media queue for the ExoPlayer/Cast demo app.
     */
     /* package */
-    internal class PlayerManager : PlayerDefaultEventListener, CastPlayer.ISessionAvailabilityListener
+    internal class PlayerManager : Java.Lang.Object, IPlayerEventListener, CastPlayer.ISessionAvailabilityListener
     {
 
         /**
