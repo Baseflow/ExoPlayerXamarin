@@ -256,12 +256,12 @@ namespace Com.Google.Android.Exoplayer2.CastDemo
 
         // Player.EventListener implementation.
 
-        public override void OnPlayerStateChanged(bool playWhenReady, int playbackState)
+        public void OnPlayerStateChanged(bool playWhenReady, int playbackState)
         {
             UpdateCurrentItemIndex();
         }
 
-        public override void OnPositionDiscontinuity(int reason)
+        public void OnPositionDiscontinuity(int reason)
         {
             UpdateCurrentItemIndex();
         }

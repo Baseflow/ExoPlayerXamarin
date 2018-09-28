@@ -486,7 +486,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                     break;
                 case C.TypeHls:
                     src = new HlsMediaSource.Factory(mediaDataSourceFactory)
-                        .SetPlaylistParser(new FilteringManifestParser(new HlsPlaylistParser(), GetOfflineStreamKeys(uri)))
+                        .SetPlaylistParserFactory(new FilteringManifestParser(new HlsPlaylistParser(), GetOfflineStreamKeys(uri)))
                         .CreateMediaSource(uri);
                     break;
                 case C.TypeOther:
@@ -742,7 +742,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 this.activity = activity;
             }
             
-            public override void OnPlayerStateChanged(bool playWhenReady, int playbackState)
+            /*public override void OnPlayerStateChanged(bool playWhenReady, int playbackState)
             {
                 if (playbackState == Player.StateEnded)
                 {
@@ -797,7 +797,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                     }
                     activity.lastSeenTrackGroupArray = trackGroups;
                 }
-            }
+            }*/
         }
 
         internal class PlayerErrorMessageProvider : Java.Lang.Object, IErrorMessageProvider
