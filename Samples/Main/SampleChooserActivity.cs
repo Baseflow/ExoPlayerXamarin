@@ -214,7 +214,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                     }
                     catch (Exception e)
                     {
-                        Log.Error(TAG, "Error loading sample list: " + uri, e);
+                        global::Android.Util.Log.Error(TAG, "Error loading sample list: " + uri, e);
                         sawError = true;
                     }
                     finally

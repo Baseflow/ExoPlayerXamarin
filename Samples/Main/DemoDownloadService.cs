@@ -85,7 +85,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
         public override void OnCreate()
         {
             base.OnCreate();
-            Log.Debug("DemoDownloadService", "Service started.");
+            global::Android.Util.Log.Debug("DemoDownloadService", "Service started.");
         }
 
         protected Offline.DownloadManager GetDownloadManager()
