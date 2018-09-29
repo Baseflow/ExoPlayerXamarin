@@ -1,6 +1,6 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFrameworks>MonoAndroid81</TargetFrameworks>
+    <TargetFrameworks>MonoAndroid90</TargetFrameworks>
     <AssemblyName>ExoPlayer.Ext.MediaSession</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.MediaSession</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
@@ -15,7 +15,7 @@
     <TransformFile Include="Transforms\*.xml" />
     <Compile Include="Additions\*.cs" />
     <None Include="..\readme.txt" pack="true" PackagePath="." />
-    <JavaDocIndex Include="JavaDocs\index.html" />
+    <JavaSourceJar Include="JavaDocs\*.jar" />
   </ItemGroup>
   
   <ItemGroup>
