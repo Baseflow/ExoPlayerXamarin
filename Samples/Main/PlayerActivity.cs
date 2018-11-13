@@ -396,7 +396,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                 trackSelector.SetParameters(trackSelectorParameters);
                 lastSeenTrackGroupArray = null;
 
-                player = ExoPlayerFactory.NewSimpleInstance(renderersFactory, trackSelector, drmSessionManager);
+                player = ExoPlayerFactory.NewSimpleInstance(this, renderersFactory, trackSelector, drmSessionManager);
 
                 eventLogger = new EventLogger(trackSelector);
 
@@ -486,7 +486,7 @@ namespace Com.Google.Android.Exoplayer2.Demo
                     break;
                 case C.TypeHls:
                     src = new HlsMediaSource.Factory(mediaDataSourceFactory)
-                        .SetPlaylistParserFactory(new FilteringManifestParser(new HlsPlaylistParser(), GetOfflineStreamKeys(uri)))
+                        .SetPlaylistParserFactory(new DefaultHlsPlaylistParserFactory(GetOfflineStreamKeys(uri)))
                         .CreateMediaSource(uri);
                     break;
                 case C.TypeOther:
