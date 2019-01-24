@@ -27,6 +27,7 @@
     </NuGetPackageImportStamp>
     <ReleaseVersion>2.8.0</ReleaseVersion>
     <AndroidDexTool>d8</AndroidDexTool>
+    <AndroidLinkTool>r8</AndroidLinkTool>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
