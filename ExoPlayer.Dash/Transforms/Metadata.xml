@@ -37,4 +37,7 @@
 
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DefaultDashChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;'] and parameter[4][@type='com.google.android.exoplayer2.source.chunk.ChunkHolder']]/parameter[3]">Java.Util.IList</attr>
   <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='DashManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.offline.StreamKey&gt;']]">java.lang.Object</attr>
+
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DashMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+
 </metadata>

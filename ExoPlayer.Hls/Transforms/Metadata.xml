@@ -52,5 +52,7 @@
       <parameter name="streamKeys" type="java.util.List&lt;com.google.android.exoplayer2.offline.StreamKey&gt;" />
     </method>
   </add-node>
-  
+
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.hls']/class[@name='HlsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+
 </metadata>
