@@ -19,7 +19,10 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Xam.Plugins.Android.Interactivemedia.Ads" Version="3.9.4" />
+    <PackageReference Include="Xam.Plugins.Android.Interactivemedia.Ads" Version="3.10.6" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Ads" Version="70.1501.0-preview2" PrivateAssets="All" />
+    <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="27.0.2.1" />
   </ItemGroup>
   
   <ItemGroup>

@@ -19,6 +19,10 @@
   </ItemGroup>
   
   <ItemGroup>
+    <PackageReference Include="Com.Google.VR.Sdk.Base" Version="1.190.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
   </ItemGroup>
 </Project>
