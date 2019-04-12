@@ -1,7 +1,7 @@
 ﻿<Project>
   <PropertyGroup>
     <Copyright>Copyright (c) Martijn van Dijk</Copyright>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/martijn00/ExoPlayerXamarin/develop/LICENSE.md</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/martijn00/ExoPlayerXamarin</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/martijn00/ExoPlayerXamarin/develop/icon_exoplayer.png</PackageIconUrl>
     <Authors>Martijn van Dijk</Authors>
@@ -14,7 +14,7 @@
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>2.9.1</Version>
+    <Version>2.9.6</Version>
 
     <LangVersion>latest</LangVersion>
     <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114</NoWarn>
