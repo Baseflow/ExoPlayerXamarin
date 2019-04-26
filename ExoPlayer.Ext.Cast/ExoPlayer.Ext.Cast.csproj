@@ -27,7 +27,8 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.Palette" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="70.1501.0-preview2" PrivateAssets="All" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="60.1142.1" />
+    <!--<PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="71.1602.0-preview2" PrivateAssets="All" />-->
   </ItemGroup>
   
   <ItemGroup>
