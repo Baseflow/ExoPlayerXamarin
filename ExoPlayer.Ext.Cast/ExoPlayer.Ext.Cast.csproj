@@ -19,16 +19,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.Compat" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.Core.UI" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.v7.Palette" Version="27.0.2.1" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="60.1142.1" />
-    <!--<PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="71.1602.0-preview2" PrivateAssets="All" />-->
+    <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Compat" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Core.UI" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.Palette" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="71.1602.0-preview4" PrivateAssets="All" />
   </ItemGroup>
   
   <ItemGroup>
