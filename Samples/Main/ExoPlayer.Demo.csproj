@@ -118,10 +118,10 @@
       <Version>28.0.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.GooglePlayServices.Basement">
-      <Version>71.1610.0-preview4</Version>
+      <Version>71.1610.0-preview6</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.GooglePlayServices.Gcm">
-      <Version>71.1600.0-preview4</Version>
+      <Version>71.1600.0-preview6</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
