@@ -25,4 +25,6 @@
     <field abstract="false" deprecated="not deprecated" final="false" name="ShuffleModeEnabled" type="boolean" static="false" visibility="public">
     </field>
   </add-node>-->
+
+  <attr path="//interface/method[@abstract='false']" name="abstract">true</attr>
 </metadata>
