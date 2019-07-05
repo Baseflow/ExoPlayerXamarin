@@ -43,5 +43,7 @@
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='onLoadError' and count(parameter)=5 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long'] and parameter[4][@type='java.io.IOException'] and parameter[5][@type='int']]/parameter[1]">java.lang.Object</attr>
 
   <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
-  
+
+  <attr path="//interface/method[@abstract='false']" name="abstract">true</attr>
+
 </metadata>

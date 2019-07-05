@@ -6,5 +6,69 @@
     <!-- Only in debug mode  -->
 
   <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+  <attr path="//interface/method[@abstract='false']" name="abstract">true</attr>
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnLoadingChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+      <parameter name="isLoading" type="bool" />
+    </method>
+  </add-node>
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnPlaybackParametersChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+      <parameter name="playbackParameters" type="Com.Google.Android.Exoplayer2.PlaybackParameters" />
+    </method>
+  </add-node>
+<!--
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnPlayerError" native="false" return="void" static="false" synchronized="false" visibility="public">
+      <parameter name="error" type="Com.Google.Android.Exoplayer2.ExoPlaybackException" />
+    </method>
+  </add-node>
   
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnPlayerStateChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+      <parameter name="playWhenReady" type="bool" />
+      <parameter name="playbackState" type="int" />
+    </method>
+  </add-node>
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnPositionDiscontinuity" native="false" return="void" static="false" synchronized="false" visibility="public">
+      <parameter name="reason" type="int" />
+    </method>
+  </add-node>-->
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnRepeatModeChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+      <parameter name="repeatMode" type="int" />
+    </method>
+  </add-node>
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnSeekProcessed" native="false" return="void" static="false" synchronized="false" visibility="public">
+    </method>
+  </add-node>
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnShuffleModeEnabledChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+      <parameter name="shuffleModeEnabled" type="bool" />
+    </method>
+  </add-node>
+<!--
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnTimelineChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+      <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
+      <parameter name="manifest" type="Java.Lang.Object" />
+      <parameter name="reason" type="int" />
+    </method>
+  </add-node>-->
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnTracksChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+      <parameter name="trackGroups" type="Com.Google.Android.Exoplayer2.Source.TrackGroupArray" />
+      <parameter name="trackSelections" type="Com.Google.Android.Exoplayer2.Trackselection.TrackSelectionArray" />
+    </method>
+  </add-node>
+
 </metadata>
