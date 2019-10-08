@@ -3,41 +3,64 @@
     <Copyright>Copyright (c) Martijn van Dijk</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/martijn00/ExoPlayerXamarin</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/martijn00/ExoPlayerXamarin/develop/icon_exoplayer.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/martijn00/ExoPlayerXamarin/develop/icon.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <Authors>Martijn van Dijk</Authors>
     <Owners>martijn00</Owners>
     <PackageTags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</PackageTags>
-    <PackageReleaseNotes>https://github.com/martijn00/ExoPlayerXamarin</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/martijn00/ExoPlayerXamarin/releases</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/martijn00/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>2.9.7</Version>
+    <Version>2.9.8</Version>
+    <Platform>AnyCPU</Platform>
 
-    <LangVersion>latest</LangVersion>
-    <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114</NoWarn>
-    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
-    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <LangVersion>7.3</LangVersion>
+    <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114;NU1603</NoWarn>
+
+    <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
+    <!--<LangVersion>preview</LangVersion>
+    <_EnableInterfaceMembers>true</_EnableInterfaceMembers>-->
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DesignTimeBuild>false</DesignTimeBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild Condition=" '$(IsTestProject)' != 'true'">true</GeneratePackageOnBuild>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' And '$(OS)' == 'Windows_NT' ">
     <!--<IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
 
-    <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
-    <Platform>AnyCPU</Platform>
-    <DebugType>full</DebugType>
-    <DesignTimeBuild>false</DesignTimeBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
-  
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(SourceLinkEnabled)' != 'false' ">
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="All" />
   </ItemGroup>
-  
-  <ItemGroup Condition="'$(SourceLinkEnabled)' != 'false'">
-    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19351-01" PrivateAssets="All" />
-    <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath=""/>
-  </ItemGroup>
+
 </Project>
