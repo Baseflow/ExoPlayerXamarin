@@ -4,7 +4,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/martijn00/ExoPlayerXamarin</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/martijn00/ExoPlayerXamarin/develop/icon.png</PackageIconUrl>
-    <PackageIcon>icon.png</PackageIcon>
+    <!--<PackageIcon>icon.png</PackageIcon>-->
     <Authors>Martijn van Dijk</Authors>
     <Owners>martijn00</Owners>
     <PackageTags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</PackageTags>
