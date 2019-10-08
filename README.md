@@ -17,7 +17,7 @@ supported by Android’s MediaPlayer API, including DASH and SmoothStreaming
 adaptive playbacks. Unlike the MediaPlayer API, ExoPlayer is easy to customize
 and extend, and can be updated through Play Store application updates.
 
-**WARNING: Exoplayer 2.9.0 and up requires Visual Studio 2019 with R8 and D8. Readmore at: https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes-preview#d8-r8**
+**IMPORTANT: Exoplayer 2.9.0 and up requires Visual Studio 2019 with R8 and D8. You also need to enable AAPT2. Readmore at: https://devblogs.microsoft.com/xamarin/androids-d8-dexer-and-r8-shrinker/**
 
 ## Documentation ##
 
