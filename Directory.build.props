@@ -25,6 +25,8 @@
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <!--<LangVersion>preview</LangVersion>
     <_EnableInterfaceMembers>true</_EnableInterfaceMembers>-->
+	
+    <DisableExtraReferences>true</DisableExtraReferences>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
