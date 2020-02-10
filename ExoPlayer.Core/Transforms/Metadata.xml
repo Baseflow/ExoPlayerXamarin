@@ -182,7 +182,7 @@
   <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='SingleSampleMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
   <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
 
-  <attr path="//interface/method[@abstract='false']" name="abstract">true</attr>
+  <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
 
   <!--<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='BaseDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]" name="abstract">false</attr>-->
   <attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='DataSource']/method[@name='getResponseHeaders' and count(parameter)=0]" name="abstract">false</attr>

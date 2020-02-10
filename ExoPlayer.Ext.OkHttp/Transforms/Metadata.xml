@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
 	<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource</attr>
-  <attr path="//interface/method[@abstract='false']" name="abstract">true</attr>
+  <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
 </metadata>

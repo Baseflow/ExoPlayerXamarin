@@ -1,6 +1,6 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFrameworks>MonoAndroid90</TargetFrameworks>
+    <TargetFrameworks>monoandroid10.0</TargetFrameworks>
     <AssemblyName>ExoPlayer.Ext.OkHttp</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.OkHttp</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
@@ -19,7 +19,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Xamarin.Square.OkHttp3" Version="3.12.1" />
+    <PackageReference Include="Xamarin.Square.OkHttp3" Version="3.12.3" />
   </ItemGroup>
   
   <ItemGroup>

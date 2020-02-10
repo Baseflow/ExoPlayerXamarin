@@ -1,6 +1,6 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFrameworks>MonoAndroid90</TargetFrameworks>
+    <TargetFrameworks>monoandroid10.0</TargetFrameworks>
     <AssemblyName>ExoPlayer.Ext.Gvr</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Gvr</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>

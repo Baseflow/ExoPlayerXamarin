@@ -19,13 +19,16 @@
     <Version>2.9.8</Version>
     <Platform>AnyCPU</Platform>
 
-    <LangVersion>7.3</LangVersion>
+    <!--<Nullable>enable</Nullable>-->
+    <LangVersion>8.0</LangVersion>
     <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114;NU1603</NoWarn>
 
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
-    <!--<LangVersion>preview</LangVersion>
-    <_EnableInterfaceMembers>true</_EnableInterfaceMembers>-->
-	
+    <_EnableInterfaceMembers>true</_EnableInterfaceMembers>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidDexTool>d8</AndroidDexTool>
+    <AndroidLinkTool>r8</AndroidLinkTool>
+
     <DisableExtraReferences>true</DisableExtraReferences>
   </PropertyGroup>
 
@@ -58,11 +61,11 @@
 
   <ItemGroup Condition=" '$(SourceLinkEnabled)' != 'false' ">
     <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.11" PrivateAssets="All" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.8.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <attr path="//interface/method[@abstract='false']" name="abstract">true</attr>
+  <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
 
   <add-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnLoadingChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
