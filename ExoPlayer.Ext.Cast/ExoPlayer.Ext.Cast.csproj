@@ -19,19 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
-    <PackageReference Include="Xamarin.Android.Support.Compat" Version="28.0.0.3" />
-    <PackageReference Include="Xamarin.Android.Support.Core.UI" Version="28.0.0.3" />
-    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
-    <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="28.0.0.3" />
-    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3" />
-    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="28.0.0.3" />
-    <PackageReference Include="Xamarin.Android.Support.v7.Palette" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="71.1602.0" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
+    <ProjectReference Include="..\ExoPlayer.UI\ExoPlayer.UI.csproj" />
   </ItemGroup>
 
 </Project>
