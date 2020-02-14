@@ -210,4 +210,6 @@
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]/parameter[@name='source']">Java.Lang.Object</attr>
 
   <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='createPeriod' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.MediaSource.MediaPeriodId'] and parameter[2][@type='com.google.android.exoplayer2.upstream.Allocator'] and parameter[3][@type='long']]">Com.Google.Android.Exoplayer2.Source.IMediaPeriod</attr>
+
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='createPeriod' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.MediaSource.MediaPeriodId'] and parameter[2][@type='com.google.android.exoplayer2.upstream.Allocator'] and parameter[3][@type='long']]" />
 </metadata>

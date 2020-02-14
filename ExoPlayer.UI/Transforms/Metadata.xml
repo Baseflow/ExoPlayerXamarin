@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
+  <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>
 
   <add-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnLoadingChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
@@ -19,7 +19,7 @@
       <parameter name="error" type="Com.Google.Android.Exoplayer2.ExoPlaybackException" />
     </method>
   </add-node>
-<!--
+
   <add-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnPlayerStateChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
       <parameter name="playWhenReady" type="bool" />
@@ -31,7 +31,7 @@
     <method abstract="false" deprecated="not deprecated" final="false" name="OnPositionDiscontinuity" native="false" return="void" static="false" synchronized="false" visibility="public">
       <parameter name="reason" type="int" />
     </method>
-  </add-node>-->
+  </add-node>
 
   <add-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnRepeatModeChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
@@ -63,8 +63,11 @@
       <parameter name="trackGroups" type="Com.Google.Android.Exoplayer2.Source.TrackGroupArray" />
       <parameter name="trackSelections" type="Com.Google.Android.Exoplayer2.Trackselection.TrackSelectionArray" />
     </method>
-  </add-node>
+  </add-node>-->
 
   <remove-node path="/api/package[@name='com.google.android.exoplayer2.ui']/interface[@name='PlayerNotificationManager.NotificationListener']/method[@name='onNotificationCancelled' and count(parameter)=1 and parameter[1][@type='int']]" />
+
+  <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']/method[@name='OnLoadingChanged' and count(parameter)=1 and parameter[1][@type='bool']]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']/method[@name='OnShuffleModeEnabledChanged' and count(parameter)=1 and parameter[1][@type='bool']]" />-->
 
 </metadata>

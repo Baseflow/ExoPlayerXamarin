@@ -3,6 +3,8 @@
 	<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource</attr>
   <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
 
-  <attr path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]" name="abstract">false</attr>
+  <!--<attr name="abstract" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]">false</attr>-->
+
+  <attr name="final" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]">tue</attr>
 
 </metadata>

@@ -27,4 +27,13 @@
   </add-node>
 
   <attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
+
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.ext.cast']/class[@name='CastPlayer']/method[@name='getTextComponent' and count(parameter)=0]" />
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.cast']/class[@name='CastPlayer']">
+
+    <field abstract="false" deprecated="not deprecated" final="false" name="TextComponent" type="string" static="false" visibility="public">
+    </field>
+  </add-node>
+
 </metadata>
