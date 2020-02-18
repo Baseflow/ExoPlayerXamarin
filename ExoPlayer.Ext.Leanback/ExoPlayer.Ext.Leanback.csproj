@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.AndroidX.Leanback" Version="1.0.0-rc3" />
+    <PackageReference Include="Xamarin.AndroidX.Leanback" Version="1.0.0" />
   </ItemGroup>
   
   <ItemGroup>

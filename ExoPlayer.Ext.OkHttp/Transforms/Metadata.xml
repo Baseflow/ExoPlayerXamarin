@@ -5,6 +5,5 @@
 
   <!--<attr name="abstract" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]">false</attr>-->
 
-  <attr name="final" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]">tue</attr>
-
+  <attr name="abstract" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]">false</attr>
 </metadata>
