@@ -46,8 +46,8 @@
 
   <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
 
-  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='com.google.android.exoplayer2.upstream.DataSpec']]">public</attr>
-  <attr name="override" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='com.google.android.exoplayer2.upstream.DataSpec']]">true</attr>
+  <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='com.google.android.exoplayer2.upstream.DataSpec']]">public</attr>
+  <attr name="override" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='com.google.android.exoplayer2.upstream.DataSpec']]">true</attr>-->
 
 
   <!--<add-node path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']">
@@ -59,5 +59,7 @@
   </add-node>-->
 
   <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='createPeriod' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.MediaSource.MediaPeriodId'] and parameter[2][@type='com.google.android.exoplayer2.upstream.Allocator'] and parameter[3][@type='long']]">Com.Google.Android.Exoplayer2.Source.IMediaPeriod</attr>
+
+  <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='com.google.android.exoplayer2.upstream.DataSpec']]">public</attr>-->
 
 </metadata>

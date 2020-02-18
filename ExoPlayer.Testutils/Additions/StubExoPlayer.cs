@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Android.Runtime;
 using Java.Interop;
 
-namespace Com.Google.Android.Exoplayer2.Ext.Cast
+namespace Com.Google.Android.Exoplayer2.Testutil
 {
-    public sealed partial class CastPlayer : global::Com.Google.Android.Exoplayer2.BasePlayer
+    public abstract partial class StubExoPlayer : global::Com.Google.Android.Exoplayer2.BasePlayer
     {
         public override unsafe bool PlayWhenReady
         {

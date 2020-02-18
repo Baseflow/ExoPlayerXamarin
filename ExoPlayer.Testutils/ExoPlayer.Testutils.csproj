@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Additions\StubExoPlayer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
   </ItemGroup>
 
