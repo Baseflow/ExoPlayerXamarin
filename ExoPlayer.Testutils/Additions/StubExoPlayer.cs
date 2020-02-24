@@ -108,5 +108,50 @@ namespace Com.Google.Android.Exoplayer2.Testutil
         }
 
         public override IPlayerTextComponent TextComponent => null;
+
+        [Register("setPlayWhenReady", "(Z)V", "GetSetPlayWhenReady_ZHandler")]
+        public virtual unsafe void SetPlayWhenReady(bool value)
+        {
+            const string __id = "setPlayWhenReady.(Z)V";
+            try
+            {
+                JniArgumentValue* __args = stackalloc JniArgumentValue[1];
+                __args[0] = new JniArgumentValue(value);
+                _members.InstanceMethods.InvokeAbstractVoidMethod(__id, this, __args);
+            }
+            finally
+            {
+            }
+        }
+
+        [Register("setRepeatMode", "(I)V", "GetSetRepeatMode_IHandler")]
+        public virtual unsafe void SetRepeatMode(int value)
+        {
+            const string __id = "setRepeatMode.(I)V";
+            try
+            {
+                JniArgumentValue* __args = stackalloc JniArgumentValue[1];
+                __args[0] = new JniArgumentValue(value);
+                _members.InstanceMethods.InvokeAbstractVoidMethod(__id, this, __args);
+            }
+            finally
+            {
+            }
+        }
+
+        [Register("setShuffleModeEnabled", "(Z)V", "GetSetShuffleModeEnabled_ZHandler")]
+        public virtual unsafe void SetShuffleModeEnabled(bool value)
+        {
+            const string __id = "setShuffleModeEnabled.(Z)V";
+            try
+            {
+                JniArgumentValue* __args = stackalloc JniArgumentValue[1];
+                __args[0] = new JniArgumentValue(value);
+                _members.InstanceMethods.InvokeAbstractVoidMethod(__id, this, __args);
+            }
+            finally
+            {
+            }
+        }
     }
 }
