@@ -172,7 +172,7 @@
       <parameter name="mediaSource" type="Com.Google.Android.Exoplayer2.Source.IMediaSource" />
       <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
     </method>
-  </add-node>-->
+  </add-node>
 
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;'] and parameter[4][@type='com.google.android.exoplayer2.source.chunk.ChunkHolder']]/parameter[3]" >Java.Util.IList</attr>
 
