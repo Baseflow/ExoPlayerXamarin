@@ -39,8 +39,9 @@
   <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash.manifest']/class[@name='DashManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.offline.StreamKey&gt;']]">java.lang.Object</attr>
 
   <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DashMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
-
+  
   <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DashMediaSource.Factory']/method[@name='setDrmSessionManager' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManager&lt;?&gt;']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
 
-
+  
 </metadata>

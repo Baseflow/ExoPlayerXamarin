@@ -109,6 +109,6 @@ namespace Com.Google.Android.Exoplayer2.Ext.Cast
             }
         }
 
-        public override IPlayerTextComponent TextComponent => null;
+        //public override IPlayerTextComponent TextComponent => null;
     }
 }

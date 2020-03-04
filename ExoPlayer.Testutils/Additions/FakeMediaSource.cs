@@ -4,7 +4,7 @@ using Android.Runtime;
 using Java.Interop;
 
 namespace Com.Google.Android.Exoplayer2.Testutil
-{
+{/*
     public partial class FakeMediaSource : global::Com.Google.Android.Exoplayer2.Source.BaseMediaSource
     {
         // Metadata.xml XPath method reference: path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdsMediaSource']/method[@name='releasePeriod' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]"
@@ -22,5 +22,5 @@ namespace Com.Google.Android.Exoplayer2.Testutil
             {
             }
         }
-    }
+    }*/
 }

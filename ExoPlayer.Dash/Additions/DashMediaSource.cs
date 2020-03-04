@@ -5,7 +5,7 @@ using Java.Interop;
 
 namespace Com.Google.Android.Exoplayer2.Source.Dash
 {
-    public sealed partial class DashMediaSource : global::Com.Google.Android.Exoplayer2.Source.BaseMediaSource
+    /*public sealed partial class DashMediaSource : global::Com.Google.Android.Exoplayer2.Source.BaseMediaSource
     {
         // Metadata.xml XPath method reference: path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdsMediaSource']/method[@name='releasePeriod' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]"
         [Register("releasePeriod", "(Lcom/google/android/exoplayer2/source/MediaPeriod;)V", "")]
@@ -22,5 +22,5 @@ namespace Com.Google.Android.Exoplayer2.Source.Dash
             {
             }
         }
-    }
+    }*/
 }

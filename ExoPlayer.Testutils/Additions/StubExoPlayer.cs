@@ -107,7 +107,7 @@ namespace Com.Google.Android.Exoplayer2.Testutil
             }
         }
 
-        public override IPlayerTextComponent TextComponent => null;
+        //public override IPlayerTextComponent TextComponent => null;
 
         [Register("setPlayWhenReady", "(Z)V", "GetSetPlayWhenReady_ZHandler")]
         public virtual unsafe void SetPlayWhenReady(bool value)
