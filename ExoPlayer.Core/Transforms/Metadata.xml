@@ -225,9 +225,5 @@
 
   <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='releasePeriod' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]" />-->
 
-  
-  <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='BaseMediaSource']">
-    <field abstract="true" deprecated="not deprecated" final="false" name="Tag" native="false" return="Java.Lang.Object" static="false" synchronized="false" visibility="public" />
-  </add-node>
 
 </metadata>

@@ -19,4 +19,6 @@
 
   <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
 
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getTag' and count(parameter)=0]" />
+
 </metadata>

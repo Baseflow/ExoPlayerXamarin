@@ -9,11 +9,11 @@ namespace Com.Google.Android.Exoplayer2.Source
     public abstract partial class BaseMediaSource : global::Java.Lang.Object, global::Com.Google.Android.Exoplayer2.Source.IMediaSource
     {
 
-        public abstract global::Java.Lang.Object Tag { get; }
+        //public abstract global::Java.Lang.Object Tag { get; }
     }
 
     internal partial class BaseMediaSourceInvoker : BaseMediaSource
     {
-        public override Java.Lang.Object Tag => throw new NotImplementedException();
+        //public override Java.Lang.Object Tag => throw new NotImplementedException();
     }
 }
