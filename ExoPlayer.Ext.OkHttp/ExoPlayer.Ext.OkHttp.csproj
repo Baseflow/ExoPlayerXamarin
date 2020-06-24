@@ -19,7 +19,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Xamarin.Square.OkHttp3" Version="3.12.3" />
+    <PackageReference Include="Square.OkHttp3" Version="3.12.6" />
   </ItemGroup>
   
   <ItemGroup>

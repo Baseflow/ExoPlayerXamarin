@@ -19,8 +19,8 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Xam.Plugins.Android.Interactivemedia.Ads" Version="3.11.3" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="71.1600.0" />
+    <PackageReference Include="Xam.Plugins.Android.Interactivemedia.Ads" Version="3.19.2" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="117.0.0" />
   </ItemGroup>
   
   <ItemGroup>
