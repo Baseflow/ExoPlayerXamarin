@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="118.1.0-preview01" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="118.1.0-preview02" />
   </ItemGroup>
   
   <ItemGroup>

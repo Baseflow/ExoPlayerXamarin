@@ -17,11 +17,11 @@
     <RepositoryUrl>https://github.com/Baseflow/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>2.11.6</Version>
+    <Version>2.11.7</Version>
     <Platform>AnyCPU</Platform>
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
     
-    <!--<Nullable>enable</Nullable>-->
+    <Nullable>enable</Nullable>
     <LangVersion>8.0</LangVersion>
     <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114;NU1603</NoWarn>
 
