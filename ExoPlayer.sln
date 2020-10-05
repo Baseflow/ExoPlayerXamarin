@@ -9,8 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Core", "ExoPlayer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{4EF4950F-D0EE-4F8A-90E6-5F7F0B51EC78}"
 	ProjectSection(SolutionItems) = preProject
-		Samples\Directory.build.props = Samples\Directory.build.props
-		Samples\Directory.build.targets = Samples\Directory.build.targets
+		Samples\Directory.Build.props = Samples\Directory.Build.props
+		Samples\Directory.Build.targets = Samples\Directory.Build.targets
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Dash", "ExoPlayer.Dash\ExoPlayer.Dash.csproj", "{ED6BE01E-8554-4BFA-8925-D39AFAF789F9}"
@@ -43,8 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		build.cake = build.cake
 		build.ps1 = build.ps1
 		build.sh = build.sh
-		Directory.build.props = Directory.build.props
-		Directory.build.targets = Directory.build.targets
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
 		global.json = global.json
 	EndProjectSection
 EndProject
@@ -59,6 +59,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Ext.Workmanager", "ExoPlayer.Ext.Workmanager\ExoPlayer.Ext.Workmanager.csproj", "{FADD516D-C129-4303-AE5D-CEEEC287CA7F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Testutils", "ExoPlayer.Testutils\ExoPlayer.Testutils.csproj", "{681A35A1-E06C-4548-A9D8-34D748A36A5E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Ext.Media2", "ExoPlayer.Ext.Media2\ExoPlayer.Ext.Media2.csproj", "{0714F2C0-E3C8-4759-BD7C-724502FBFD1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Extractor", "ExoPlayer.Extractor\ExoPlayer.Extractor.csproj", "{F34B6670-EE0C-47DB-A465-490DC4063365}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Common", "ExoPlayer.Common\ExoPlayer.Common.csproj", "{735C8E6A-C50F-4EE3-85F7-627222F01A74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -142,6 +148,18 @@ Global
 		{681A35A1-E06C-4548-A9D8-34D748A36A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{681A35A1-E06C-4548-A9D8-34D748A36A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{681A35A1-E06C-4548-A9D8-34D748A36A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0714F2C0-E3C8-4759-BD7C-724502FBFD1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0714F2C0-E3C8-4759-BD7C-724502FBFD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0714F2C0-E3C8-4759-BD7C-724502FBFD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0714F2C0-E3C8-4759-BD7C-724502FBFD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34B6670-EE0C-47DB-A465-490DC4063365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34B6670-EE0C-47DB-A465-490DC4063365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34B6670-EE0C-47DB-A465-490DC4063365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34B6670-EE0C-47DB-A465-490DC4063365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{735C8E6A-C50F-4EE3-85F7-627222F01A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735C8E6A-C50F-4EE3-85F7-627222F01A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735C8E6A-C50F-4EE3-85F7-627222F01A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735C8E6A-C50F-4EE3-85F7-627222F01A74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,6 +177,7 @@ Global
 		{66BC5F95-F24A-4E43-BBF8-318DEAFD6992} = {4EF4950F-D0EE-4F8A-90E6-5F7F0B51EC78}
 		{8B6AC957-0250-4585-B7B0-C6D81BAC777F} = {B29C2433-CA76-4C51-8427-FA45A3E32FA6}
 		{FADD516D-C129-4303-AE5D-CEEEC287CA7F} = {B29C2433-CA76-4C51-8427-FA45A3E32FA6}
+		{0714F2C0-E3C8-4759-BD7C-724502FBFD1A} = {B29C2433-CA76-4C51-8427-FA45A3E32FA6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93536401-D015-479E-B4AC-9BF8F73D507E}

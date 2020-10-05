@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!-- Implementation of an interface method, or override of a method: a parameter or return type must be of the original type instead of a derived class (permitted in java) -->
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='CacheSpan']/method[@name='compareTo']/parameter">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='DrmInitData']/method[@name='compare']/parameter">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ClippingMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]/parameter">java.lang.Object</attr>
+    <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']/method[@name='compare' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.cache.CacheSpan']]/parameter">java.lang.Object</attr>-->
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]/parameter">java.lang.Object</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]">java.lang.Object</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]">java.lang.Object</attr>
+
+    <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='FixedTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]">com.google.android.exoplayer2.trackselection.TrackSelection</attr>-->
+    <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='RandomTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]">com.google.android.exoplayer2.trackselection.TrackSelection</attr>-->
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='HttpDataSource.BaseFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='HttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+
+    <!-- Public classes inheriting private classes or returning private classes in method parameters (permitted in java) -->
+    <attr path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.text.ttml']/class[@name='TtmlSubtitle']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttSubtitle']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttSubtitle']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripSubtitle']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttCue']" name="visibility">public</attr>
+
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloader']/method[@name='getManifest']">public</attr>
+
+    <!-- Rename (naming conflict not resolved correctly, interface method renamed instead of new method) -->
+    <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='ChunkExtractorWrapper']/method[@name='getSeekMap' and count(parameter)=0]">SeekMapInstance</attr>
+    <attr name="managedName" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='ChunkExtractorWrapper']/method[@name='seekMap' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.extractor.SeekMap']]">SeekMap</attr>
+
+    <!-- Remove method (abstract or interface) already implemented because it uses derived parameters -->
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SubtitleOutputBuffer']/method[@name='release' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='createOutputBuffer' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='createInputBuffer' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='I'] and parameter[2][@type='O'] and parameter[3][@type='boolean']]"/>
+
+    <!-- deprecated fields that error -->
+    <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='REPEAT_MODE_ALL']" />-->
+    <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='REPEAT_MODE_OFF']" />-->
+    <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='ExoPlayer']/field[@name='REPEAT_MODE_ONE']" />-->
+
+    <attr path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/class[@name='BaseMediaChunkOutput']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.text.dvb']/class[@name='DvbSubtitle']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.text.ssa']/class[@name='SsaSubtitle']" name="visibility">public</attr>
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.dvb']/class[@name='DvbDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='boolean']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.subrip']/class[@name='SubripDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='boolean']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.ttml']/class[@name='TtmlDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='boolean']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.ssa']/class[@name='SsaDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='boolean']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='Mp4WebvttDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='boolean']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='boolean']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
+
+    <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='AdaptiveTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]">com.google.android.exoplayer2.trackselection.TrackSelection</attr>-->
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='CacheDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='PriorityDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource</attr>
+
+    <!-- Rename duplicate event handler args -->
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioSink.Listener']/method[@name='onAudioSessionId']" name="argsType">AudioSinkSessionIdEventArgs</attr>
+
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MediaSource.MediaPeriodId']">public</attr>
+
+    <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='CompositeMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=4 and parameter[1][@type='T']]/parameter[@name='p0']">Com.Google.Android.Exoplayer2.Source.MediaSourceMediaPeriodId</attr>-->
+    <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ClippingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=4 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline'] and parameter[4][@type='java.lang.Object']]/parameter[@name='id']">Com.Google.Android.Exoplayer2.Source.MediaSourceMediaPeriodId</attr>-->
+    <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='LoopingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=4 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline'] and parameter[4][@type='java.lang.Object']]/parameter[@name='id']">Com.Google.Android.Exoplayer2.Source.MediaSourceMediaPeriodId</attr>-->
+    <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MergingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=4 and parameter[1][@type='java.lang.Integer'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline'] and parameter[4][@type='java.lang.Object']]/parameter[@name='id']">Com.Google.Android.Exoplayer2.Source.MediaSourceMediaPeriodId</attr>-->
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createUnexpectedDecodeException' and count(parameter)=1 and parameter[1][@type='java.lang.Throwable']]">java.lang.Object</attr>
+    <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='DeferredMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]/parameter">java.lang.Object</attr>-->
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=3 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='android.os.Handler'] and parameter[3][@type='com.google.android.exoplayer2.source.MediaSourceEventListener']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+
+    <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='CompositeMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=4 and parameter[1][@type='Com.Google.Android.Exoplayer2.Source.MediaSourceMediaPeriodId'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline'] and parameter[4][@type='java.lang.Object']]"/>-->
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='createUnexpectedDecodeException' and count(parameter)=1 and parameter[1][@type='java.lang.Throwable']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdPlaybackState.AdGroup']/field[@name='uris']"/>
+
+    <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='CompositeMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean']]">protected</attr>-->
+    <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean']]">protected</attr>-->
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='CompositeMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
+    <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean']]">protected</attr>-->
+    <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>-->
+    <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>-->
+    <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='SingleSampleMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean']]">protected</attr>-->
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='SingleSampleMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
+    <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloadAction']/method[@name='writeToStream' and count(parameter)=1 and parameter[1][@type='java.io.DataOutputStream']]">protected</attr>-->
+
+    <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='ProgressiveDownloadAction']/method[@name='createDownloader' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.offline.DownloaderConstructorHelper']]">com.google.android.exoplayer2.offline.Downloader</attr>-->
+
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='RenderersFactory']/method[@name='createRenderers' and count(parameter)=6 and parameter[6]]">java.lang.Object</attr>
+
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='enabled' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.decoder.DecoderCounters']]" name="managedName" >InvokeEnabled</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='disabled' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.decoder.DecoderCounters']]" name="managedName" >InvokeDisabled</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='inputFormatChanged' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.Format']]" name="managedName" >InvokeInputFormatChanged</attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/class[@name='AudioRendererEventListener.EventDispatcher']/method[@name='audioTrackUnderrun' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='long'] and parameter[3][@type='long']]" name="managedName" >InvokeAudioTrackUnderrun</attr>
+
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onVideoSizeChanged']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioSessionId']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioUnderrun']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderInitialized']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderEnabled']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderDisabled']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onDecoderInputFormatChanged']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onRenderedFirstFrame']" />
+
+    <!-- remove dupes -->
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoSizeChanged']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoEnabled']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoDisabled']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoInputFormatChanged']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onDroppedFrames']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoDecoderInitialized']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.video']/interface[@name='VideoRendererEventListener']/method[@name='onRenderedFirstFrame']" name="eventName"></attr>
+
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioDecoderInitialized']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioEnabled']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioDisabled']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioInputFormatChanged']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioSessionId']" name="eventName"></attr>
+    <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioSinkUnderrun']" name="eventName"></attr>
+
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getPreferredQueueSize' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]" />
+
+    <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]/parameter[2]" >Java.Util.IList</attr>-->
+    <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='ProgressiveDownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.offline.TrackKey&gt;']]/parameter[2]" >Java.Util.IList</attr>-->
+    
+    <!--  Need to remove because Java messes up  -->
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/class[@name='AnalyticsCollector']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/class[@name='AnalyticsListener.EventTime']" />
+
+    <!-- Need to remove for AdsLoader -->
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='handlePrepareError' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='java.io.IOException']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/interface[@name='AdsLoader']/method[@name='setSupportedContentTypes' and count(parameter)=1 and parameter[1][@type='int...']]" />
+    
+    <!--Make visible to c#-->
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='DownloadService.ForegroundNotificationUpdater']">public</attr>
+  
+    <!-- Cannot convert IList to List<T>-->
+    <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloadAction']/field[@name='keys']">Java.Util.IList</attr>-->
+  
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.extractor']/interface[@name='BinarySearchSeeker.SeekTimestampConverter']">public</attr>
+
+  <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='ProgressiveDownloadHelper']/method[@name='getDownloadAction' and count(parameter)=2 and parameter[1][@type='byte[]'] and parameter[2][@type='Java.Util.IList']]">Com.Google.Android.Exoplayer2.Offline.DownloadAction</attr>-->
+  <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='ProgressiveDownloadHelper']/method[@name='getRemoveAction' and count(parameter)=1 and parameter[1][@type='byte[]']]">Com.Google.Android.Exoplayer2.Offline.DownloadAction</attr>-->
+
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='StreamKey']/method[@name='compareTo']/parameter">java.lang.Object</attr>
+
+  <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='CompositeMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>-->
+  <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>-->
+  <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>-->
+  <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='SingleSampleMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean'] and parameter[3][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>-->
+
+  <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='AdaptiveTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='com.google.android.exoplayer2.upstream.BandwidthMeter'] and parameter[3][@type='int...']]">Com.Google.Android.Exoplayer2.Trackselection.ITrackSelection</attr>-->
+  <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='FixedTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='com.google.android.exoplayer2.upstream.BandwidthMeter'] and parameter[3][@type='int...']]">Com.Google.Android.Exoplayer2.Trackselection.ITrackSelection</attr>-->
+  <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='RandomTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='com.google.android.exoplayer2.upstream.BandwidthMeter'] and parameter[3][@type='int...']]">Com.Google.Android.Exoplayer2.Trackselection.ITrackSelection</attr>-->
+
+  <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='CompositeMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=4 and parameter[1][@type='T'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline'] and parameter[4][@type='java.lang.Object']]/parameter[1]">Com.Google.Android.Exoplayer2.Source.MediaSourceMediaPeriodId</attr>-->
+  <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource.MediaSourceHolder']/method[@name='compareTo']/parameter">java.lang.Object</attr>-->
+
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource.MediaSourceHolder']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="CompareTo" native="false" return="int" static="false" synchronized="false" visibility="public">
+      <parameter name="o" type="Java.Lang.Object" />
+    </method>
+  </add-node>
+  
+  <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource']">
+    <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+      <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+      <parameter name="mediaSource" type="Com.Google.Android.Exoplayer2.Source.IMediaSource" />
+      <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
+    </method>
+  </add-node>
+
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;'] and parameter[4][@type='com.google.android.exoplayer2.source.chunk.ChunkHolder']]/parameter[3]" >Java.Util.IList</attr>
+
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='CompositeMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+  <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>-->
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='SingleSampleMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+  <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>-->
+
+  <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
+
+  <!--<attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='BaseDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]" name="abstract">false</attr>-->
+  <!--<attr name="abstract" path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='HttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]">false</attr>-->
+
+  <!--<attr name="abstract" path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='DataSource']/method[@name='getResponseHeaders' and count(parameter)=0]">false</attr>-->
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='HttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='DataSource']/method[@name='getResponseHeaders' and count(parameter)=0]" />
+
+
+  <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.trackselection']/interface[@name='TrackSelection']/method[@name='updateSelectedTrack' and count(parameter)=3 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='long']]" />-->
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Renderer']/method[@name='setOperatingRate' and count(parameter)=1 and parameter[1][@type='float']]" />
+
+
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player.EventListener']/method[@name='onTimelineChanged' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.Timeline'] and parameter[2][@type='java.lang.Object'] and parameter[3][@type='int']]" />
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='ResolvingDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdsMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.MediaSource.MediaPeriodId'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='mediaPeriodId']">Java.Lang.Object</attr>
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ClippingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='LoopingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MergingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Integer'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
+
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
+
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='FileDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='FileDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]/parameter[@name='source']">Java.Lang.Object</attr>
+
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='createPeriod' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.MediaSource.MediaPeriodId'] and parameter[2][@type='com.google.android.exoplayer2.upstream.Allocator'] and parameter[3][@type='long']]">Com.Google.Android.Exoplayer2.Source.IMediaPeriod</attr>
+
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='createPeriod' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.MediaSource.MediaPeriodId'] and parameter[2][@type='com.google.android.exoplayer2.upstream.Allocator'] and parameter[3][@type='long']]" />
+
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setDrmSessionManager' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManager&lt;?&gt;']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource.Factory']/method[@name='setDrmSessionManager' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManager&lt;?&gt;']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
+
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='com.google.android.exoplayer2.upstream.DataSpec']]" />
+
+  <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='releasePeriod' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]" />-->
+
+
+</metadata>

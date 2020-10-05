@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <Copyright>Copyright (c) Baseflow</Copyright>
+    <Authors>Martijn van Dijk</Authors>
+    <Owners>martijn00</Owners>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Version>2.12.0</Version>
+
+    <LangVersion>8.0</LangVersion>
+    <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;NU1603</NoWarn>
+
+    <Platform>AnyCPU</Platform>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+</Project>

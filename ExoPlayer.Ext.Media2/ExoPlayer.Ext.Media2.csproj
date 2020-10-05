@@ -1,10 +1,10 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
     <TargetFrameworks>monoandroid10.0</TargetFrameworks>
-    <AssemblyName>ExoPlayer.Ext.Workmanager</AssemblyName>
-    <RootNamespace>ExoPlayer.Ext.Workmanager</RootNamespace>
+    <AssemblyName>ExoPlayer.Ext.Media2</AssemblyName>
+    <RootNamespace>ExoPlayer.Ext.Media2</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Workmanager</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Media2</PackageId>
     <IsBindingProject>true</IsBindingProject>
     <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
@@ -19,10 +19,12 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
+    <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.1.0.5" />
+    <PackageReference Include="Xamarin.AndroidX.Concurrent.Futures" Version="1.0.0.5" />
+    <PackageReference Include="Xamarin.AndroidX.Media2.Common" Version="1.0.3.5" />
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.3.4.6" />
+    <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
   </ItemGroup>
 </Project>
