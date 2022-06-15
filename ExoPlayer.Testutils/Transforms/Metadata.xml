@@ -21,4 +21,7 @@
 
   <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getTag' and count(parameter)=0]" />
 
+    <attr path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
+
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" />
 </metadata>
