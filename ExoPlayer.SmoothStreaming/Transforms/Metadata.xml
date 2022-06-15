@@ -10,7 +10,8 @@
     <attr name="managedType" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='onLoadError' and count(parameter)=4 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long'] and parameter[4][@type='java.io.IOException']]/parameter[1]">Java.Lang.Object</attr>
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=3 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='android.os.Handler'] and parameter[3][@type='com.google.android.exoplayer2.source.MediaSourceEventListener']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
-
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.MediaItem']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+    
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='android.net.Uri']]">public</attr>
 
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.ExoPlayer'] and parameter[2][@type='boolean']]">protected</attr>
@@ -39,7 +40,13 @@
 
   <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.manifest']/class[@name='SsManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.offline.StreamKey&gt;']]">java.lang.Object</attr>
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='DefaultSsChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;'] and parameter[4][@type='com.google.android.exoplayer2.source.chunk.ChunkHolder']]/parameter[3]">Java.Util.IList</attr>
+    
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='shouldCancelLoad' and count(parameter)=3 and parameter[1][@type='long'] and parameter[2][@type='com.google.android.exoplayer2.source.chunk.Chunk']]/parameter[3]">Java.Util.IList</attr>
 
+    
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='shouldCancelLoad' and count(parameter)=3 and parameter[1][@type='long'] and parameter[2][@type='com.google.android.exoplayer2.source.chunk.Chunk'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]" />
+    
+    
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='onLoadError' and count(parameter)=5 and parameter[1][@type='com.google.android.exoplayer2.upstream.ParsingLoadable&lt;com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest&gt;'] and parameter[2][@type='long'] and parameter[3][@type='long'] and parameter[4][@type='java.io.IOException'] and parameter[5][@type='int']]/parameter[1]">java.lang.Object</attr>
 
   <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
@@ -63,7 +70,8 @@
   <!--<attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming.offline']/class[@name='SsDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='com.google.android.exoplayer2.upstream.DataSpec']]">public</attr>-->
 
   <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource.Factory']/method[@name='setDrmSessionManager' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManager&lt;?&gt;']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
-
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
   <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.smoothstreaming']/class[@name='SsMediaSource']/method[@name='getTag' and count(parameter)=0]" />
 
 </metadata>
