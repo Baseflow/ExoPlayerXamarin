@@ -224,6 +224,13 @@
   <remove-node path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='com.google.android.exoplayer2.upstream.DataSpec']]" />
 
   <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='releasePeriod' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]" />-->
-
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.ext.media2']/class[@name='SessionPlayerConnector']/method[@name='setPlaylist' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;androidx.media2.common.MediaItem&gt;'] and parameter[2][@type='androidx.media2.common.MediaMetadata']]" />
+    <!--<add-node path="/api/package[@name='com.google.android.exoplayer2.ext.media2']/class[@name='SessionPlayerConnector']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="SetPlaylist" native="false" return="Google.Common.Util.Concurrent.IListenableFuture" static="false" synchronized="false" visibility="public" >
+            <parameter name="a" type="System.Collections.Generic.IList&lt;MediaItem&gt;" />
+            <parameter name="p1" type="AndroidX.Medai2.MediaMetadata" />
+        </method>
+    </add-node>-->
+    
 
 </metadata>

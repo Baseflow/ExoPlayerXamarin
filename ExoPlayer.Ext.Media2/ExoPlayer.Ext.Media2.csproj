@@ -17,6 +17,10 @@
     <None Include="..\readme.txt" pack="true" PackagePath="." />
     <JavaSourceJar Include="JavaDocs\*.jar" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Additions\SessionPlayerConnector.cs" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.1.0.5" />
