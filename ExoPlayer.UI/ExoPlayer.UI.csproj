@@ -26,4 +26,8 @@
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="JavaDocs\" />
+  </ItemGroup>
 </Project>
