@@ -1,6 +1,6 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFrameworks>monoandroid10.0</TargetFrameworks>
+    <TargetFrameworks>monoandroid12.0</TargetFrameworks>
     <AssemblyName>ExoPlayer.Ext.Rtmp</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Rtmp</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
