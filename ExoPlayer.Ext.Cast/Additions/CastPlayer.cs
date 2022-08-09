@@ -8,8 +8,8 @@ using Java.Interop;
 
 namespace Com.Google.Android.Exoplayer2.Ext.Cast
 {
-    public sealed partial class CastPlayer : global::Com.Google.Android.Exoplayer2.BasePlayer
-    {
+    //public sealed partial class CastPlayer : global::Com.Google.Android.Exoplayer2.BasePlayer
+    //{
         //public override unsafe bool PlayWhenReady
         //{
         //    // Metadata.xml XPath method reference: path="/api/package[@name='com.google.android.exoplayer2']/class[@name='SimpleExoPlayer']/method[@name='getPlayWhenReady' and count(parameter)=0]"
@@ -110,5 +110,5 @@ namespace Com.Google.Android.Exoplayer2.Ext.Cast
         //}
 
         //public override IPlayerTextComponent TextComponent => null;
-    }
+    //}
 }
