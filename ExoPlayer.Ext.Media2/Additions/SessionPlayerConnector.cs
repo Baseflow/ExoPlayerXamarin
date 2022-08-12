@@ -6,15 +6,15 @@ using Java.Interop;
 
 namespace Com.Google.Android.Exoplayer2.Ext.Media2
 {
-    public partial class SessionPlayerConnector : global::AndroidX.Medai2.Common.SessionPlayer
+    public partial class SessionPlayerConnector : global::AndroidX.Media2.Common.SessionPlayer
     
     {
         // Metadata.xml XPath method reference: path="/api/package[@name='com.google.android.exoplayer2.ext.media2']/class[@name='SessionPlayerConnector']/method[@name='setPlaylist' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;androidx.media2.common.MediaItem&gt;'] and parameter[2][@type='androidx.media2.common.MediaMetadata']]"
         [Register("setPlaylist", "(Ljava/util/List;Landroidx/media2/common/MediaMetadata;)Lcom/google/common/util/concurrent/ListenableFuture;", "")]
-        public unsafe override global::Google.Common.Util.Concurrent.IListenableFuture? SetPlaylist(global::System.Collections.Generic.IList<global::AndroidX.Medai2.Common.MediaItem>? playlist, global::AndroidX.Medai2.Common.MediaMetadata? metadata)
+        public unsafe override global::Google.Common.Util.Concurrent.IListenableFuture? SetPlaylist(global::System.Collections.Generic.IList<global::AndroidX.Media2.Common.MediaItem>? playlist, global::AndroidX.Media2.Common.MediaMetadata? metadata)
         {
             const string __id = "setPlaylist.(Ljava/util/List;Landroidx/media2/common/MediaMetadata;)Lcom/google/common/util/concurrent/ListenableFuture;";
-            IntPtr native_playlist = global::Android.Runtime.JavaList<global::AndroidX.Medai2.Common.MediaItem>.ToLocalJniHandle(playlist);
+            IntPtr native_playlist = global::Android.Runtime.JavaList<global::AndroidX.Media2.Common.MediaItem>.ToLocalJniHandle(playlist);
             try
             {
                 JniArgumentValue* __args = stackalloc JniArgumentValue[2];

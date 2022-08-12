@@ -23,9 +23,9 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.1.0.5" />
-    <PackageReference Include="Xamarin.AndroidX.Concurrent.Futures" Version="1.0.0.5" />
-    <PackageReference Include="Xamarin.AndroidX.Media2.Common" Version="1.0.3.5" />
+    <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.1.0.10" />
+    <PackageReference Include="Xamarin.AndroidX.Concurrent.Futures" Version="1.1.0.9" />
+    <PackageReference Include="Xamarin.AndroidX.Media2.Common" Version="1.1.2.1" />
   </ItemGroup>
   
   <ItemGroup>

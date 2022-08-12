@@ -52,7 +52,7 @@ using Android.Net;
 namespace Com.Google.Android.Exoplayer2.Demo
 {
     /** An activity that plays media using {@link SimpleExoPlayer}. */
-    public class PlayerActivity : Activity, View.IOnClickListener, IPlaybackPreparer, PlayerControlView.IVisibilityListener
+    public class PlayerActivity : Activity, View.IOnClickListener, Ext.Mediasession.MediaSessionConnector.IPlaybackPreparer, PlayerControlView.IVisibilityListener
     {
         public static string DRM_SCHEME_EXTRA = "drm_scheme";
         public static string DRM_LICENSE_URL_EXTRA = "drm_license_url";
