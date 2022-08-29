@@ -38,23 +38,24 @@
       <parameter name="reason" type="int" />
     </method>
   </add-node>-->
-
+    <!--
   <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnRepeatModeChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
       <parameter name="repeatMode" type="int" />
     </method>
   </add-node>
-
-  <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
+      -->
+      <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnSeekProcessed" native="false" return="void" static="false" synchronized="false" visibility="public">
     </method>
   </add-node>
-
+  <!--
   <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnShuffleModeEnabledChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
       <parameter name="shuffleModeEnabled" type="bool" />
     </method>
   </add-node>
+  -->
 <!--
   <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnTimelineChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
@@ -70,5 +71,7 @@
       <parameter name="trackSelections" type="Com.Google.Android.Exoplayer2.Trackselection.TrackSelectionArray" />
     </method>
   </add-node>
+
+    path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']/method[@name='OnRepeatModeChanged' and count(parameter)=1 and parameter[1][@type='int']]"
 
 </metadata>

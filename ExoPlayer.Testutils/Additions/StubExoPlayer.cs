@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Android.Runtime;
 using Java.Interop;
-/*
+
 namespace Com.Google.Android.Exoplayer2.Testutil
 {
     public abstract partial class StubExoPlayer : global::Com.Google.Android.Exoplayer2.BasePlayer
@@ -155,4 +155,3 @@ namespace Com.Google.Android.Exoplayer2.Testutil
         }
     }
 }
-*/
