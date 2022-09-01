@@ -19,10 +19,10 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Xamarin.AndroidX.Media" Version="1.2.1.2" />
+    <PackageReference Include="Xamarin.AndroidX.Media" Version="1.4.3.2" />
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
   </ItemGroup>
 </Project>

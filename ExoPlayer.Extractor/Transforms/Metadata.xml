@@ -225,5 +225,17 @@
 
   <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='releasePeriod' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]" />-->
 
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='Cea608Decoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.metadata.id3']/class[@name='ApicFrame']/method[@name='populateMediaMetadata' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.MediaMetadata.Builder']]" />
+
+
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']" />
+    <!--
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createOutputBuffer' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='createInputBuffer' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='SimpleSubtitleDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='I'] and parameter[2][@type='O'] and parameter[3][@type='boolean']]"/>
+    -->
+
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.metadata.id3']/class[@name='TextInformationFrame']/method[@name='populateMediaMetadata' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.MediaMetadata.Builder']]" />
 
 </metadata>

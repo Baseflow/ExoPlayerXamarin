@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='createOutputBuffer' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='createInputBuffer' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.decoder']/class[@name='SimpleDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='I'] and parameter[2][@type='O'] and parameter[3][@type='boolean']]"/>
+
+</metadata>

@@ -20,5 +20,6 @@
   
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Decoder\ExoPlayer.Decoder.csproj" />
   </ItemGroup>
 </Project>

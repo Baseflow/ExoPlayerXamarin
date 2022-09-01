@@ -19,12 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="118.1.0" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="120.0.0.5" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
-    <ProjectReference Include="..\ExoPlayer.UI\ExoPlayer.UI.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
   </ItemGroup>
 
 </Project>

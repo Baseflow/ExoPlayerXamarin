@@ -168,17 +168,9 @@
       <Project>{a4da2b7f-53e4-4cba-b464-641338cd31ac}</Project>
       <Name>ExoPlayer.Ext.Cast</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.Gvr\ExoPlayer.Ext.Gvr.csproj">
-      <Project>{d9223396-a227-49f9-b686-a63e0640d145}</Project>
-      <Name>ExoPlayer.Ext.Gvr</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ExoPlayer.Ext.Ima\ExoPlayer.Ext.Ima.csproj">
       <Project>{6223c606-24b3-4eb4-a1d0-8fefc0171865}</Project>
       <Name>ExoPlayer.Ext.Ima</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExoPlayer.Ext.Jobdispatcher\ExoPlayer.Ext.Jobdispatcher.csproj">
-      <Project>{5697ac53-b9cd-45b1-8a43-c54eed04e003}</Project>
-      <Name>ExoPlayer.Ext.Jobdispatcher</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ExoPlayer.Ext.Leanback\ExoPlayer.Ext.Leanback.csproj">
       <Project>{f3aba70c-567d-4b47-a1f5-c0181038ec26}</Project>

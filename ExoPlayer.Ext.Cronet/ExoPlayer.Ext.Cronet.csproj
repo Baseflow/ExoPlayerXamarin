@@ -17,8 +17,13 @@
     <None Include="..\readme.txt" pack="true" PackagePath="." />
     <JavaSourceJar Include="JavaDocs\*.jar" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
+    <PackageReference Include="Xamarin.GooglePlayServices.CroNet" Version="117.0.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
+    <ProjectReference Include="..\ExoPlayer.DataSource\ExoPlayer.DataSource.csproj" />
   </ItemGroup>
 </Project>

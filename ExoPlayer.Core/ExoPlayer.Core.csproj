@@ -19,7 +19,14 @@
   </ItemGroup>
   
   <ItemGroup>
+    <PackageReference Include="Xamarin.AndroidX.Core" Version="1.7.0.2" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Database\ExoPlayer.Database.csproj" />
+    <ProjectReference Include="..\ExoPlayer.DataSource\ExoPlayer.DataSource.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Decoder\ExoPlayer.Decoder.csproj" />
     <ProjectReference Include="..\ExoPlayer.Extractor\ExoPlayer.Extractor.csproj" />
   </ItemGroup>
   

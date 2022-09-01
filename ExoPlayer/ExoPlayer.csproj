@@ -19,10 +19,17 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
     <ProjectReference Include="..\ExoPlayer.Dash\ExoPlayer.Dash.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Database\ExoPlayer.Database.csproj" />
+    <ProjectReference Include="..\ExoPlayer.DataSource\ExoPlayer.DataSource.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Decoder\ExoPlayer.Decoder.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Extractor\ExoPlayer.Extractor.csproj" />
     <ProjectReference Include="..\ExoPlayer.Hls\ExoPlayer.Hls.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Rtsp\ExoPlayer.Rtsp.csproj" />
     <ProjectReference Include="..\ExoPlayer.SmoothStreaming\ExoPlayer.SmoothStreaming.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Transformer\ExoPlayer.Transformer.csproj" />
     <ProjectReference Include="..\ExoPlayer.UI\ExoPlayer.UI.csproj" />
   </ItemGroup>
 </Project>
