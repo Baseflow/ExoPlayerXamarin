@@ -259,4 +259,13 @@
     <attr path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" name="propertyName"></attr>
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='shouldCancelLoad' and count(parameter)=3 and parameter[1][@type='long'] and parameter[2][@type='com.google.android.exoplayer2.source.chunk.Chunk'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]" />
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='ExoplayerCuesDecoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]">java.lang.Object</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='ExoplayerCuesDecoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.text']/class[@name='ExoplayerCuesDecoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.text.SubtitleInputBuffer']]/parameter">java.lang.Object</attr>
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2']/class[@name='SimpleExoPlayer']/method[@name='getPlayerError' and count(parameter)=0]">Com.Google.Android.Exoplayer2.PlaybackException</attr>
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='FrameworkMediaDrm']/method[@name='createCryptoConfig' and count(parameter)=1 and parameter[1][@type='byte[]']]">Com.Google.Android.Exoplayer2.Decoder.ICryptoConfig</attr>
+
 </metadata>
