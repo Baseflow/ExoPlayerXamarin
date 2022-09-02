@@ -10,7 +10,6 @@ jobs:
   build:
 
     env:
-      BUILD_CONFIG: 'Release'
       SOLUTION: 'ExoPlayer.sln'
 
     runs-on: windows-latest
@@ -30,7 +29,7 @@ jobs:
       run: dotnet restore $SOLUTION
       
     - name: Build
-      run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
+      run: dotnet build $SOLUTION --no-restore /p:Configuration=Release /p:Platform="Any CPU"
       
     - name: Package nuget
       run: dotnet pack $SOLUTION --configuration release -o:package
