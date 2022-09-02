@@ -3,7 +3,6 @@
     <Copyright>Copyright (c) Baseflow</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Baseflow/ExoPlayerXamarin</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/Baseflow/ExoPlayerXamarin/develop/icon.png</PackageIconUrl>
     <!--<PackageIcon>icon.png</PackageIcon>-->
     <Authors>Martijn van Dijk, Baseflow</Authors>
     <Owners>Baseflow</Owners>
@@ -38,10 +37,11 @@
     <DebugSymbols>true</DebugSymbols>
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <GeneratePackageOnBuild Condition=" '$(IsTestProject)' != 'true'">true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(IsTestProject)' != 'true' and'$(TF_BUILD)' == 'true'">
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -51,12 +51,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(IsLibraryProject)' == 'true'">
+  <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath="\" />
     <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
 
-  <ItemGroup>
     <PackageReference Include="Roslynator.Analyzers" Version="4.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
