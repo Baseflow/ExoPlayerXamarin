@@ -51,10 +51,10 @@
   <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
   <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DashMediaSource.Factory']/method[@name='setDrmSessionManager' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManager&lt;?&gt;']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
 
-  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DashMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DashMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
 
 
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DashMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DashMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
     
     
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.dash']/class[@name='DashMediaSource']/method[@name='getTag' and count(parameter)=0]" />

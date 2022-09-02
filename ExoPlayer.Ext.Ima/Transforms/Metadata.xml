@@ -72,6 +72,8 @@
     </method>
   </add-node>
 
-    path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaAdsLoader']/method[@name='OnRepeatModeChanged' and count(parameter)=1 and parameter[1][@type='int']]"
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaServerSideAdInsertionMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaServerSideAdInsertionMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
 
 </metadata>

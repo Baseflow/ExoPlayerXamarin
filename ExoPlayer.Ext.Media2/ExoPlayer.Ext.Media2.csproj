@@ -15,7 +15,7 @@
   <!--
     <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.2.0.4" />
     <PackageReference Include="Xamarin.AndroidX.Concurrent.Futures" Version="1.1.0.9" />-->
-    <PackageReference Include="Xamarin.AndroidX.Media2.Session" Version="1.2.0.4" />
+    <PackageReference Include="Xamarin.AndroidX.Media2.Session" Version="1.2.1.2" />
   </ItemGroup>
   
   <ItemGroup>

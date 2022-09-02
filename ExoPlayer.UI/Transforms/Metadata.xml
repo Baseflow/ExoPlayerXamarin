@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>
+    <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>
 
   <add-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnLoadingChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
@@ -65,9 +65,10 @@
     </method>
   </add-node>-->
 
-  <remove-node path="/api/package[@name='com.google.android.exoplayer2.ui']/interface[@name='PlayerNotificationManager.NotificationListener']/method[@name='onNotificationCancelled' and count(parameter)=1 and parameter[1][@type='int']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.ui']/interface[@name='PlayerNotificationManager.NotificationListener']/method[@name='onNotificationCancelled' and count(parameter)=1 and parameter[1][@type='int']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='StyledPlayerView']/method[@name='setControllerVisibilityListener' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.ui.StyledPlayerControlView.VisibilityListener']]" />
 
-  <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']/method[@name='OnLoadingChanged' and count(parameter)=1 and parameter[1][@type='bool']]" />
+    <!--<remove-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']/method[@name='OnLoadingChanged' and count(parameter)=1 and parameter[1][@type='bool']]" />
   <remove-node path="/api/package[@name='com.google.android.exoplayer2.ui']/class[@name='DebugTextViewHelper']/method[@name='OnShuffleModeEnabledChanged' and count(parameter)=1 and parameter[1][@type='bool']]" />-->
 
 </metadata>

@@ -5,8 +5,8 @@
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.rtsp']/class[@name='RtspMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=3 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='android.os.Handler'] and parameter[3][@type='com.google.android.exoplayer2.source.MediaSourceEventListener']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.rtsp']/class[@name='RtspMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.MediaItem']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
 
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.rtsp']/class[@name='RtspMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.rtsp']/class[@name='RtspMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
 
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.rtsp']/class[@name='RtspMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSourceFactory</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source.rtsp']/class[@name='RtspMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
 
 </metadata>

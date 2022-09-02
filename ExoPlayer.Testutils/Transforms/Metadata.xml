@@ -21,7 +21,11 @@
 
   <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getTag' and count(parameter)=0]" />
 
-    <attr path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
 
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" />
+
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
+  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>  
+  
 </metadata>
