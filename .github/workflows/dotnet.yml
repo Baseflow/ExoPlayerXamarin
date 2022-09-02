@@ -9,10 +9,15 @@ on:
 jobs:
   build:
 
+    env:
+      BUILD_CONFIG: 'Release'
+      SOLUTION: 'ExoPlayer.sln'
+
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
@@ -22,7 +27,10 @@ jobs:
       run: dotnet workload install maui
       
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore $SOLUTION
       
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
+      
+    - name: Package nuget
+      run: dotnet pack $SOLUTION --configuration release -o:package
