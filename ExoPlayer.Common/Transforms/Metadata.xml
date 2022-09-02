@@ -247,5 +247,7 @@
     <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player']/method[@name='getCurrentCues' and count(parameter)=0]"/>
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='HttpDataSource.BaseFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties']]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-    
+
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player.Listener']/method[@name='onPositionDiscontinuity' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.Player.PositionInfo'] and parameter[2][@type='com.google.android.exoplayer2.Player.PositionInfo'] and parameter[3][@type='int']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player.Listener']/method[@name='onCues' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.text.Cue&gt;']]" />
 </metadata>
