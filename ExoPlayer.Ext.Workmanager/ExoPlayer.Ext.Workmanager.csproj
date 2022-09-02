@@ -12,6 +12,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.7.0" />
+    <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.7.1.4" />
   </ItemGroup>
 </Project>

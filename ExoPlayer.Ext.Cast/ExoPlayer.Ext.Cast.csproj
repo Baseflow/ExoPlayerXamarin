@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="120.0.0.5" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="121.0.1.2" />
   </ItemGroup>
 
   <ItemGroup>
