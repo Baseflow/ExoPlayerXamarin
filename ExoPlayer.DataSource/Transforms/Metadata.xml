@@ -2,7 +2,8 @@
 <metadata>
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='DataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='CacheSpan']" />
+    
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='CacheSpan']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.cache.CacheSpan']]/parameter[@name='another']">Java.Lang.Object</attr>
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource</attr>
 
