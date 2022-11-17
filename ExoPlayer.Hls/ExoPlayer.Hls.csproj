@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFramework>net6.0-android33.0</TargetFramework>
+    <TargetFramework>monoandroid12.0</TargetFramework>
     <AssemblyName>ExoPlayer.Hls</AssemblyName>
     <RootNamespace>ExoPlayer.Hls</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Hls</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Hls</PackageId><IsBindingProject>true</IsBindingProject>
   </PropertyGroup>
   
   <ItemGroup>
