@@ -76,4 +76,12 @@
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaServerSideAdInsertionMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
 
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.ext.ima']/class[@name='ImaServerSideAdInsertionMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="Com.Google.Android.Exoplayer2.Source.IMediaSource" />
+            <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
+        </method>
+    </add-node>
+    
 </metadata>
