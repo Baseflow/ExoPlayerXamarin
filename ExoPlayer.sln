@@ -69,6 +69,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Rtsp", "ExoPlayer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Transformer", "ExoPlayer.Transformer\ExoPlayer.Transformer.csproj", "{17FC32BE-0168-40FF-88F6-3D07B9DA1EC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Effect", "ExoPlayer.Effect\ExoPlayer.Effect.csproj", "{92C461F4-03DC-494F-B090-C62ABBB602DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +181,10 @@ Global
 		{17FC32BE-0168-40FF-88F6-3D07B9DA1EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17FC32BE-0168-40FF-88F6-3D07B9DA1EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17FC32BE-0168-40FF-88F6-3D07B9DA1EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92C461F4-03DC-494F-B090-C62ABBB602DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C461F4-03DC-494F-B090-C62ABBB602DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C461F4-03DC-494F-B090-C62ABBB602DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C461F4-03DC-494F-B090-C62ABBB602DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
