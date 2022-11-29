@@ -45,4 +45,8 @@
     <TargetFrameworkIdentifier>Tizen</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+    <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+  
 </Project>

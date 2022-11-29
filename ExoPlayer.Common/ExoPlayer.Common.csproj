@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.4.0" />
+    <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.3" />
   </ItemGroup>
 
 </Project>

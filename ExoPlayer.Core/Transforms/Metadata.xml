@@ -168,6 +168,14 @@
       <parameter name="o" type="Java.Lang.Object" />
     </method>
   </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdsMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="Com.Google.Android.Exoplayer2.Source.IMediaSource" />
+            <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
+        </method>
+    </add-node>
   
   <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ConcatenatingMediaSource']">
     <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
@@ -176,6 +184,38 @@
       <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
     </method>
   </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ClippingMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="Com.Google.Android.Exoplayer2.Source.IMediaSource" />
+            <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
+        </method>
+    </add-node>
+    
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="Com.Google.Android.Exoplayer2.Source.IMediaSource" />
+            <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MergingMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="Com.Google.Android.Exoplayer2.Source.IMediaSource" />
+            <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='LoopingMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="Com.Google.Android.Exoplayer2.Source.IMediaSource" />
+            <parameter name="timeline" type="Com.Google.Android.Exoplayer2.Timeline" />
+        </method>
+    </add-node>
 
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;'] and parameter[4][@type='com.google.android.exoplayer2.source.chunk.ChunkHolder']]/parameter[3]" >Java.Util.IList</attr>
 
@@ -204,11 +244,11 @@
   <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
 
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source.ads']/class[@name='AdsMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.source.MediaSource.MediaPeriodId'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='mediaPeriodId']">Java.Lang.Object</attr>
-  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ClippingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
+  <!--<attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ClippingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ExtractorMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='LoopingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
   <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
-  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MergingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Integer'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>
+  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MergingMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Integer'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource'] and parameter[3][@type='com.google.android.exoplayer2.Timeline']]/parameter[@name='id']">Java.Lang.Object</attr>-->
 
   <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
   <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
