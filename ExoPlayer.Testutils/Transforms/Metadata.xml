@@ -1,31 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <!--<attr path="//interface/method[@abstract='false']" name="abstract">true</attr>-->
+    <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeAdaptiveMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.chunk.ChunkSampleStream&lt;com.google.android.exoplayer2.testutil.FakeChunkSource&gt;']]/parameter">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;'] and parameter[4][@type='com.google.android.exoplayer2.source.chunk.ChunkHolder']]/parameter[@name='queue']">Java.Util.IList</attr>
 
-  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='StubExoPlayer']/method[@name='setPlayWhenReady' and count(parameter)=1 and parameter[1][@type='boolean']]" />
-  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='StubExoPlayer']/method[@name='setRepeatMode' and count(parameter)=1 and parameter[1][@type='int']]" />
-  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='StubExoPlayer']/method[@name='setShuffleModeEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
+    <attr path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
 
-  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='StubExoPlayer']/method[@name='getPlayWhenReady' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='StubExoPlayer']/method[@name='getRepeatMode' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='StubExoPlayer']/method[@name='getShuffleModeEnabled' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" />
 
-  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExtractorOutput']/method[@name='track' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]">Com.Google.Android.Exoplayer2.Extractor.ITrackOutput</attr>
-
-  <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
-  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeAdaptiveMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.chunk.ChunkSampleStream&lt;com.google.android.exoplayer2.testutil.FakeChunkSource&gt;']]/parameter">java.lang.Object</attr>
-
-  <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;'] and parameter[4][@type='com.google.android.exoplayer2.source.chunk.ChunkHolder']]/parameter[@name='queue']">Java.Util.IList</attr>
-
-  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-
-  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getTag' and count(parameter)=0]" />
-
-  <attr path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
-
-  <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" />
-
-  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
-  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>  
-  
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExtractorOutput']/method[@name='track' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]">Com.Google.Android.Exoplayer2.Extractor.ITrackOutput</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
 </metadata>
