@@ -4,7 +4,9 @@
     <AssemblyName>ExoPlayer.SmoothStreaming</AssemblyName>
     <RootNamespace>ExoPlayer.SmoothStreaming</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.SmoothStreaming</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.SmoothStreaming</PackageId>
+    <IsBindingProject>true</IsBindingProject>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>

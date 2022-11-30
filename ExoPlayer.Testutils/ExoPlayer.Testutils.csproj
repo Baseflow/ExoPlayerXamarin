@@ -4,7 +4,9 @@
     <AssemblyName>ExoPlayer.Testutils</AssemblyName>
     <RootNamespace>ExoPlayer.Testutils</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Testutils</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Testutils</PackageId>
+    <IsBindingProject>true</IsBindingProject>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
