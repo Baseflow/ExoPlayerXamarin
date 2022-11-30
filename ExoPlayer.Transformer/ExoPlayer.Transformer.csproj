@@ -8,6 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Additions\*;Jars\*;Transforms\*;JavaDocs\**" />
+	  <LibraryProjectZip Include="Jars\*.aar" />
+	  <TransformFile Include="Transforms\*.xml" />
+	  <Compile Include="Additions\*.cs" />
+    <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaSourceJar Include="JavaDocs\*.jar" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
   </ItemGroup>
 </Project>

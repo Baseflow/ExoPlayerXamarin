@@ -7,6 +7,15 @@
     <PackageId>Xam.Plugins.Android.ExoPlayer.UI</PackageId><IsBindingProject>true</IsBindingProject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="Additions\*;Jars\*;Transforms\*;JavaDocs\**" />
+	  <LibraryProjectZip Include="Jars\*.aar" />
+	  <TransformFile Include="Transforms\*.xml" />
+	  <Compile Include="Additions\*.cs" />
+    <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaSourceJar Include="JavaDocs\*.jar" />
+  </ItemGroup>
+
    <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Media" Version="1.6.0.1" />
     <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.2.1.7" />
