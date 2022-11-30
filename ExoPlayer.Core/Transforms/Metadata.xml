@@ -279,6 +279,8 @@
     
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.offline']/class[@name='SegmentDownloader']/method[@name='getManifest' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.upstream.DataSource'] and parameter[2][@type='com.google.android.exoplayer2.upstream.DataSpec']]" />
 
+    <!-- remove -->
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSourceFactory']" />
     
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSourceFactory']/method[@name='setDrmUserAgent' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSourceFactory']/method[@name='setDrmSessionManager' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManager']]" />
@@ -290,8 +292,8 @@
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.drm']/interface[@name='DrmSessionEventListener']/method[@name='onDrmSessionAcquired' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource.MediaPeriodId']]" />
     
-    <attr path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='DummyExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
-    <attr path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='FrameworkMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
+    <!--<attr path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='DummyExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>-->
+    <!--<attr path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='FrameworkMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>-->
 
     <attr path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" name="propertyName"></attr>
 
