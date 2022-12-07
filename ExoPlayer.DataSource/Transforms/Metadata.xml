@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
 
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='DataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]" />
-    
+    <attr path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='DataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]" name="createDataSource">CreateDataSource</attr>
+
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='CacheSpan']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.cache.CacheSpan']]/parameter[@name='another']">Java.Lang.Object</attr>
 
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='CacheDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='PriorityDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='PriorityDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='ResolvingDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='FileDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='HttpDataSource.BaseFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='HttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSource.Factory']/method[@name='setDefaultRequestProperties' and count(parameter)=1 and parameter[1][@type='java.util.Map&lt;java.lang.String, java.lang.String&gt;']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource.IFactory</attr>
+
 </metadata>
