@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-android33.0</TargetFramework>
     <AssemblyName>ExoPlayer.Ext.Leanback</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Leanback</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
