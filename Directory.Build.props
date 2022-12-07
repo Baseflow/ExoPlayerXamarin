@@ -7,20 +7,21 @@
     <Authors>Martijn van Dijk, Baseflow</Authors>
     <Owners>Baseflow</Owners>
     <PackageTags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</PackageTags>
-    <PackageReleaseNotes>https://github.com/Baseflow/ExoPlayerXamarin/releases</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/janwiebe-jump/ExoPlayerXamarin/releases</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <NeutralLanguage>en-US</NeutralLanguage>
     <MinClientVersion>2.14</MinClientVersion>
     
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <RepositoryUrl>https://github.com/Baseflow/ExoPlayerXamarin</RepositoryUrl>
+    <RepositoryUrl>https://github.com/janwiebe-jump/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>2.18.7-xamarin-1</Version>
+    <Version>2.18.7</Version>
     <Platform>AnyCPU</Platform>
+    <IsBindingProject>true</IsBindingProject>
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
-    <!--<TargetFrameworks>net6.0-android32.0;net6.0-android33.0;net7.0-android33.0</TargetFrameworks>-->
-    
+    <TargetFrameworks>monoandroid12.0;monoandroid13.0</TargetFrameworks>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <Nullable>enable</Nullable>
     <LangVersion>10.0</LangVersion>
     <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114;NU1603</NoWarn>
@@ -39,6 +40,7 @@
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>$(SolutionDir)artifacts</PackageOutputPath> 
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
@@ -51,6 +53,15 @@
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Additions\*;Jars\*;Transforms\*;JavaDocs\**" />
+	  <LibraryProjectZip Include="Jars\*.aar" />
+	  <TransformFile Include="Transforms\*.xml" />
+	  <Compile Include="Additions\*.cs" />
+    <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaSourceJar Include="JavaDocs\*.jar" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath="\" />

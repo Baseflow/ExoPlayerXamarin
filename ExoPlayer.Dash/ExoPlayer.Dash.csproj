@@ -1,22 +1,10 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFramework>monoandroid12.0</TargetFramework>
     <AssemblyName>ExoPlayer.Dash</AssemblyName>
     <RootNamespace>ExoPlayer.Dash</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Dash</PackageId>
-    <IsBindingProject>true</IsBindingProject>
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <PackageId>Xamarin.Plugins.Android.ExoPlayer.Dash</PackageId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="Additions\*;Jars\*;Transforms\*;JavaDocs\**" />
-	  <LibraryProjectZip Include="Jars\*.aar" />
-	  <TransformFile Include="Transforms\*.xml" />
-	  <Compile Include="Additions\*.cs" />
-    <None Include="..\readme.txt" pack="true" PackagePath="." />
-    <JavaSourceJar Include="JavaDocs\*.jar" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />

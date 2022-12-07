@@ -3,8 +3,8 @@ ExoPlayer Plugin for Xamarin
 
 ![license](https://img.shields.io/github/license/martijn00/ExoPlayerXamarin.svg)
 [![Build status](https://ci.appveyor.com/api/projects/status/r2farwm2837vm86t?svg=true)](https://ci.appveyor.com/project/martijn00/exoplayerxamarin)
-[![NuGet](https://img.shields.io/nuget/v/Xam.Plugins.Android.ExoPlayer.svg)](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/)
-[![NuGet Pre Release](https://img.shields.io/nuget/vpre/Xam.Plugins.Android.ExoPlayer.svg)](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/)
+[![NuGet](https://img.shields.io/nuget/v/Xamarin.Plugins.Android.ExoPlayer.svg)](https://www.nuget.org/packages/Xamarin.Plugins.Android.ExoPlayer/)
+[![NuGet Pre Release](https://img.shields.io/nuget/vpre/Xamarin.Plugins.Android.ExoPlayer.svg)](https://www.nuget.org/packages/Xamarin.Plugins.Android.ExoPlayer/)
 [![GitHub tag](https://img.shields.io/github/tag/martijn00/ExoPlayerXamarin.svg)](https://github.com/martijn00/ExoPlayerXamarin/releases)
 [![MyGet](https://img.shields.io/myget/martijn00/ExoPlayerXamarin.svg)](https://www.myget.org/F/martijn00/api/v3/index.json)
 
@@ -71,5 +71,5 @@ License
 [mit]: http://opensource.org/licenses/mit-license
 [NathanBarger]: http://forums.xamarin.com/profile/NathanBarger
 [ExoPlayer]: https://github.com/google/ExoPlayer
-[Nuget]: https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/
+[Nuget]: https://www.nuget.org/packages/Xamarin.Plugins.Android.ExoPlayer/
 [Developer]: http://developer.android.com/guide/topics/media/exoplayer.html
