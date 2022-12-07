@@ -4,7 +4,8 @@
     <AssemblyName>ExoPlayer.Core</AssemblyName>
     <RootNamespace>ExoPlayer.Core</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Core</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Core</PackageId>
+    <IsBindingProject>true</IsBindingProject>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 

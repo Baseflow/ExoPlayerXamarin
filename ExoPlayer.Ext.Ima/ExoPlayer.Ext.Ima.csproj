@@ -4,7 +4,8 @@
     <AssemblyName>ExoPlayer.Ext.Ima</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Ima</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Ima</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Ima</PackageId>
+    <IsBindingProject>true</IsBindingProject>
   </PropertyGroup>
 
   <ItemGroup>

@@ -4,7 +4,8 @@
     <AssemblyName>ExoPlayer.Ext.Workmanager</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Workmanager</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Workmanager</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Workmanager</PackageId>
+    <IsBindingProject>true</IsBindingProject>
   </PropertyGroup>
 
   <ItemGroup>

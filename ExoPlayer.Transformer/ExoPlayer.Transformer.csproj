@@ -4,7 +4,8 @@
     <AssemblyName>ExoPlayer.Transformer</AssemblyName>
     <RootNamespace>ExoPlayer.Transformer</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Transformer</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Transformer</PackageId>
+    <IsBindingProject>true</IsBindingProject>
   </PropertyGroup>
 
   <ItemGroup>

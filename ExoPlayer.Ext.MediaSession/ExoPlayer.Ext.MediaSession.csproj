@@ -4,7 +4,8 @@
     <AssemblyName>ExoPlayer.Ext.MediaSession</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.MediaSession</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.MediaSession</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.MediaSession</PackageId>
+    <IsBindingProject>true</IsBindingProject>
   </PropertyGroup>
 
   <ItemGroup>

@@ -4,7 +4,8 @@
     <AssemblyName>ExoPlayer.DataSource</AssemblyName>
     <RootNamespace>ExoPlayer.DataSource</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.DataSource</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.DataSource</PackageId>
+    <IsBindingProject>true</IsBindingProject>
   </PropertyGroup>
 
   <ItemGroup>

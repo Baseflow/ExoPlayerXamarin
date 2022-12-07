@@ -4,7 +4,8 @@
     <AssemblyName>ExoPlayer.Ext.OkHttp</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.OkHttp</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.OkHttp</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.OkHttp</PackageId>
+    <IsBindingProject>true</IsBindingProject>
   </PropertyGroup>
 
   <ItemGroup>

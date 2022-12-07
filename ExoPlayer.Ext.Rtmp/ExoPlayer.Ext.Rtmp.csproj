@@ -4,7 +4,8 @@
     <AssemblyName>ExoPlayer.Ext.Rtmp</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Rtmp</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Rtmp</PackageId><IsBindingProject>true</IsBindingProject>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Rtmp</PackageId>
+    <IsBindingProject>true</IsBindingProject>
   </PropertyGroup>
 
   <ItemGroup>
