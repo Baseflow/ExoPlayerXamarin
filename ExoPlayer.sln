@@ -8,10 +8,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Core", "ExoPlayer.Core\ExoPlayer.Core.csproj", "{3CFF9208-5DAB-4377-B7E5-F4407FF5BD46}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{4EF4950F-D0EE-4F8A-90E6-5F7F0B51EC78}"
-	ProjectSection(SolutionItems) = preProject
-		Samples\Directory.Build.props = Samples\Directory.Build.props
-		Samples\Directory.Build.targets = Samples\Directory.Build.targets
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Dash", "ExoPlayer.Dash\ExoPlayer.Dash.csproj", "{ED6BE01E-8554-4BFA-8925-D39AFAF789F9}"
 EndProject
@@ -69,7 +65,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Rtsp", "ExoPlayer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Transformer", "ExoPlayer.Transformer\ExoPlayer.Transformer.csproj", "{17FC32BE-0168-40FF-88F6-3D07B9DA1EC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoPlayer.Effect", "ExoPlayer.Effect\ExoPlayer.Effect.csproj", "{92C461F4-03DC-494F-B090-C62ABBB602DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Effect", "ExoPlayer.Effect\ExoPlayer.Effect.csproj", "{92C461F4-03DC-494F-B090-C62ABBB602DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
