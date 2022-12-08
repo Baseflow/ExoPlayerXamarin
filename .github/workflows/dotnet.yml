@@ -27,6 +27,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore $SOLUTION
     - name: Build
-      run: msbuild $SOLUTION -p:Configuration=Release -p:RestorePackages=true -t:pack
+      run: msbuild ExoPlayer.sln -p:Configuration=Release -p:RestorePackages=false -v:m
     - name: Create the package
       run: dotnet pack $SOLUTION --configuration Release
