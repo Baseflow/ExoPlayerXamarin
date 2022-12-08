@@ -26,7 +26,5 @@ jobs:
       run: dotnet workload install maui
     - name: Install dependencies
       run: dotnet restore $SOLUTION
-    - name: Build
-      run: msbuild ExoPlayer.sln -p:Configuration=Release -p:RestorePackages=false -v:m
-    - name: Create the package
-      run: dotnet pack $SOLUTION --configuration Release
+    - name: Build & Package
+      run: msbuild $SOLUTION -p:Configuration=Release -p:RestorePackages=false -verbosity:minimal
