@@ -12,12 +12,6 @@
     <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='FixedTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]">com.google.android.exoplayer2.trackselection.TrackSelection</attr>-->
     <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='RandomTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]">com.google.android.exoplayer2.trackselection.TrackSelection</attr>-->
 
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSource.Factory']/method[@name='setDefaultRequestProperties' and count(parameter)=1 and parameter[1][@type='java.util.Map&lt;java.lang.String, java.lang.String&gt;']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource.IFactory</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='HttpDataSource.BaseFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/interface[@name='HttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-
     <!-- Public classes inheriting private classes or returning private classes in method parameters (permitted in java) -->
     <attr path="/api/package[@name='com.google.android.exoplayer2.text.cea']/class[@name='CeaDecoder']" name="visibility">public</attr>
     <attr path="/api/package[@name='com.google.android.exoplayer2.text.ttml']/class[@name='TtmlSubtitle']" name="visibility">public</attr>
@@ -55,9 +49,6 @@
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.text.webvtt']/class[@name='WebvttDecoder']/method[@name='decode' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='boolean']]">Com.Google.Android.Exoplayer2.Text.ISubtitle</attr>
 
     <!--<attr name="return" path="/api/package[@name='com.google.android.exoplayer2.trackselection']/class[@name='AdaptiveTrackSelection.Factory']/method[@name='createTrackSelection' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.source.TrackGroup'] and parameter[2][@type='int...']]">com.google.android.exoplayer2.trackselection.TrackSelection</attr>-->
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream.cache']/class[@name='CacheDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='PriorityDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='DefaultHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.HttpDataSource.RequestProperties']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource</attr>
 
     <!-- Rename duplicate event handler args -->
     <attr path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='AudioSink.Listener']/method[@name='onAudioSessionId']" name="argsType">AudioSinkSessionIdEventArgs</attr>
@@ -211,8 +202,6 @@
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.TransferListener']]">protected</attr>
     <attr name="visibility" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
 
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='FileDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.upstream']/class[@name='FileDataSourceFactory']/method[@name='createDataSource' and count(parameter)=0]">Com.Google.Android.Exoplayer2.Upstream.IDataSource</attr>
 
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='MaskingMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.MediaPeriod']]/parameter[@name='source']">Java.Lang.Object</attr>
 
