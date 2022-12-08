@@ -3,7 +3,6 @@
     <Copyright>Copyright (c) Baseflow</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Baseflow/ExoPlayerXamarin</PackageProjectUrl>
-    <!--<PackageIcon>icon.png</PackageIcon>-->
     <Authors>Martijn van Dijk, Baseflow</Authors>
     <Owners>Baseflow</Owners>
     <PackageTags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</PackageTags>
@@ -16,7 +15,7 @@
     <RepositoryUrl>https://github.com/Baseflow/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>2.18.7</Version>
+    <Version>2.18.8</Version>
     <Platform>AnyCPU</Platform>
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
     <TargetFrameworks>net6.0-android32.0;net6.0-android33.0;net7.0-android33.0</TargetFrameworks>
@@ -40,9 +39,6 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>icon.png</PackageIcon>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
