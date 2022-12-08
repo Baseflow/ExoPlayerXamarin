@@ -25,7 +25,8 @@ jobs:
     - name: Install MAUI workload
       run: dotnet workload install maui
     - name: Install dependencies
-      run: dotnet restore $SOLUTION
+    - run: dotnet restore $SOLUTION
+    - run: nuget restore
     - name: Build
       run: msbuild $SOLUTION -p:Configuration=Release -p:RestorePackages=false -t:pack
     - name: Create the package
