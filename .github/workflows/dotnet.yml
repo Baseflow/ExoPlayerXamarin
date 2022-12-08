@@ -1,4 +1,4 @@
-name: Dotnet CI
+name: Dotnet CI build
 
 on:
   push:
@@ -21,12 +21,12 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 7.0.x
     - name: Install MAUI workload
       run: dotnet workload install maui
     - name: Install dependencies
       run: dotnet restore $SOLUTION
-    - name: Build and Package
+    - name: Build
       run: msbuild $SOLUTION -p:Configuration=Release -p:RestorePackages=false -t:pack
-    - name: Publish the package to GPR
-      run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
+    - name: Create the package
+      run: dotnet pack $SOLUTION --configuration Release

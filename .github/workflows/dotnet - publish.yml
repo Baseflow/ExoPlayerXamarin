@@ -1,4 +1,4 @@
-name: Dotnet CI
+name: Dotnet publish
 
 on:
   push:
