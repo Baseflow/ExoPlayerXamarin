@@ -1,0 +1,19 @@
+﻿<metadata>
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Crop']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="GetGlMatrixArray" native="false" return="float[]" static="false" synchronized="false" visibility="public">
+            <parameter name="presentationTimeUs" type="long" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Presentation']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="GetGlMatrixArray" native="false" return="float[]" static="false" synchronized="false" visibility="public">
+            <parameter name="presentationTimeUs" type="long" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='ScaleToFitTransformation']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="GetGlMatrixArray" native="false" return="float[]" static="false" synchronized="false" visibility="public">
+            <parameter name="presentationTimeUs" type="long" />
+        </method>
+    </add-node>
+</metadata>

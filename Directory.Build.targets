@@ -11,10 +11,25 @@
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
     <DefineConstants>$(DefineConstants);NET;NET6</DefineConstants>
   </PropertyGroup>
-  <ItemGroup Condition="$(TargetFramework.Contains('-android'))">
-    <None Include="Additions\*;Jars\*;Transforms\*;JavaDocs\**" />
+  <PropertyGroup Condition="$(TargetFramework.Contains('android'))">
+    <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
+    <DefineConstants>$(DefineConstants);MONO;ANDROID</DefineConstants>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.Contains('net6.0-android')) Or $(TargetFramework.Contains('net7.0-android'))">
     <AndroidLibrary Include="Jars\*.aar" />
     <TransformFile Include="Transforms\*.xml" />
+    <TransformFile Include="Transforms\maui\*.xml"/>
+    <Compile Include="Additions\*.cs" />
+    <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaSourceJar Include="JavaDocs\*.jar" />
+  </ItemGroup>
+  <ItemGroup Condition=" $(TargetFramework.Contains('MonoAndroid')) ">
+    <LibraryProjectZip Include="Jars\*.aar" />
+    <TransformFile Include="Transforms\*.xml" />
+    <TransformFile Include="Transforms\mono\*.xml"/>
     <Compile Include="Additions\*.cs" />
     <None Include="..\readme.txt" pack="true" PackagePath="." />
     <JavaSourceJar Include="JavaDocs\*.jar" />
@@ -37,20 +52,6 @@
   <PropertyGroup Condition="$(TargetFramework.StartsWith('net6.0-watchos'))">
     <DefineConstants>$(DefineConstants);MONO;COCOA;APPLE;WATCHOS</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="$(TargetFramework.Contains('-android'))">
-    <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
-    <DefineConstants>$(DefineConstants);MONO;ANDROID</DefineConstants>
-    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
-    <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
-  </PropertyGroup>
-  <ItemGroup Condition=" $(TargetFramework.Contains('MonoAndroid')) ">
-    <LibraryProjectZip Include="Jars\*.aar" />
-    <TransformFile Include="Transforms\*.xml" />
-    <Compile Include="Additions\*.cs" />
-    <None Include="..\readme.txt" pack="true" PackagePath="." />
-    <JavaSourceJar Include="JavaDocs\*.jar" />
-  </ItemGroup> 
   <PropertyGroup Condition="$(TargetFramework.StartsWith('netcoreapp'))">
     <DefineConstants>$(DefineConstants);NETCOREAPP;NET;WPF;XAML</DefineConstants>
   </PropertyGroup>

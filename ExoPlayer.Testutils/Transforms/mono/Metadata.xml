@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExoMediaDrm']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="ProvisionRequest" native="false" return="Com.Google.Android.Exoplayer2.Drm.ExoMediaDrmProvisionRequest" static="false" synchronized="false" visibility="public">
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='ExoPlayerTestRunner']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnAvailableCommandsChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="availableCommands" type="Com.Google.Android.Exoplayer2.PlayerCommands" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnEvents" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="player" type="Com.Google.Android.Exoplayer2.IPlayer" />
+            <parameter name="events" type="Com.Google.Android.Exoplayer2.PlayerEvents" />
+        </method>
+    </add-node>
+</metadata>

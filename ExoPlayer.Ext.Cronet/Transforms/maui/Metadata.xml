@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.ext.cronet']/class[@name='CronetDataSource.Factory']/method[@name='setDefaultRequestProperties' and count(parameter)=1 and parameter[1][@type='java.util.Map&lt;java.lang.String, java.lang.String&gt;']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource.IFactory</attr>
+</metadata>

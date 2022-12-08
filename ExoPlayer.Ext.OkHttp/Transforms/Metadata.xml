@@ -7,6 +7,4 @@
   <!--<attr name="abstract" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]">false</attr>-->
 
   <attr name="override" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSource']/method[@name='getResponseHeaders' and count(parameter)=0]">false</attr>
-    
-  <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.ext.okhttp']/class[@name='OkHttpDataSource.Factory']/method[@name='setDefaultRequestProperties' and count(parameter)=1 and parameter[1][@type='java.util.Map&lt;java.lang.String, java.lang.String&gt;']]">Com.Google.Android.Exoplayer2.Upstream.IHttpDataSource.IFactory</attr>
 </metadata>

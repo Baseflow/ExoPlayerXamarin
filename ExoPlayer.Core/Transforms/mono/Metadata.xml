@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSourceFactory']" />
+</metadata>
