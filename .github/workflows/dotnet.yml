@@ -26,9 +26,7 @@ jobs:
       run: dotnet workload install maui
     - name: Install dotnet dependencies
     - run: dotnet restore $SOLUTION
-    - name: Install NuGet Dependencies
-    - run: nuget restore
     - name: Build
-      run: msbuild $SOLUTION -p:Configuration=Release -p:RestorePackages=false -t:pack
+      run: msbuild $SOLUTION -p:Configuration=Release -p:RestorePackages=true -t:pack
     - name: Create the package
       run: dotnet pack $SOLUTION --configuration Release
