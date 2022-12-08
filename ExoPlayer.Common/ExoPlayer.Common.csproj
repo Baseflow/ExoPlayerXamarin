@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <AssemblyName>ExoPlayer.Common</AssemblyName>
     <RootNamespace>ExoPlayer.Common</RootNamespace>
@@ -10,5 +10,4 @@
     <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.4.0" />
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.3" />
   </ItemGroup>
-
 </Project>

@@ -14,6 +14,14 @@
   <PropertyGroup Condition="$(TargetFramework.StartsWith('net6'))">
     <DefineConstants>$(DefineConstants);NET;NET6</DefineConstants>
   </PropertyGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net6'))">
+    <None Include="Additions\*;Jars\*;Transforms\*;JavaDocs\**" />
+    <AndroidLibrary Include="Jars\*.aar" />
+    <TransformFile Include="Transforms\*.xml" />
+    <Compile Include="Additions\*.cs" />
+    <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaSourceJar Include="JavaDocs\*.jar" />
+  </ItemGroup> 
   <PropertyGroup Condition="$(TargetFramework.StartsWith('uap'))">
     <DefineConstants>$(DefineConstants);NETFX_CORE;XAML;WINDOWS;WINDOWS_UWP;UWP</DefineConstants>
     <TargetPlatformVersion>10.0.17763.0</TargetPlatformVersion>
@@ -37,6 +45,13 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
   </PropertyGroup>
+  <ItemGroup Condition=" $(TargetFramework.Contains('MonoAndroid')) ">
+    <LibraryProjectZip Include="Jars\*.aar" />
+    <TransformFile Include="Transforms\*.xml" />
+    <Compile Include="Additions\*.cs" />
+    <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaSourceJar Include="JavaDocs\*.jar" />
+  </ItemGroup> 
   <PropertyGroup Condition="$(TargetFramework.StartsWith('netcoreapp'))">
     <DefineConstants>$(DefineConstants);NETCOREAPP</DefineConstants>
   </PropertyGroup>

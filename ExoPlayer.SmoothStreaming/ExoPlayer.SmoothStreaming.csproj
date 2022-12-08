@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <AssemblyName>ExoPlayer.SmoothStreaming</AssemblyName>
     <RootNamespace>ExoPlayer.SmoothStreaming</RootNamespace>
