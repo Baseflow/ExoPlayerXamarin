@@ -18,6 +18,7 @@
     <Version>2.18.8</Version>
     <Platform>AnyCPU</Platform>
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
+
     <TargetFrameworks>net6.0-android32.0;net6.0-android33.0;net7.0-android33.0</TargetFrameworks>
     
     <Nullable>enable</Nullable>
