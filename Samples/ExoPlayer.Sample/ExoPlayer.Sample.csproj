@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0-android</TargetFramework>
+    <TargetFrameworks>net7.0-android</TargetFrameworks>
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
@@ -11,7 +11,5 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ExoPlayer\ExoPlayer.csproj" />
-    <ProjectReference Include="..\..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
-    <ProjectReference Include="..\..\ExoPlayer.UI\ExoPlayer.UI.csproj" />
   </ItemGroup>
 </Project>
