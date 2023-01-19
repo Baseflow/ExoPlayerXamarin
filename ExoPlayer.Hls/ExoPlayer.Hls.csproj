@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Hls</AssemblyName>
     <RootNamespace>ExoPlayer.Hls</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Hls</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Hls-xamarin</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 

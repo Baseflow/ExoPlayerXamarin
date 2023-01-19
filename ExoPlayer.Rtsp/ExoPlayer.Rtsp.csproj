@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Rtsp</AssemblyName>
     <RootNamespace>ExoPlayer.Rtsp</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Rtsp</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Rtsp-xamarin</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 

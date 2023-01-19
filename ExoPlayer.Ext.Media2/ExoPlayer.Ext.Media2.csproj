@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Ext.Media2</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Media2</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Media2</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Media2-xamarin</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 

@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.SmoothStreaming</AssemblyName>
     <RootNamespace>ExoPlayer.SmoothStreaming</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.SmoothStreaming</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.SmoothStreaming-xamarin</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 

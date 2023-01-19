@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Ext.Rtmp</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Rtmp</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Rtmp</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Rtmp-xamarin</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 

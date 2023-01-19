@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Ext.Leanback</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.Leanback</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Leanback</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Leanback-xamarin</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 

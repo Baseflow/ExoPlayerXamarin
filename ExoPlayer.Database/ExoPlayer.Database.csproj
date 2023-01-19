@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Database</AssemblyName>
     <RootNamespace>ExoPlayer.Database</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Database</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Database-xamarin</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 
