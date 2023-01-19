@@ -1,11 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <AssemblyName>ExoPlayer</AssemblyName>
     <RootNamespace>ExoPlayer</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
     <PackageId>Xam.Plugins.Android.ExoPlayer</PackageId>
+    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />

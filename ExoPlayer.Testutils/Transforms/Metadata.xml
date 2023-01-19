@@ -4,14 +4,30 @@
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeAdaptiveMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.source.chunk.ChunkSampleStream&lt;com.google.android.exoplayer2.testutil.FakeChunkSource&gt;']]/parameter">java.lang.Object</attr>
     <attr name="type" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;'] and parameter[4][@type='com.google.android.exoplayer2.source.chunk.ChunkHolder']]/parameter[@name='queue']">Java.Util.IList</attr>
 
-    <attr path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
+    <!--<attr path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>-->
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" />
 
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExtractorOutput']/method[@name='track' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]">Com.Google.Android.Exoplayer2.Extractor.ITrackOutput</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
     <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
-    
+
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='FakeExoMediaDrm']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="ProvisionRequest" native="false" return="Com.Google.Android.Exoplayer2.Drm.ExoMediaDrmProvisionRequest" static="false" synchronized="false" visibility="public">
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='ExoPlayerTestRunner']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnAvailableCommandsChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="availableCommands" type="Com.Google.Android.Exoplayer2.PlayerCommands" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnEvents" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="player" type="Com.Google.Android.Exoplayer2.IPlayer" />
+            <parameter name="events" type="Com.Google.Android.Exoplayer2.PlayerEvents" />
+        </method>
+    </add-node>
+
     <!-- Implemented Abstracted IListener Methods-->
 
     <add-node path="/api/package[@name='com.google.android.exoplayer2.testutil']/class[@name='ExoPlayerTestRunner']">
@@ -23,9 +39,9 @@
             <parameter name="audioSessionId" type="int" />
         </method>
 
-        <method abstract="false" deprecated="not deprecated" final="false" name="OnAvailableCommandsChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+        <!--<method abstract="false" deprecated="not deprecated" final="false" name="OnAvailableCommandsChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
             <parameter name="availableCommands" type="Com.Google.Android.Exoplayer2.IPlayer.Commands" />
-        </method>
+        </method>-->
 
         <method abstract="false" deprecated="not deprecated" final="false" name="OnCues" native="false" return="void" static="false" synchronized="false" visibility="public">
             <parameter name="cueGroup" type="Com.Google.Android.Exoplayer2.Text.CueGroup" />
@@ -40,10 +56,10 @@
             <parameter name="muted" type="bool" />
         </method>
 
-        <method abstract="false" deprecated="not deprecated" final="false" name="OnEvents" native="false" return="void" static="false" synchronized="false" visibility="public">
+        <!--<method abstract="false" deprecated="not deprecated" final="false" name="OnEvents" native="false" return="void" static="false" synchronized="false" visibility="public">
             <parameter name="player" type="Com.Google.Android.Exoplayer2.IPlayer" />
             <parameter name="events" type="Com.Google.Android.Exoplayer2.IPlayer.Events" />
-        </method>
+        </method>-->
 
         <method abstract="false" deprecated="not deprecated" final="false" name="OnIsLoadingChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
             <parameter name="isLoading" type="bool" />
