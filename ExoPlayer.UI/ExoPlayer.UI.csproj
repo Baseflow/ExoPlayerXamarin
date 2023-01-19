@@ -1,16 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <AssemblyName>ExoPlayer.UI</AssemblyName>
     <RootNamespace>ExoPlayer.UI</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.UI</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.UI-xamarin</PackageId>
+    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 
-   <ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Media" Version="1.6.0.1" />
     <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.2.1.7" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Core\ExoPlayer.Core.csproj" />
   </ItemGroup>

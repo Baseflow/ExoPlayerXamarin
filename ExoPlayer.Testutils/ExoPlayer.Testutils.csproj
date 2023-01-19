@@ -1,9 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <AssemblyName>ExoPlayer.Testutils</AssemblyName>
     <RootNamespace>ExoPlayer.Testutils</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Testutils</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Testutils-xamarin</PackageId>
+    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>

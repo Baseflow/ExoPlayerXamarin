@@ -1,15 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <AssemblyName>ExoPlayer.Core</AssemblyName>
     <RootNamespace>ExoPlayer.Core</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Core</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Core-xamarin</PackageId>
+    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Core" Version="1.8.0.1" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
     <ProjectReference Include="..\ExoPlayer.Database\ExoPlayer.Database.csproj" />
@@ -17,5 +18,5 @@
     <ProjectReference Include="..\ExoPlayer.Decoder\ExoPlayer.Decoder.csproj" />
     <ProjectReference Include="..\ExoPlayer.Extractor\ExoPlayer.Extractor.csproj" />
   </ItemGroup>
-  
+
 </Project>

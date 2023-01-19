@@ -1,15 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <AssemblyName>ExoPlayer.Ext.OkHttp</AssemblyName>
     <RootNamespace>ExoPlayer.Ext.OkHttp</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.OkHttp</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.OkHttp-xamarin</PackageId>
+    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Square.OkHttp3" Version="4.9.3.2" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
     <ProjectReference Include="..\ExoPlayer.DataSource\ExoPlayer.DataSource.csproj" />

@@ -1,11 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <AssemblyName>ExoPlayer.DataSource</AssemblyName>
     <RootNamespace>ExoPlayer.DataSource</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.DataSource</PackageId>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.DataSource-xamarin</PackageId>
+    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
     <ProjectReference Include="..\ExoPlayer.Database\ExoPlayer.Database.csproj" />
