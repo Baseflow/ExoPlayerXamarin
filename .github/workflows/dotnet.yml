@@ -2,9 +2,9 @@ name: Dotnet CI build
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ xamarin ]
   pull_request:
-    branches: [ develop, main ]
+    branches: [ xamarin ]
 
 jobs:
   build:

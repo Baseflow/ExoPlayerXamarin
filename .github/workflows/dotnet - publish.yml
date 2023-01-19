@@ -2,7 +2,7 @@ name: Dotnet publish
 
 on:
   push:
-    branches: [ develop, main ]
+    branches: [ xamarin ]
 
 jobs:
   build:
