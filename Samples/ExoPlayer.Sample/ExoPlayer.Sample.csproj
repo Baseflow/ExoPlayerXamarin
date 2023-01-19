@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <TargetFrameworks>net7.0-android</TargetFrameworks>
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
@@ -8,6 +8,7 @@
     <ApplicationId>com.companyname.ExoPlayer.Sample</ApplicationId>
     <ApplicationVersion>1</ApplicationVersion>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ExoPlayer\ExoPlayer.csproj" />

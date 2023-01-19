@@ -290,9 +290,6 @@
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.drm']/interface[@name='DrmSessionEventListener']/method[@name='onDrmSessionAcquired' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='com.google.android.exoplayer2.source.MediaSource.MediaPeriodId']]" />
     
-    <attr path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='DummyExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
-    <attr path="/api/package[@name='com.google.android.exoplayer2.drm']/class[@name='FrameworkMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
-
     <attr path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" name="propertyName"></attr>
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.source.chunk']/interface[@name='ChunkSource']/method[@name='shouldCancelLoad' and count(parameter)=3 and parameter[1][@type='long'] and parameter[2][@type='com.google.android.exoplayer2.source.chunk.Chunk'] and parameter[3][@type='java.util.List&lt;? extends com.google.android.exoplayer2.source.chunk.MediaChunk&gt;']]" />
@@ -307,11 +304,12 @@
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.audio']/interface[@name='DefaultAudioSink.AudioTrackBufferSizeProvider']/field[@name='DEFAULT']" />
 
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
-    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource.IFactory</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.drm.DrmSessionManagerProvider']]">Com.Google.Android.Exoplayer2.Source.IMediaSource</attr>
 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.analytics']/interface[@name='AnalyticsListener']/method[@name='onCues' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.text.Cue&gt;']]" />
 
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.source']/interface[@name='MediaSourceFactory']" />
 </metadata>
