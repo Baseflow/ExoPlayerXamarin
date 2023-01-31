@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/Baseflow/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>2.18.8</Version>
+    <Version>2.18.9</Version>
     <Platform>AnyCPU</Platform>
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
 
@@ -41,6 +41,7 @@
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>$(SolutionDir)\artifacts</PackageOutputPath>
     <PackageIcon>icon.png</PackageIcon>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <Deterministic>true</Deterministic>

@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Common</AssemblyName>
     <RootNamespace>ExoPlayer.Common</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Common-xamarin</PackageId>
+    <PackageId>Xamarin.Plugins.Android.ExoPlayer.Common</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 

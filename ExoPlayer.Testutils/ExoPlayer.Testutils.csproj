@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Testutils</AssemblyName>
     <RootNamespace>ExoPlayer.Testutils</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Testutils-xamarin</PackageId>
+    <PackageId>Xamarin.Plugins.Android.ExoPlayer.Testutils</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 

@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Robolectricutils</AssemblyName>
     <RootNamespace>ExoPlayer.Robolectricutils</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Robolectricutils-xamarin</PackageId>
+    <PackageId>Xamarin.Plugins.Android.ExoPlayer.Robolectricutils</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 

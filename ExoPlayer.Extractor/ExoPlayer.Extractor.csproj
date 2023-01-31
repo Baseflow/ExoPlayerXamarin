@@ -3,7 +3,7 @@
     <AssemblyName>ExoPlayer.Extractor</AssemblyName>
     <RootNamespace>ExoPlayer.Extractor</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Extractor-xamarin</PackageId>
+    <PackageId>Xamarin.Plugins.Android.ExoPlayer.Extractor</PackageId>
     <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 
