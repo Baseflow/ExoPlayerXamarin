@@ -52,6 +52,15 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
+  <ItemGroup Condition=" $(TargetFramework.Contains('MonoAndroid')) ">
+    <LibraryProjectZip Include="Jars\*.aar" />
+    <TransformFile Include="Transforms\*.xml" />
+    <TransformFile Include="Transforms\mono\*.xml"/>
+    <Compile Include="Additions\*.cs" />
+    <None Include="..\readme.txt" pack="true" PackagePath="." />
+    <JavaSourceJar Include="JavaDocs\*.jar" />
+  </ItemGroup>
+
   <ItemGroup>
     <None Include="Additions\*;Jars\*;Transforms\**;JavaDocs\**" />
   </ItemGroup>
