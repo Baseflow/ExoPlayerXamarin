@@ -4,7 +4,6 @@
     <RootNamespace>ExoPlayer.Rtsp</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
     <PackageId>Xam.Plugins.Android.ExoPlayer.Rtsp</PackageId>
-    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -8,7 +8,6 @@
     <ApplicationId>com.companyname.ExoPlayer.Sample</ApplicationId>
     <ApplicationVersion>1</ApplicationVersion>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ExoPlayer\ExoPlayer.csproj" />

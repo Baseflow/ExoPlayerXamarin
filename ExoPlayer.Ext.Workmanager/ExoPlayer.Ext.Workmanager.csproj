@@ -4,7 +4,6 @@
     <RootNamespace>ExoPlayer.Ext.Workmanager</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
     <PackageId>Xam.Plugins.Android.ExoPlayer.Workmanager</PackageId>
-    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>

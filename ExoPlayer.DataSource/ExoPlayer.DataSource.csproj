@@ -4,7 +4,6 @@
     <RootNamespace>ExoPlayer.DataSource</RootNamespace>
     <Description>Xamarin bindings for ExoPlayer</Description>
     <PackageId>Xam.Plugins.Android.ExoPlayer.DataSource</PackageId>
-    <ReleaseVersion>2.8.0</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
