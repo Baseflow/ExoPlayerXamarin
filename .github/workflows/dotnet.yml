@@ -2,8 +2,9 @@ name: Dotnet build & publish
 
 on:
   push:
-    branches: [ develop, main ]
-
+    branches: [ develop, main, xamarin ]
+  pull_request:
+    branches: [ develop, xamarin ]
 jobs:
   build:
 
@@ -32,3 +33,14 @@ jobs:
     steps:
     - name: Publish the package to Nuget.org
       run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
+
+  publish-xamarin:
+    runs-on: windows-latest
+    needs: build
+    if: github.ref == 'refs/heads/xamarin' # Deploy for xamarin branch
+    steps:
+      - name: Create the package
+        run: dotnet pack $SOLUTION --configuration Release --no-build --no-restore --version-suffix -xamarin --output bin\Xamarin
+        
+# - name: Publish the package to Nuget.org
+#  run: dotnet nuget push bin\Xamarin\**\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
