@@ -35,6 +35,9 @@ jobs:
       run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
 
   publish-xamarin:
+    env:
+      SOLUTION: 'ExoPlayer.sln'
+  
     runs-on: windows-latest
     needs: build
     if: github.ref == 'refs/heads/xamarin' # Deploy for xamarin branch
