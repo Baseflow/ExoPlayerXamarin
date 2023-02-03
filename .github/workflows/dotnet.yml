@@ -32,7 +32,7 @@ jobs:
     if: github.ref == 'refs/heads/main' # Deploy for main branch
     steps:
     - name: Publish the package to Nuget.org
-      run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
+      run: dotnet nuget push artifacts\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
 
   publish-xamarin:
     env:
