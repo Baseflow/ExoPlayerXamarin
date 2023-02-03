@@ -22,7 +22,7 @@
     <TargetFrameworks>net6.0-android32.0;net6.0-android33.0;net7.0-android33.0</TargetFrameworks>
     
     <Nullable>enable</Nullable>
-    <LangVersion>10.0</LangVersion>
+    <LangVersion>11.0</LangVersion>
     <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114;NU1603</NoWarn>
 
   </PropertyGroup>
