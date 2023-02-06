@@ -30,7 +30,4 @@ jobs:
       run: dotnet nuget push artifacts\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
     - name: Publish Xamarin
       if: startsWith(github.ref, 'refs/heads/xamarin')
-      run: dotnet pack $SOLUTION --configuration Release --no-build --no-restore --version-suffix -xamarin --output bin\Xamarin
-      
-# - name: Publish the package to Nuget.org
-#  run: dotnet nuget push bin\Xamarin\**\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
+      run: dotnet nuget push artifacts\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
