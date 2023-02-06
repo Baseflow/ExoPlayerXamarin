@@ -8,6 +8,7 @@
     <PackageTags>xamarin, exoplayer, exo, monodroid, C#, xamarin.android, android, audio, media, player, streaming, mp3</PackageTags>
     <PackageReleaseNotes>https://github.com/Baseflow/ExoPlayerXamarin/releases</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <MinClientVersion>2.14</MinClientVersion>
     
@@ -54,6 +55,7 @@
     <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath="\" />
     <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" PackagePath="\" />
     <None Include="$(MSBuildThisFileDirectory)\readme.txt" pack="true" PackagePath="." />
+    <None Include="$(MSBuildThisFileDirectory)\readme.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
