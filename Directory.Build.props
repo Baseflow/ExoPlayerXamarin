@@ -29,7 +29,7 @@
   
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <!--<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
-    <IncludeSymbols>true</IncludeSymbols>
+    <!--<IncludeSymbols>true</IncludeSymbols>-->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
@@ -53,6 +53,7 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath="\" />
     <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" PackagePath="\" />
+    <None Include="$(MSBuildThisFileDirectory)\readme.txt" pack="true" PackagePath="." />
   </ItemGroup>
 
 </Project>
