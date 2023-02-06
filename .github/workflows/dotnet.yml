@@ -25,25 +25,12 @@ jobs:
       run: dotnet restore $SOLUTION
     - name: Build
       run: msbuild $SOLUTION -p:Configuration=Release -p:RestorePackages=false -verbosity:minimal
-      
-  publish:
-    runs-on: windows-latest
-    needs: build
-    if: github.ref == 'refs/heads/main' # Deploy for main branch
-    steps:
-    - name: Publish the package to Nuget.org
+    - name: Publish
+      if: startsWith(github.ref, 'refs/heads/main')
       run: dotnet nuget push artifacts\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
-
-  publish-xamarin:
-    env:
-      SOLUTION: 'ExoPlayer.sln'
-  
-    runs-on: windows-latest
-    needs: build
-    if: github.ref == 'refs/heads/xamarin' # Deploy for xamarin branch
-    steps:
-      - name: Create the package
-        run: dotnet pack $SOLUTION --configuration Release --no-build --no-restore --version-suffix -xamarin --output bin\Xamarin
-        
+    - name: Publish Xamarin
+      if: startsWith(github.ref, 'refs/heads/xamarin')
+      run: dotnet pack $SOLUTION --configuration Release --no-build --no-restore --version-suffix -xamarin --output bin\Xamarin
+      
 # - name: Publish the package to Nuget.org
 #  run: dotnet nuget push bin\Xamarin\**\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate
