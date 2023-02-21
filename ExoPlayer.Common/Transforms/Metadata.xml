@@ -248,4 +248,9 @@
         <method abstract="false" deprecated="not deprecated" final="true" name="cues" native="false" return="java.util.List&lt;com.google.android.exoplayer2.text.Cue&gt;" static="false" synchronized="false" visibility="public">
         </method>
     </add-node>
+
+    <!-- 2.18.3 remove duplicate obsoletes, this can be removed in the future as these will be removed in ExoPlayer.-->
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleBasePlayer.PositionSupplier']/field[@name='ZERO']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleBasePlayer.PositionSupplier']/method[@name='getConstant' and count(parameter)=1 and parameter[1][@type='long']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='SimpleBasePlayer.PositionSupplier']/method[@name='getExtrapolating' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='float']]" />
 </metadata>
