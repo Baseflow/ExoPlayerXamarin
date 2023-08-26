@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>ExoPlayer.Muxer</AssemblyName>
+    <RootNamespace>ExoPlayer.Muxer</RootNamespace>
+    <Description>Xamarin bindings for ExoPlayer</Description>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Muxer</PackageId>
+  </PropertyGroup>
+</Project>

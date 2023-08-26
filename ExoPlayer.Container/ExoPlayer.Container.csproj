@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>ExoPlayer.Container</AssemblyName>
+    <RootNamespace>ExoPlayer.Container</RootNamespace>
+    <Description>Xamarin bindings for ExoPlayer</Description>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Container</PackageId>
+  </PropertyGroup>
+</Project>
