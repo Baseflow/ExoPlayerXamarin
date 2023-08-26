@@ -14,28 +14,37 @@
     <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='RgbAdjustment']">
         <method abstract="false" deprecated="not deprecated" final="false" name="ToGlTextureProcessor" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlTextureProcessor" static="false" synchronized="false" visibility="public">
             <parameter name="context" type="Android.Content.Context" />
-            <parameter name="useHdr" type="bool" />
+            <parameter name="useHdr" type="bool?" />
         </method>
     </add-node>
     
     <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Crop']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlTextureProcessor" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlTextureProcessor" static="false" synchronized="false" visibility="public">
+        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlShaderProgram" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlShaderProgram" static="false" synchronized="false" visibility="public">
             <parameter name="context" type="Android.Content.Context" />
-            <parameter name="useHdr" type="bool" />
+            <parameter name="useHdr" type="bool?" />
         </method>
     </add-node>
 
-    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='ScaleToFitTransformation']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlTextureProcessor" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlTextureProcessor" static="false" synchronized="false" visibility="public">
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Brightness']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlShaderProgram" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlShaderProgram" static="false" synchronized="false" visibility="public">
             <parameter name="context" type="Android.Content.Context" />
-            <parameter name="useHdr" type="bool" />
+            <parameter name="useHdr" type="bool?" />
         </method>
     </add-node>
 
-    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Presentation']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlTextureProcessor" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlTextureProcessor" static="false" synchronized="false" visibility="public">
+    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Contrast']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlShaderProgram" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlShaderProgram" static="false" synchronized="false" visibility="public">
             <parameter name="context" type="Android.Content.Context" />
-            <parameter name="useHdr" type="bool" />
+            <parameter name="useHdr" type="bool?" />
         </method>
     </add-node>
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.effect']/interface[@name='ColorLut']/method[@name='toGlShaderProgram' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='boolean']]">Com.Google.Android.Exoplayer2.Effect.IGlShaderProgram</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.effect']/interface[@name='GlMatrixTransformation']/method[@name='toGlShaderProgram' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='boolean']]">Com.Google.Android.Exoplayer2.Effect.IGlShaderProgram</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.effect']/interface[@name='RgbMatrix']/method[@name='toGlShaderProgram' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='boolean']]">Com.Google.Android.Exoplayer2.Effect.IGlShaderProgram</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='OverlayEffect']/method[@name='toGlShaderProgram' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='boolean']]">Com.Google.Android.Exoplayer2.Effect.IGlShaderProgram</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='HslAdjustment']/method[@name='toGlShaderProgram' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='boolean']]">Com.Google.Android.Exoplayer2.Effect.IGlShaderProgram</attr>
+    
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='DefaultVideoFrameProcessor.Factory']/method[@name='create' and count(parameter)=8 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.util.Effect&gt;'] and parameter[3][@type='com.google.android.exoplayer2.util.DebugViewProvider'] and parameter[4][@type='com.google.android.exoplayer2.video.ColorInfo'] and parameter[5][@type='com.google.android.exoplayer2.video.ColorInfo'] and parameter[6][@type='boolean'] and parameter[7][@type='java.util.concurrent.Executor'] and parameter[8][@type='com.google.android.exoplayer2.util.VideoFrameProcessor.Listener']]">Com.Google.Android.Exoplayer2.Util.IVideoFrameProcessor</attr>
+
 </metadata>
