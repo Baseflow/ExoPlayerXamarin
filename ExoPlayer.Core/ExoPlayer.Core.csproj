@@ -12,6 +12,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\ExoPlayer.Common\ExoPlayer.Common.csproj" />
+    <ProjectReference Include="..\ExoPlayer.Container\ExoPlayer.Container.csproj" />
     <ProjectReference Include="..\ExoPlayer.Database\ExoPlayer.Database.csproj" />
     <ProjectReference Include="..\ExoPlayer.DataSource\ExoPlayer.DataSource.csproj" />
     <ProjectReference Include="..\ExoPlayer.Decoder\ExoPlayer.Decoder.csproj" />

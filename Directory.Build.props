@@ -16,11 +16,11 @@
     <RepositoryUrl>https://github.com/Baseflow/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>2.18.11</Version>
+    <Version>2.19.1</Version>
     <Platform>AnyCPU</Platform>
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
 
-    <TargetFrameworks>net6.0-android32.0;net6.0-android33.0;net7.0-android33.0</TargetFrameworks>
+    <TargetFrameworks>net6.0-android33.0;net7.0-android33.0</TargetFrameworks>
     
     <Nullable>enable</Nullable>
     <LangVersion>11.0</LangVersion>
