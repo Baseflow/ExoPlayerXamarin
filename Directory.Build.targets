@@ -14,6 +14,9 @@
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
     <DefineConstants>$(DefineConstants);NET;NET7</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+    <DefineConstants>$(DefineConstants);NET;NET7</DefineConstants>
+  </PropertyGroup>
   <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" >
     <DefineConstants>$(DefineConstants);NETFX_CORE;XAML;WINDOWS;WINDOWS_UWP;UWP</DefineConstants>
   </PropertyGroup>

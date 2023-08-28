@@ -11,7 +11,7 @@
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <MinClientVersion>2.14</MinClientVersion>
-    
+
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/Baseflow/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -21,22 +21,20 @@
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
 
     <TargetFrameworks>net6.0-android33.0;net7.0-android33.0</TargetFrameworks>
-    
+
     <Nullable>enable</Nullable>
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114;NU1603</NoWarn>
 
   </PropertyGroup>
-  
+
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <!--<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
-    <!--<IncludeSymbols>true</IncludeSymbols>-->
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSymbols>true</IncludeSymbols>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
     <DesignTimeBuild>false</DesignTimeBuild>
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -47,8 +45,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
@@ -56,6 +52,10 @@
     <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" PackagePath="\" />
     <None Include="$(MSBuildThisFileDirectory)\readme.txt" pack="true" PackagePath="." />
     <None Include="$(MSBuildThisFileDirectory)\readme.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
