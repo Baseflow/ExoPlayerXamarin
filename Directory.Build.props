@@ -20,7 +20,7 @@
     <Platform>AnyCPU</Platform>
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
 
-    <TargetFrameworks>net6.0-android33.0;net7.0-android33.0</TargetFrameworks>
+    <TargetFrameworks>net7.0-android</TargetFrameworks>
 
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
