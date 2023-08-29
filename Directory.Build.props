@@ -21,7 +21,7 @@
 
     <IsBindingProject>true</IsBindingProject>
     <EnableDefaultItems>false</EnableDefaultItems>
-    <TargetFrameworks>MonoAndroid12.0;MonoAndroid13.0</TargetFrameworks>
+    <TargetFrameworks>MonoAndroid13.0</TargetFrameworks>
 
     <Nullable>enable</Nullable>
     <LangVersion>11.0</LangVersion>
