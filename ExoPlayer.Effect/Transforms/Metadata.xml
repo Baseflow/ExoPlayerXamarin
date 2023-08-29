@@ -11,50 +11,10 @@
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.effect']/interface[@name='GlMatrixTransformation']/method[@name='toGlTextureProcessor' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='boolean']]" />
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Contrast']/field[@name='contrast']" />
 
-    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='RgbAdjustment']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlTextureProcessor" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlTextureProcessor" static="false" synchronized="false" visibility="public">
-            <parameter name="context" type="Android.Content.Context" />
-            <parameter name="useHdr" type="bool" />
-        </method>
-    </add-node>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='DefaultVideoFrameProcessor.Factory']/method[@name='create' and count(parameter)=8 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.List&lt;com.google.android.exoplayer2.util.Effect&gt;'] and parameter[3][@type='com.google.android.exoplayer2.util.DebugViewProvider'] and parameter[4][@type='com.google.android.exoplayer2.video.ColorInfo'] and parameter[5][@type='com.google.android.exoplayer2.video.ColorInfo'] and parameter[6][@type='boolean'] and parameter[7][@type='java.util.concurrent.Executor'] and parameter[8][@type='com.google.android.exoplayer2.util.VideoFrameProcessor.Listener']]">Com.Google.Android.Exoplayer2.Util.IVideoFrameProcessor</attr>
     
-    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Crop']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlTextureProcessor" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlTextureProcessor" static="false" synchronized="false" visibility="public">
-            <parameter name="context" type="Android.Content.Context" />
-            <parameter name="useHdr" type="bool" />
-        </method>
-    </add-node>
-
-    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='ScaleToFitTransformation']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlTextureProcessor" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlTextureProcessor" static="false" synchronized="false" visibility="public">
-            <parameter name="context" type="Android.Content.Context" />
-            <parameter name="useHdr" type="bool" />
-        </method>
-    </add-node>
-
-    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Presentation']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="ToGlTextureProcessor" native="false" return="Com.Google.Android.Exoplayer2.Effect.IGlTextureProcessor" static="false" synchronized="false" visibility="public">
-            <parameter name="context" type="Android.Content.Context" />
-            <parameter name="useHdr" type="bool" />
-        </method>
-    </add-node>
-
-    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Crop']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="GetGlMatrixArray" native="false" return="float[]" static="false" synchronized="false" visibility="public">
-            <parameter name="presentationTimeUs" type="long" />
-        </method>
-    </add-node>
-
-    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='Presentation']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="GetGlMatrixArray" native="false" return="float[]" static="false" synchronized="false" visibility="public">
-            <parameter name="presentationTimeUs" type="long" />
-        </method>
-    </add-node>
-
-    <add-node path="/api/package[@name='com.google.android.exoplayer2.effect']/class[@name='ScaleToFitTransformation']">
-        <method abstract="false" deprecated="not deprecated" final="false" name="GetGlMatrixArray" native="false" return="float[]" static="false" synchronized="false" visibility="public">
-            <parameter name="presentationTimeUs" type="long" />
-        </method>
-    </add-node>
-
+    <!-- Since nullable booleans dont exist on XF and they are kind of needed here, time to get rid of these classes as there's no (known) way to make them work without putting in more effort than it's worth.-->
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.effect']/interface[@name='RgbMatrix']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.effect']/interface[@name='MatrixTransformation']" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.effect']/interface[@name='GlEffect']" />
 </metadata>

@@ -15,13 +15,13 @@
     <RepositoryUrl>https://github.com/Baseflow/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>2.18.10-xamarin1</Version>
+    <Version>2.19.1-xamarin1</Version>
     <Platform>AnyCPU</Platform>
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
 
     <IsBindingProject>true</IsBindingProject>
     <EnableDefaultItems>false</EnableDefaultItems>
-    <TargetFrameworks>MonoAndroid12.0;MonoAndroid13.0</TargetFrameworks>
+    <TargetFrameworks>MonoAndroid13.0</TargetFrameworks>
 
     <Nullable>enable</Nullable>
     <LangVersion>11.0</LangVersion>
