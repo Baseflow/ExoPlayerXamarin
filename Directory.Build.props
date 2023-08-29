@@ -18,13 +18,13 @@
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <Version>2.19.1</Version>
     <Platform>AnyCPU</Platform>
-    <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
 
     <TargetFrameworks>net7.0-android</TargetFrameworks>
 
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114;NU1603</NoWarn>
+    <WarningsAsErrors>$(WarningsAsErrors);BG8A00;BG8A01;BG8A04</WarningsAsErrors>
 
   </PropertyGroup>
 
