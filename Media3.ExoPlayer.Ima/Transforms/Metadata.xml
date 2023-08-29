@@ -1,0 +1,4 @@
+﻿<metadata>
+    <attr name="visibility" path="/api/package[@name='androidx.media3.exoplayer.ima']/class[@name='ImaServerSideAdInsertionMediaSource']/method[@name='prepareSourceInternal' and count(parameter)=1 and parameter[1][@type='androidx.media3.datasource.TransferListener']]">protected</attr>
+    <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.ima']/class[@name='ImaServerSideAdInsertionMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='java.lang.Void'] and parameter[2][@type='androidx.media3.exoplayer.source.MediaSource'] and parameter[3][@type='androidx.media3.common.Timeline']]/parameter[1]">Java.Lang.Object</attr>
+</metadata>

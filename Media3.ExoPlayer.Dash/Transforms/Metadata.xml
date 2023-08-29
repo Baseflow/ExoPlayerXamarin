@@ -1,0 +1,10 @@
+﻿<metadata>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.dash']/class[@name='DashMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]">Androidx.Media3.Exoplayer.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.dash']/class[@name='DashMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.drm.DrmSessionManagerProvider']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.dash']/class[@name='DashMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+    
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.dash.manifest']/class[@name='DashManifest']/method[@name='copy' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;androidx.media3.common.StreamKey&gt;']]">Java.Lang.Object</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.dash.manifest']/class[@name='DashManifestParser']/method[@name='parse' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.io.InputStream']]">Java.Lang.Object</attr>
+
+    <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.dash']/class[@name='DefaultDashChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends androidx.media3.exoplayer.source.chunk.MediaChunk&gt;'] and parameter[4][@type='androidx.media3.exoplayer.source.chunk.ChunkHolder']]/parameter[3]">Java.Util.IList</attr>
+</metadata>

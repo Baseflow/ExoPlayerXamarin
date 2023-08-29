@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.Testutils.Roboelectric</AssemblyName>
+    <RootNamespace>Media3.Testutils.Roboelectric</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Testutils.Roboelectric</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
+  </ItemGroup>
+</Project>

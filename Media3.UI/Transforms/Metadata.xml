@@ -1,0 +1,9 @@
+﻿<metadata>
+    <add-node path="/api/package[@name='androidx.media3.ui']/class[@name='DefaultTimeBar']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="SetEnabled" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="enabled" type="bool" />
+        </method>
+    </add-node>
+
+    <remove-node path="/api/package[@name='androidx.media3.ui']/class[@name='PlayerView']/method[@name='setControllerVisibilityListener' and count(parameter)=1 and parameter[1][@type='androidx.media3.ui.PlayerControlView.VisibilityListener']]" />
+</metadata>

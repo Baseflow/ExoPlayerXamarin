@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.ExoPlayer</AssemblyName>
+    <RootNamespace>Media3.ExoPlayer</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Core</PackageId>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
+    <ProjectReference Include="..\Media3.Database\Media3.Database.csproj" />
+    <ProjectReference Include="..\Media3.DataSource\Media3.DataSource.csproj" />
+  </ItemGroup>
+
+</Project>

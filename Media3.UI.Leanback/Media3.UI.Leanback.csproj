@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.UI.Leanback</AssemblyName>
+    <RootNamespace>Media3.UI.Leanback</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.UI.Leanback</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.AndroidX.Leanback" Version="1.0.0.21" />
+  </ItemGroup>
+</Project>

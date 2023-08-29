@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.ExoPlayer.SmoothStreaming</AssemblyName>
+    <RootNamespace>Media3.ExoPlayer.SmoothStreaming</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.SmoothStreaming</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.ExoPlayer\Media3.ExoPlayer.csproj" />
+  </ItemGroup>
+</Project>

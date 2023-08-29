@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.ExoPlayer.WorkManager</AssemblyName>
+    <RootNamespace>Media3.ExoPlayer.WorkManager</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.WorkManager</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.ExoPlayer\Media3.ExoPlayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.8.1.3" />
+  </ItemGroup>
+</Project>

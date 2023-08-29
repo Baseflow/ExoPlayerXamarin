@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.Cast</AssemblyName>
+    <RootNamespace>Media3.Cast</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Cast</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.GooglePlayServices.Cast.Framework" Version="121.3.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
+  </ItemGroup>
+</Project>

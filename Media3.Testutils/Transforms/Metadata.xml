@@ -1,0 +1,134 @@
+﻿<metadata>
+    <add-node path="/api/package[@name='androidx.media3.test.utils']/class[@name='ExoPlayerTestRunner']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnAudioAttributesChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="audioAttributes" type="Androidx.Media3.Common.AudioAttributes" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnAudioSessionIdChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="audioSessionId" type="int" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnAvailableCommandsChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="availableCommands" type="Androidx.Media3.Common.IPlayer.Commands" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnCues" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="cueGroup" type="Androidx.Media3.Common.Text.CueGroup" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnDeviceInfoChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="deviceInfo" type="Androidx.Media3.Common.DeviceInfo" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnDeviceVolumeChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="volume" type="int" />
+            <parameter name="muted" type="bool" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnEvents" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="player" type="Androidx.Media3.Common.IPlayer" />
+            <parameter name="events" type="Androidx.Media3.Common.IPlayer.Events" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnIsLoadingChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="isLoading" type="bool" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnIsPlayingChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="isPlaying" type="bool" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnLoadingChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="isLoading" type="bool" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnMaxSeekToPreviousPositionChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="maxSeekToPreviousPositionMs" type="long" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnMediaMetadataChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="mediaMetadata" type="Androidx.Media3.Common.MediaMetadata" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnMetadata" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="metadata" type="Androidx.Media3.Common.Metadata" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnPlaybackParametersChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="playbackParameters" type="Androidx.Media3.Common.PlaybackParameters" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnPlaybackSuppressionReasonChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="playbackSuppressionReason" type="int" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnPlayerErrorChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="error" type="Androidx.Media3.Common.PlaybackException" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnPlayerStateChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="playWhenReady" type="bool" />
+            <parameter name="playbackState" type="int" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnPlaylistMetadataChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="mediaMetadata" type="Androidx.Media3.Common.MediaMetadata" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnPlayWhenReadyChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="playWhenReady" type="bool" />
+            <parameter name="reason" type="int" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnPositionDiscontinuity" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="reason" type="int" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnRenderedFirstFrame" native="false" return="void" static="false" synchronized="false" visibility="public">
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnRepeatModeChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="repeatMode" type="int" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnSeekBackIncrementChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="seekBackIncrementMs" type="long" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnSeekForwardIncrementChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="seekForwardIncrementMs" type="long" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnSeekProcessed" native="false" return="void" static="false" synchronized="false" visibility="public">
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnShuffleModeEnabledChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="shuffleModeEnabled" type="bool" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnSkipSilenceEnabledChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="skipSilenceEnabled" type="bool" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnSurfaceSizeChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="width" type="int" />
+            <parameter name="height" type="int" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnTrackSelectionParametersChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="parameters" type="Androidx.Media3.Common.TrackSelectionParameters" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnTracksChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="tracks" type="Androidx.Media3.Common.Tracks" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnVideoSizeChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="videoSize" type="Androidx.Media3.Common.VideoSize" />
+        </method>
+
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnVolumeChanged" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="volume" type="float" />
+        </method>
+    </add-node>
+</metadata>

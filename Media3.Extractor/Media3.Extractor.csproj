@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.Extractor</AssemblyName>
+    <RootNamespace>Media3.Extractor</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Xam.Plugins.Android.ExoPlayer.Extractor</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
+    <ProjectReference Include="..\Media3.Decoder\Media3.Decoder.csproj" />
+  </ItemGroup>
+</Project>
