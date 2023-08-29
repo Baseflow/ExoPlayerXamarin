@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <!-- Remove these deprecates as they overlap and cause issues when building-->
     <remove-node path="/api/package[@name='com.google.android.exoplayer2.transformer']/interface[@name='Transformer.Listener']/method[@name='onTransformationCompleted' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.MediaItem']]" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.transformer']/interface[@name='Transformer.Listener']/method[@name='onTransformationError' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.MediaItem'] and parameter[2][@type='java.lang.Exception']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.transformer']/interface[@name='Transformer.Listener']/method[@name='onFallbackApplied' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.MediaItem'] and parameter[2][@type='com.google.android.exoplayer2.transformer.TransformationRequest'] and parameter[3][@type='com.google.android.exoplayer2.transformer.TransformationRequest']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.transformer']/interface[@name='Transformer.Listener']/method[@name='onTransformationError' and count(parameter)=3 and parameter[1][@type='com.google.android.exoplayer2.MediaItem'] and parameter[2][@type='com.google.android.exoplayer2.transformer.TransformationResult'] and parameter[3][@type='com.google.android.exoplayer2.transformer.TransformationException']]" />
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2.transformer']/interface[@name='Transformer.Listener']/method[@name='onTransformationError' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.MediaItem'] and parameter[2][@type='com.google.android.exoplayer2.transformer.TransformationException']]" />
+
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.transformer']/class[@name='InAppMuxer.Factory']/method[@name='create' and count(parameter)=1 and parameter[1][@type='java.lang.String']]">Com.Google.Android.Exoplayer2.Transformer.IMuxer</attr>
+    
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.transformer']/class[@name='DefaultEncoderFactory']/method[@name='createForAudioEncoding' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.Format']]">Com.Google.Android.Exoplayer2.Transformer.ICodec</attr>
+    <attr name="return" path="/api/package[@name='com.google.android.exoplayer2.transformer']/class[@name='DefaultEncoderFactory']/method[@name='createForVideoEncoding' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.Format']]">Com.Google.Android.Exoplayer2.Transformer.ICodec</attr>
 </metadata>

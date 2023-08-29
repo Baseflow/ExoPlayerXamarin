@@ -232,6 +232,7 @@
     <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player']/method[@name='setMediaItems' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.MediaItem&gt;']]"/>
     <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player']/method[@name='setMediaItems' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.MediaItem&gt;'] and parameter[2][@type='boolean']]"/>
     <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player']/method[@name='setMediaItems' and count(parameter)=3 and parameter[1][@type='java.util.List&lt;com.google.android.exoplayer2.MediaItem&gt;'] and parameter[2][@type='int'] and parameter[3][@type='long']]"/>
+    <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player']/method[@name='replaceMediaItems' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='java.util.List&lt;com.google.android.exoplayer2.MediaItem&gt;']]"/> 
     <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player']/method[@name='getCurrentStaticMetadata' and count(parameter)=0]"/>
     <remove-node path="/api/package[@name='com.google.android.exoplayer2']/interface[@name='Player']/method[@name='getCurrentCues' and count(parameter)=0]"/>
 

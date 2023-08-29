@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/Baseflow/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>2.18.10-xamarin1</Version>
+    <Version>2.19.1-xamarin1</Version>
     <Platform>AnyCPU</Platform>
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
 
