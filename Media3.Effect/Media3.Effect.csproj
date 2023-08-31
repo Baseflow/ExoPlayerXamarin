@@ -6,6 +6,9 @@
     <PackageId>Xam.Plugins.Android.ExoPlayer.Effect</PackageId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
   </ItemGroup>
 </Project>

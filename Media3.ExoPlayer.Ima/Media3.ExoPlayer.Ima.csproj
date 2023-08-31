@@ -12,5 +12,6 @@
 
   <ItemGroup>
     <PackageReference Include="Xam.Plugins.Android.Interactivemedia.Ads" Version="3.19.2" />
+    <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />
   </ItemGroup>
 </Project>

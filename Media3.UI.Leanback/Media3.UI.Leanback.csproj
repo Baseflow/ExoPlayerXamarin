@@ -9,4 +9,8 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Leanback" Version="1.0.0.21" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
+  </ItemGroup>
 </Project>

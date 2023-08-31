@@ -12,5 +12,6 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Media" Version="1.6.0.6" />
+    <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />
   </ItemGroup>
 </Project>

@@ -6,7 +6,11 @@
     <PackageId>Xam.Plugins.Android.ExoPlayer.Extractor</PackageId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
+    <ProjectReference Include="..\Media3.Database\Media3.Database.csproj" />
     <ProjectReference Include="..\Media3.Decoder\Media3.Decoder.csproj" />
   </ItemGroup>
 </Project>
