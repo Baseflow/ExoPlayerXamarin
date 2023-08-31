@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		Directory.Build.targets = Directory.Build.targets
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExoPlayer.Sample", "Samples\ExoPlayer.Sample\ExoPlayer.Sample.csproj", "{1492B4D9-77E4-4642-BDA9-15460420CF05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Media3.Sample", "Samples\Media3.Sample\Media3.Sample.csproj", "{1492B4D9-77E4-4642-BDA9-15460420CF05}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Media3.Common", "Media3.Common\Media3.Common.csproj", "{28306D28-DEE7-41F2-B8B8-5FF313AF06F3}"
 EndProject

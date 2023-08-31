@@ -1,10 +1,11 @@
 ﻿using Android.Content;
-using Com.Google.Android.Exoplayer2;
-using Com.Google.Android.Exoplayer2.Source;
-using Com.Google.Android.Exoplayer2.UI;
-using Com.Google.Android.Exoplayer2.Upstream;
+using Androidx.Media3.Common;
+using Androidx.Media3.Exoplayer;
+using Androidx.Media3.Datasource;
+using Androidx.Media3.Exoplayer.Source;
+using Androidx.Media3.UI;
 
-namespace ExoPlayer.Sample;
+namespace Media3.Sample;
 
 [Activity(Label = "@string/app_name", MainLauncher = true)]
 public class MainActivity : Activity
@@ -16,7 +17,7 @@ public class MainActivity : Activity
         // Set our view from the "main" layout resource
         SetContentView(Resource.Layout.activity_main);
 
-        var exoPlayerView = FindViewById<StyledPlayerView>(Resource.Id.player_view_sample);
+        var exoPlayerView = FindViewById<PlayerView>(Resource.Id.player_view_sample);
 
         var HttpDataSourceFactory = new DefaultHttpDataSource.Factory().SetAllowCrossProtocolRedirects(true);
         var MainDataSource = new ProgressiveMediaSource.Factory(HttpDataSourceFactory);
