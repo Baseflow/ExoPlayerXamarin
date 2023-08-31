@@ -91,7 +91,12 @@
             <parameter name="timeline" type="androidx.media3.common.Timeline" />
         </method>
     </add-node>
-
+    
+    <!-- Progressive Media Source-->
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]">Androidx.Media3.Exoplayer.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.drm.DrmSessionManagerProvider']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+    
     <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.source.chunk']/interface[@name='ChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends androidx.media3.exoplayer.source.chunk.MediaChunk&gt;'] and parameter[4][@type='androidx.media3.exoplayer.source.chunk.ChunkHolder']]/parameter[3]" >Java.Util.IList</attr>
 
     <remove-node path="/api/package[@name='androidx.media3.exoplayer']/interface[@name='Renderer']/method[@name='getName' and count(parameter)=0]" />
@@ -106,6 +111,7 @@
 
     <attr path="/api/package[@name='androidx.media3.exoplayer.drm']/class[@name='DummyExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
     <attr path="/api/package[@name='androidx.media3.exoplayer.drm']/class[@name='FrameworkMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.drm']/class[@name='FrameworkMediaDrm']/method[@name='createCryptoConfig' and count(parameter)=1 and parameter[1][@type='byte[]']]">Androidx.Media3.Decoder.ICryptoConfig</attr>
 
     <attr path="/api/package[@name='androidx.media3.exoplayer.source']/interface[@name='MediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" name="propertyName"></attr>
 
@@ -119,4 +125,8 @@
 
     <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
     <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.drm.DrmSessionManagerProvider']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+
+    <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.text']/class[@name='ExoplayerCuesDecoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='androidx.media3.extractor.text.SubtitleInputBuffer']]/parameter">java.lang.Object</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.text']/class[@name='ExoplayerCuesDecoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]">java.lang.Object</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.text']/class[@name='ExoplayerCuesDecoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]">java.lang.Object</attr>
 </metadata>
