@@ -91,6 +91,14 @@
             <parameter name="timeline" type="androidx.media3.common.Timeline" />
         </method>
     </add-node>
+
+    <add-node path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='FilteringMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="androidx.media3.exoplayer.source.MediaSource" />
+            <parameter name="timeline" type="androidx.media3.common.Timeline" />
+        </method>
+    </add-node>
     
     <!-- Progressive Media Source-->
     <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]">Androidx.Media3.Exoplayer.Source.IMediaSource</attr>

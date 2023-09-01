@@ -10,13 +10,12 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <MinClientVersion>2.14</MinClientVersion>
 
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/Baseflow/ExoPlayerXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>2.19.1</Version>
+    <Version>1.1.1</Version>
     <Platform>AnyCPU</Platform>
 
     <TargetFrameworks>net7.0-android</TargetFrameworks>

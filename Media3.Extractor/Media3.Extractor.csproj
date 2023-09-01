@@ -10,6 +10,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
+    <ProjectReference Include="..\Media3.Container\Media3.Container.csproj" />
     <ProjectReference Include="..\Media3.Database\Media3.Database.csproj" />
     <ProjectReference Include="..\Media3.Decoder\Media3.Decoder.csproj" />
   </ItemGroup>

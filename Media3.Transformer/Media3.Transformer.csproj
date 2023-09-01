@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
     <ProjectReference Include="..\Media3.Decoder\Media3.Decoder.csproj" />
+    <ProjectReference Include="..\Media3.Effect\Media3.Effect.csproj" />
     <ProjectReference Include="..\Media3.ExoPlayer\Media3.ExoPlayer.csproj" />
   </ItemGroup>
 </Project>
