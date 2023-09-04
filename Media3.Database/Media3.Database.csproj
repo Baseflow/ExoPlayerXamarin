@@ -3,7 +3,7 @@
     <AssemblyName>Media3.Database</AssemblyName>
     <RootNamespace>Media3.Database</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Database</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.Database</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />

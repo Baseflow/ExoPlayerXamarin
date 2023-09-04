@@ -3,7 +3,7 @@
     <AssemblyName>Media3.ExoPlayer.SmoothStreaming</AssemblyName>
     <RootNamespace>Media3.ExoPlayer.SmoothStreaming</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.SmoothStreaming</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.ExoPlayer.SmoothStreaming</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

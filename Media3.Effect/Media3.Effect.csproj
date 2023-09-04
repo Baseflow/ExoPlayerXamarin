@@ -3,7 +3,7 @@
     <AssemblyName>Media3.Effect</AssemblyName>
     <RootNamespace>Media3.Effect</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Effect</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.Effect</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />

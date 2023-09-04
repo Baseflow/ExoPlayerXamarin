@@ -3,7 +3,7 @@
     <AssemblyName>Media3.ExoPlayer.Hls</AssemblyName>
     <RootNamespace>Media3.ExoPlayer.Hls</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Hls</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.ExoPlayer.Hls</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />

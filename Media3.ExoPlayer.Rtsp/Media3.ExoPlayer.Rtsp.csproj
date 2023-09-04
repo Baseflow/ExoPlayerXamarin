@@ -3,7 +3,7 @@
     <AssemblyName>Media3.ExoPlayer.Rtsp</AssemblyName>
     <RootNamespace>Media3.ExoPlayer.Rtsp</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Rtsp</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.ExoPlayer.Rtsp</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />

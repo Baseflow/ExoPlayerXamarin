@@ -3,7 +3,7 @@
     <AssemblyName>Media3.Testutils.Roboelectric</AssemblyName>
     <RootNamespace>Media3.Testutils.Roboelectric</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Testutils.Roboelectric</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.Testutils.Roboelectric</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />

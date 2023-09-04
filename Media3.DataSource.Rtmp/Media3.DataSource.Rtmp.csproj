@@ -3,7 +3,7 @@
     <AssemblyName>Media3.DataSource.Rtmp</AssemblyName>
     <RootNamespace>Media3.DataSource.Rtmp</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Rtmp</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.DataSource.Rtmp</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

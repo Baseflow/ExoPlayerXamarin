@@ -3,7 +3,7 @@
     <AssemblyName>Media3.ExoPlayer</AssemblyName>
     <RootNamespace>Media3.ExoPlayer</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Core</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.ExoPlayer</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Core" Version="1.8.0.1" />

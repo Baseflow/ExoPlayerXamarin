@@ -3,7 +3,7 @@
         <AssemblyName>Media3.Muxer</AssemblyName>
         <RootNamespace>Media3.Muxer</RootNamespace>
         <Description>Media3 Bindings for MAUI</Description>
-        <PackageId>Xam.Plugins.Android.ExoPlayer.Muxer</PackageId>
+        <PackageId>Baseflow.AndroidX.Media3.Muxer</PackageId>
     </PropertyGroup>
     <ItemGroup>
       <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />

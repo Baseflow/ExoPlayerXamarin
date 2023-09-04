@@ -3,7 +3,7 @@
     <AssemblyName>Media3.ExoPlayer.WorkManager</AssemblyName>
     <RootNamespace>Media3.ExoPlayer.WorkManager</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.WorkManager</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.ExoPlayer.WorkManager</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

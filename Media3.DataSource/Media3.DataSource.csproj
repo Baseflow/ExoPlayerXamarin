@@ -3,7 +3,7 @@
     <AssemblyName>Media3.DataSource</AssemblyName>
     <RootNamespace>Media3.DataSource</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.DataSource</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.DataSource</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />

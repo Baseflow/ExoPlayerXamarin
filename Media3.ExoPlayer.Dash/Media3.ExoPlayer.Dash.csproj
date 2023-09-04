@@ -3,7 +3,7 @@
     <AssemblyName>Media3.ExoPlayer.Dash</AssemblyName>
     <RootNamespace>Media3.ExoPlayer.Dash</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Dash</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.ExoPlayer.Dash</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />

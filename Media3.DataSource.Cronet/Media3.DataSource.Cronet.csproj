@@ -3,7 +3,7 @@
     <AssemblyName>Media3.DataSource.Cronet</AssemblyName>
     <RootNamespace>Media3.DataSource.Cronet</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Cronet</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.DataSource.Cronet</PackageId>
   </PropertyGroup>
   
   <ItemGroup>

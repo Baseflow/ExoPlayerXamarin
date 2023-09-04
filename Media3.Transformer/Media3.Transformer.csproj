@@ -3,7 +3,7 @@
     <AssemblyName>Media3.Transformer</AssemblyName>
     <RootNamespace>Media3.Transformer</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Transformer</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.Transformer</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />

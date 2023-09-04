@@ -3,7 +3,7 @@
     <AssemblyName>Media3.DataSource.OkHttp</AssemblyName>
     <RootNamespace>Media3.DataSource.OkHttp</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.OkHttp</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.DataSource.OkHttp</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

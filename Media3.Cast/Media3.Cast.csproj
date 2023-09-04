@@ -3,7 +3,7 @@
     <AssemblyName>Media3.Cast</AssemblyName>
     <RootNamespace>Media3.Cast</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Cast</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.Cast</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

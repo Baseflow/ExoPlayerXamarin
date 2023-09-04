@@ -3,7 +3,7 @@
     <AssemblyName>Media3.Extractor</AssemblyName>
     <RootNamespace>Media3.Extractor</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Extractor</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.Extractor</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />

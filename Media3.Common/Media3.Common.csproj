@@ -3,7 +3,7 @@
     <AssemblyName>Media3.Common</AssemblyName>
     <RootNamespace>Media3.Common</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Common</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.Common</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

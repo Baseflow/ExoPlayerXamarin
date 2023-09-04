@@ -3,7 +3,7 @@
     <AssemblyName>Media3.Testutils</AssemblyName>
     <RootNamespace>Media3.Testutils</RootNamespace>
     <Description>Media3 Bindings for MAUI</Description>
-    <PackageId>Xam.Plugins.Android.ExoPlayer.Testutils</PackageId>
+    <PackageId>Baseflow.AndroidX.Media3.Testutils</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Square.OkHttp3" Version="4.11.0.2" />
