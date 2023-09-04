@@ -1,0 +1,5 @@
+﻿<metadata>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.rtsp']/class[@name='RtspMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]">Androidx.Media3.Exoplayer.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.rtsp']/class[@name='RtspMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.drm.DrmSessionManagerProvider']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.rtsp']/class[@name='RtspMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+</metadata>

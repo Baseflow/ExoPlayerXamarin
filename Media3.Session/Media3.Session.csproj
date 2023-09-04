@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.Session</AssemblyName>
+    <RootNamespace>Media3.Session</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Baseflow.AndroidX.Media3.MediaSession</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.AndroidX.Media" Version="1.6.0.6" />
+    <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />
+  </ItemGroup>
+</Project>

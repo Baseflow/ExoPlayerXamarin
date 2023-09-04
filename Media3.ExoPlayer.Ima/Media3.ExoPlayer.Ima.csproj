@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.ExoPlayer.Ima</AssemblyName>
+    <RootNamespace>Media3.ExoPlayer.Ima</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Baseflow.AndroidX.Media3.ExoPlayer.Ima</PackageId>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.ExoPlayer\Media3.ExoPlayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xam.Plugins.Android.Interactivemedia.Ads" Version="3.19.2" />
+    <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />
+  </ItemGroup>
+</Project>

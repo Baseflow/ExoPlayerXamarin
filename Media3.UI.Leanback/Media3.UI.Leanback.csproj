@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.UI.Leanback</AssemblyName>
+    <RootNamespace>Media3.UI.Leanback</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Baseflow.AndroidX.Media3.UI.Leanback</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.AndroidX.Leanback" Version="1.0.0.21" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.Common\Media3.Common.csproj" />
+  </ItemGroup>
+</Project>

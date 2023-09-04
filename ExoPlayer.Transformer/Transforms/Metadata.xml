@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<metadata>
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.transformer']/interface[@name='Transformer.Listener']/method[@name='onTransformationCompleted' and count(parameter)=1 and parameter[1][@type='com.google.android.exoplayer2.MediaItem']]" />
-    <remove-node path="/api/package[@name='com.google.android.exoplayer2.transformer']/interface[@name='Transformer.Listener']/method[@name='onTransformationError' and count(parameter)=2 and parameter[1][@type='com.google.android.exoplayer2.MediaItem'] and parameter[2][@type='java.lang.Exception']]" />
-</metadata>

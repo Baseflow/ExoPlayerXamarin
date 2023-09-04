@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.ExoPlayer.Rtsp</AssemblyName>
+    <RootNamespace>Media3.ExoPlayer.Rtsp</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Baseflow.AndroidX.Media3.ExoPlayer.Rtsp</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.ExoPlayer\Media3.ExoPlayer.csproj" />
+  </ItemGroup>
+</Project>

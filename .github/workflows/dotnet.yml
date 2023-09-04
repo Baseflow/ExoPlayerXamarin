@@ -2,14 +2,14 @@ name: Dotnet build & publish
 
 on:
   push:
-    branches: [ develop, main, xamarin ]
+    branches: [ media3 ]
   pull_request:
-    branches: [ develop, xamarin ]
+    branches: [ media3 ]
 jobs:
   build:
 
     env:
-      SOLUTION: 'ExoPlayer.sln'
+      SOLUTION: 'Media3.sln'
 
     runs-on: windows-latest
 
@@ -21,10 +21,16 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
+
+    - name: Install MAUI Workloads
+      run: |
+          dotnet workload install android --ignore-failed-sources
+          dotnet workload install maui --ignore-failed-sources
+
     - name: Install dependencies
       run: dotnet restore $SOLUTION
     - name: Build
-      run: msbuild $SOLUTION -p:Configuration=Release -p:RestorePackages=false -verbosity:minimal
+      run: dotnet build --configuration Release
     - name: Publish
       if: startsWith(github.ref, 'refs/heads/main')
       run: dotnet nuget push artifacts\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.PUBLISH_TO_NUGET_ORG}} --skip-duplicate

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!-- Remove these as they cause issues with Media3.ExoPlayer-->
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='Player']/method[@name='addMediaItems' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;']]"/>
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='Player']/method[@name='addMediaItems' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;']]"/>
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='Player']/method[@name='setMediaItems' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;']]"/>
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='Player']/method[@name='setMediaItems' and count(parameter)=2 and parameter[1][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;'] and parameter[2][@type='boolean']]"/>
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='Player']/method[@name='setMediaItems' and count(parameter)=3 and parameter[1][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;'] and parameter[2][@type='int'] and parameter[3][@type='long']]"/>
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='Player']/method[@name='getCurrentCues' and count(parameter)=0]"/>
+    
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='Player.Listener']/method[@name='onPositionDiscontinuity' and count(parameter)=3 and parameter[1][@type='androidx.media3.common.Player.PositionInfo'] and parameter[2][@type='androidx.media3.common.Player.PositionInfo'] and parameter[3][@type='int']]" />
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='Player.Listener']/method[@name='onCues' and count(parameter)=1 and parameter[1][@type='java.util.List&lt;androidx.media3.common.text.Cue&gt;']]" />
+
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='Player']/method[@name='replaceMediaItems' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='java.util.List&lt;androidx.media3.common.MediaItem&gt;']]"/>
+    
+    <!-- Abstract Player.Listener so that interface members have to be implemented.-->
+    <attr path="/api/package[@name='androidx.media3.common']/interface[@name='Player.Listener']/method[@abstract='false']" name="abstract">true</attr>
+
+    <!-- Expose Cue list in Cue Group-->
+    <add-node path="/api/package[@name='androidx.media3.common.text']/class[@name='CueGroup']">
+        <method abstract="false" deprecated="not deprecated" final="true" name="cues" native="false" return="java.util.List&lt;androidx.media3.common.text.Cue&gt;" static="false" synchronized="false" visibility="public">
+        </method>
+    </add-node>
+
+    <!-- 2.18.3 remove duplicate obsoletes, this can be removed in the future as these will be removed in Media3-->
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='SimpleBasePlayer.PositionSupplier']/field[@name='ZERO']" />
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='SimpleBasePlayer.PositionSupplier']/method[@name='getConstant' and count(parameter)=1 and parameter[1][@type='long']]" />
+    <remove-node path="/api/package[@name='androidx.media3.common']/interface[@name='SimpleBasePlayer.PositionSupplier']/method[@name='getExtrapolating' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='float']]" />
+
+    <!-- Imported from former Media3.ExoPlayer-->
+    <attr name="type" path="/api/package[@name='androidx.media3.common']/class[@name='DrmInitData']/method[@name='compare']/parameter">java.lang.Object</attr>
+    <attr name="type" path="/api/package[@name='androidx.media3.common']/class[@name='StreamKey']/method[@name='compareTo']/parameter">java.lang.Object</attr>
+</metadata>

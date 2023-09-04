@@ -1,0 +1,5 @@
+﻿<metadata>
+    <attr name="return" path="/api/package[@name='androidx.media3.datasource.okhttp']/class[@name='OkHttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]">Androidx.Media3.Datasource.IHttpDataSource</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.datasource.okhttp']/class[@name='OkHttpDataSourceFactory']/method[@name='createDataSourceInternal' and count(parameter)=1 and parameter[1][@type='androidx.media3.datasource.HttpDataSource.RequestProperties']]">Androidx.Media3.Datasource.IHttpDataSource</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.datasource.okhttp']/class[@name='OkHttpDataSource.Factory']/method[@name='setDefaultRequestProperties' and count(parameter)=1 and parameter[1][@type='java.util.Map&lt;java.lang.String, java.lang.String&gt;']]">Androidx.Media3.Datasource.IHttpDataSource.IFactory</attr>
+</metadata>

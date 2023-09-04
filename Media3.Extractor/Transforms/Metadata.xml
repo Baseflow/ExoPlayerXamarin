@@ -1,0 +1,14 @@
+﻿<metadata>
+    <attr name="visibility" path="/api/package[@name='androidx.media3.extractor']/interface[@name='BinarySearchSeeker.SeekTimestampConverter']">public</attr>
+
+    <remove-node path="/api/package[@name='androidx.media3.extractor.text.cea']/class[@name='Cea608Decoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]" />
+
+    <remove-node path="/api/package[@name='androidx.media3.extractor.metadata.id3']/class[@name='TextInformationFrame']/method[@name='populateMediaMetadata' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaMetadata.Builder']]" />
+    <remove-node path="/api/package[@name='androidx.media3.extractor.metadata.id3']/class[@name='ApicFrame']/method[@name='populateMediaMetadata' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaMetadata.Builder']]" />
+
+    <!-- ArchangelWTF:
+    This one removes some real uglies that won't allow the Extractor to work with many different formats for subtitles 
+    it should definitively be looked into if these can be implemented in the future.
+    -->
+    <remove-node path="/api/package[@name='androidx.media3.extractor.text']/class[@name='SimpleSubtitleDecoder']" />
+</metadata>

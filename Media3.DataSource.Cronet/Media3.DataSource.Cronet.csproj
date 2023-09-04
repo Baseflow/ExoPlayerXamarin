@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Media3.DataSource.Cronet</AssemblyName>
+    <RootNamespace>Media3.DataSource.Cronet</RootNamespace>
+    <Description>Media3 Bindings for MAUI</Description>
+    <PackageId>Baseflow.AndroidX.Media3.DataSource.Cronet</PackageId>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Media3.DataSource\Media3.DataSource.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Xamarin.GooglePlayServices.CroNet" Version="118.0.1.5" />
+  </ItemGroup>
+</Project>

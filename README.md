@@ -1,4 +1,4 @@
-ExoPlayer Plugin for Xamarin
+Media3 Plugin for MAUI (Android)
 ================
 
 ![license](https://img.shields.io/github/license/martijn00/ExoPlayerXamarin.svg)
@@ -8,13 +8,13 @@ ExoPlayer Plugin for Xamarin
 [![GitHub tag](https://img.shields.io/github/tag/martijn00/ExoPlayerXamarin.svg)](https://github.com/martijn00/ExoPlayerXamarin/releases)
 [![MyGet](https://img.shields.io/myget/martijn00/ExoPlayerXamarin.svg)](https://www.myget.org/F/martijn00/api/v3/index.json)
 
-Xamarin bindings library for the Google ExoPlayer [library][ExoPlayer].
+MAUI bindings library for Media3 [library][Media3].
 
-ExoPlayer is an application level media player for Android. It provides an
+Media3 is an application level media player for Android. It provides an
 alternative to Android’s MediaPlayer API for playing audio and video both
-locally and over the Internet. ExoPlayer supports features not currently
+locally and over the Internet. Media3 supports features not currently
 supported by Android’s MediaPlayer API, including DASH and SmoothStreaming
-adaptive playbacks. Unlike the MediaPlayer API, ExoPlayer is easy to customize
+adaptive playbacks. Unlike the MediaPlayer API, Media3 is easy to customize
 and extend, and can be updated through Play Store application updates.
 
 # Support
@@ -24,21 +24,19 @@ and extend, and can be updated through Play Store application updates.
 * Powered by: [baseflow.com](https://baseflow.com)
 
 ## Documentation ##
-
-* The [developer guide][] provides a wealth of information.
-* The [class reference][] documents ExoPlayer classes.
+* The [migration guide][] provides information for developers migrating from ExoPlayer to Media3
+* The [class reference][] documents the classes and methods.
 * The [release notes][] document the major changes in each release.
-* Follow our [developer blog][] to keep up to date with the latest ExoPlayer
-  developments!
+* Follow our [developer blog][] to keep up to date with the latest developments!
 
-[developer guide]: https://google.github.io/ExoPlayer/guide.html
-[class reference]: https://google.github.io/ExoPlayer/doc/reference
-[release notes]: https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md
+[migration guide]: https://developer.android.com/guide/topics/media/media3/getting-started/migration-guide
+[class reference]: https://developer.android.com/reference/androidx/media3/common/package-summary
+[release notes]: https://github.com/androidx/media/blob/release/RELEASENOTES.md
 [developer blog]: https://medium.com/google-exoplayer
 
-## Using ExoPlayer ##
+## Using Media3 ##
 
-The ExoPlayer plugin is available on [Nuget][Nuget].
+The Media3 plugin is available on [Nuget][Nuget].
 
 ```c#
     var HttpDataSourceFactory = new DefaultHttpDataSource.Factory().SetAllowCrossProtocolRedirects(true);
@@ -52,9 +50,7 @@ The ExoPlayer plugin is available on [Nuget][Nuget].
     Exoplayer.PlayWhenReady = true;
 ```
 
-See the Exoplayer.Droid sample app for further details.
-
-**IMPORTANT: Exoplayer 2.9.0 and up requires Visual Studio 2019 with R8 and D8. You also need to enable AAPT2. Readmore at: https://devblogs.microsoft.com/xamarin/androids-d8-dexer-and-r8-shrinker/**
+See the Media3.Sample sample app for further details.
 
 Thanks to
 =========
@@ -70,6 +66,6 @@ License
 
 [mit]: http://opensource.org/licenses/mit-license
 [NathanBarger]: http://forums.xamarin.com/profile/NathanBarger
-[ExoPlayer]: https://github.com/google/ExoPlayer
+[Media3]: https://github.com/androidx/media
 [Nuget]: https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/
 [Developer]: http://developer.android.com/guide/topics/media/exoplayer.html

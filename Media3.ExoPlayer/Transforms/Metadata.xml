@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ClippingMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.source.MediaPeriod']]/parameter">java.lang.Object</attr>
+
+    <attr name="visibility" path="/api/package[@name='androidx.media3.exoplayer.offline']/class[@name='SegmentDownloader']/method[@name='getManifest']">public</attr>
+    <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.offline']/class[@name='SegmentDownloader']/method[@name='getSegments' and count(parameter)=3 and parameter[1][@type='androidx.media3.datasource.DataSource'] and parameter[2][@type='M'] and parameter[3][@type='boolean']]/parameter[@type='M']">Androidx.Media3.Exoplayer.Dash.Manifest.DashManifest</attr>
+
+    <attr path="/api/package[@name='androidx.media3.exoplayer.source.chunk']/class[@name='BaseMediaChunkOutput']" name="visibility">public</attr>
+    
+    <attr name="visibility" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='MediaSource.MediaPeriodId']">public</attr>
+    <attr name="visibility" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='CompositeMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
+    <attr name="visibility" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='SingleSampleMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
+    
+    <!-- remove dupes -->
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.video']/interface[@name='VideoRendererEventListener']/method[@name='onVideoInputFormatChanged' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.Format']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.audio']/interface[@name='AudioRendererEventListener']/method[@name='onAudioInputFormatChanged' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.Format']]"/>
+    
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.source.chunk']/interface[@name='ChunkSource']/method[@name='getPreferredQueueSize' and count(parameter)=2 and parameter[1][@type='long'] and parameter[2][@type='java.util.List&lt;? extends androidx.media3.exoplayer.source.chunk.MediaChunk&gt;']]" />
+
+    <!-- Remove deprecated methods in AnalyticsListener that cause Java to mess up.-->
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioDecoderInitialized' and count(parameter)=3 and parameter[1][@type='androidx.media3.exoplayer.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='long']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.analytics']/interface[@name='AnalyticsListener']/method[@name='onAudioInputFormatChanged' and count(parameter)=2 and parameter[1][@type='androidx.media3.exoplayer.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='androidx.media3.common.Format']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.analytics']/interface[@name='AnalyticsListener']/method[@name='onDrmSessionAcquired' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.analytics.AnalyticsListener.EventTime']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.analytics']/interface[@name='AnalyticsListener']/method[@name='onPositionDiscontinuity' and count(parameter)=2 and parameter[1][@type='androidx.media3.exoplayer.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='int']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.analytics']/interface[@name='AnalyticsListener']/method[@name='onVideoDecoderInitialized' and count(parameter)=3 and parameter[1][@type='androidx.media3.exoplayer.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='long']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.analytics']/interface[@name='AnalyticsListener']/method[@name='onVideoInputFormatChanged' and count(parameter)=3 and parameter[1][@type='androidx.media3.exoplayer.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='androidx.media3.common.Format'] and parameter[3][@type='androidx.media3.exoplayer.DecoderReuseEvaluation']]" />
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.analytics']/interface[@name='AnalyticsListener']/method[@name='onVideoSizeChanged' and count(parameter)=5 and parameter[1][@type='androidx.media3.exoplayer.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='float']]" />
+
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer']/interface[@name='ExoPlayer']/method[@name='getPlayerError' and count(parameter)=0]">Androidx.Media3.Common.PlaybackException</attr>
+
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.source.ads']/interface[@name='AdsLoader']/method[@name='setSupportedContentTypes' and count(parameter)=1 and parameter[1][@type='int...']]" />
+
+    <!--Make visible to c#-->
+    <attr name="visibility" path="/api/package[@name='androidx.media3.exoplayer.offline']/class[@name='DownloadService.ForegroundNotificationUpdater']">public</attr>
+
+    <!-- Mediasource related changes. -->
+    <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='CompositeMediaSource']/method[@name='onChildSourceInfoRefreshed' and count(parameter)=3 and parameter[1][@type='T'] and parameter[2][@type='androidx.media3.exoplayer.source.MediaSource'] and parameter[3][@type='androidx.media3.common.Timeline']]/parameter[1]">java.lang.Object</attr>
+
+    <add-node path="/api/package[@name='androidx.media3.exoplayer.source.ads']/class[@name='AdsMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="androidx.media3.exoplayer.source.MediaSource" />
+            <parameter name="timeline" type="androidx.media3.common.Timeline" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ConcatenatingMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="androidx.media3.exoplayer.source.MediaSource" />
+            <parameter name="timeline" type="androidx.media3.common.Timeline" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ConcatenatingMediaSource2']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="androidx.media3.exoplayer.source.MediaSource" />
+            <parameter name="timeline" type="androidx.media3.common.Timeline" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ClippingMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="androidx.media3.exoplayer.source.MediaSource" />
+            <parameter name="timeline" type="androidx.media3.common.Timeline" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='MaskingMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="androidx.media3.exoplayer.source.MediaSource" />
+            <parameter name="timeline" type="androidx.media3.common.Timeline" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='MergingMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="androidx.media3.exoplayer.source.MediaSource" />
+            <parameter name="timeline" type="androidx.media3.common.Timeline" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='LoopingMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="androidx.media3.exoplayer.source.MediaSource" />
+            <parameter name="timeline" type="androidx.media3.common.Timeline" />
+        </method>
+    </add-node>
+
+    <add-node path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='FilteringMediaSource']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="OnChildSourceInfoRefreshed" native="false" return="void" static="false" synchronized="false" visibility="protected">
+            <parameter name="mediaSourceHolder" type="Java.Lang.Object" />
+            <parameter name="mediaSource" type="androidx.media3.exoplayer.source.MediaSource" />
+            <parameter name="timeline" type="androidx.media3.common.Timeline" />
+        </method>
+    </add-node>
+    
+    <!-- Progressive Media Source-->
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='createMediaSource' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaItem']]">Androidx.Media3.Exoplayer.Source.IMediaSource</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.drm.DrmSessionManagerProvider']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='ProgressiveMediaSource.Factory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+    
+    <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.source.chunk']/interface[@name='ChunkSource']/method[@name='getNextChunk' and count(parameter)=4 and parameter[1][@type='long'] and parameter[2][@type='long'] and parameter[3][@type='java.util.List&lt;? extends androidx.media3.exoplayer.source.chunk.MediaChunk&gt;'] and parameter[4][@type='androidx.media3.exoplayer.source.chunk.ChunkHolder']]/parameter[3]" >Java.Util.IList</attr>
+
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer']/interface[@name='Renderer']/method[@name='getName' and count(parameter)=0]" />
+
+    <attr name="visibility" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='MaskingMediaSource']/method[@name='releaseSourceInternal' and count(parameter)=0]">protected</attr>
+
+    <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='MaskingMediaPeriod']/method[@name='onContinueLoadingRequested' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.source.MediaPeriod']]/parameter[@name='source']">Java.Lang.Object</attr>
+
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.source']/interface[@name='MediaSource']/method[@name='createPeriod' and count(parameter)=3 and parameter[1][@type='androidx.media3.exoplayer.source.MediaSource.MediaPeriodId'] and parameter[2][@type='androidx.media3.exoplayer.upstream.Allocator'] and parameter[3][@type='long']]" />
+
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.drm']/interface[@name='DrmSessionEventListener']/method[@name='onDrmSessionAcquired' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='androidx.media3.exoplayer.source.MediaSource.MediaPeriodId']]" />
+
+    <attr path="/api/package[@name='androidx.media3.exoplayer.drm']/class[@name='DummyExoMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
+    <attr path="/api/package[@name='androidx.media3.exoplayer.drm']/class[@name='FrameworkMediaDrm']/method[@name='getProvisionRequest' and count(parameter)=0]" name="propertyName"></attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.drm']/class[@name='FrameworkMediaDrm']/method[@name='createCryptoConfig' and count(parameter)=1 and parameter[1][@type='byte[]']]">Androidx.Media3.Decoder.ICryptoConfig</attr>
+
+    <attr path="/api/package[@name='androidx.media3.exoplayer.source']/interface[@name='MediaSource']/method[@name='getInitialTimeline' and count(parameter)=0]" name="propertyName"></attr>
+
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.source.chunk']/interface[@name='ChunkSource']/method[@name='shouldCancelLoad' and count(parameter)=3 and parameter[1][@type='long'] and parameter[2][@type='androidx.media3.exoplayer.source.chunk.Chunk'] and parameter[3][@type='java.util.List&lt;? extends androidx.media3.exoplayer.source.chunk.MediaChunk&gt;']]" />
+
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer']/class[@name='SimpleExoPlayer']/method[@name='getPlayerError' and count(parameter)=0]">Androidx.Media3.Common.PlaybackException</attr>
+
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.audio']/interface[@name='DefaultAudioSink.AudioTrackBufferSizeProvider']/field[@name='DEFAULT']" />
+
+    <remove-node path="/api/package[@name='androidx.media3.exoplayer.analytics']/interface[@name='AnalyticsListener']/method[@name='onCues' and count(parameter)=2 and parameter[1][@type='androidx.media3.exoplayer.analytics.AnalyticsListener.EventTime'] and parameter[2][@type='androidx.media3.common.text.CueGroup']]" />
+
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setLoadErrorHandlingPolicy' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.source']/class[@name='DefaultMediaSourceFactory']/method[@name='setDrmSessionManagerProvider' and count(parameter)=1 and parameter[1][@type='androidx.media3.exoplayer.drm.DrmSessionManagerProvider']]">Androidx.Media3.Exoplayer.Source.IMediaSource.IFactory</attr>
+
+    <attr name="type" path="/api/package[@name='androidx.media3.exoplayer.text']/class[@name='ExoplayerCuesDecoder']/method[@name='queueInputBuffer' and count(parameter)=1 and parameter[1][@type='androidx.media3.extractor.text.SubtitleInputBuffer']]/parameter">java.lang.Object</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.text']/class[@name='ExoplayerCuesDecoder']/method[@name='dequeueInputBuffer' and count(parameter)=0]">java.lang.Object</attr>
+    <attr name="return" path="/api/package[@name='androidx.media3.exoplayer.text']/class[@name='ExoplayerCuesDecoder']/method[@name='dequeueOutputBuffer' and count(parameter)=0]">java.lang.Object</attr>
+</metadata>
